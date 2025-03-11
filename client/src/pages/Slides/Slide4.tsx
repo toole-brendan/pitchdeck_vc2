@@ -37,7 +37,7 @@ const Slide4: React.FC = () => {
             <p className={`${modernTypography.body} mb-6`}>
               Placeholder text describing the total addressable market size and growth potential.
             </p>
-            <div className="h-24 bg-slate-50/80 rounded-sm border border-slate-100 flex items-center justify-center">
+            <div className="h-24 bg-slate-50/80  border border-slate-100 flex items-center justify-center">
               [Market Size Chart Placeholder]
             </div>
           </ModernCard>
@@ -60,7 +60,7 @@ const Slide4: React.FC = () => {
               <li>• Audience Segment 3</li>
             </ul>
             <ModernDivider className="my-5" />
-            <div className="h-28 bg-slate-50/80 rounded-sm border border-slate-100 flex items-center justify-center">
+            <div className="h-28 bg-slate-50/80  border border-slate-100 flex items-center justify-center">
               [Demographics Chart Placeholder]
             </div>
           </ModernCard>
@@ -80,7 +80,7 @@ const Slide4: React.FC = () => {
             <p className={`${modernTypography.body} mb-6`}>
               Placeholder text for market growth projections and opportunity timeline.
             </p>
-            <div className="h-28 bg-slate-50/80 rounded-sm border border-slate-100 flex items-center justify-center">
+            <div className="h-28 bg-slate-50/80  border border-slate-100 flex items-center justify-center">
               [Growth Chart Placeholder]
             </div>
           </ModernCard>

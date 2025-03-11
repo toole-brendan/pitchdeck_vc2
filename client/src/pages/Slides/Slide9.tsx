@@ -36,20 +36,20 @@ const Slide9: React.FC = () => {
             <p className={`${modernTypography.body} mb-6`}>
               Placeholder text describing our key performance indicators and growth metrics.
             </p>
-            <div className="h-44 bg-slate-50/80 rounded-sm border border-slate-100 flex items-center justify-center mb-8 backdrop-blur-sm">
+            <div className="h-44 bg-slate-50/80  border border-slate-100 flex items-center justify-center mb-8 backdrop-blur-sm">
               [Growth Chart Placeholder]
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-slate-50/80 backdrop-blur-sm p-5 rounded-sm border border-slate-100 text-center">
+              <div className="bg-slate-50/80 backdrop-blur-sm p-5  border border-slate-100 text-center">
                 <p className={`${modernTypography.stats} text-accent mb-1`}>XX%</p>
                 <p className={modernTypography.small}>Monthly Growth</p>
               </div>
-              <div className="bg-slate-50/80 backdrop-blur-sm p-5 rounded-sm border border-slate-100 text-center">
+              <div className="bg-slate-50/80 backdrop-blur-sm p-5  border border-slate-100 text-center">
                 <p className={`${modernTypography.stats} text-accent mb-1`}>XXXX</p>
                 <p className={modernTypography.small}>Active Users</p>
               </div>
-              <div className="bg-slate-50/80 backdrop-blur-sm p-5 rounded-sm border border-slate-100 text-center">
+              <div className="bg-slate-50/80 backdrop-blur-sm p-5  border border-slate-100 text-center">
                 <p className={`${modernTypography.stats} text-accent mb-1`}>$XXK</p>
                 <p className={modernTypography.small}>Monthly Revenue</p>
               </div>
@@ -68,7 +68,7 @@ const Slide9: React.FC = () => {
                 User Engagement
               </h3>
             </div>
-            <div className="h-36 bg-slate-50/80 rounded-sm border border-slate-100 flex items-center justify-center mb-6 backdrop-blur-sm">
+            <div className="h-36 bg-slate-50/80  border border-slate-100 flex items-center justify-center mb-6 backdrop-blur-sm">
               [User Engagement Chart Placeholder]
             </div>
             <ul className={`space-y-3 ${modernTypography.list}`}>
@@ -97,7 +97,7 @@ const Slide9: React.FC = () => {
               {Array.from({ length: 6 }).map((_, index) => (
                 <div 
                   key={index} 
-                  className="h-14 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 flex items-center justify-center"
+                  className="h-14 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center"
                 >
                   [Logo]
                 </div>

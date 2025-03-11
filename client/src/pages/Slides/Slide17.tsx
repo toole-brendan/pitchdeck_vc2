@@ -48,27 +48,27 @@ const Slide17: React.FC = () => {
               </div>
               
               <div className="space-y-5">
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.label}>Round Type</span>
                   <span className={`${modernTypography.subheading} text-accent`}>Series A</span>
                 </div>
                 
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.label}>Raising</span>
                   <span className={`${modernTypography.subheading} text-accent`}>$X Million</span>
                 </div>
                 
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.label}>Pre-money Valuation</span>
                   <span className={`${modernTypography.subheading} text-accent`}>$X Million</span>
                 </div>
                 
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.label}>Equity Offered</span>
                   <span className={`${modernTypography.subheading} text-accent`}>XX%</span>
                 </div>
                 
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.label}>Minimum Investment</span>
                   <span className={`${modernTypography.subheading} text-accent`}>$XXX,XXX</span>
                 </div>
@@ -88,7 +88,7 @@ const Slide17: React.FC = () => {
                 </h3>
               </div>
               
-              <div className="h-48 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 flex items-center justify-center mb-8">
+              <div className="h-48 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center mb-8">
                 <span className={modernTypography.label}>
                   [Allocation Chart Placeholder]
                 </span>
@@ -153,7 +153,7 @@ const Slide17: React.FC = () => {
               
               <div>
                 <h4 className={`${modernTypography.subheading} mb-4`}>Projected Returns</h4>
-                <div className="h-40 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 flex items-center justify-center mb-4">
+                <div className="h-40 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center mb-4">
                   <span className={modernTypography.label}>
                     [ROI Projection Chart Placeholder]
                   </span>

@@ -62,7 +62,7 @@ export const ModernBadge: React.FC<{
   color?: string;
 }> = ({ children, color = modernColors.accent }) => (
   <span 
-    className={`${modernTypography.badge} text-white rounded-full backdrop-blur-sm`}
+    className={`${modernTypography.badge} text-white backdrop-blur-sm`}
     style={{ backgroundColor: color }}
   >
     {children}
@@ -73,7 +73,7 @@ export const ModernCard: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className = '' }) => (
-  <div className={`bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 p-6 rounded-sm ${className}`}>
+  <div className={`bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 p-6 ${className}`}>
     {children}
   </div>
 );
@@ -156,10 +156,10 @@ export const ModernSectionHeader: React.FC<{
   className?: string;
 }> = ({ children, dark = false, className = '' }) => {
   // Light style (preferred for most sections) - more minimalist
-  const lightStyle = "bg-slate-50/70 backdrop-blur-sm text-slate-500 text-xs tracking-[0.25em] uppercase py-1.5 px-3 rounded-sm";
+  const lightStyle = "bg-slate-50/70 backdrop-blur-sm text-slate-500 text-xs tracking-[0.25em] uppercase py-1.5 px-3";
   
   // Dark style (for sections that need more emphasis) - more sleek
-  const darkStyle = "bg-slate-900/90 backdrop-blur-sm text-white text-xs tracking-[0.25em] uppercase py-1.5 px-3 rounded-sm shadow-sm";
+  const darkStyle = "bg-slate-900/90 backdrop-blur-sm text-white text-xs tracking-[0.25em] uppercase py-1.5 px-3 shadow-sm";
   
   return (
     <div className={`${dark ? darkStyle : lightStyle} ${className} transition-all duration-300 hover:shadow-sm`}>

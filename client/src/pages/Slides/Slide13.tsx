@@ -74,7 +74,7 @@ const Slide13: React.FC = () => {
             </div>
             
             <div className="md:w-1/2 flex items-center justify-center">
-              <div className="aspect-video w-full max-w-md bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 flex items-center justify-center">
+              <div className="aspect-video w-full max-w-md bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center">
                 [Product Screenshot/Demo Video Placeholder]
               </div>
             </div>
@@ -93,7 +93,7 @@ const Slide13: React.FC = () => {
                   Web Platform
                 </h3>
               </div>
-              <div className="h-52 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 flex items-center justify-center mb-5">
+              <div className="h-52 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center mb-5">
                 [Web Platform Screenshot Placeholder]
               </div>
               <p className={modernTypography.body}>
@@ -113,7 +113,7 @@ const Slide13: React.FC = () => {
                   Mobile App
                 </h3>
               </div>
-              <div className="h-52 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 flex items-center justify-center mb-5">
+              <div className="h-52 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center mb-5">
                 [Mobile App Screenshot Placeholder]
               </div>
               <p className={modernTypography.body}>

@@ -85,7 +85,7 @@ const Slide18: React.FC = () => {
                 
                 <button 
                   onClick={() => navigate('/')}
-                  className="px-6 py-3 bg-accent/90 backdrop-blur-sm text-white rounded-sm flex items-center gap-3 hover:bg-accent transition-colors shadow-sm"
+                  className="px-6 py-3 bg-accent/90 backdrop-blur-sm text-white  flex items-center gap-3 hover:bg-accent transition-colors shadow-sm"
                 >
                   <span className={modernTypography.label}>Return to Home</span> <ArrowRight className="h-5 w-5" />
                 </button>
@@ -97,7 +97,7 @@ const Slide18: React.FC = () => {
                 </h3>
                 
                 <div className="space-y-5">
-                  <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                  <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                     <div className="w-12 h-12 rounded-full bg-accent/10 backdrop-blur-sm flex items-center justify-center shadow-sm">
                       <Mail className="h-6 w-6 text-accent" />
                     </div>
@@ -107,7 +107,7 @@ const Slide18: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                  <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                     <div className="w-12 h-12 rounded-full bg-accent/10 backdrop-blur-sm flex items-center justify-center shadow-sm">
                       <Phone className="h-6 w-6 text-accent" />
                     </div>
@@ -117,7 +117,7 @@ const Slide18: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                  <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                     <div className="w-12 h-12 rounded-full bg-accent/10 backdrop-blur-sm flex items-center justify-center shadow-sm">
                       <Globe className="h-6 w-6 text-accent" />
                     </div>

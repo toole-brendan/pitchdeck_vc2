@@ -72,7 +72,7 @@ const Slide6: React.FC = () => {
             <p className={`${modernTypography.body} mb-6`}>
               Placeholder text for sales growth, customer acquisition costs, and revenue projections.
             </p>
-            <div className="h-28 bg-slate-50/80 rounded-sm border border-slate-100 flex items-center justify-center">
+            <div className="h-28 bg-slate-50/80  border border-slate-100 flex items-center justify-center">
               [Financial Chart Placeholder]
             </div>
           </ModernCard>

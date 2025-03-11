@@ -52,7 +52,7 @@ const Slide16: React.FC = () => {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
                 {['React', 'TypeScript', 'Tailwind CSS', 'GraphQL', 'Redux', 'Jest'].map((tech, i) => (
-                  <div key={i} className="bg-slate-50/80 backdrop-blur-sm p-2 rounded-sm text-xs tracking-wide font-light text-slate-600 border border-slate-100">
+                  <div key={i} className="bg-slate-50/80 backdrop-blur-sm p-2  text-xs tracking-wide font-light text-slate-600 border border-slate-100">
                     {tech}
                   </div>
                 ))}
@@ -76,7 +76,7 @@ const Slide16: React.FC = () => {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
                 {['Node.js', 'Express', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes'].map((tech, i) => (
-                  <div key={i} className="bg-slate-50/80 backdrop-blur-sm p-2 rounded-sm text-xs tracking-wide font-light text-slate-600 border border-slate-100">
+                  <div key={i} className="bg-slate-50/80 backdrop-blur-sm p-2  text-xs tracking-wide font-light text-slate-600 border border-slate-100">
                     {tech}
                   </div>
                 ))}
@@ -100,7 +100,7 @@ const Slide16: React.FC = () => {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
                 {['AWS', 'CI/CD', 'Terraform', 'Monitoring', 'Security', 'Backup'].map((tech, i) => (
-                  <div key={i} className="bg-slate-50/80 backdrop-blur-sm p-2 rounded-sm text-xs tracking-wide font-light text-slate-600 border border-slate-100">
+                  <div key={i} className="bg-slate-50/80 backdrop-blur-sm p-2  text-xs tracking-wide font-light text-slate-600 border border-slate-100">
                     {tech}
                   </div>
                 ))}

@@ -122,7 +122,7 @@ const Slide14: React.FC = () => {
               </div>
               
               <div className="flex flex-col justify-center">
-                <div className="bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 h-52 flex items-center justify-center mb-5">
+                <div className="bg-slate-50/80 backdrop-blur-sm  border border-slate-100 h-52 flex items-center justify-center mb-5">
                   [Case Study Visual Placeholder]
                 </div>
                 <p className={`text-center italic ${modernTypography.small}`}>

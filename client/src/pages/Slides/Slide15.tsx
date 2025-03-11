@@ -48,16 +48,16 @@ const Slide15: React.FC = () => {
               </div>
               
               <div className="space-y-6">
-                <div className="border border-slate-100 rounded-sm p-5 bg-white/80 backdrop-blur-sm">
+                <div className="border border-slate-100  p-5 bg-white/80 backdrop-blur-sm">
                   <h4 className={`${modernTypography.subheading} mb-3`}>Competition</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="bg-red-50/80 backdrop-blur-sm p-4 rounded-sm border border-red-100">
+                    <div className="bg-red-50/80 backdrop-blur-sm p-4  border border-red-100">
                       <p className={`text-red-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Risk</p>
                       <p className={modernTypography.body}>
                         New competitors entering the market with similar solutions.
                       </p>
                     </div>
-                    <div className="bg-green-50/80 backdrop-blur-sm p-4 rounded-sm border border-green-100">
+                    <div className="bg-green-50/80 backdrop-blur-sm p-4  border border-green-100">
                       <p className={`text-green-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Mitigation</p>
                       <p className={modernTypography.body}>
                         Continuous innovation and building strong brand loyalty.
@@ -66,16 +66,16 @@ const Slide15: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="border border-slate-100 rounded-sm p-5 bg-white/80 backdrop-blur-sm">
+                <div className="border border-slate-100  p-5 bg-white/80 backdrop-blur-sm">
                   <h4 className={`${modernTypography.subheading} mb-3`}>Market Adoption</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="bg-red-50/80 backdrop-blur-sm p-4 rounded-sm border border-red-100">
+                    <div className="bg-red-50/80 backdrop-blur-sm p-4  border border-red-100">
                       <p className={`text-red-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Risk</p>
                       <p className={modernTypography.body}>
                         Slower than anticipated market adoption.
                       </p>
                     </div>
-                    <div className="bg-green-50/80 backdrop-blur-sm p-4 rounded-sm border border-green-100">
+                    <div className="bg-green-50/80 backdrop-blur-sm p-4  border border-green-100">
                       <p className={`text-green-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Mitigation</p>
                       <p className={modernTypography.body}>
                         Targeted marketing and flexible pricing strategies.
@@ -100,16 +100,16 @@ const Slide15: React.FC = () => {
               </div>
               
               <div className="space-y-6">
-                <div className="border border-slate-100 rounded-sm p-5 bg-white/80 backdrop-blur-sm">
+                <div className="border border-slate-100  p-5 bg-white/80 backdrop-blur-sm">
                   <h4 className={`${modernTypography.subheading} mb-3`}>Scalability</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="bg-red-50/80 backdrop-blur-sm p-4 rounded-sm border border-red-100">
+                    <div className="bg-red-50/80 backdrop-blur-sm p-4  border border-red-100">
                       <p className={`text-red-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Risk</p>
                       <p className={modernTypography.body}>
                         Platform performance issues with rapid user growth.
                       </p>
                     </div>
-                    <div className="bg-green-50/80 backdrop-blur-sm p-4 rounded-sm border border-green-100">
+                    <div className="bg-green-50/80 backdrop-blur-sm p-4  border border-green-100">
                       <p className={`text-green-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Mitigation</p>
                       <p className={modernTypography.body}>
                         Cloud-native architecture designed for horizontal scaling.
@@ -118,16 +118,16 @@ const Slide15: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="border border-slate-100 rounded-sm p-5 bg-white/80 backdrop-blur-sm">
+                <div className="border border-slate-100  p-5 bg-white/80 backdrop-blur-sm">
                   <h4 className={`${modernTypography.subheading} mb-3`}>Security</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="bg-red-50/80 backdrop-blur-sm p-4 rounded-sm border border-red-100">
+                    <div className="bg-red-50/80 backdrop-blur-sm p-4  border border-red-100">
                       <p className={`text-red-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Risk</p>
                       <p className={modernTypography.body}>
                         Data breaches or security vulnerabilities.
                       </p>
                     </div>
-                    <div className="bg-green-50/80 backdrop-blur-sm p-4 rounded-sm border border-green-100">
+                    <div className="bg-green-50/80 backdrop-blur-sm p-4  border border-green-100">
                       <p className={`text-green-700 ${modernTypography.small} uppercase tracking-wide mb-2`}>Mitigation</p>
                       <p className={modernTypography.body}>
                         Regular security audits and compliance with industry standards.

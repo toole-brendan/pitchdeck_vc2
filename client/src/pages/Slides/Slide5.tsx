@@ -48,7 +48,7 @@ const Slide5: React.FC = () => {
               <motion.div 
                 variants={itemFadeInUpVariant}
                 custom={0}
-                className="p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 shadow-sm"
+                className="p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 shadow-sm"
               >
                 <p className={modernTypography.body}>Email: contact@example.com</p>
               </motion.div>
@@ -56,7 +56,7 @@ const Slide5: React.FC = () => {
               <motion.div 
                 variants={itemFadeInUpVariant}
                 custom={1}
-                className="p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 shadow-sm"
+                className="p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 shadow-sm"
               >
                 <p className={modernTypography.body}>Phone: (123) 456-7890</p>
               </motion.div>
@@ -64,7 +64,7 @@ const Slide5: React.FC = () => {
               <motion.div 
                 variants={itemFadeInUpVariant}
                 custom={2}
-                className="p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 shadow-sm"
+                className="p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 shadow-sm"
               >
                 <p className={modernTypography.body}>Website: www.example.com</p>
               </motion.div>
@@ -74,7 +74,7 @@ const Slide5: React.FC = () => {
               variants={itemFadeInUpVariant}
               custom={3}
               onClick={() => navigate('/')}
-              className="px-7 py-4 bg-accent text-white rounded-sm flex items-center gap-3 mx-auto hover:bg-accent/90 transition-colors tracking-wide"
+              className="px-7 py-4 bg-accent text-white  flex items-center gap-3 mx-auto hover:bg-accent/90 transition-colors tracking-wide"
             >
               Return to Home <ArrowRight className="h-5 w-5" />
             </motion.button>

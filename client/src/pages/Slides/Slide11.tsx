@@ -47,7 +47,7 @@ const Slide11: React.FC = () => {
               </h3>
             </div>
             
-            <div className="h-64 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-sm flex items-center justify-center mb-8">
+            <div className="h-64 bg-slate-50/80 backdrop-blur-sm border border-slate-100  flex items-center justify-center mb-8">
               [Revenue Projections Chart Placeholder]
             </div>
             
@@ -58,7 +58,7 @@ const Slide11: React.FC = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.08 * index, duration: 0.4 }}
-                  className="bg-slate-50/80 backdrop-blur-sm p-4 rounded-sm border border-slate-100"
+                  className="bg-slate-50/80 backdrop-blur-sm p-4  border border-slate-100"
                 >
                   <p className={modernTypography.label}>{year}</p>
                   <p className={`${modernTypography.stats} text-accent`}>$XXXK</p>
@@ -80,7 +80,7 @@ const Slide11: React.FC = () => {
                   Cost Structure
                 </h3>
               </div>
-              <div className="h-44 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-sm flex items-center justify-center mb-6">
+              <div className="h-44 bg-slate-50/80 backdrop-blur-sm border border-slate-100  flex items-center justify-center mb-6">
                 [Cost Breakdown Chart Placeholder]
               </div>
               <ul className={`space-y-3 ${modernTypography.list}`}>
@@ -107,15 +107,15 @@ const Slide11: React.FC = () => {
                 Placeholder text for funding needs, use of funds, and investor returns.
               </p>
               <div className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.subheading}>Seed Round</span>
                   <span className={`${modernTypography.stats} text-accent`}>$X Million</span>
                 </div>
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.subheading}>Series A</span>
                   <span className={`${modernTypography.stats} text-accent`}>$X Million</span>
                 </div>
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100">
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
                   <span className={modernTypography.subheading}>Break-even Point</span>
                   <span className={`${modernTypography.stats} text-accent`}>Q4 20XX</span>
                 </div>

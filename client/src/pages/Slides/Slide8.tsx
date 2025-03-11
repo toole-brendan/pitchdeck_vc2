@@ -46,7 +46,7 @@ const Slide8: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.08 * index, duration: 0.4 }}
-                className={`flex items-center p-4 rounded-sm border backdrop-blur-sm ${
+                className={`flex items-center p-4  border backdrop-blur-sm ${
                   milestone.status === 'completed' 
                     ? 'border-green-100 bg-green-50/80' 
                     : milestone.status === 'in-progress'

@@ -50,7 +50,7 @@ const Slide2: React.FC = () => {
           custom={2}
           className="md:col-span-2"
         >
-          <div className="bg-slate-50/80 backdrop-blur-sm p-8 rounded-sm border border-slate-100 shadow-sm">
+          <div className="bg-slate-50/80 backdrop-blur-sm p-8  border border-slate-100 shadow-sm">
             <h3 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.text }}>
               Market Impact
             </h3>
