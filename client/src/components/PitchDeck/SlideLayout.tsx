@@ -73,18 +73,18 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         onNavigate={goToSlide}
       >
         <div className="slide-wrapper w-full h-full flex items-center justify-center bg-white">
-          <div className="slide-aspect-container w-full max-w-6xl mx-auto" style={{ aspectRatio: '16/9' }}>
-            <div className="slide-content h-full w-full flex flex-col items-center justify-center p-8">
+          <div className="slide-aspect-container w-full max-w-[90%] mx-auto p-8 rounded-lg">
+            <div className="slide-content w-full flex flex-col justify-center overflow-visible">
               <motion.div 
-                className="w-full max-w-5xl mx-auto"
+                className="w-full mx-auto"
                 variants={scaleUpVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
+                <h2 className={`${modernTypography.slideTitle} mb-4`} style={{ color: modernColors.text }}>
                   {title}
                 </h2>
-                <div className="mt-8">
+                <div className="slide-body-content">
                   {children}
                 </div>
               </motion.div>

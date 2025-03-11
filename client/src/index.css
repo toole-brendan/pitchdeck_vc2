@@ -21,9 +21,19 @@
     box-shadow: 0 1px 25px rgba(0, 0, 0, 0.15);
     background-color: white;
     border-radius: 4px;
-    overflow: hidden;
+    overflow: auto;
     transform-origin: center;
     transition: transform 0.3s ease-in-out;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Make sure slide content is properly scaled */
+  .slide-body-content {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   /* Slide transition effects */

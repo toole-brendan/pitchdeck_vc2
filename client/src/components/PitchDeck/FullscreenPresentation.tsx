@@ -128,6 +128,10 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
       className={`presentation-container relative w-full ${
         isFullscreen ? 'fullscreen-mode' : ''
       }`}
+      style={{
+        backgroundColor: isFullscreen ? 'black' : 'white',
+        minHeight: isFullscreen ? '100vh' : 'auto'
+      }}
     >
       {/* Fullscreen Background */}
       {isFullscreen && (
@@ -207,7 +211,7 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
       {/* Slide Content */}
       <div 
         className={`slide-content-wrapper ${
-          isFullscreen ? 'h-screen overflow-hidden' : 'min-h-screen'
+          isFullscreen ? 'h-screen' : 'min-h-screen'
         }`}
       >
         <AnimatePresence mode="wait">
@@ -217,7 +221,11 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="w-full h-full"
+            className="w-full h-full flex items-center justify-center"
+            style={{ 
+              minHeight: isFullscreen ? '100vh' : 'auto',
+              padding: '20px'
+            }}
           >
             {children}
           </motion.div>
