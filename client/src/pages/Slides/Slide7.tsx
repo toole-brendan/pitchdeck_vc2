@@ -24,7 +24,7 @@ const Slide7: React.FC = () => {
         animate="visible"
         className="mb-10 text-center max-w-3xl mx-auto"
       >
-        <h2 className={`${modernTypography.heading} mb-5`} style={{ color: modernColors.text }}>
+        <h2 className={`${modernTypography.heading} mb-5`}>
           <span style={{ color: modernColors.military }}>Military</span> and <span style={{ color: modernColors.commercial }}>Commercial</span> Market Analysis
         </h2>
         <p className={`${modernTypography.body} text-center max-w-2xl mx-auto`}>
@@ -50,7 +50,7 @@ const Slide7: React.FC = () => {
           }}>
             <div className="flex items-center gap-4 mb-4">
               <PieChart className="h-7 w-7" style={{ color: modernColors.accent }} />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <h3 className={modernTypography.heading}>
                 Market Size Analysis
               </h3>
             </div>
@@ -218,7 +218,7 @@ const Slide7: React.FC = () => {
         }}>
           <div className="flex items-center gap-4 mb-4">
             <Workflow className="h-7 w-7" style={{ color: modernColors.crypto }} />
-            <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+            <h3 className={modernTypography.heading}>
               Market Entry Strategy
             </h3>
           </div>

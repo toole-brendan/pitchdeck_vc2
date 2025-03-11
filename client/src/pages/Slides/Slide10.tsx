@@ -64,7 +64,7 @@ const Slide10: React.FC = () => {
           custom={0}
           className="mb-2 text-center max-w-2xl mx-auto"
         >
-          <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
+          <h2 className={modernTypography.pageTitle}>
             Intuitive interfaces for defense and commercial applications
           </h2>
         </motion.div>
@@ -76,8 +76,8 @@ const Slide10: React.FC = () => {
         >
           <ModernCard className="p-8 md:col-span-2">
             <div className="flex items-center gap-4 mb-6">
-              <FileCheck className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <FileCheck className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
                 User Workflow
               </h3>
             </div>
@@ -88,8 +88,8 @@ const Slide10: React.FC = () => {
                   <div className="bg-slate-50/80 backdrop-blur-sm p-5 border border-slate-100 h-full">
                     <div className="flex flex-col h-full">
                       <div className="flex justify-between items-center mb-3">
-                        <span className={`${modernTypography.label} text-accent`}>{step.title}</span>
-                        <span className="bg-accent/10 text-accent w-6 h-6 flex items-center justify-center rounded-full text-sm">
+                        <span className={`${modernTypography.label} text-black`}>{step.title}</span>
+                        <span className="bg-blue-500/10 text-blue-500 w-6 h-6 flex items-center justify-center rounded-full text-sm">
                           {step.number}
                         </span>
                       </div>
@@ -108,8 +108,8 @@ const Slide10: React.FC = () => {
 
           <ModernCard className="p-8 flex flex-col">
             <div className="flex items-center gap-4 mb-5">
-              <Smartphone className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <Smartphone className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
                 Interface Design
               </h3>
             </div>
@@ -119,15 +119,15 @@ const Slide10: React.FC = () => {
                   HandReceipt DEFENSE
                 </div>
                 <div className="p-4">
-                  <p className={`${modernTypography.sectionTitle} mb-3`}>Inventory items:</p>
+                  <p className={`${modernTypography.sectionTitle} mb-3 text-black`}>Inventory items:</p>
                   <ul className="space-y-3 text-sm">
                     <li className="flex justify-between items-center p-2 bg-slate-50 rounded">
-                      <span>M4 Carbine</span>
-                      <span className="text-xs text-slate-500">SN: 935827</span>
+                      <span className="text-black">M4 Carbine</span>
+                      <span className="text-xs text-black">SN: 935827</span>
                     </li>
                     <li className="flex justify-between items-center p-2 bg-slate-50 rounded">
-                      <span>NVG-7</span>
-                      <span className="text-xs text-slate-500">SN: 5371938</span>
+                      <span className="text-black">NVG-7</span>
+                      <span className="text-xs text-black">SN: 5371938</span>
                     </li>
                   </ul>
                   <button className="w-full mt-4 bg-military text-white py-2 rounded text-sm">

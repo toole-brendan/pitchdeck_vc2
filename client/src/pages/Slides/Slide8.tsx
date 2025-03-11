@@ -131,7 +131,7 @@ const Slide8: React.FC = () => {
         <ModernCard className="p-6">
           <div className="flex items-center gap-4 mb-5">
             <BarChart3 className="h-7 w-7" style={{ color: modernColors.accent }} />
-            <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+            <h3 className={modernTypography.heading}>
               Market Positioning
             </h3>
           </div>
@@ -139,16 +139,16 @@ const Slide8: React.FC = () => {
           {/* Competitor Positioning Chart */}
           <div className="relative w-full h-80 border border-slate-200 bg-white/80 mb-4">
             {/* Quadrant Labels */}
-            <div className="absolute top-2 left-2 text-xs text-slate-500">Traditional ERP Systems</div>
-            <div className="absolute top-2 right-2 text-xs text-slate-500">Blockchain Platforms</div>
-            <div className="absolute bottom-2 left-2 text-xs text-slate-500">Defense Solutions</div>
-            <div className="absolute bottom-2 right-2 text-xs text-slate-500">Integrated Solutions</div>
+            <div className="absolute top-2 left-2 text-xs text-black">Traditional ERP Systems</div>
+            <div className="absolute top-2 right-2 text-xs text-black">Blockchain Platforms</div>
+            <div className="absolute bottom-2 left-2 text-xs text-black">Defense Solutions</div>
+            <div className="absolute bottom-2 right-2 text-xs text-black">Integrated Solutions</div>
             
             {/* Axis Labels */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-sm font-medium">
+            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-sm font-medium text-black">
               Blockchain Capability →
             </div>
-            <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 -rotate-90 text-sm font-medium">
+            <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 -rotate-90 text-sm font-medium text-black">
               Defense Compliance →
             </div>
             
@@ -178,10 +178,9 @@ const Slide8: React.FC = () => {
                   {/* Competitor Dot */}
                   <div 
                     className={`w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-medium
-                               shadow-md ${competitor.name === 'HandReceipt' ? 'ring-2 ring-offset-2' : ''}`}
+                               shadow-md ${competitor.name === 'HandReceipt' ? 'ring-2 ring-offset-2 ring-blue-500' : ''}`}
                     style={{ 
-                      backgroundColor: competitor.color,
-                      ringColor: modernColors.accent
+                      backgroundColor: competitor.color
                     }}
                   >
                     {competitor.name.slice(0, 2)}
@@ -192,7 +191,7 @@ const Slide8: React.FC = () => {
                     className="mt-1 text-[10px] font-medium px-1 py-0.5 rounded whitespace-nowrap"
                     style={{
                       backgroundColor: competitor.name === 'HandReceipt' ? `${modernColors.accent}30` : 'transparent',
-                      color: competitor.name === 'HandReceipt' ? modernColors.accent : '#666'
+                      color: competitor.name === 'HandReceipt' ? modernColors.accent : '#000000'
                     }}
                   >
                     {competitor.name}
@@ -253,10 +252,10 @@ const Slide8: React.FC = () => {
           animate="visible"
         >
           <ModernCard className="h-full p-6" style={{
-            borderTop: `2px solid ${modernColors.text}`,
+            borderTop: `2px solid ${modernColors.military}`,
             background: 'linear-gradient(135deg, rgba(240, 240, 240, 0.2), rgba(250, 250, 250, 0.1))'
           }}>
-            <ModernBadge color={modernColors.text} className="mb-4">
+            <ModernBadge color={modernColors.military} className="mb-4">
               COMPETITOR LIMITATIONS
             </ModernBadge>
             

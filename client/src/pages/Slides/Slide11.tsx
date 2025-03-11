@@ -29,13 +29,13 @@ const Slide11: React.FC = () => {
       letter: 'S', 
       title: 'Subscription Licenses', 
       icon: CreditCard,
-      color: modernColors.accent
+      color: modernColors.military
     },
     { 
       letter: 'T', 
       title: 'Transaction Fees (0.1-0.5% vs traditional 2.5-3.5%)', 
       icon: Repeat,
-      color: modernColors.success
+      color: modernColors.commercial
     },
     { 
       letter: 'D', 
@@ -71,7 +71,7 @@ const Slide11: React.FC = () => {
           custom={0}
           className="text-center max-w-2xl mx-auto mb-2"
         >
-          <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
+          <h2 className={modernTypography.pageTitle}>
             Multi-stream monetization with market-specific value propositions
           </h2>
         </motion.div>
@@ -83,8 +83,8 @@ const Slide11: React.FC = () => {
         >
           <ModernCard className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <DollarSign className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
                 Revenue Streams
               </h3>
             </div>
@@ -121,8 +121,8 @@ const Slide11: React.FC = () => {
           >
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-5">
-                <TrendingUp className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <TrendingUp className="h-7 w-7" style={{ color: modernColors.military }} />
+                <h3 className={modernTypography.heading}>
                   Market-Specific ROI
                 </h3>
               </div>
@@ -135,7 +135,7 @@ const Slide11: React.FC = () => {
                         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
                         <span className={modernTypography.label}>{item.market}</span>
                       </div>
-                      <span className={`${modernTypography.stats} text-accent`}>{item.roi}</span>
+                      <span className={`${modernTypography.stats}`} style={{ color: item.color }}>{item.roi}</span>
                     </div>
                     <div className="w-full h-2 bg-slate-200 mt-2 rounded-full overflow-hidden">
                       <div 
@@ -159,8 +159,8 @@ const Slide11: React.FC = () => {
           >
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-5">
-                <BarChart className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <BarChart className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <h3 className={modernTypography.heading}>
                   Unit Economics
                 </h3>
               </div>
@@ -185,24 +185,24 @@ const Slide11: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
                       <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4 text-accent" />
+                        <Star className="h-4 w-4" style={{ color: modernColors.military }} />
                         <span className={modernTypography.label}>LTV:CAC Ratio</span>
                       </div>
-                      <span className={`${modernTypography.heading} text-accent`}>10:1</span>
+                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>10:1</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
                       <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4 text-accent" />
+                        <Star className="h-4 w-4" style={{ color: modernColors.military }} />
                         <span className={modernTypography.label}>Gross Margin</span>
                       </div>
-                      <span className={`${modernTypography.heading} text-accent`}>80-85%</span>
+                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>80-85%</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
                       <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4 text-accent" />
+                        <Star className="h-4 w-4" style={{ color: modernColors.commercial }} />
                         <span className={modernTypography.label}>Net Retention</span>
                       </div>
-                      <span className={`${modernTypography.heading} text-accent`}>120%</span>
+                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.commercial }}>120%</span>
                     </div>
                   </div>
                 </div>
