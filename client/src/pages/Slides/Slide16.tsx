@@ -34,7 +34,7 @@ const Slide16: React.FC = () => {
     { text: 'Princeton Economics', color: 'bg-blue-100 text-blue-700' },
     { text: 'Point72 Analyst', color: 'bg-indigo-100 text-indigo-700' },
     { text: 'Military Officer', color: 'bg-militaryLight text-military' },
-    { text: 'Full-Stack Developer', color: 'bg-accent/10 text-accent' }
+    { text: 'Full-Stack Developer', color: 'bg-slate-100 text-black' }
   ];
 
   // Post-seed hiring plan
@@ -42,17 +42,20 @@ const Slide16: React.FC = () => {
     {
       position: 'Senior Blockchain Developer',
       focus: 'Smart contract development & infrastructure',
-      icon: Code
+      icon: Code,
+      color: modernColors.commercial
     },
     {
       position: 'UX/UI Designer',
       focus: 'Mobile & web interface optimization',
-      icon: Layout
+      icon: Layout,
+      color: modernColors.commercial
     },
     {
       position: 'Defense Industry Advisor',
       focus: 'Military procurement & relationship management',
-      icon: ShieldCheck
+      icon: ShieldCheck,
+      color: modernColors.military
     }
   ];
 
@@ -69,7 +72,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Upcoming',
       icon: Server,
-      statusColor: 'bg-blue-100 text-blue-700'
+      color: modernColors.military,
+      statusColor: 'bg-militaryLight text-military'
     },
     {
       quarter: 'Q3 2024',
@@ -82,7 +86,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Planned',
       icon: Smartphone,
-      statusColor: 'bg-slate-100 text-slate-700'
+      color: modernColors.military,
+      statusColor: 'bg-slate-100 text-black'
     },
     {
       quarter: 'Q1 2025',
@@ -95,7 +100,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Planned',
       icon: GitMerge,
-      statusColor: 'bg-slate-100 text-slate-700'
+      color: modernColors.commercial,
+      statusColor: 'bg-slate-100 text-black'
     },
     {
       quarter: 'Q2 2025',
@@ -108,7 +114,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Planned',
       icon: Rocket,
-      statusColor: 'bg-slate-100 text-slate-700'
+      color: modernColors.commercial,
+      statusColor: 'bg-slate-100 text-black'
     }
   ];
 
@@ -121,7 +128,8 @@ const Slide16: React.FC = () => {
         'First pilot implementation by month 9',
         'Production-ready platform by month 12'
       ],
-      icon: Milestone
+      icon: Milestone,
+      color: modernColors.military
     },
     {
       category: 'Customer Acquisition',
@@ -130,7 +138,8 @@ const Slide16: React.FC = () => {
         '2-3 commercial pilots',
         'First recurring revenue by Q1 2025'
       ],
-      icon: Users
+      icon: Users,
+      color: modernColors.commercial
     },
     {
       category: 'Product Expansion',
@@ -139,7 +148,8 @@ const Slide16: React.FC = () => {
         'Commercial adaptation (Q4 2024)',
         'API integration suite (Q1 2025)'
       ],
-      icon: Workflow
+      icon: Workflow,
+      color: modernColors.military
     }
   ];
 
@@ -156,7 +166,7 @@ const Slide16: React.FC = () => {
           custom={0}
           className="mb-2 text-center max-w-2xl mx-auto"
         >
-          <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
+          <h2 className={modernTypography.pageTitle}>
             Leadership, development timeline, and growth strategy
           </h2>
         </motion.div>
@@ -169,8 +179,8 @@ const Slide16: React.FC = () => {
           >
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <User className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <User className="h-7 w-7" style={{ color: modernColors.military }} />
+                <h3 className={modernTypography.heading}>
                   Founding Team
                 </h3>
               </div>
@@ -179,13 +189,13 @@ const Slide16: React.FC = () => {
                 <div className="md:w-3/5">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="relative w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl font-semibold text-slate-400">BT</span>
+                      <span className="text-2xl font-semibold" style={{ color: modernColors.military }}>BT</span>
                     </div>
                     <div>
-                      <h4 className={modernTypography.subheading} style={{ color: modernColors.text }}>
+                      <h4 className={modernTypography.subheading} style={{ color: modernColors.military }}>
                         Brendan T. Toole
                       </h4>
-                      <p className={`${modernTypography.small} uppercase tracking-wide text-accent font-medium`}>
+                      <p className={`${modernTypography.small} uppercase tracking-wide font-medium`} style={{ color: modernColors.military }}>
                         FOUNDER & CEO
                       </p>
                     </div>
@@ -213,15 +223,15 @@ const Slide16: React.FC = () => {
                     {hiringPlan.map((role, index) => (
                       <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
                         <div className="flex items-center gap-2 mb-1">
-                          <role.icon className="h-4 w-4 text-accent" />
-                          <p className={modernTypography.label}>{role.position}</p>
+                          <role.icon className="h-4 w-4" style={{ color: role.color }} />
+                          <p className={modernTypography.label} style={{ color: role.color }}>{role.position}</p>
                         </div>
-                        <p className={`${modernTypography.small} text-slate-500 pl-6`}>{role.focus}</p>
+                        <p className={`${modernTypography.small} pl-6`}>{role.focus}</p>
                       </div>
                     ))}
                   </div>
                   
-                  <p className={`${modernTypography.small} text-slate-500 mt-3`}>
+                  <p className={`${modernTypography.small} mt-3`}>
                     Initial team will remain lean to extend runway, with strategic advisors and contractors supplementing core capabilities.
                   </p>
                 </div>
@@ -236,8 +246,8 @@ const Slide16: React.FC = () => {
           >
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <BarChart3 className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <BarChart3 className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <h3 className={modernTypography.heading}>
                   Success Metrics
                 </h3>
               </div>
@@ -246,14 +256,14 @@ const Slide16: React.FC = () => {
                 {successMetrics.map((category, index) => (
                   <div key={index} className="border border-slate-100 rounded-md overflow-hidden">
                     <div className="flex items-center gap-2 p-3 bg-slate-50/80 border-b border-slate-100">
-                      <category.icon className="h-5 w-5 text-accent" />
-                      <h4 className={modernTypography.label}>{category.category}</h4>
+                      <category.icon className="h-5 w-5" style={{ color: category.color }} />
+                      <h4 className={modernTypography.label} style={{ color: category.color }}>{category.category}</h4>
                     </div>
                     <div className="p-3">
                       <ul className="space-y-2">
                         {category.metrics.map((metric, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: category.color }} />
                             <span className={modernTypography.small}>{metric}</span>
                           </li>
                         ))}
@@ -272,8 +282,8 @@ const Slide16: React.FC = () => {
         >
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <Calendar className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <Calendar className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
                 Development Roadmap
               </h3>
             </div>
@@ -282,11 +292,14 @@ const Slide16: React.FC = () => {
               {roadmap.map((phase, index) => (
                 <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-slate-50/80 p-4 border border-slate-100 rounded-md">
                   <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-3">
-                    <div className="w-12 h-12 rounded-md flex items-center justify-center bg-accent/10">
-                      <phase.icon className="h-6 w-6 text-accent" />
+                    <div 
+                      className="w-12 h-12 rounded-md flex items-center justify-center"
+                      style={{ backgroundColor: `${phase.color}20` }}
+                    >
+                      <phase.icon className="h-6 w-6" style={{ color: phase.color }} />
                     </div>
                     <div>
-                      <h4 className={`${modernTypography.subheading} text-accent`}>{phase.quarter}</h4>
+                      <h4 className={`${modernTypography.subheading}`} style={{ color: phase.color }}>{phase.quarter}</h4>
                       <span className={`text-xs px-2 py-0.5 rounded ${phase.statusColor} inline-block mt-1`}>
                         {phase.status}
                       </span>
@@ -294,15 +307,15 @@ const Slide16: React.FC = () => {
                   </div>
                   
                   <div className="md:col-span-3">
-                    <h4 className={modernTypography.subheading}>{phase.title}</h4>
+                    <h4 className={modernTypography.subheading} style={{ color: phase.color }}>{phase.title}</h4>
                     <p className={`${modernTypography.body} mb-3`}>{phase.description}</p>
                     
                     <div className="bg-white p-3 border border-slate-100 rounded-md">
-                      <p className={`${modernTypography.small} text-slate-600 mb-2`}>Milestones:</p>
+                      <p className={`${modernTypography.small} mb-2`}>Milestones:</p>
                       <ul className="space-y-1">
                         {phase.milestones.map((milestone, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: phase.color }} />
                             <span className={modernTypography.small}>{milestone}</span>
                           </li>
                         ))}
