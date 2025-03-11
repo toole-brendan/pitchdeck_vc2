@@ -156,19 +156,19 @@ const Slide15: React.FC = () => {
             </p>
             <ul className={`space-y-4 ${modernTypography.body}`}>
               <li className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-blue-100/80 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-7 h-7  bg-blue-100/80 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-blue-600 font-semibold text-sm">✓</span>
                 </div>
                 <p>Regular risk assessment and monitoring</p>
               </li>
               <li className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-blue-100/80 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-7 h-7  bg-blue-100/80 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-blue-600 font-semibold text-sm">✓</span>
                 </div>
                 <p>Diversified resource allocation</p>
               </li>
               <li className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-blue-100/80 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-7 h-7  bg-blue-100/80 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-blue-600 font-semibold text-sm">✓</span>
                 </div>
                 <p>Strategic partnerships to mitigate market uncertainties</p>

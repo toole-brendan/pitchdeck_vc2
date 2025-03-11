@@ -96,19 +96,19 @@ const Slide17: React.FC = () => {
               
               <ul className={`space-y-4 ${modernTypography.body}`}>
                 <li className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-blue-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
+                  <div className="w-5 h-5  bg-blue-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
                   <span>Product Development (XX%): Placeholder text describing allocation.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-green-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
+                  <div className="w-5 h-5  bg-green-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
                   <span>Sales & Marketing (XX%): Placeholder text describing allocation.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-purple-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
+                  <div className="w-5 h-5  bg-purple-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
                   <span>Operations (XX%): Placeholder text describing allocation.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-yellow-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
+                  <div className="w-5 h-5  bg-yellow-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
                   <span>Team Expansion (XX%): Placeholder text describing allocation.</span>
                 </li>
               </ul>

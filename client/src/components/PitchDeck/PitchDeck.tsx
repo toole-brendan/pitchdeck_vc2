@@ -87,14 +87,14 @@ const PitchDeck = () => {
       <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8 pointer-events-none">
         <button 
           onClick={() => goToSlide(currentSlide - 1)}
-          className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
+          className="w-12 h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
           aria-label="Previous slide"
         >
           <ChevronLeftIcon className="h-6 w-6" />
         </button>
         <button 
           onClick={() => goToSlide(currentSlide + 1)}
-          className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
+          className="w-12 h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
           aria-label="Next slide"
         >
           <ChevronRightIcon className="h-6 w-6" />

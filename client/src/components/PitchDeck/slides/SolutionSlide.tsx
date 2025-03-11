@@ -60,7 +60,7 @@ const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className="bg-white border border-gray-100 shadow-md p-8 mb-10 rounded-lg"
+          className="bg-white border border-gray-100 shadow-md p-8 mb-10 "
         >
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2">
@@ -79,7 +79,7 @@ const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
               </ul>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
-              <div className="absolute inset-0 bg-accentLight rounded-lg flex items-center justify-center text-accent">
+              <div className="absolute inset-0 bg-accentLight  flex items-center justify-center text-accent">
                 <div className="text-center">
                   <MonitorIcon className="h-16 w-16 mx-auto mb-4 opacity-50" />
                   <p className="text-xs uppercase tracking-wider font-medium">Product Interface</p>

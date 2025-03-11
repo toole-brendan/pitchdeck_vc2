@@ -62,7 +62,7 @@ const ProblemSlide: React.FC<SlideProps> = ({ isActive, index }) => {
               animate={isActive ? "visible" : "hidden"}
             >
               <ModernCard>
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-accent mb-4">
+                <div className="w-10 h-10 flex items-center justify-center  bg-gray-50 text-accent mb-4">
                   {problem.icon}
                 </div>
                 <h3 className="text-xl font-light tracking-tight mb-2">{problem.title}</h3>

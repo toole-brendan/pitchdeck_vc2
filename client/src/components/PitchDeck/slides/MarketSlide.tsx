@@ -73,7 +73,7 @@ const MarketSlide: React.FC<SlideProps> = ({ isActive, index }) => {
             initial="hidden"
             animate={isActive ? "visible" : "hidden"}
           >
-            <div className="h-64 mb-4 relative flex items-end bg-gray-50 rounded-lg p-6">
+            <div className="h-64 mb-4 relative flex items-end bg-gray-50  p-6">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData} margin={{ top: 20, right: 10, left: 10, bottom: 5 }}>
                   <XAxis dataKey="year" axisLine={false} tickLine={false} />
@@ -108,9 +108,9 @@ const MarketSlide: React.FC<SlideProps> = ({ isActive, index }) => {
                       <p className="text-sm font-light">{indicator.name}</p>
                       <p className="text-sm font-medium">{indicator.value}%</p>
                     </div>
-                    <div className="w-full bg-gray-100 rounded-full h-1.5">
+                    <div className="w-full bg-gray-100  h-1.5">
                       <div 
-                        className={`${indicator.color ? '' : 'bg-accent'} h-1.5 rounded-full transition-all duration-1000 ease-out`}
+                        className={`${indicator.color ? '' : 'bg-accent'} h-1.5  transition-all duration-1000 ease-out`}
                         style={{ 
                           width: isActive ? `${indicator.value}%` : '0%',
                           backgroundColor: indicator.color || ''
@@ -124,7 +124,7 @@ const MarketSlide: React.FC<SlideProps> = ({ isActive, index }) => {
             
             <ModernDivider />
             
-            <div className="bg-accentLight p-4 rounded-lg">
+            <div className="bg-accentLight p-4 ">
               <p className="text-sm md:text-base font-light text-gray-600">
                 <span className="text-accent font-normal">86%</span> of companies are planning to increase their investment in this space over the next two years.
               </p>

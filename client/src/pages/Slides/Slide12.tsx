@@ -99,7 +99,7 @@ const Slide12: React.FC = () => {
             
             <div className="space-y-5">
               <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-accent font-semibold">1</span>
                 </div>
                 <div>
@@ -113,7 +113,7 @@ const Slide12: React.FC = () => {
               </div>
               
               <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-accent font-semibold">2</span>
                 </div>
                 <div>
@@ -127,7 +127,7 @@ const Slide12: React.FC = () => {
               </div>
               
               <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-accent font-semibold">3</span>
                 </div>
                 <div>
@@ -141,7 +141,7 @@ const Slide12: React.FC = () => {
               </div>
               
               <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                   <span className="text-accent font-semibold">4</span>
                 </div>
                 <div>

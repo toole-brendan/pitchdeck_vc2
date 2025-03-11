@@ -42,7 +42,7 @@ const Slide7: React.FC = () => {
           custom={0}
         >
           <ModernCard className="h-full p-8 flex flex-col items-center text-center">
-            <div className="w-24 h-24 rounded-full bg-slate-50/80 border border-slate-100 mb-6 overflow-hidden backdrop-blur-sm">
+            <div className="w-24 h-24  bg-slate-50/80 border border-slate-100 mb-6 overflow-hidden backdrop-blur-sm">
               {/* Team member image placeholder */}
               <div className="w-full h-full flex items-center justify-center text-slate-400">
                 <Users className="h-12 w-12" />
@@ -63,7 +63,7 @@ const Slide7: React.FC = () => {
           custom={1}
         >
           <ModernCard className="h-full p-8 flex flex-col items-center text-center">
-            <div className="w-24 h-24 rounded-full bg-slate-50/80 border border-slate-100 mb-6 overflow-hidden backdrop-blur-sm">
+            <div className="w-24 h-24  bg-slate-50/80 border border-slate-100 mb-6 overflow-hidden backdrop-blur-sm">
               {/* Team member image placeholder */}
               <div className="w-full h-full flex items-center justify-center text-slate-400">
                 <Users className="h-12 w-12" />
@@ -84,7 +84,7 @@ const Slide7: React.FC = () => {
           custom={2}
         >
           <ModernCard className="h-full p-8 flex flex-col items-center text-center">
-            <div className="w-24 h-24 rounded-full bg-slate-50/80 border border-slate-100 mb-6 overflow-hidden backdrop-blur-sm">
+            <div className="w-24 h-24  bg-slate-50/80 border border-slate-100 mb-6 overflow-hidden backdrop-blur-sm">
               {/* Team member image placeholder */}
               <div className="w-full h-full flex items-center justify-center text-slate-400">
                 <Users className="h-12 w-12" />

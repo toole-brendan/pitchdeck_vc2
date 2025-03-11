@@ -55,7 +55,7 @@ const Slide8: React.FC = () => {
                 }`}
               >
                 <div className="mr-5 flex-shrink-0">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-sm ${
+                  <div className={`w-12 h-12  flex items-center justify-center shadow-sm ${
                     milestone.status === 'completed' 
                       ? 'bg-green-100/90 text-green-600' 
                       : milestone.status === 'in-progress'
@@ -74,7 +74,7 @@ const Slide8: React.FC = () => {
                   <p className={modernTypography.small}>{milestone.date}</p>
                 </div>
                 <div className="flex-shrink-0">
-                  <span className={`text-xs tracking-wide px-3 py-1 rounded-full ${
+                  <span className={`text-xs tracking-wide px-3 py-1  ${
                     milestone.status === 'completed' 
                       ? 'bg-green-100 text-green-700' 
                       : milestone.status === 'in-progress'

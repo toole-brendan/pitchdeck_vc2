@@ -88,7 +88,7 @@ export const ModernIconWrapper: React.FC<{
   children: React.ReactNode;
   size?: 'default' | 'large';
 }> = ({ children, size = 'default' }) => (
-  <div className={`flex items-center justify-center rounded-full bg-slate-50/80 text-slate-500 backdrop-blur-sm shadow-sm
+  <div className={`flex items-center justify-center bg-slate-50/80 text-slate-500 backdrop-blur-sm shadow-sm
     ${size === 'large' ? 'w-16 h-16' : 'w-12 h-12'}`}>
     {children}
   </div>

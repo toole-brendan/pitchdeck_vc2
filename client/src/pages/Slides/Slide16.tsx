@@ -121,7 +121,7 @@ const Slide16: React.FC = () => {
             <div className="space-y-6">
               <div className="flex gap-5">
                 <div className="w-20 flex-shrink-0 flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-accent/90 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10  bg-accent/90 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
                     <span className={modernTypography.small}>1</span>
                   </div>
                   <div className="h-full w-0.5 bg-slate-100 my-2 mx-auto"></div>
@@ -137,7 +137,7 @@ const Slide16: React.FC = () => {
               
               <div className="flex gap-5">
                 <div className="w-20 flex-shrink-0 flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-accent/90 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10  bg-accent/90 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
                     <span className={modernTypography.small}>2</span>
                   </div>
                   <div className="h-full w-0.5 bg-slate-100 my-2 mx-auto"></div>
@@ -153,7 +153,7 @@ const Slide16: React.FC = () => {
               
               <div className="flex gap-5">
                 <div className="w-20 flex-shrink-0 flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-accent/90 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10  bg-accent/90 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
                     <span className={modernTypography.small}>3</span>
                   </div>
                 </div>

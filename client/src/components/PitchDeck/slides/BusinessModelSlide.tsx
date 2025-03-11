@@ -80,7 +80,7 @@ const BusinessModelSlide: React.FC<SlideProps> = ({ isActive, index }) => {
               animate={isActive ? "visible" : "hidden"}
             >
               <ModernCard>
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-accent mb-4">
+                <div className="w-10 h-10 flex items-center justify-center  bg-gray-50 text-accent mb-4">
                   {stream.icon}
                 </div>
                 <h3 className="text-xl font-light tracking-tight mb-2">{stream.title}</h3>
@@ -150,7 +150,7 @@ const BusinessModelSlide: React.FC<SlideProps> = ({ isActive, index }) => {
               <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-4 text-xs">
                 {pieData.map((entry, index) => (
                   <div key={index} className="flex items-center">
-                    <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: entry.color }}></div>
+                    <div className="w-3 h-3  mr-2" style={{ backgroundColor: entry.color }}></div>
                     <span>{entry.name} ({entry.value}%)</span>
                   </div>
                 ))}

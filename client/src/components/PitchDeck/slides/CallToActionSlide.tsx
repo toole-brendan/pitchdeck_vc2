@@ -71,7 +71,7 @@ const CallToActionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
                 variants={fadeInUpVariants}
                 initial="hidden"
                 animate={isActive ? "visible" : "hidden"}
-                className="p-6 bg-accentLight rounded-lg"
+                className="p-6 bg-accentLight "
               >
                 <h3 className="text-xl font-light tracking-tight mb-3 text-accent">{step.title}</h3>
                 <p className="text-sm font-light text-gray-600">
@@ -88,7 +88,7 @@ const CallToActionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
         >
-          <div className="inline-block bg-accent text-white py-3 px-8 rounded-full font-light text-lg tracking-wide hover:bg-opacity-90 transition-colors cursor-pointer">
+          <div className="inline-block bg-accent text-white py-3 px-8  font-light text-lg tracking-wide hover:bg-opacity-90 transition-colors cursor-pointer">
             Schedule a Demo
           </div>
         </motion.div>

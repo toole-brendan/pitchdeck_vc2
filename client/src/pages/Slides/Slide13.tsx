@@ -47,7 +47,7 @@ const Slide13: React.FC = () => {
               </h3>
               <ul className="space-y-5">
                 <li className="flex items-start gap-4">
-                  <span className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span className="w-7 h-7  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-accent font-semibold">1</span>
                   </span>
                   <p className={modernTypography.body}>
@@ -55,7 +55,7 @@ const Slide13: React.FC = () => {
                   </p>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span className="w-7 h-7  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-accent font-semibold">2</span>
                   </span>
                   <p className={modernTypography.body}>
@@ -63,7 +63,7 @@ const Slide13: React.FC = () => {
                   </p>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <span className="w-7 h-7  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                     <span className="text-accent font-semibold">3</span>
                   </span>
                   <p className={modernTypography.body}>
