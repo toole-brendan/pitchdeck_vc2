@@ -2,7 +2,13 @@ import { motion } from 'framer-motion';
 import { ClockIcon, DollarSignIcon, XIcon, FrownIcon } from 'lucide-react';
 import Slide from '../Slide';
 import { SlideProps } from '../PitchDeck';
-import { ModernSectionHeader, ModernCard, ModernIconWrapper, fadeInUpVariants } from '../ModernSlideStyles';
+import { 
+  ModernSectionHeader, 
+  ModernCard, 
+  ModernIconWrapper, 
+  fadeInUpVariants,
+  modernTypography
+} from '../ModernSlideStyles';
 
 const ProblemSlide: React.FC<SlideProps> = ({ isActive, index }) => {
   const problems = [
@@ -47,7 +53,7 @@ const ProblemSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className="text-4xl md:text-5xl font-extralight tracking-tight mb-8"
+          className={modernTypography.title}
         >
           What We're Solving
         </motion.h2>
@@ -62,11 +68,11 @@ const ProblemSlide: React.FC<SlideProps> = ({ isActive, index }) => {
               animate={isActive ? "visible" : "hidden"}
             >
               <ModernCard>
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-accent mb-4">
+                <ModernIconWrapper>
                   {problem.icon}
-                </div>
-                <h3 className="text-xl font-light tracking-tight mb-2">{problem.title}</h3>
-                <p className="text-sm md:text-base font-light text-gray-600">{problem.description}</p>
+                </ModernIconWrapper>
+                <h3 className={modernTypography.featureCardTitle}>{problem.title}</h3>
+                <p className={modernTypography.featureCardDescription}>{problem.description}</p>
               </ModernCard>
             </motion.div>
           ))}
