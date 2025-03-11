@@ -31,8 +31,8 @@ const Slide6: React.FC = () => {
             borderRight: `3px solid ${modernColors.accent}`
           }}>
             <div className="flex items-center gap-4 mb-5">
-              <Layers className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <Layers className="h-7 w-7" style={{ color: modernColors.accent }} />
+              <h3 className={modernTypography.heading}>
                 Policy Convergence
               </h3>
             </div>
@@ -65,7 +65,7 @@ const Slide6: React.FC = () => {
           <ModernCard className="h-full p-8" style={{ backgroundColor: 'rgba(243, 232, 255, 0.05)', borderTop: `2px solid ${modernColors.crypto}` }}>
             <div className="flex items-center gap-4 mb-5">
               <Clock className="h-7 w-7" style={{ color: modernColors.crypto }} />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <h3 className={modernTypography.heading}>
                 Convergence Timeline
               </h3>
             </div>
@@ -83,7 +83,7 @@ const Slide6: React.FC = () => {
           <ModernCard className="h-full p-8" style={{ backgroundColor: 'rgba(219, 234, 254, 0.05)', borderTop: `2px solid ${modernColors.military}` }}>
             <div className="flex items-center gap-4 mb-5">
               <BarChart3 className="h-7 w-7" style={{ color: modernColors.military }} />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <h3 className={modernTypography.heading}>
                 Market Drivers
               </h3>
             </div>
@@ -106,8 +106,8 @@ const Slide6: React.FC = () => {
             borderBottom: `2px solid ${modernColors.commercial}`,
           }}>
             <div className="flex items-center gap-4 mb-5">
-              <TrendingUp className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <TrendingUp className="h-7 w-7" style={{ color: modernColors.accent }} />
+              <h3 className={modernTypography.heading}>
                 Solution
               </h3>
             </div>

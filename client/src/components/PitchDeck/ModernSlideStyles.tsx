@@ -4,8 +4,8 @@ import React from 'react';
 // Color scheme for ultra-modern minimalist style
 export const modernColors = {
   background: 'white',
-  text: '#0F172A', // slate-900, deeper and more refined than before
-  textLight: '#64748B', // slate-500, sophisticated gray
+  text: '#000000', // Black text as requested
+  textLight: '#000000', // Black text as requested
   accent: '#3B82F6', // blue-500, modern, vibrant but not overwhelming
   accentLight: '#EFF6FF', // blue-50, subtle background
   border: '#F1F5F9', // slate-100, almost invisible border
@@ -23,40 +23,40 @@ export const modernColors = {
 // Typography styles for ultra-modern minimalist look
 export const modernTypography = {
   // Ultra-large slide titles for dramatic impact
-  title: 'text-5xl sm:text-6xl md:text-8xl font-thin tracking-tighter leading-tight',
+  title: 'text-5xl sm:text-6xl md:text-8xl font-thin tracking-tighter leading-tight text-black',
   
   // Main slide title (larger for page headers)
-  slideTitle: 'text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight leading-tight',
+  slideTitle: 'text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight leading-tight text-black',
   
   // Section title for sub-sections within slides
-  pageTitle: 'text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight leading-tight',
+  pageTitle: 'text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight leading-tight text-black',
   
   // Refined subtitle with increased size and better readability
-  subtitle: 'text-lg sm:text-xl md:text-2xl font-extralight tracking-tight text-slate-500',
+  subtitle: 'text-lg sm:text-xl md:text-2xl font-extralight tracking-tight text-black',
   
   // Ultra-compact section headers
-  sectionTitle: 'text-xs uppercase tracking-[0.25em] text-slate-400 font-medium',
+  sectionTitle: 'text-xs uppercase tracking-[0.25em] text-black font-medium',
   
   // Elegant headings with better spacing and slightly larger
-  heading: 'text-2xl md:text-3xl font-extralight tracking-tight leading-snug',
+  heading: 'text-2xl md:text-3xl font-extralight tracking-tight leading-snug text-black',
   
   // Secondary headings for content sections
-  subheading: 'text-xl md:text-2xl font-extralight tracking-tight leading-snug',
+  subheading: 'text-xl md:text-2xl font-extralight tracking-tight leading-snug text-black',
   
   // Improved body text readability with slightly larger size
-  body: 'text-base md:text-lg font-light text-slate-600 leading-relaxed',
+  body: 'text-base md:text-lg font-light text-black leading-relaxed',
   
   // Refined small text with better readability
-  small: 'text-sm font-light text-slate-400 tracking-wide',
+  small: 'text-sm font-light text-black tracking-wide',
   
   // List text styling
-  list: 'text-base md:text-lg font-light text-slate-600 leading-relaxed',
+  list: 'text-base md:text-lg font-light text-black leading-relaxed',
   
   // Labels for items, years, categories, etc.
-  label: 'text-base font-normal text-slate-700 tracking-wide leading-snug',
+  label: 'text-base font-normal text-black tracking-wide leading-snug',
   
   // More impactful statistics
-  stats: 'text-5xl md:text-6xl font-thin tracking-tight',
+  stats: 'text-5xl md:text-6xl font-thin tracking-tight text-black',
   
   // Modern badge styling
   badge: 'text-xs tracking-wider uppercase py-1 px-3 font-medium',
@@ -100,7 +100,7 @@ export const ModernIconWrapper: React.FC<{
   children: React.ReactNode;
   size?: 'default' | 'large';
 }> = ({ children, size = 'default' }) => (
-  <div className={`flex items-center justify-center bg-slate-50/80 text-slate-500 backdrop-blur-sm shadow-sm
+  <div className={`flex items-center justify-center bg-slate-50/80 text-black backdrop-blur-sm shadow-sm
     ${size === 'large' ? 'w-16 h-16' : 'w-12 h-12'}`}>
     {children}
   </div>
@@ -168,7 +168,7 @@ export const ModernSectionHeader: React.FC<{
   className?: string;
 }> = ({ children, dark = false, className = '' }) => {
   // Light style (preferred for most sections) - more minimalist
-  const lightStyle = "bg-slate-50/70 backdrop-blur-sm text-slate-500 text-xs tracking-[0.25em] uppercase py-1.5 px-3";
+  const lightStyle = "bg-slate-50/70 backdrop-blur-sm text-black text-xs tracking-[0.25em] uppercase py-1.5 px-3";
   
   // Dark style (for sections that need more emphasis) - more sleek
   const darkStyle = "bg-slate-900/90 backdrop-blur-sm text-white text-xs tracking-[0.25em] uppercase py-1.5 px-3 shadow-sm";
