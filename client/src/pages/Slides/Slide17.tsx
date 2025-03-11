@@ -8,13 +8,13 @@ import {
   fadeInUpVariants,
   itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
-import { HandCoins, TrendingUp, DollarSign } from 'lucide-react';
+import { ShieldCheck, Workflow, Shield, Lock } from 'lucide-react';
 
 const Slide17: React.FC = () => {
   const TOTAL_SLIDES = 18;
 
   return (
-    <SlideLayout title="Investment Opportunity" slideNumber={17} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout title="Shell Token Architecture" slideNumber={17} totalSlides={TOTAL_SLIDES}>
       <motion.div
         variants={fadeInUpVariants}
         initial="hidden"
@@ -27,11 +27,8 @@ const Slide17: React.FC = () => {
           className="mb-2 text-center max-w-2xl mx-auto"
         >
           <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
-            Funding Request & Use of Funds
+            Technical foundation for secure supply chain transactions with built-in oracle capabilities
           </h2>
-          <p className={modernTypography.body}>
-            Placeholder text explaining our current fundraising round and how the investment will be utilized.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
@@ -41,38 +38,50 @@ const Slide17: React.FC = () => {
           >
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
-                <HandCoins className="h-7 w-7 text-accent" />
+                <ShieldCheck className="h-7 w-7 text-accent" />
                 <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                  Investment Details
+                  KEY INNOVATION
                 </h3>
               </div>
               
+              <h4 className={`${modernTypography.subheading} mb-4 text-accent`}>Built-in Oracle: The Integration Advantage</h4>
+              
+              <p className={`${modernTypography.body} mb-6`}>
+                Unlike other blockchain solutions that rely on external oracles (like Chainlink) to connect real-world events to blockchain actions, Shell tokens leverage HandReceipt's built-in oracle system. This direct integration creates a seamless bridge between physical supply chain events (scanning, delivery, inspection) and automated financial settlements via smart contracts.
+              </p>
+              
               <div className="space-y-5">
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                  <span className={modernTypography.label}>Round Type</span>
-                  <span className={`${modernTypography.subheading} text-accent`}>Series A</span>
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
+                  <span className={modernTypography.label}>Traditional Approach</span>
+                  <span className={modernTypography.small}>Multiple systems with manual verification and external oracles creating security vulnerabilities</span>
                 </div>
                 
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                  <span className={modernTypography.label}>Raising</span>
-                  <span className={`${modernTypography.subheading} text-accent`}>$X Million</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                  <span className={modernTypography.label}>Pre-money Valuation</span>
-                  <span className={`${modernTypography.subheading} text-accent`}>$X Million</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                  <span className={modernTypography.label}>Equity Offered</span>
-                  <span className={`${modernTypography.subheading} text-accent`}>XX%</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                  <span className={modernTypography.label}>Minimum Investment</span>
-                  <span className={`${modernTypography.subheading} text-accent`}>$XXX,XXX</span>
+                <div className="flex justify-between items-center p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
+                  <span className={modernTypography.label}>HandReceipt + Shell Approach</span>
+                  <span className={modernTypography.small}>Single integrated system with built-in oracle that cryptographically verifies and executes transactions</span>
                 </div>
               </div>
+              
+              <h4 className={`${modernTypography.subheading} mt-6 mb-4`}>Oracle Integration Flow:</h4>
+              
+              <ul className={`space-y-3 ${modernTypography.body}`}>
+                <li className="flex items-center gap-3">
+                  <span className="text-accent">1.</span>
+                  <span>QR Scan in HandReceipt App</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-accent">2.</span>
+                  <span>Built-in Oracle Verification</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-accent">3.</span>
+                  <span>Smart Contract Execution</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-accent">4.</span>
+                  <span>Immediate Shell Token Payment</span>
+                </li>
+              </ul>
             </ModernCard>
           </motion.div>
 
@@ -82,36 +91,49 @@ const Slide17: React.FC = () => {
           >
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
-                <DollarSign className="h-7 w-7 text-accent" />
+                <Workflow className="h-7 w-7 text-accent" />
                 <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                  Use of Funds
+                  BLOCKCHAIN ARCHITECTURE
                 </h3>
               </div>
               
-              <div className="h-48 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center mb-8">
-                <span className={modernTypography.label}>
-                  [Allocation Chart Placeholder]
-                </span>
+              <div className="space-y-6">
+                <div>
+                  <h4 className={`${modernTypography.subheading} mb-2 text-accent`}>Consensus Protocol: Delegated Proof of Supply Chain (DPoSC)</h4>
+                  <ul className={`space-y-2 ${modernTypography.body}`}>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-500/80 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"></div>
+                      <span>3-5 second block times with PBFT-inspired finality</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-500/80 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"></div>
+                      <span>Validators weighted by supply chain activity volume</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-500/80 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"></div>
+                      <span>Energy-efficient alternative to Proof of Work</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className={`${modernTypography.subheading} mb-2 text-accent`}>HandReceipt Oracle Integration</h4>
+                  <ul className={`space-y-2 ${modernTypography.body}`}>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-green-500/80 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"></div>
+                      <span>Direct integration with HandReceipt supply chain system</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-green-500/80 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"></div>
+                      <span>Eliminates need for external oracles like Chainlink</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-green-500/80 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"></div>
+                      <span>Military-grade verification of physical goods receipt</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              
-              <ul className={`space-y-4 ${modernTypography.body}`}>
-                <li className="flex items-start gap-3">
-                  <div className="w-5 h-5  bg-blue-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
-                  <span>Product Development (XX%): Placeholder text describing allocation.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-5 h-5  bg-green-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
-                  <span>Sales & Marketing (XX%): Placeholder text describing allocation.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-5 h-5  bg-purple-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
-                  <span>Operations (XX%): Placeholder text describing allocation.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-5 h-5  bg-yellow-500/80 backdrop-blur-sm mt-0.5 flex-shrink-0 shadow-sm"></div>
-                  <span>Team Expansion (XX%): Placeholder text describing allocation.</span>
-                </li>
-              </ul>
             </ModernCard>
           </motion.div>
         </div>
@@ -121,46 +143,57 @@ const Slide17: React.FC = () => {
           custom={3}
         >
           <ModernCard className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <TrendingUp className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                Investor Returns
-              </h3>
-            </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className={`${modernTypography.subheading} mb-4`}>Exit Strategy</h4>
-                <p className={`${modernTypography.body} mb-6`}>
-                  Placeholder text describing potential exit strategies and timeline.
-                </p>
+                <div className="flex items-center gap-4 mb-6">
+                  <Shield className="h-7 w-7 text-accent" />
+                  <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                    Smart Contract Engine
+                  </h3>
+                </div>
+                
+                <h4 className={`${modernTypography.subheading} mb-4 text-accent`}>Supply chain-specific VM with specialized contract templates</h4>
                 
                 <ul className={`space-y-3 ${modernTypography.body}`}>
                   <li className="flex items-center gap-3">
                     <span className="text-accent">•</span>
-                    <span>Strategic acquisition within 4-5 years</span>
+                    <span>Payment, escrow, and SLA contract libraries</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-accent">•</span>
-                    <span>Potential IPO in 5-7 years</span>
+                    <span>Deterministic execution with formal verification</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-accent">•</span>
-                    <span>Secondary market opportunities</span>
+                    <span>Gas-free execution for verified participants</span>
                   </li>
                 </ul>
               </div>
               
               <div>
-                <h4 className={`${modernTypography.subheading} mb-4`}>Projected Returns</h4>
-                <div className="h-40 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center mb-4">
-                  <span className={modernTypography.label}>
-                    [ROI Projection Chart Placeholder]
-                  </span>
+                <div className="flex items-center gap-4 mb-6">
+                  <Lock className="h-7 w-7 text-accent" />
+                  <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                    Security Framework
+                  </h3>
                 </div>
-                <p className={modernTypography.small}>
-                  Projected XX-XX% IRR based on conservative growth estimates.
-                </p>
+                
+                <h4 className={`${modernTypography.subheading} mb-4 text-accent`}>Defense-grade security for commercial applications</h4>
+                
+                <ul className={`space-y-3 ${modernTypography.body}`}>
+                  <li className="flex items-center gap-3">
+                    <span className="text-accent">•</span>
+                    <span>NIST 800-53 compliant controls and encryption</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-accent">•</span>
+                    <span>Multi-signature requirements for high-value transfers</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-accent">•</span>
+                    <span>Auditability with selective disclosure mechanisms</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </ModernCard>
