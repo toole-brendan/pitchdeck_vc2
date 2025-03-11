@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
-import { useLocation, useRoute } from 'wouter';
+import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { ModernSectionHeader } from './ModernSlideStyles';
 
 interface SlideLayoutProps {
   title: string;
@@ -93,7 +92,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <ModernSectionHeader title={title} />
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
         <div className="mt-8">
           {children}
         </div>

@@ -30,7 +30,7 @@ const PresentationHome: React.FC = () => {
           </button>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 18 }).map((_, i) => (
               <button 
                 key={i} 
                 onClick={() => navigate(`/slide/${i + 1}`)}

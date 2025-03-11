@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ModernCard } from '@/components/PitchDeck/ModernSlideStyles';
 
 const Slide1: React.FC = () => {
-  const TOTAL_SLIDES = 5;
+  const TOTAL_SLIDES = 18;
 
   return (
     <SlideLayout title="Title Slide" slideNumber={1} totalSlides={TOTAL_SLIDES}>

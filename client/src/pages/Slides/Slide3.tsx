@@ -5,7 +5,7 @@ import { ModernCard, ModernIconWrapper } from '@/components/PitchDeck/ModernSlid
 import { Lightbulb, Zap, Target } from 'lucide-react';
 
 const Slide3: React.FC = () => {
-  const TOTAL_SLIDES = 5;
+  const TOTAL_SLIDES = 18;
 
   return (
     <SlideLayout title="Solution" slideNumber={3} totalSlides={TOTAL_SLIDES}>

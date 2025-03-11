@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 
 const Slide5: React.FC = () => {
-  const TOTAL_SLIDES = 5;
+  const TOTAL_SLIDES = 18;
   const [, navigate] = useLocation();
   
   return (
