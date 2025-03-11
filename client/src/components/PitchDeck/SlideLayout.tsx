@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { modernTypography, modernColors, scaleUpVariants } from './ModernSlideStyles';
 
 interface SlideLayoutProps {
   title: string;
@@ -52,14 +53,14 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8">
         <button 
           onClick={goToPrevSlide}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black text-white shadow-lg flex items-center justify-center hover:bg-black/90 transition-colors"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
         </button>
         <button 
           onClick={goToNextSlide}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black text-white shadow-lg flex items-center justify-center hover:bg-black/90 transition-colors"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
@@ -67,18 +68,20 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       </div>
 
       {/* Slide Number */}
-      <div className="absolute top-4 right-6 text-gray-400 text-sm">
+      <div className={`absolute top-4 right-6 ${modernTypography.small}`} style={{ color: modernColors.textLight }}>
         {slideNumber} / {totalSlides}
       </div>
 
       {/* Content Container */}
       <motion.div 
         className="slide-content w-full max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={scaleUpVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
+        <h2 className={`${modernTypography.heading} mb-4`} style={{ color: modernColors.text }}>
+          {title}
+        </h2>
         <div className="mt-8">
           {children}
         </div>
