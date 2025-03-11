@@ -1,10 +1,8 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import { useLocation } from 'wouter';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { modernTypography, modernColors, scaleUpVariants } from './ModernSlideStyles';
-import { useMediaQuery } from 'react-responsive';
-import FullscreenPresentation from './FullscreenPresentation';
 
 interface SlideLayoutProps {
   title: string;
@@ -20,102 +18,52 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   children 
 }) => {
   const [, navigate] = useLocation();
-  const isDesktop = useMediaQuery({ minWidth: 1024 });
 
-  const goToSlide = (slideNum: number) => {
-    if (slideNum >= 1 && slideNum <= totalSlides) {
-      navigate(`/slide/${slideNum}`);
-    } else if (slideNum < 1) {
-      navigate('/');
-    } else if (slideNum > totalSlides) {
+  const goToNextSlide = () => {
+    if (slideNumber < totalSlides) {
+      navigate(`/slide/${slideNumber + 1}`);
+    } else {
       navigate('/');
     }
   };
 
-  const goToNextSlide = () => {
-    goToSlide(slideNumber + 1);
-  };
-
   const goToPrevSlide = () => {
-    goToSlide(slideNumber - 1);
+    if (slideNumber > 1) {
+      navigate(`/slide/${slideNumber - 1}`);
+    } else {
+      navigate('/');
+    }
   };
 
-  // Add keyboard event listener at the document level for better PowerPoint-like behavior
-  useEffect(() => {
-    const handleKeyboardNavigation = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-        e.preventDefault();
-        goToNextSlide();
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        e.preventDefault();
-        goToPrevSlide();
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        goToSlide(1);
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        goToSlide(totalSlides);
-      }
-    };
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') {
+      goToNextSlide();
+    } else if (e.key === 'ArrowLeft') {
+      goToPrevSlide();
+    }
+  };
 
-    document.addEventListener('keydown', handleKeyboardNavigation);
-    return () => {
-      document.removeEventListener('keydown', handleKeyboardNavigation);
-    };
-  }, [slideNumber, totalSlides]);
-
-  // For desktop view, use the PowerPoint-like presentation mode
-  if (isDesktop) {
-    return (
-      <FullscreenPresentation 
-        currentSlide={slideNumber} 
-        totalSlides={totalSlides}
-        onNavigate={goToSlide}
-      >
-        <div className="slide-wrapper w-full h-full flex items-center justify-center bg-white">
-          <div className="slide-aspect-container w-full max-w-[90%] mx-auto p-8 rounded-lg">
-            <div className="slide-content w-full flex flex-col justify-center overflow-visible">
-              <motion.div 
-                className="w-full mx-auto"
-                variants={scaleUpVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <h2 className={`${modernTypography.slideTitle} mb-4`} style={{ color: modernColors.text }}>
-                  {title}
-                </h2>
-                <div className="slide-body-content">
-                  {children}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </FullscreenPresentation>
-    );
-  }
-
-  // Mobile view remains similar to the original
   return (
     <div 
       className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-6 relative"
       tabIndex={0}
+      onKeyDown={handleKeyDown}
     >
       {/* Navigation Controls */}
-      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
+      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8">
         <button 
           onClick={goToPrevSlide}
-          className="w-10 h-10 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+          className="w-10 h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
         </button>
         <button 
           onClick={goToNextSlide}
-          className="w-10 h-10 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+          className="w-10 h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
         </button>
       </div>
 
