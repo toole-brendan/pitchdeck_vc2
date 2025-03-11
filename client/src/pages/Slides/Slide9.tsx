@@ -3,18 +3,19 @@ import SlideLayout from '@/components/PitchDeck/SlideLayout';
 import { motion } from 'framer-motion';
 import { 
   ModernCard,
+  ModernBadge,
   modernTypography, 
   modernColors,
   fadeInUpVariants,
   itemFadeInUpVariant 
 } from '@/components/PitchDeck/ModernSlideStyles';
-import { TrendingUp, Briefcase, Users } from 'lucide-react';
+import { Shield, Smartphone, Zap, Briefcase, Award, Calculator } from 'lucide-react';
 
 const Slide9: React.FC = () => {
   const TOTAL_SLIDES = 18;
 
   return (
-    <SlideLayout title="Traction & Metrics" slideNumber={9} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout title="Product Features" slideNumber={9} totalSlides={TOTAL_SLIDES}>
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 gap-8"
         variants={fadeInUpVariants}
@@ -27,31 +28,28 @@ const Slide9: React.FC = () => {
           className="md:col-span-2"
         >
           <ModernCard className="p-8">
-            <div className="flex items-center gap-4 mb-5">
-              <TrendingUp className="h-7 w-7 text-accent" />
+            <div className="flex flex-col mb-6">
               <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                Growth Metrics
+                Blockchain-powered supply chain solution for defense and commercial sectors
               </h3>
-            </div>
-            <p className={`${modernTypography.body} mb-6`}>
-              Placeholder text describing our key performance indicators and growth metrics.
-            </p>
-            <div className="h-44 bg-slate-50/80  border border-slate-100 flex items-center justify-center mb-8 backdrop-blur-sm">
-              [Growth Chart Placeholder]
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-slate-50/80 backdrop-blur-sm p-5  border border-slate-100 text-center">
-                <p className={`${modernTypography.stats} text-accent mb-1`}>XX%</p>
-                <p className={modernTypography.small}>Monthly Growth</p>
-              </div>
-              <div className="bg-slate-50/80 backdrop-blur-sm p-5  border border-slate-100 text-center">
-                <p className={`${modernTypography.stats} text-accent mb-1`}>XXXX</p>
-                <p className={modernTypography.small}>Active Users</p>
-              </div>
-              <div className="bg-slate-50/80 backdrop-blur-sm p-5  border border-slate-100 text-center">
-                <p className={`${modernTypography.stats} text-accent mb-1`}>$XXK</p>
-                <p className={modernTypography.small}>Monthly Revenue</p>
+              <div className="mt-6">
+                <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.text }}>
+                  Core Capabilities
+                </h4>
+                <ul className={`space-y-4 ${modernTypography.list}`}>
+                  <li className="flex items-start gap-3">
+                    <Shield className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span><strong>Secure Verification:</strong> Immutable blockchain records with tamper-proof history</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Smartphone className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span><strong>Mobile-First:</strong> Simple QR scanning interface with offline capability</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Zap className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span><strong>Smart Automation:</strong> Trigger payments and workflows based on supply chain events</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </ModernCard>
@@ -63,18 +61,25 @@ const Slide9: React.FC = () => {
         >
           <ModernCard className="h-full p-8">
             <div className="flex items-center gap-4 mb-5">
-              <Users className="h-7 w-7 text-accent" />
+              <Award className="h-7 w-7" style={{ color: modernColors.military }} />
               <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                User Engagement
+                Defense Value
               </h3>
             </div>
-            <div className="h-36 bg-slate-50/80  border border-slate-100 flex items-center justify-center mb-6 backdrop-blur-sm">
-              [User Engagement Chart Placeholder]
-            </div>
+            <ModernBadge color={modernColors.military} className="mb-5">MILITARY-GRADE</ModernBadge>
             <ul className={`space-y-3 ${modernTypography.list}`}>
-              <li>• XX minutes average session time</li>
-              <li>• XX% retention rate after 30 days</li>
-              <li>• XX% conversion from free to paid</li>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div>
+                <span>Military-grade security with CMMC 2.0 compliance</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div>
+                <span>Tactical equipment tracking from warehouse to field deployment</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div>
+                <span>Eliminates paper-based processes with digital chain of custody</span>
+              </li>
             </ul>
           </ModernCard>
         </motion.div>
@@ -85,24 +90,26 @@ const Slide9: React.FC = () => {
         >
           <ModernCard className="h-full p-8">
             <div className="flex items-center gap-4 mb-5">
-              <Briefcase className="h-7 w-7 text-accent" />
+              <Calculator className="h-7 w-7" style={{ color: modernColors.commercial }} />
               <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                Key Partnerships
+                Commercial Value
               </h3>
             </div>
-            <p className={`${modernTypography.body} mb-6`}>
-              Placeholder text describing strategic partnerships and collaborations.
-            </p>
-            <div className="grid grid-cols-3 gap-4">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <div 
-                  key={index} 
-                  className="h-14 bg-slate-50/80 backdrop-blur-sm  border border-slate-100 flex items-center justify-center"
-                >
-                  [Logo]
-                </div>
-              ))}
-            </div>
+            <ModernBadge color={modernColors.commercial} className="mb-5">BUSINESS IMPACT</ModernBadge>
+            <ul className={`space-y-3 ${modernTypography.list}`}>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div>
+                <span>70% reduction in cash conversion cycle</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div>
+                <span>Seamless integration with existing enterprise systems</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 flex-shrink-0"></div>
+                <span>Immediate settlement using Shell Token payments</span>
+              </li>
+            </ul>
           </ModernCard>
         </motion.div>
       </motion.div>
