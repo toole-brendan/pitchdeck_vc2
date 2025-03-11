@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Maximize2, Minimize2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Maximize2, Minimize2, ChevronLeft, ChevronRight, Home, SkipForward } from 'lucide-react';
 
 interface FullscreenPresentationProps {
   children: React.ReactNode;
@@ -17,6 +17,8 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
   onNavigate
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const [lastMouseMove, setLastMouseMove] = useState(Date.now());
   const [, navigate] = useLocation();
 
   // Handle entering and exiting fullscreen
@@ -34,15 +36,38 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
     }
   }, []);
 
-  // Handle keyboard navigation
+  // Auto-hide controls after inactivity (just like PowerPoint)
+  useEffect(() => {
+    const handleMouseMove = () => {
+      setLastMouseMove(Date.now());
+      setShowControls(true);
+    };
+
+    const controlsTimer = setInterval(() => {
+      // Hide controls after 3 seconds of inactivity when in fullscreen
+      if (isFullscreen && Date.now() - lastMouseMove > 3000) {
+        setShowControls(false);
+      }
+    }, 500);
+
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      clearInterval(controlsTimer);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isFullscreen, lastMouseMove]);
+
+  // Handle keyboard navigation - PowerPoint keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      // PowerPoint keyboard shortcuts
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'n' || e.key === 'N') {
         e.preventDefault();
         if (currentSlide < totalSlides) {
           onNavigate(currentSlide + 1);
         }
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'p' || e.key === 'P' || e.key === 'Backspace') {
         e.preventDefault();
         if (currentSlide > 1) {
           onNavigate(currentSlide - 1);
@@ -65,15 +90,15 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
     window.addEventListener('keydown', handleKeyDown);
     
     // Listen for fullscreen change events
-    document.addEventListener('fullscreenchange', () => {
+    const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
-    });
+    };
+    
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('fullscreenchange', () => {
-        setIsFullscreen(!!document.fullscreenElement);
-      });
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
   }, [currentSlide, totalSlides, onNavigate, toggleFullscreen, isFullscreen]);
 
@@ -90,20 +115,94 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
     }
   };
 
+  const goToFirstSlide = () => {
+    onNavigate(1);
+  };
+
+  const goToLastSlide = () => {
+    onNavigate(totalSlides);
+  };
+
   return (
     <div 
       className={`presentation-container relative w-full ${
         isFullscreen ? 'fullscreen-mode' : ''
       }`}
     >
-      {/* Fullscreen Toggle Button */}
-      <button
-        onClick={toggleFullscreen}
-        className="fixed top-4 left-4 z-50 p-2 bg-black/80 text-white rounded-full hover:bg-black transition-all"
-        aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-      >
-        {isFullscreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
-      </button>
+      {/* Fullscreen Background */}
+      {isFullscreen && (
+        <div className="fixed inset-0 bg-black z-40"></div>
+      )}
+      
+      {/* PowerPoint-like controls */}
+      {showControls && (
+        <>
+          {/* Fullscreen Toggle Button */}
+          <button
+            onClick={toggleFullscreen}
+            className="fixed top-4 left-4 z-50 p-2 bg-black/80 text-white rounded-full hover:bg-black transition-all shadow-md"
+            aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+          >
+            {isFullscreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+          </button>
+
+          {/* Slide Navigation Controls - Bottom Center, PowerPoint style */}
+          <div className="controls-panel fixed z-50 bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 py-2 px-3 rounded-full">
+            {/* First slide button */}
+            <button 
+              onClick={goToFirstSlide}
+              disabled={currentSlide <= 1}
+              className={`nav-button ${
+                currentSlide <= 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white'
+              }`}
+              aria-label="First slide"
+            >
+              <Home size={16} className="text-gray-700" />
+            </button>
+            
+            {/* Previous slide button */}
+            <button 
+              onClick={goToPrevSlide}
+              disabled={currentSlide <= 1}
+              className={`nav-button ${
+                currentSlide <= 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white'
+              }`}
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={20} className="text-gray-700" />
+            </button>
+            
+            {/* Slide counter */}
+            <div className="slide-counter px-4">
+              {currentSlide} / {totalSlides}
+            </div>
+            
+            {/* Next slide button */}
+            <button 
+              onClick={goToNextSlide}
+              disabled={currentSlide >= totalSlides}
+              className={`nav-button ${
+                currentSlide >= totalSlides ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white'
+              }`}
+              aria-label="Next slide"
+            >
+              <ChevronRight size={20} className="text-gray-700" />
+            </button>
+            
+            {/* Last slide button */}
+            <button 
+              onClick={goToLastSlide}
+              disabled={currentSlide >= totalSlides}
+              className={`nav-button ${
+                currentSlide >= totalSlides ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white'
+              }`}
+              aria-label="Last slide"
+            >
+              <SkipForward size={16} className="text-gray-700" />
+            </button>
+          </div>
+        </>
+      )}
 
       {/* Slide Content */}
       <div 
@@ -111,40 +210,18 @@ const FullscreenPresentation: React.FC<FullscreenPresentationProps> = ({
           isFullscreen ? 'h-screen overflow-hidden' : 'min-h-screen'
         }`}
       >
-        {children}
-      </div>
-
-      {/* Navigation Controls */}
-      <div className="nav-controls fixed z-40 bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-black/10 backdrop-blur-sm p-2 rounded-full">
-        <button 
-          onClick={goToPrevSlide}
-          disabled={currentSlide <= 1}
-          className={`w-10 h-10 rounded-full flex items-center justify-center ${
-            currentSlide <= 1 
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-              : 'bg-black/80 text-white hover:bg-black'
-          } transition-all`}
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        
-        <div className="slide-counter text-sm font-medium">
-          {currentSlide} / {totalSlides}
-        </div>
-        
-        <button 
-          onClick={goToNextSlide}
-          disabled={currentSlide >= totalSlides}
-          className={`w-10 h-10 rounded-full flex items-center justify-center ${
-            currentSlide >= totalSlides 
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-              : 'bg-black/80 text-white hover:bg-black'
-          } transition-all`}
-          aria-label="Next slide"
-        >
-          <ChevronRight size={20} />
-        </button>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="w-full h-full"
+          >
+            {children}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
