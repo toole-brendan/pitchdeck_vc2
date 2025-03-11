@@ -66,20 +66,6 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         </button>
       </div>
 
-      {/* Progress Indicator */}
-      <div className="fixed z-50 bottom-8 left-1/2 -translate-x-1/2 flex gap-3 bg-white/80 px-4 py-2 rounded-full shadow-md border border-gray-100">
-        {Array.from({ length: totalSlides }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => navigate(`/slide/${index + 1}`)}
-            className={`progress-dot w-3 h-3 rounded-full transition-all duration-300 ${
-              slideNumber === index + 1 ? 'bg-accent scale-125' : 'bg-gray-300'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Slide Number */}
       <div className="absolute top-4 right-6 text-gray-400 text-sm">
         {slideNumber} / {totalSlides}
