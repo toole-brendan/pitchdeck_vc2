@@ -60,9 +60,10 @@ export const modernTypography = {
 export const ModernBadge: React.FC<{
   children: React.ReactNode;
   color?: string;
-}> = ({ children, color = modernColors.accent }) => (
+  small?: boolean;
+}> = ({ children, color = modernColors.accent, small = false }) => (
   <span 
-    className={`${modernTypography.badge} text-white backdrop-blur-sm`}
+    className={`${modernTypography.badge} text-white backdrop-blur-sm ${small ? 'py-0.5 px-2 text-[10px]' : ''}`}
     style={{ backgroundColor: color }}
   >
     {children}
