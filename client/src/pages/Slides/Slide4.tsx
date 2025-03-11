@@ -6,7 +6,8 @@ import {
   ModernDivider,
   modernTypography,
   modernColors,
-  fadeInUpVariants
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { PieChart, BarChart4, TrendingUp } from 'lucide-react';
 
@@ -15,12 +16,15 @@ const Slide4: React.FC = () => {
 
   return (
     <SlideLayout title="Market Opportunity" slideNumber={4} totalSlides={TOTAL_SLIDES}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <motion.div
+          variants={itemFadeInUpVariant}
           custom={0}
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
           className="md:col-span-2"
         >
           <ModernCard className="p-8">
@@ -40,10 +44,8 @@ const Slide4: React.FC = () => {
         </motion.div>
 
         <motion.div
+          variants={itemFadeInUpVariant}
           custom={1}
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
         >
           <ModernCard className="h-full p-8">
             <div className="flex items-center gap-4 mb-5">
@@ -65,10 +67,8 @@ const Slide4: React.FC = () => {
         </motion.div>
 
         <motion.div
+          variants={itemFadeInUpVariant}
           custom={2}
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
         >
           <ModernCard className="h-full p-8">
             <div className="flex items-center gap-4 mb-5">
@@ -85,7 +85,7 @@ const Slide4: React.FC = () => {
             </div>
           </ModernCard>
         </motion.div>
-      </div>
+      </motion.div>
     </SlideLayout>
   );
 };

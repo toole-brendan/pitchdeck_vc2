@@ -90,8 +90,49 @@ export const ModernIconWrapper: React.FC<{
 );
 
 // Animation utilities for ultra-modern feel
+// Using static variants rather than function-based ones for better Fast Refresh compatibility
 export const fadeInUpVariants = {
   hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.5, 
+      ease: "easeOut",
+      staggerChildren: 0.1 
+    } 
+  }
+};
+
+export const fadeInVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1, 
+    transition: { 
+      duration: 0.5, 
+      ease: "easeInOut",
+      staggerChildren: 0.1
+    } 
+  }
+};
+
+// Subtle scale effect for a more refined interaction
+export const scaleUpVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    transition: { 
+      duration: 0.6, 
+      ease: [0.165, 0.84, 0.44, 1], // cubic-bezier for smooth, refined motion
+      staggerChildren: 0.1
+    } 
+  }
+};
+
+// Child variants for staggered animations
+export const itemFadeInUpVariant = {
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -99,32 +140,6 @@ export const fadeInUpVariants = {
       delay: i * 0.1,
       duration: 0.5,
       ease: "easeOut"
-    }
-  })
-};
-
-export const fadeInVariants = {
-  hidden: { opacity: 0 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeInOut"
-    }
-  })
-};
-
-// Subtle scale effect for a more refined interaction
-export const scaleUpVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.6,
-      ease: [0.165, 0.84, 0.44, 1] // cubic-bezier for smooth, refined motion
     }
   })
 };

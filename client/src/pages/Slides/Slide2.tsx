@@ -6,7 +6,8 @@ import {
   ModernBadge, 
   modernTypography, 
   modernColors,
-  fadeInUpVariants 
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 
 const Slide2: React.FC = () => {
@@ -14,13 +15,13 @@ const Slide2: React.FC = () => {
 
   return (
     <SlideLayout title="Problem Statement" slideNumber={2} totalSlides={TOTAL_SLIDES}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <motion.div
-          custom={0}
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-        >
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemFadeInUpVariant} custom={0}>
           <ModernCard className="h-full p-8">
             <ModernBadge>Pain Point 1</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
@@ -32,12 +33,7 @@ const Slide2: React.FC = () => {
           </ModernCard>
         </motion.div>
 
-        <motion.div
-          custom={1}
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <motion.div variants={itemFadeInUpVariant} custom={1}>
           <ModernCard className="h-full p-8">
             <ModernBadge>Pain Point 2</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
@@ -49,11 +45,9 @@ const Slide2: React.FC = () => {
           </ModernCard>
         </motion.div>
 
-        <motion.div
+        <motion.div 
+          variants={itemFadeInUpVariant} 
           custom={2}
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
           className="md:col-span-2"
         >
           <div className="bg-slate-50/80 backdrop-blur-sm p-8 rounded-sm border border-slate-100 shadow-sm">
@@ -65,7 +59,7 @@ const Slide2: React.FC = () => {
             </p>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </SlideLayout>
   );
 };
