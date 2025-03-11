@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import { modernTypography } from '@/components/PitchDeck/ModernSlideStyles';
 
 const PresentationHome: React.FC = () => {
   const [, navigate] = useLocation();

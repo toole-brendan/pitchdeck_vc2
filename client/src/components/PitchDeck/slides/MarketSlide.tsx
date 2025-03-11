@@ -3,12 +3,7 @@ import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import Slide from '../Slide';
 import { SlideProps } from '../PitchDeck';
-import { 
-  ModernSectionHeader, 
-  ModernDivider, 
-  fadeInUpVariants,
-  modernTypography 
-} from '../ModernSlideStyles';
+import { ModernSectionHeader, ModernDivider, fadeInUpVariants } from '../ModernSlideStyles';
 
 const MarketSlide: React.FC<SlideProps> = ({ isActive, index }) => {
   const [chartData, setChartData] = useState([
@@ -66,7 +61,7 @@ const MarketSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className={modernTypography.title + " mb-10"}
+          className="text-4xl md:text-5xl font-extralight tracking-tight mb-10"
         >
           A Growing Market
         </motion.h2>
@@ -105,7 +100,7 @@ const MarketSlide: React.FC<SlideProps> = ({ isActive, index }) => {
             className="flex flex-col justify-between"
           >
             <div>
-              <h3 className={modernTypography.featureCardTitle + " mb-4"}>Key Market Indicators</h3>
+              <h3 className="text-xl font-light tracking-tight mb-4">Key Market Indicators</h3>
               <div className="space-y-6">
                 {indicators.map((indicator, i) => (
                   <div key={i}>

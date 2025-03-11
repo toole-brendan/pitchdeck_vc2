@@ -15,45 +15,14 @@ export const modernColors = {
 
 // Typography styles for modern minimalist look
 export const modernTypography = {
-  // Slide-level typography - Updated styles
-  title: 'text-5xl font-light text-gray-900',  // Main slide title
-  titleDark: 'text-5xl font-light text-white', // Main slide title (dark mode)
-  subtitle: 'text-xl font-light text-gray-500', // Slide subtitle
-  subtitleDark: 'text-xl font-light text-gray-300', // Slide subtitle (dark mode)
-  
-  // Hero slide typography 
-  heroTitle: 'text-5xl md:text-7xl font-extralight tracking-tight mb-6 text-gray-900', // Hero slide title
-  heroSubtitle: 'text-lg md:text-xl font-light tracking-normal text-gray-500 max-w-2xl mx-auto mb-6', // Hero slide subtitle
-  heroTitleDark: 'text-5xl md:text-7xl font-extralight tracking-tight mb-6 text-white', // Hero slide title (dark)
-  heroSubtitleDark: 'text-lg md:text-xl font-light tracking-normal text-gray-300 max-w-2xl mx-auto mb-6', // Hero slide subtitle (dark)
-  
-  // Section layout typography
-  sectionLayoutTitle: 'text-4xl md:text-6xl font-bold mb-8 text-gray-900', // Section layout title
-  sectionLayoutBody: 'text-xl md:text-2xl', // Section layout body text
-  
-  // Component-level typography
+  title: 'text-4xl md:text-6xl font-extralight tracking-tight',
+  subtitle: 'text-lg md:text-xl font-light tracking-normal text-gray-500',
   sectionTitle: 'text-xs uppercase tracking-widest text-gray-400 font-medium',
   heading: 'text-xl font-light tracking-tight',
   body: 'text-sm md:text-base font-light text-gray-600',
   small: 'text-xs font-light text-gray-500',
   stats: 'text-3xl font-light',
   badge: 'text-xs tracking-wider uppercase py-1 px-3',
-  
-  // Card and Feature typography
-  featureCardTitle: 'text-xl font-semibold mb-3', // Card titles
-  featureCardDescription: 'text-gray-600', // Card content
-  
-  // Timeline typography
-  timelineItemTitle: 'text-xl font-semibold', // Timeline item titles
-  timelineDate: 'text-sm text-gray-500', // Timeline dates
-  
-  // Stats typography
-  statLabel: 'text-xl text-gray-500', // Stat labels
-  
-  // List and section styling
-  sectionLabel: 'text-xs font-medium tracking-widest text-gray-400 uppercase',
-  listItemText: 'text-gray-600',
-  listItemMarker: 'text-gray-300 text-sm',
 };
 
 // Layout components with modern styling
@@ -72,25 +41,16 @@ export const ModernBadge: React.FC<{
 export const ModernCard: React.FC<{
   children: React.ReactNode;
   className?: string;
-  title?: string;
-  description?: string;
-}> = ({ children, className = '', title, description }) => (
+}> = ({ children, className = '' }) => (
   <div className={`bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-6 ${className}`}>
-    {title && <h3 className={modernTypography.featureCardTitle}>{title}</h3>}
-    {description && <p className={modernTypography.featureCardDescription}>{description}</p>}
     {children}
   </div>
 );
 
 export const ModernDivider: React.FC<{
   className?: string;
-  width?: string;
-  centered?: boolean;
-}> = ({ className = '', width = '100%', centered = false }) => (
-  <div 
-    className={`h-px bg-gray-100 my-6 ${centered ? 'mx-auto' : ''} ${className}`}
-    style={{ width }}
-  ></div>
+}> = ({ className = '' }) => (
+  <div className={`h-px w-full bg-gray-100 my-6 ${className}`}></div>
 );
 
 export const ModernIconWrapper: React.FC<{
@@ -140,91 +100,6 @@ export const ModernSectionHeader: React.FC<{
   
   return (
     <div className={`${dark ? darkStyle : lightStyle} ${className}`}>
-      {children}
-    </div>
-  );
-};
-
-// Section Label component for consistent section labeling
-export const ModernSectionLabel: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-}> = ({ children, className = '' }) => {
-  return (
-    <div className={`${modernTypography.sectionLabel} ${className}`}>
-      {children}
-    </div>
-  );
-};
-
-// List Item component with proper styling
-export const ModernListItem: React.FC<{
-  children: React.ReactNode;
-  marker?: React.ReactNode;
-  className?: string;
-}> = ({ children, marker = '•', className = '' }) => {
-  return (
-    <div className={`flex items-start mb-2 ${className}`}>
-      {typeof marker === 'string' 
-        ? <span className={modernTypography.listItemMarker}>{marker}</span>
-        : marker
-      }
-      <span className={`${modernTypography.listItemText} ml-2`}>{children}</span>
-    </div>
-  );
-};
-
-// Timeline Item component with proper styling
-export const ModernTimelineItem: React.FC<{
-  title: string;
-  date: string;
-  children: React.ReactNode;
-  className?: string;
-}> = ({ title, date, children, className = '' }) => {
-  return (
-    <div className={`mb-6 ${className}`}>
-      <h3 className={modernTypography.timelineItemTitle}>{title}</h3>
-      <div className={modernTypography.timelineDate}>{date}</div>
-      <div className="mt-2">{children}</div>
-    </div>
-  );
-};
-
-// Stat Item component with proper styling
-export const ModernStatItem: React.FC<{
-  value: string | number;
-  label: string;
-  className?: string;
-}> = ({ value, label, className = '' }) => {
-  return (
-    <div className={`text-center ${className}`}>
-      <div className="text-3xl font-semibold">{value}</div>
-      <div className={modernTypography.statLabel}>{label}</div>
-    </div>
-  );
-};
-
-// Section Title component with proper styling
-export const ModernSectionLayoutTitle: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-  dark?: boolean;
-}> = ({ children, className = '', dark = false }) => {
-  return (
-    <h2 className={`${dark ? modernTypography.titleDark : modernTypography.title} ${className}`}>
-      {children}
-    </h2>
-  );
-};
-
-// Section Body Text component with proper styling
-export const ModernSectionLayoutBody: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-  dark?: boolean;
-}> = ({ children, className = '', dark = false }) => {
-  return (
-    <div className={`${modernTypography.sectionLayoutBody} ${dark ? 'text-gray-300' : 'text-gray-600'} ${className}`}>
       {children}
     </div>
   );
