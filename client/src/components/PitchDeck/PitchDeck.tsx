@@ -102,12 +102,12 @@ const PitchDeck = () => {
       </div>
 
       {/* Progress Indicator */}
-      <div className="fixed z-50 bottom-8 left-1/2 -translate-x-1/2 flex gap-3 bg-white/80 px-4 py-2 rounded-full shadow-md border border-gray-100">
+      <div className="fixed z-50 bottom-8 left-1/2 -translate-x-1/2 flex gap-3 bg-white/80 px-4 py-2 shadow-md border border-gray-100">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}
             onClick={() => handleProgressDotClick(index)}
-            className={`progress-dot w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`progress-dot w-3 h-3 transition-all duration-300 ${
               currentSlide === index ? 'bg-accent scale-125' : 'bg-gray-300'
             }`}
             aria-label={`Go to slide ${index + 1}`}
