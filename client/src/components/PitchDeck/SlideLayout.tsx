@@ -1,8 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { modernTypography, modernColors, scaleUpVariants } from './ModernSlideStyles';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideLayoutProps {
   title: string;
@@ -18,6 +19,10 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   children 
 }) => {
   const [, navigate] = useLocation();
+  const isMobile = useIsMobile();
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+  const [contentHeight, setContentHeight] = useState(0);
 
   const goToNextSlide = () => {
     if (slideNumber < totalSlides) {
@@ -43,9 +48,49 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     }
   };
 
+  // Calculate scale for desktop only
+  useEffect(() => {
+    if (isMobile) {
+      setScale(1); // No scaling on mobile
+      return;
+    }
+
+    const updateScale = () => {
+      if (!contentRef.current) return;
+      
+      // Get the content's natural height
+      const contentEl = contentRef.current;
+      const titleHeight = 100; // Estimated fixed height for title area
+      const padding = 72; // Top and bottom padding (36px each)
+      
+      // Get the current content height
+      const contentHeight = contentEl.scrollHeight;
+      setContentHeight(contentHeight);
+      
+      // Calculate available viewport height
+      const viewportHeight = window.innerHeight;
+      const availableHeight = viewportHeight - titleHeight - padding;
+      
+      // Calculate scale factor
+      if (contentHeight > availableHeight) {
+        setScale(availableHeight / contentHeight);
+      } else {
+        setScale(1);
+      }
+    };
+
+    // Update scale on mount and window resize
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    
+    return () => {
+      window.removeEventListener('resize', updateScale);
+    };
+  }, [isMobile, children]);
+
   return (
     <div 
-      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-6 relative"
+      className="slide-layout min-h-screen w-full bg-white flex flex-col p-6 relative"
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
@@ -72,20 +117,30 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         {slideNumber} / {totalSlides}
       </div>
 
-      {/* Content Container */}
-      <motion.div 
-        className="slide-content w-full max-w-5xl mx-auto"
-        variants={scaleUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
+      {/* Title Container - Fixed position and size */}
+      <div className="slide-title-container w-full max-w-5xl mx-auto mb-4">
+        <h2 className={`${modernTypography.slideTitle}`} style={{ color: modernColors.text }}>
           {title}
         </h2>
-        <div className="mt-10">
+      </div>
+
+      {/* Content Container - Resizable */}
+      <div className={`slide-content-wrapper flex-1 w-full max-w-5xl mx-auto ${isMobile ? 'overflow-auto' : 'overflow-hidden flex items-center'}`}>
+        <motion.div 
+          ref={contentRef}
+          className={`slide-content w-full ${isMobile ? '' : 'origin-top'}`}
+          style={{ 
+            transform: isMobile ? 'none' : `scale(${scale})`,
+            height: isMobile ? 'auto' : `${contentHeight}px`,
+            transformOrigin: 'top center'
+          }}
+          variants={scaleUpVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {children}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
