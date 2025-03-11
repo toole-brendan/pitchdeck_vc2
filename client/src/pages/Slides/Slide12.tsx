@@ -3,19 +3,83 @@ import SlideLayout from '@/components/PitchDeck/SlideLayout';
 import { motion } from 'framer-motion';
 import { 
   ModernCard, 
-  ModernIconWrapper, 
+  ModernBadge,
   modernTypography, 
   modernColors,
   fadeInUpVariants,
   itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
-import { Target, Lightbulb, Monitor } from 'lucide-react';
+import { 
+  Server, 
+  Code, 
+  Settings, 
+  Clock, 
+  PiggyBank, 
+  TrendingDown, 
+  User,
+  Cloud,
+  Target,
+  DollarSign
+} from 'lucide-react';
 
 const Slide12: React.FC = () => {
   const TOTAL_SLIDES = 18;
 
+  // Monthly operating costs data
+  const operatingCosts = [
+    { 
+      name: 'Infrastructure', 
+      range: '$1,200-1,800/mo', 
+      icon: Server,
+      color: modernColors.accent
+    },
+    { 
+      name: 'Development', 
+      range: '$9,000-12,000/mo', 
+      icon: Code,
+      color: modernColors.success 
+    },
+    { 
+      name: 'Operations', 
+      range: '$4,800-7,700/mo', 
+      icon: Settings,
+      color: modernColors.danger
+    }
+  ];
+
+  // Burn rate scenarios
+  const burnRateScenarios = [
+    { name: 'Best Case', value: '15 months', percentage: 100 },
+    { name: 'Expected Case', value: '12 months', percentage: 80 },
+    { name: 'Conservative Case', value: '10 months', percentage: 67 }
+  ];
+
+  // Capital efficiency points
+  const capitalEfficiency = [
+    {
+      title: 'Technical founder leading development',
+      description: '55% of budget to product',
+      icon: User
+    },
+    {
+      title: 'Scalable cloud infrastructure',
+      description: 'Costs that grow with usage',
+      icon: Cloud
+    },
+    {
+      title: 'Targeted customer acquisition',
+      description: 'From military and finance networks',
+      icon: Target
+    },
+    {
+      title: 'Founder investment',
+      description: 'Time and capital in initial development',
+      icon: PiggyBank
+    }
+  ];
+
   return (
-    <SlideLayout title="Marketing Strategy" slideNumber={12} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout title="Operational Costs" slideNumber={12} totalSlides={TOTAL_SLIDES}>
       <motion.div
         variants={fadeInUpVariants}
         initial="hidden"
@@ -28,28 +92,39 @@ const Slide12: React.FC = () => {
           className="mb-2 text-center max-w-2xl mx-auto"
         >
           <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
-            Go-to-Market Strategy
+            Blockchain infrastructure and development expenses with 12-month runway
           </h2>
-          <p className={modernTypography.body}>
-            Placeholder text outlining our comprehensive marketing and customer acquisition approach.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
           <motion.div
             variants={itemFadeInUpVariant}
             custom={1}
           >
-            <ModernCard className="h-full p-8 flex flex-col items-center text-center">
-              <ModernIconWrapper size="large">
-                <Target className="h-7 w-7" />
-              </ModernIconWrapper>
-              <h3 className={`${modernTypography.heading} mt-5 mb-3`} style={{ color: modernColors.text }}>
-                Target Audience
-              </h3>
-              <p className={modernTypography.body}>
-                Placeholder description of our primary and secondary target audiences.
-              </p>
+            <ModernCard className="h-full p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <DollarSign className="h-7 w-7 text-accent" />
+                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                  Monthly Operating Costs
+                </h3>
+              </div>
+
+              <div className="space-y-4">
+                {operatingCosts.map((cost, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${cost.color}15` }}>
+                        <cost.icon className="h-5 w-5" style={{ color: cost.color }} />
+                      </div>
+                      <span className={modernTypography.label}>{cost.name}</span>
+                    </div>
+                    <span className={`${modernTypography.heading} text-accent`}>{cost.range}</span>
+                  </div>
+                ))}
+              </div>
             </ModernCard>
           </motion.div>
 
@@ -57,102 +132,73 @@ const Slide12: React.FC = () => {
             variants={itemFadeInUpVariant}
             custom={2}
           >
-            <ModernCard className="h-full p-8 flex flex-col items-center text-center">
-              <ModernIconWrapper size="large">
-                <Lightbulb className="h-7 w-7" />
-              </ModernIconWrapper>
-              <h3 className={`${modernTypography.heading} mt-5 mb-3`} style={{ color: modernColors.text }}>
-                Positioning
-              </h3>
-              <p className={modernTypography.body}>
-                Placeholder description of our brand positioning and value proposition.
-              </p>
-            </ModernCard>
-          </motion.div>
+            <ModernCard className="h-full p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <Clock className="h-7 w-7 text-accent" />
+                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                  Burn Rate & Runway
+                </h3>
+              </div>
 
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={3}
-          >
-            <ModernCard className="h-full p-8 flex flex-col items-center text-center">
-              <ModernIconWrapper size="large">
-                <Monitor className="h-7 w-7" />
-              </ModernIconWrapper>
-              <h3 className={`${modernTypography.heading} mt-5 mb-3`} style={{ color: modernColors.text }}>
-                Channels
-              </h3>
-              <p className={modernTypography.body}>
-                Placeholder description of our marketing and distribution channels.
-              </p>
+              <div className="mb-4 bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
+                <div className="flex justify-between items-center mb-2">
+                  <span className={modernTypography.label}>Total Monthly Burn</span>
+                  <span className={`${modernTypography.heading} text-accent`}>$15,000-21,500</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className={modernTypography.label}>Seed Funding</span>
+                  <span className={`${modernTypography.heading} text-accent`}>$750,000</span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                {burnRateScenarios.map((scenario, index) => (
+                  <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className={modernTypography.label}>{scenario.name}</span>
+                      <span className={`${modernTypography.heading} text-accent`}>{scenario.value}</span>
+                    </div>
+                    <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full rounded-full bg-accent"
+                        style={{ width: `${scenario.percentage}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </ModernCard>
           </motion.div>
         </div>
 
         <motion.div
           variants={itemFadeInUpVariant}
-          custom={4}
+          custom={3}
         >
           <ModernCard className="p-8">
-            <h3 className={modernTypography.heading} style={{ color: modernColors.text, marginBottom: '1rem' }}>
-              Customer Acquisition Strategy
-            </h3>
+            <div className="flex items-center gap-4 mb-6">
+              <TrendingDown className="h-7 w-7 text-accent" />
+              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                Capital Efficiency
+              </h3>
+            </div>
             
-            <div className="space-y-5">
-              <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                  <span className="text-accent font-semibold">1</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {capitalEfficiency.map((item, index) => (
+                <div key={index} className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
+                  <div className="w-8 h-8 bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm rounded-md">
+                    <item.icon className="h-4 w-4 text-accent" />
+                  </div>
+                  <div>
+                    <h4 className={modernTypography.label} style={{ marginBottom: '0.25rem' }}>
+                      {item.title}
+                    </h4>
+                    <p className={`${modernTypography.small} text-slate-500`}>
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className={modernTypography.subheading} style={{ marginBottom: '0.5rem' }}>
-                    Awareness
-                  </h4>
-                  <p className={modernTypography.body}>
-                    Content marketing, SEO, social media presence, and industry partnerships.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                  <span className="text-accent font-semibold">2</span>
-                </div>
-                <div>
-                  <h4 className={modernTypography.subheading} style={{ marginBottom: '0.5rem' }}>
-                    Consideration
-                  </h4>
-                  <p className={modernTypography.body}>
-                    Case studies, webinars, free trials, and product demonstrations.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                  <span className="text-accent font-semibold">3</span>
-                </div>
-                <div>
-                  <h4 className={modernTypography.subheading} style={{ marginBottom: '0.5rem' }}>
-                    Conversion
-                  </h4>
-                  <p className={modernTypography.body}>
-                    Targeted campaigns, personalized outreach, and special offers.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                <div className="w-8 h-8  bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                  <span className="text-accent font-semibold">4</span>
-                </div>
-                <div>
-                  <h4 className={modernTypography.subheading} style={{ marginBottom: '0.5rem' }}>
-                    Retention & Growth
-                  </h4>
-                  <p className={modernTypography.body}>
-                    Customer success program, regular updates, and loyalty incentives.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </ModernCard>
         </motion.div>
