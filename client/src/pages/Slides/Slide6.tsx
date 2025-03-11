@@ -108,7 +108,7 @@ const Slide6: React.FC = () => {
             <div className="flex items-center gap-4 mb-5">
               <TrendingUp className="h-7 w-7 text-accent" />
               <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                Solution Banner
+                Solution
               </h3>
             </div>
             <p className={`${modernTypography.body} font-medium mb-2`} style={{ color: modernColors.accent }}>
