@@ -1,9 +1,8 @@
-import React, { ReactNode, useState, useEffect, useRef } from 'react';
+import React, { ReactNode } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { modernTypography, modernColors, scaleUpVariants } from './ModernSlideStyles';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface SlideLayoutProps {
   title: string;
@@ -19,20 +18,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   children 
 }) => {
   const [, navigate] = useLocation();
-  const isMobile = useIsMobile();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-  
-  // For debugging
-  const [debugInfo, setDebugInfo] = useState({
-    contentHeight: 0,
-    availableHeight: 0,
-    scale: 1
-  });
 
-  // Navigation functions
   const goToNextSlide = () => {
     if (slideNumber < totalSlides) {
       navigate(`/slide/${slideNumber + 1}`);
@@ -57,83 +43,9 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     }
   };
 
-  // Calculate scaling and adjust content
-  useEffect(() => {
-    // Don't scale on mobile
-    if (isMobile) {
-      setScale(1);
-      return;
-    }
-
-    // Function to calculate and set scale
-    const calculateScale = () => {
-      if (!contentRef.current || !titleRef.current || !containerRef.current) return;
-      
-      // Reset transform to get accurate measurements
-      contentRef.current.style.transform = 'none';
-      
-      // Get measurements
-      const containerHeight = containerRef.current.clientHeight;
-      const titleHeight = titleRef.current.clientHeight;
-      const contentHeight = contentRef.current.scrollHeight;
-      
-      // Calculate available space (minus navigation buttons space and padding)
-      const navigationSpace = 40; // Space to reserve for navigation elements
-      const padding = 50; // Extra padding for aesthetics
-      const availableHeight = containerHeight - titleHeight - navigationSpace - padding;
-      
-      // Calculate the scale needed to fit content in available space
-      let newScale = 1;
-      
-      if (contentHeight > 0 && availableHeight > 0 && contentHeight > availableHeight) {
-        newScale = availableHeight / contentHeight;
-        // Limit scaling to avoid too small content
-        newScale = Math.max(newScale, 0.6);
-      }
-      
-      // Update debugging information
-      setDebugInfo({
-        contentHeight,
-        availableHeight,
-        scale: newScale
-      });
-      
-      // Set the scale
-      setScale(newScale);
-    };
-
-    // Calculate scale initially
-    calculateScale();
-    
-    // Recalculate on window resize
-    const handleResize = () => {
-      calculateScale();
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    // Forced recalculation after 100ms to ensure content is fully rendered
-    const timer = setTimeout(() => {
-      calculateScale();
-    }, 100);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(timer);
-    };
-  }, [isMobile, children]);
-
   return (
     <div 
-      ref={containerRef}
-      className="slide-layout w-full bg-white relative"
-      style={{
-        height: isMobile ? 'auto' : '100vh',
-        overflow: isMobile ? 'auto' : 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '24px'
-      }}
+      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-6 relative"
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
@@ -160,45 +72,20 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         {slideNumber} / {totalSlides}
       </div>
 
-      {/* Fixed Header Area */}
-      <div 
-        ref={titleRef} 
-        className="slide-title w-full max-w-5xl mx-auto mb-4"
+      {/* Content Container */}
+      <motion.div 
+        className="slide-content w-full max-w-5xl mx-auto"
+        variants={scaleUpVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <h2 className={`${modernTypography.slideTitle}`} style={{ color: modernColors.text }}>
+        <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
           {title}
         </h2>
-      </div>
-
-      {/* Scrollable Content Area */}
-      <div 
-        className={`slide-content-container flex-1 w-full max-w-5xl mx-auto pb-4 ${
-          isMobile ? 'overflow-visible' : 'overflow-auto'
-        }`}
-      >
-        <motion.div 
-          ref={contentRef}
-          className={`slide-content w-full`}
-          style={{ 
-            transformOrigin: 'top center',
-            transform: isMobile ? 'none' : `scale(${scale})`,
-            height: isMobile ? 'auto' : 'auto',
-            marginBottom: isMobile ? '0' : `${(1 - scale) * 100}%` // Add space at bottom to prevent truncation
-          }}
-          variants={scaleUpVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="mt-10">
           {children}
-        </motion.div>
-      </div>
-      
-      {/* Debug Info - Uncomment to troubleshoot scaling issues */}
-      {/*
-      <div className="fixed bottom-2 left-2 text-xs bg-white/80 p-1 z-50 text-black">
-        Content: {debugInfo.contentHeight}px | Available: {debugInfo.availableHeight}px | Scale: {debugInfo.scale.toFixed(2)}
-      </div>
-      */}
+        </div>
+      </motion.div>
     </div>
   );
 };
