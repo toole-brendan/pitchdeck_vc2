@@ -14,11 +14,6 @@ import {
   Code, 
   Settings, 
   Clock, 
-  PiggyBank, 
-  TrendingDown, 
-  User,
-  Cloud,
-  Target,
   DollarSign
 } from 'lucide-react';
 
@@ -52,34 +47,6 @@ const Slide12: React.FC = () => {
     { name: 'Best Case', value: '15 months', percentage: 100 },
     { name: 'Expected Case', value: '12 months', percentage: 80 },
     { name: 'Conservative Case', value: '10 months', percentage: 67 }
-  ];
-
-  // Capital efficiency points
-  const capitalEfficiency = [
-    {
-      title: 'Technical founder leading development',
-      description: '55% of budget to product',
-      icon: User,
-      color: modernColors.military
-    },
-    {
-      title: 'Scalable cloud infrastructure',
-      description: 'Costs that grow with usage',
-      icon: Cloud,
-      color: modernColors.commercial
-    },
-    {
-      title: 'Targeted customer acquisition',
-      description: 'From military and finance networks',
-      icon: Target,
-      color: modernColors.military
-    },
-    {
-      title: 'Founder investment',
-      description: 'Time and capital in initial development',
-      icon: PiggyBank,
-      color: modernColors.commercial
-    }
   ];
 
   return (
@@ -179,41 +146,6 @@ const Slide12: React.FC = () => {
             </ModernCard>
           </motion.div>
         </div>
-
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={3}
-        >
-          <ModernCard className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <TrendingDown className="h-7 w-7" style={{ color: modernColors.military }} />
-              <h3 className={modernTypography.heading}>
-                Capital Efficiency
-              </h3>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {capitalEfficiency.map((item, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
-                  <div 
-                    className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm rounded-md"
-                    style={{ backgroundColor: `${item.color}20` }}
-                  >
-                    <item.icon className="h-4 w-4" style={{ color: item.color }} />
-                  </div>
-                  <div>
-                    <h4 className={modernTypography.label} style={{ marginBottom: '0.25rem', color: item.color }}>
-                      {item.title}
-                    </h4>
-                    <p className={`${modernTypography.small}`}>
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ModernCard>
-        </motion.div>
       </motion.div>
     </SlideLayout>
   );
