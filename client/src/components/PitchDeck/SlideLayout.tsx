@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect, useRef } from 'react';
+import React, { ReactNode, useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -20,9 +20,12 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 }) => {
   const [, navigate] = useLocation();
   const isMobile = useIsMobile();
+  const slideRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [contentHeight, setContentHeight] = useState(0);
+  const [fullHeight, setFullHeight] = useState(0);
 
   const goToNextSlide = () => {
     if (slideNumber < totalSlides) {
@@ -48,32 +51,41 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     }
   };
 
-  // Calculate scale for desktop only
+  // Force a re-render after initial mount to get accurate measurements
+  const [, forceUpdate] = useState({});
   useEffect(() => {
+    setTimeout(() => forceUpdate({}), 50);
+  }, []);
+
+  // Calculate scale for desktop only using Layout Effect to prevent flickering
+  useLayoutEffect(() => {
     if (isMobile) {
       setScale(1); // No scaling on mobile
       return;
     }
 
     const updateScale = () => {
-      if (!contentRef.current) return;
+      if (!contentRef.current || !titleRef.current || !slideRef.current) return;
       
-      // Get the content's natural height
-      const contentEl = contentRef.current;
-      const titleHeight = 100; // Estimated fixed height for title area
-      const padding = 72; // Top and bottom padding (36px each)
+      // Get measurements
+      const titleHeight = titleRef.current.offsetHeight;
+      const navPadding = 48; // Space for navigation (24px top and bottom)
+      const slidePadding = 48; // Slide padding (24px top and bottom)
       
-      // Get the current content height
-      const contentHeight = contentEl.scrollHeight;
-      setContentHeight(contentHeight);
-      
-      // Calculate available viewport height
+      // Calculate available height and content height
       const viewportHeight = window.innerHeight;
-      const availableHeight = viewportHeight - titleHeight - padding;
+      const availableHeight = viewportHeight - titleHeight - navPadding - slidePadding;
       
-      // Calculate scale factor
-      if (contentHeight > availableHeight) {
-        setScale(availableHeight / contentHeight);
+      // Get natural content height (without scaling)
+      contentRef.current.style.transform = 'scale(1)';
+      const naturalContentHeight = contentRef.current.scrollHeight;
+      setContentHeight(naturalContentHeight);
+      setFullHeight(viewportHeight);
+      
+      // Calculate scale factor (if content is taller than available space)
+      if (naturalContentHeight > availableHeight && availableHeight > 0) {
+        const newScale = Math.max(0.5, availableHeight / naturalContentHeight);
+        setScale(newScale);
       } else {
         setScale(1);
       }
@@ -90,7 +102,13 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 
   return (
     <div 
-      className="slide-layout min-h-screen w-full bg-white flex flex-col p-6 relative"
+      ref={slideRef}
+      className="slide-layout w-full bg-white flex flex-col p-6 relative"
+      style={{ 
+        height: isMobile ? 'auto' : '100vh',
+        minHeight: isMobile ? '100vh' : 'auto',
+        overflowY: isMobile ? 'auto' : 'hidden'
+      }}
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
@@ -118,21 +136,28 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       </div>
 
       {/* Title Container - Fixed position and size */}
-      <div className="slide-title-container w-full max-w-5xl mx-auto mb-4">
+      <div 
+        ref={titleRef}
+        className="slide-title-container w-full max-w-5xl mx-auto mb-8"
+      >
         <h2 className={`${modernTypography.slideTitle}`} style={{ color: modernColors.text }}>
           {title}
         </h2>
       </div>
 
       {/* Content Container - Resizable */}
-      <div className={`slide-content-wrapper flex-1 w-full max-w-5xl mx-auto ${isMobile ? 'overflow-auto' : 'overflow-hidden flex items-center'}`}>
+      <div 
+        className={`slide-content-wrapper flex-1 w-full max-w-5xl mx-auto ${
+          isMobile ? 'overflow-visible' : 'overflow-hidden'
+        }`}
+      >
         <motion.div 
           ref={contentRef}
-          className={`slide-content w-full ${isMobile ? '' : 'origin-top'}`}
+          className="slide-content w-full"
           style={{ 
             transform: isMobile ? 'none' : `scale(${scale})`,
-            height: isMobile ? 'auto' : `${contentHeight}px`,
-            transformOrigin: 'top center'
+            transformOrigin: 'top center',
+            willChange: 'transform',
           }}
           variants={scaleUpVariants}
           initial="hidden"
@@ -141,6 +166,11 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
           {children}
         </motion.div>
       </div>
+      
+      {/* Debug info (can be removed in production) */}
+      {/* <div className="fixed bottom-2 left-2 text-xs text-gray-400 bg-white/80 p-1">
+        Scale: {scale.toFixed(2)} | Content: {contentHeight}px | Available: {fullHeight}px
+      </div> */}
     </div>
   );
 };
