@@ -84,8 +84,13 @@ export const ModernCard: React.FC<{
 
 export const ModernDivider: React.FC<{
   className?: string;
-}> = ({ className = '' }) => (
-  <div className={`h-px w-full bg-gray-100 my-6 ${className}`}></div>
+  width?: string;
+  centered?: boolean;
+}> = ({ className = '', width = '100%', centered = false }) => (
+  <div 
+    className={`h-px bg-gray-100 my-6 ${centered ? 'mx-auto' : ''} ${className}`}
+    style={{ width }}
+  ></div>
 );
 
 export const ModernIconWrapper: React.FC<{
