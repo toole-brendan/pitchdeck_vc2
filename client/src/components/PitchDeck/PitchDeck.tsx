@@ -79,17 +79,35 @@ const PitchDeck = () => {
 
   return (
     <div 
-      className="slide-presentation relative bg-white text-gray-900 w-full h-full"
+      className="slide-presentation relative bg-white text-gray-900"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
+      {/* Navigation Controls - Show on all devices */}
+      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8 pointer-events-none">
+        <button 
+          onClick={() => goToSlide(currentSlide - 1)}
+          className="w-12 h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
+          aria-label="Previous slide"
+        >
+          <ChevronLeftIcon className="h-6 w-6" />
+        </button>
+        <button 
+          onClick={() => goToSlide(currentSlide + 1)}
+          className="w-12 h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
+          aria-label="Next slide"
+        >
+          <ChevronRightIcon className="h-6 w-6" />
+        </button>
+      </div>
+
       {/* Progress Indicator */}
-      <div className="fixed z-50 bottom-8 left-1/2 -translate-x-1/2 flex gap-3 bg-white/90 px-4 py-2 shadow-md border border-gray-100 rounded-full">
+      <div className="fixed z-50 bottom-8 left-1/2 -translate-x-1/2 flex gap-3 bg-white/80 px-4 py-2 shadow-md border border-gray-100">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}
             onClick={() => handleProgressDotClick(index)}
-            className={`progress-dot w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`progress-dot w-3 h-3 transition-all duration-300 ${
               currentSlide === index ? 'bg-accent scale-125' : 'bg-gray-300'
             }`}
             aria-label={`Go to slide ${index + 1}`}
@@ -98,32 +116,13 @@ const PitchDeck = () => {
       </div>
 
       {/* Slides Container */}
-      <div className={`slide-container relative ${
-        isDesktop 
-          ? 'h-screen overflow-hidden' 
-          : 'min-h-screen'
-      }`}>
-        {/* On desktop, only the active slide is visible */}
-        {/* On mobile, all slides are stacked for scrolling */}
-        {isDesktop ? (
-          <>
-            <TitleSlide isActive={currentSlide === 0} index={0} />
-            <ProblemSlide isActive={currentSlide === 1} index={1} />
-            <SolutionSlide isActive={currentSlide === 2} index={2} />
-            <MarketSlide isActive={currentSlide === 3} index={3} />
-            <BusinessModelSlide isActive={currentSlide === 4} index={4} />
-            <CallToActionSlide isActive={currentSlide === 5} index={5} />
-          </>
-        ) : (
-          <>
-            <TitleSlide isActive={true} index={0} />
-            <ProblemSlide isActive={true} index={1} />
-            <SolutionSlide isActive={true} index={2} />
-            <MarketSlide isActive={true} index={3} />
-            <BusinessModelSlide isActive={true} index={4} />
-            <CallToActionSlide isActive={true} index={5} />
-          </>
-        )}
+      <div className={`slide-container ${isDesktop ? 'h-screen overflow-hidden' : ''}`}>
+        <TitleSlide isActive={isDesktop ? currentSlide === 0 : true} index={0} />
+        <ProblemSlide isActive={isDesktop ? currentSlide === 1 : true} index={1} />
+        <SolutionSlide isActive={isDesktop ? currentSlide === 2 : true} index={2} />
+        <MarketSlide isActive={isDesktop ? currentSlide === 3 : true} index={3} />
+        <BusinessModelSlide isActive={isDesktop ? currentSlide === 4 : true} index={4} />
+        <CallToActionSlide isActive={isDesktop ? currentSlide === 5 : true} index={5} />
       </div>
     </div>
   );
