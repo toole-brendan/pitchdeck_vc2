@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
 import Slide from '../Slide';
 import { SlideProps } from '../PitchDeck';
-import { ModernSectionHeader } from '../ModernSlideStyles';
-import { fadeInUpVariants } from '../ModernSlideStyles';
+import { 
+  ModernSectionHeader, 
+  fadeInUpVariants, 
+  modernTypography, 
+  ModernDivider, 
+  ModernBadge 
+} from '../ModernSlideStyles';
 
 const TitleSlide: React.FC<SlideProps> = ({ isActive, index }) => {
   return (
@@ -24,7 +29,7 @@ const TitleSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className="text-4xl md:text-6xl font-extralight tracking-tight mb-6"
+          className={modernTypography.heroTitle}
         >
           Revolutionizing <span className="text-accent">Our Industry</span>
         </motion.h1>
@@ -34,21 +39,31 @@ const TitleSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className="text-lg md:text-xl font-light tracking-normal text-gray-500 max-w-2xl mx-auto mb-12"
+          className={modernTypography.heroSubtitle}
         >
           A modern approach to solving today's biggest challenges
         </motion.p>
+
+        <motion.div
+          custom={2.5}
+          variants={fadeInUpVariants}
+          initial="hidden"
+          animate={isActive ? "visible" : "hidden"}
+          className="my-12"
+        >
+          <ModernDivider width="40%" centered />
+        </motion.div>
         
         <motion.div
           custom={3}
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className="mt-10"
+          className="mt-6"
         >
-          <div className="inline-block bg-accent text-white py-2 px-6 rounded-full font-light tracking-wide">
+          <ModernBadge>
             Company Name, Inc.
-          </div>
+          </ModernBadge>
         </motion.div>
       </div>
     </Slide>
