@@ -36,9 +36,9 @@ const Slide13: React.FC = () => {
       period: 'Q2 2025 - Q4 2025',
       description: 'Establish proven track record with defense clients',
       metrics: [
-        { label: '3-5 defense contracts', icon: Briefcase },
-        { label: '85% user satisfaction', icon: BadgePercent },
-        { label: '$1.2M in initial ARR', icon: DollarSign }
+        { label: '3-5 defense contracts', icon: Briefcase, color: modernColors.military },
+        { label: '85% user satisfaction', icon: BadgePercent, color: modernColors.military },
+        { label: '$1.2M in initial ARR', icon: DollarSign, color: modernColors.military }
       ],
       color: modernColors.military,
       icon: Flag
@@ -48,9 +48,9 @@ const Slide13: React.FC = () => {
       period: 'Q1 2026 - Q3 2026',
       description: 'Enter commercial supply chain market with validated solution',
       metrics: [
-        { label: '12-15 commercial clients', icon: Building },
-        { label: '500K monthly transactions', icon: Database },
-        { label: '$3.5M in Year 2 ARR', icon: DollarSign }
+        { label: '12-15 commercial clients', icon: Building, color: modernColors.commercial },
+        { label: '500K monthly transactions', icon: Database, color: modernColors.commercial },
+        { label: '$3.5M in Year 2 ARR', icon: DollarSign, color: modernColors.commercial }
       ],
       color: modernColors.commercial,
       icon: Building
@@ -60,37 +60,37 @@ const Slide13: React.FC = () => {
       period: 'Q4 2026 - Q2 2027',
       description: 'Open platform to developers and financial partners',
       metrics: [
-        { label: '30+ enterprise clients', icon: Users },
-        { label: '$12M in Year 3 ARR', icon: DollarSign },
-        { label: '15 integrated partners', icon: Database }
+        { label: '30+ enterprise clients', icon: Users, color: modernColors.military },
+        { label: '$12M in Year 3 ARR', icon: DollarSign, color: modernColors.commercial },
+        { label: '15 integrated partners', icon: Database, color: modernColors.military }
       ],
-      color: modernColors.accent,
+      color: modernColors.military,
       icon: Layout
     }
   ];
 
   // Timeline data
   const timeline = [
-    { quarter: 'Q2 2025', milestone: 'Launch HandReceipt with 2-3 defense customers' },
-    { quarter: 'Q3 2025', milestone: 'First commercial pilot deployment' },
-    { quarter: 'Q4 2025', milestone: 'Integrate financial institutions for supply chain financing' },
-    { quarter: 'Q1 2026', milestone: 'Open network to broader retail ecosystem' }
+    { quarter: 'Q2 2025', milestone: 'Launch HandReceipt with 2-3 defense customers', color: modernColors.military },
+    { quarter: 'Q3 2025', milestone: 'First commercial pilot deployment', color: modernColors.commercial },
+    { quarter: 'Q4 2025', milestone: 'Integrate financial institutions for supply chain financing', color: modernColors.commercial },
+    { quarter: 'Q1 2026', milestone: 'Open network to broader retail ecosystem', color: modernColors.military }
   ];
 
   // KPI data
   const kpis = [
-    { metric: 'Customer Acquisition', value: '15-20 enterprise clients in Year 1', icon: Users },
-    { metric: 'Platform Adoption', value: '500K transactions in Year 1', icon: Database },
-    { metric: 'Revenue Growth', value: '$4.8M ARR by end of Year 2', icon: TrendingUp },
-    { metric: 'Market Expansion', value: '3 industry verticals by Year 2', icon: DivideCircle }
+    { metric: 'Customer Acquisition', value: '15-20 enterprise clients in Year 1', icon: Users, color: modernColors.military },
+    { metric: 'Platform Adoption', value: '500K transactions in Year 1', icon: Database, color: modernColors.commercial },
+    { metric: 'Revenue Growth', value: '$4.8M ARR by end of Year 2', icon: TrendingUp, color: modernColors.commercial },
+    { metric: 'Market Expansion', value: '3 industry verticals by Year 2', icon: DivideCircle, color: modernColors.military }
   ];
 
   // Strategic partnerships data
   const partnerships = [
-    { category: 'ERP Providers', examples: 'SAP, NetSuite, Oracle', timeline: 'Q3 2025', icon: Database },
-    { category: 'Defense Contractors', examples: 'Tier 1 DOD suppliers', timeline: 'Q2 2025', icon: Briefcase },
-    { category: 'WMS Providers', examples: 'Manhattan, JDA Software', timeline: 'Q4 2025', icon: Server },
-    { category: 'Financial Services', examples: 'Supply chain financing', timeline: 'Q1 2026', icon: CreditCard }
+    { category: 'ERP Providers', examples: 'SAP, NetSuite, Oracle', timeline: 'Q3 2025', icon: Database, color: modernColors.commercial },
+    { category: 'Defense Contractors', examples: 'Tier 1 DOD suppliers', timeline: 'Q2 2025', icon: Briefcase, color: modernColors.military },
+    { category: 'WMS Providers', examples: 'Manhattan, JDA Software', timeline: 'Q4 2025', icon: Server, color: modernColors.commercial },
+    { category: 'Financial Services', examples: 'Supply chain financing', timeline: 'Q1 2026', icon: CreditCard, color: modernColors.commercial }
   ];
 
   return (
@@ -106,7 +106,7 @@ const Slide13: React.FC = () => {
           custom={0}
           className="mb-2 text-center max-w-2xl mx-auto"
         >
-          <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
+          <h2 className={modernTypography.pageTitle}>
             Multi-phase approach to platform and token ecosystem growth
           </h2>
         </motion.div>
@@ -117,8 +117,8 @@ const Slide13: React.FC = () => {
           className="mb-4"
         >
           <ModernCard className="p-6">
-            <h3 className={`${modernTypography.heading} mb-5 flex items-center gap-3`} style={{ color: modernColors.text }}>
-              <Timer className="h-6 w-6 text-accent" />
+            <h3 className={`${modernTypography.heading} mb-5 flex items-center gap-3`}>
+              <Timer className="h-6 w-6" style={{ color: modernColors.military }} />
               Phased Approach
             </h3>
             
@@ -136,7 +136,7 @@ const Slide13: React.FC = () => {
                       <h4 className={modernTypography.subheading} style={{ color: phase.color }}>
                         {phase.name}
                       </h4>
-                      <p className={`${modernTypography.small} text-slate-500`}>{phase.period}</p>
+                      <p className={`${modernTypography.small}`}>{phase.period}</p>
                     </div>
                   </div>
                   
@@ -145,7 +145,7 @@ const Slide13: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {phase.metrics.map((metric, idx) => (
                       <div key={idx} className="flex items-center gap-2 p-2 bg-white/80 border border-slate-100 rounded">
-                        <metric.icon className="h-4 w-4 text-slate-500" />
+                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
                         <span className={modernTypography.small}>{metric.label}</span>
                       </div>
                     ))}
@@ -163,8 +163,8 @@ const Slide13: React.FC = () => {
           >
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <Timer className="h-6 w-6 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <Timer className="h-6 w-6" style={{ color: modernColors.commercial }} />
+                <h3 className={modernTypography.heading}>
                   Execution Timeline
                 </h3>
               </div>
@@ -172,11 +172,14 @@ const Slide13: React.FC = () => {
               <div className="space-y-4">
                 {timeline.map((item, index) => (
                   <div key={index} className="relative pl-10 pb-5 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
-                    <div className="absolute left-0 top-0 w-6 h-6 rounded-full flex items-center justify-center bg-accent/20 -translate-x-1/2 border-2 border-white">
-                      <div className="w-2 h-2 rounded-full bg-accent"></div>
+                    <div 
+                      className="absolute left-0 top-0 w-6 h-6 rounded-full flex items-center justify-center -translate-x-1/2 border-2 border-white"
+                      style={{ backgroundColor: `${item.color}20` }}
+                    >
+                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
                     </div>
                     <div className="mb-1">
-                      <span className={`${modernTypography.label} text-accent`}>{item.quarter}</span>
+                      <span className={`${modernTypography.label}`} style={{ color: item.color }}>{item.quarter}</span>
                     </div>
                     <p className={modernTypography.body}>{item.milestone}</p>
                   </div>
@@ -192,8 +195,8 @@ const Slide13: React.FC = () => {
             >
               <ModernCard className="p-6">
                 <div className="flex items-center gap-3 mb-5">
-                  <BarChart className="h-6 w-6 text-accent" />
-                  <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                  <BarChart className="h-6 w-6" style={{ color: modernColors.military }} />
+                  <h3 className={modernTypography.heading}>
                     Key Performance Indicators
                   </h3>
                 </div>
@@ -201,12 +204,15 @@ const Slide13: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {kpis.map((kpi, index) => (
                     <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-md flex items-center justify-center bg-accent/10 flex-shrink-0">
-                        <kpi.icon className="h-4 w-4 text-accent" />
+                      <div 
+                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                        style={{ backgroundColor: `${kpi.color}20` }}
+                      >
+                        <kpi.icon className="h-4 w-4" style={{ color: kpi.color }} />
                       </div>
                       <div>
-                        <p className={`${modernTypography.label} mb-1`}>{kpi.metric}</p>
-                        <p className={`${modernTypography.small} text-slate-600`}>{kpi.value}</p>
+                        <p className={`${modernTypography.label} mb-1`} style={{ color: kpi.color }}>{kpi.metric}</p>
+                        <p className={`${modernTypography.small}`}>{kpi.value}</p>
                       </div>
                     </div>
                   ))}
@@ -220,8 +226,8 @@ const Slide13: React.FC = () => {
             >
               <ModernCard className="p-6">
                 <div className="flex items-center gap-3 mb-5">
-                  <Users className="h-6 w-6 text-accent" />
-                  <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                  <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
+                  <h3 className={modernTypography.heading}>
                     Target Strategic Partnerships
                   </h3>
                 </div>
@@ -229,13 +235,16 @@ const Slide13: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {partnerships.map((partner, index) => (
                     <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-md flex items-center justify-center bg-accent/10 flex-shrink-0">
-                        <partner.icon className="h-4 w-4 text-accent" />
+                      <div 
+                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                        style={{ backgroundColor: `${partner.color}20` }}
+                      >
+                        <partner.icon className="h-4 w-4" style={{ color: partner.color }} />
                       </div>
                       <div>
-                        <p className={`${modernTypography.label} mb-1`}>{partner.category}</p>
-                        <p className={`${modernTypography.small} text-slate-600`}>{partner.examples}</p>
-                        <p className={`${modernTypography.small} text-accent mt-1`}>{partner.timeline}</p>
+                        <p className={`${modernTypography.label} mb-1`} style={{ color: partner.color }}>{partner.category}</p>
+                        <p className={`${modernTypography.small}`}>{partner.examples}</p>
+                        <p className={`${modernTypography.small} mt-1`} style={{ color: partner.color }}>{partner.timeline}</p>
                       </div>
                     </div>
                   ))}

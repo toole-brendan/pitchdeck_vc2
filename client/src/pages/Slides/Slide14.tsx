@@ -42,34 +42,38 @@ const Slide14: React.FC = () => {
       title: 'Customer Acquisition Cost', 
       value: '$30-65K', 
       description: 'Per enterprise client',
-      icon: Users
+      icon: Users,
+      color: modernColors.military
     },
     { 
       title: 'Gross Margin', 
       value: '80-85%', 
       description: 'Software revenue',
-      icon: PieChart
+      icon: PieChart,
+      color: modernColors.commercial
     },
     { 
       title: 'Customer LTV', 
       value: '$400K+', 
       description: '5-year value',
-      icon: CreditCard
+      icon: CreditCard,
+      color: modernColors.commercial
     },
     { 
       title: 'Breakeven Point', 
       value: 'Year 4', 
       description: 'Cash flow positive',
-      icon: BarChart4
+      icon: BarChart4,
+      color: modernColors.military
     }
   ];
 
   // Funding allocation data
   const fundingAllocation = [
-    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code },
-    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone },
-    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase },
-    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText }
+    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code, color: modernColors.military },
+    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone, color: modernColors.commercial },
+    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase, color: modernColors.military },
+    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText, color: modernColors.commercial }
   ];
 
   return (
@@ -85,7 +89,7 @@ const Slide14: React.FC = () => {
           custom={0}
           className="mb-2 text-center max-w-2xl mx-auto"
         >
-          <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
+          <h2 className={modernTypography.pageTitle}>
             5-year forecast based on market analysis and industry benchmarks
           </h2>
         </motion.div>
@@ -97,8 +101,8 @@ const Slide14: React.FC = () => {
         >
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <TrendingUp className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <TrendingUp className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
                 Five-Year Projections
               </h3>
             </div>
@@ -107,9 +111,9 @@ const Slide14: React.FC = () => {
               <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-slate-200">
-                    <th className="text-left py-3 px-4 font-medium text-slate-600"></th>
+                    <th className="text-left py-3 px-4 font-medium text-black"></th>
                     {projections.map((item, index) => (
-                      <th key={index} className="text-center py-3 px-4 font-medium text-slate-600">
+                      <th key={index} className="text-center py-3 px-4 font-medium text-black">
                         {item.year}
                       </th>
                     ))}
@@ -117,46 +121,46 @@ const Slide14: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-slate-700 flex items-center gap-2">
-                      <DollarSign className="h-4 w-4 text-accent" /> Revenue
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <DollarSign className="h-4 w-4" style={{ color: modernColors.commercial }} /> Revenue
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4">
-                        <span className={`${index === 0 ? 'text-slate-400' : 'text-accent font-medium'}`}>
+                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.commercial }}>
                           {item.revenue}
                         </span>
                       </td>
                     ))}
                   </tr>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-slate-700 flex items-center gap-2">
-                      <Users className="h-4 w-4 text-accent" /> Customers
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <Users className="h-4 w-4" style={{ color: modernColors.military }} /> Customers
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4">
-                        <span className={`${index === 0 ? 'text-slate-400' : 'text-accent font-medium'}`}>
+                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.military }}>
                           {item.customers}
                         </span>
                       </td>
                     ))}
                   </tr>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-slate-700 flex items-center gap-2">
-                      <CreditCard className="h-4 w-4 text-accent" /> Expenses
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <CreditCard className="h-4 w-4" style={{ color: modernColors.commercial }} /> Expenses
                     </td>
                     {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4 text-slate-700">
+                      <td key={index} className="text-center py-3 px-4 text-black">
                         {item.expenses}
                       </td>
                     ))}
                   </tr>
                   <tr>
-                    <td className="py-3 px-4 font-medium text-slate-700 flex items-center gap-2">
-                      <BarChart4 className="h-4 w-4 text-accent" /> Net Cash Flow
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <BarChart4 className="h-4 w-4" style={{ color: modernColors.military }} /> Net Cash Flow
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4">
-                        <span className={item.cashFlow.includes('-') ? 'text-rose-500 font-medium' : 'text-emerald-500 font-medium'}>
+                        <span className={`font-medium`} style={{ color: item.cashFlow.includes('-') ? 'rgb(244, 63, 94)' : 'rgb(16, 185, 129)' }}>
                           {item.cashFlow}
                         </span>
                       </td>
@@ -175,8 +179,8 @@ const Slide14: React.FC = () => {
           >
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <BarChart4 className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <BarChart4 className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <h3 className={modernTypography.heading}>
                   Key Business Metrics
                 </h3>
               </div>
@@ -188,13 +192,13 @@ const Slide14: React.FC = () => {
                     className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md"
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-md flex items-center justify-center bg-accent/10">
-                        <metric.icon className="h-4 w-4 text-accent" />
+                      <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${metric.color}20` }}>
+                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
                       </div>
                       <h4 className={modernTypography.label}>{metric.title}</h4>
                     </div>
-                    <p className={`${modernTypography.heading} text-accent mb-1`}>{metric.value}</p>
-                    <p className={`${modernTypography.small} text-slate-500`}>{metric.description}</p>
+                    <p className={`${modernTypography.heading} mb-1`} style={{ color: metric.color }}>{metric.value}</p>
+                    <p className={`${modernTypography.small}`}>{metric.description}</p>
                   </div>
                 ))}
               </div>
@@ -207,8 +211,8 @@ const Slide14: React.FC = () => {
           >
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <PieChart className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <PieChart className="h-7 w-7" style={{ color: modernColors.military }} />
+                <h3 className={modernTypography.heading}>
                   Seed Funding Allocation
                 </h3>
               </div>
@@ -222,20 +226,20 @@ const Slide14: React.FC = () => {
                   <div key={index} className="bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md overflow-hidden">
                     <div className="flex justify-between items-center p-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-md flex items-center justify-center bg-accent/10">
-                          <item.icon className="h-4 w-4 text-accent" />
+                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${item.color}20` }}>
+                          <item.icon className="h-4 w-4" style={{ color: item.color }} />
                         </div>
-                        <span className={modernTypography.label}>{item.category}</span>
+                        <span className={modernTypography.label} style={{ color: item.color }}>{item.category}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className={`${modernTypography.small} text-slate-500`}>{item.percentage}%</span>
-                        <span className={`${modernTypography.body} text-accent`}>{item.amount}</span>
+                        <span className={`${modernTypography.small}`}>{item.percentage}%</span>
+                        <span className={`${modernTypography.body}`} style={{ color: item.color }}>{item.amount}</span>
                       </div>
                     </div>
                     <div className="h-1.5 bg-slate-100">
                       <div 
-                        className="h-full bg-accent"
-                        style={{ width: `${item.percentage}%` }}
+                        className="h-full"
+                        style={{ backgroundColor: item.color, width: `${item.percentage}%` }}
                       ></div>
                     </div>
                   </div>
@@ -244,11 +248,11 @@ const Slide14: React.FC = () => {
               
               <div className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
                 <div className="flex items-center gap-2 mb-2">
-                  <Clock className="h-5 w-5 text-accent" />
-                  <h4 className={modernTypography.label}>Expected Runway</h4>
+                  <Clock className="h-5 w-5" style={{ color: modernColors.commercial }} />
+                  <h4 className={modernTypography.label} style={{ color: modernColors.commercial }}>Expected Runway</h4>
                 </div>
                 <p className={`${modernTypography.body} mb-1`}>12-18 months</p>
-                <p className={`${modernTypography.small} text-slate-500`}>
+                <p className={`${modernTypography.small}`}>
                   Sufficient time to develop MVP, demonstrate core technology, and validate with potential customers
                 </p>
               </div>

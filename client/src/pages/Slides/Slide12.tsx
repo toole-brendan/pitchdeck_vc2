@@ -31,19 +31,19 @@ const Slide12: React.FC = () => {
       name: 'Infrastructure', 
       range: '$1,200-1,800/mo', 
       icon: Server,
-      color: modernColors.accent
+      color: modernColors.military
     },
     { 
       name: 'Development', 
       range: '$9,000-12,000/mo', 
       icon: Code,
-      color: modernColors.success 
+      color: modernColors.commercial 
     },
     { 
       name: 'Operations', 
       range: '$4,800-7,700/mo', 
       icon: Settings,
-      color: modernColors.danger
+      color: modernColors.military
     }
   ];
 
@@ -59,22 +59,26 @@ const Slide12: React.FC = () => {
     {
       title: 'Technical founder leading development',
       description: '55% of budget to product',
-      icon: User
+      icon: User,
+      color: modernColors.military
     },
     {
       title: 'Scalable cloud infrastructure',
       description: 'Costs that grow with usage',
-      icon: Cloud
+      icon: Cloud,
+      color: modernColors.commercial
     },
     {
       title: 'Targeted customer acquisition',
       description: 'From military and finance networks',
-      icon: Target
+      icon: Target,
+      color: modernColors.military
     },
     {
       title: 'Founder investment',
       description: 'Time and capital in initial development',
-      icon: PiggyBank
+      icon: PiggyBank,
+      color: modernColors.commercial
     }
   ];
 
@@ -91,7 +95,7 @@ const Slide12: React.FC = () => {
           custom={0}
           className="mb-2 text-center max-w-2xl mx-auto"
         >
-          <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
+          <h2 className={modernTypography.pageTitle}>
             Blockchain infrastructure and development expenses with 12-month runway
           </h2>
         </motion.div>
@@ -103,8 +107,8 @@ const Slide12: React.FC = () => {
           >
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
-                <DollarSign className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
+                <h3 className={modernTypography.heading}>
                   Monthly Operating Costs
                 </h3>
               </div>
@@ -121,7 +125,7 @@ const Slide12: React.FC = () => {
                       </div>
                       <span className={modernTypography.label}>{cost.name}</span>
                     </div>
-                    <span className={`${modernTypography.heading} text-accent`}>{cost.range}</span>
+                    <span className={`${modernTypography.heading}`} style={{ color: cost.color }}>{cost.range}</span>
                   </div>
                 ))}
               </div>
@@ -134,8 +138,8 @@ const Slide12: React.FC = () => {
           >
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
-                <Clock className="h-7 w-7 text-accent" />
-                <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                <Clock className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <h3 className={modernTypography.heading}>
                   Burn Rate & Runway
                 </h3>
               </div>
@@ -143,11 +147,11 @@ const Slide12: React.FC = () => {
               <div className="mb-4 bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
                 <div className="flex justify-between items-center mb-2">
                   <span className={modernTypography.label}>Total Monthly Burn</span>
-                  <span className={`${modernTypography.heading} text-accent`}>$15,000-21,500</span>
+                  <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>$15,000-21,500</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className={modernTypography.label}>Seed Funding</span>
-                  <span className={`${modernTypography.heading} text-accent`}>$750,000</span>
+                  <span className={`${modernTypography.heading}`} style={{ color: modernColors.commercial }}>$750,000</span>
                 </div>
               </div>
 
@@ -156,12 +160,17 @@ const Slide12: React.FC = () => {
                   <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
                     <div className="flex justify-between items-center mb-2">
                       <span className={modernTypography.label}>{scenario.name}</span>
-                      <span className={`${modernTypography.heading} text-accent`}>{scenario.value}</span>
+                      <span className={`${modernTypography.heading}`} style={{ color: index === 0 ? modernColors.commercial : modernColors.military }}>
+                        {scenario.value}
+                      </span>
                     </div>
                     <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                       <div 
-                        className="h-full rounded-full bg-accent"
-                        style={{ width: `${scenario.percentage}%` }}
+                        className="h-full rounded-full"
+                        style={{ 
+                          backgroundColor: index === 0 ? modernColors.commercial : modernColors.military,
+                          width: `${scenario.percentage}%` 
+                        }}
                       ></div>
                     </div>
                   </div>
@@ -177,8 +186,8 @@ const Slide12: React.FC = () => {
         >
           <ModernCard className="p-8">
             <div className="flex items-center gap-4 mb-6">
-              <TrendingDown className="h-7 w-7 text-accent" />
-              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+              <TrendingDown className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
                 Capital Efficiency
               </h3>
             </div>
@@ -186,14 +195,17 @@ const Slide12: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {capitalEfficiency.map((item, index) => (
                 <div key={index} className="flex items-start gap-4 p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
-                  <div className="w-8 h-8 bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm rounded-md">
-                    <item.icon className="h-4 w-4 text-accent" />
+                  <div 
+                    className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm rounded-md"
+                    style={{ backgroundColor: `${item.color}20` }}
+                  >
+                    <item.icon className="h-4 w-4" style={{ color: item.color }} />
                   </div>
                   <div>
-                    <h4 className={modernTypography.label} style={{ marginBottom: '0.25rem' }}>
+                    <h4 className={modernTypography.label} style={{ marginBottom: '0.25rem', color: item.color }}>
                       {item.title}
                     </h4>
-                    <p className={`${modernTypography.small} text-slate-500`}>
+                    <p className={`${modernTypography.small}`}>
                       {item.description}
                     </p>
                   </div>
