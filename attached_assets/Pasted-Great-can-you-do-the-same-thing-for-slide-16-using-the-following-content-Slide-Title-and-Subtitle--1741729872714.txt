@@ -1,0 +1,63 @@
+Great can you do the same thing for slide 16 using the following content:
+
+Slide Title and Subtitle
+* Team & Roadmap
+* Leadership, development timeline, and growth strategy
+FOUNDING TEAM
+* Brendan T. Toole
+    * FOUNDER & CEO
+    * Technical founder with unique combination of expertise in defense, supply chain analytics and financial markets. Leading product development and strategic vision.
+    * Princeton Economics
+    * Point72 Analyst
+    * Military Officer
+    * Full-Stack Developer
+* Post-Seed Hiring Plan:
+    1. Senior Blockchain Developer
+        * Smart contract development & infrastructure
+    2. UX/UI Designer
+        * Mobile & web interface optimization
+    3. Defense Industry Advisor
+        * Military procurement & relationship management
+    * Initial team will remain lean to extend runway, with strategic advisors and contractors supplementing core capabilities.
+DEVELOPMENT ROADMAP
+* Q2 2024: Core Platform Development
+    * Develop foundational blockchain verification architecture with smart contracts and database structure.
+    * Milestones:
+        * Blockchain node infrastructure setup
+        * Smart contract architecture
+        * API foundation
+    * Status: Upcoming
+* Q3 2024: Mobile Interface & Defense MVP
+    * Build military-focused user interface with CAC integration and QR scanning capability.
+    * Milestones:
+        * Mobile scanning application
+        * Property transfer workflow
+        * Defense authentication integration
+    * Status: Planned
+* Q1 2025: Commercial Beta Launch
+    * Adapt platform for commercial supply chain use cases with payment settlement features.
+    * Milestones:
+        * Commercial authentication model
+        * Inventory dashboard
+        * Shell token integration
+    * Status: Planned
+* Q2 2025: Series A Preparation
+    * Scale initial customers and prepare for growth financing to accelerate adoption.
+    * Milestones:
+        * Onboard 3-5 early adopters
+        * Platform performance optimization
+        * Series A fundraising
+    * Status: Planned
+SUCCESS METRICS
+* Development Milestones:
+    * Complete MVP within 6 months
+    * First pilot implementation by month 9
+    * Production-ready platform by month 12
+* Customer Acquisition:
+    * 1-2 defense pilot customers
+    * 2-3 commercial pilots
+    * First recurring revenue by Q1 2025
+* Product Expansion:
+    * Defense core features (Q3 2024)
+    * Commercial adaptation (Q4 2024)
+    * API integration suite (Q1 2025)
