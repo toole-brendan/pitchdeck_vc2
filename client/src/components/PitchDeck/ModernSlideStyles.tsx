@@ -46,6 +46,9 @@ export const modernTypography = {
   // List text styling
   list: 'text-base md:text-lg font-light text-slate-600 leading-relaxed',
   
+  // Labels for items, years, categories, etc.
+  label: 'text-base font-normal text-slate-700 tracking-wide leading-snug',
+  
   // More impactful statistics
   stats: 'text-5xl md:text-6xl font-thin tracking-tight',
   
@@ -83,8 +86,10 @@ export const ModernDivider: React.FC<{
 
 export const ModernIconWrapper: React.FC<{
   children: React.ReactNode;
-}> = ({ children }) => (
-  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-50/80 text-slate-500 backdrop-blur-sm shadow-sm">
+  size?: 'default' | 'large';
+}> = ({ children, size = 'default' }) => (
+  <div className={`flex items-center justify-center rounded-full bg-slate-50/80 text-slate-500 backdrop-blur-sm shadow-sm
+    ${size === 'large' ? 'w-16 h-16' : 'w-12 h-12'}`}>
     {children}
   </div>
 );
