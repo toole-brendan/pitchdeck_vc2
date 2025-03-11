@@ -23,7 +23,7 @@ const Slide2: React.FC = () => {
       >
         <motion.div variants={itemFadeInUpVariant} custom={0}>
           <ModernCard className="h-full p-8">
-            <ModernBadge>Founder Profile</ModernBadge>
+            <ModernBadge color={modernColors.accent}>Founder Profile</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
               Brendan T. Toole
             </h3>
@@ -31,13 +31,13 @@ const Slide2: React.FC = () => {
               FOUNDER & CEO
             </p>
             <ul className={`${modernTypography.body} space-y-2`}>
-              <li>Research Analyst, Point72 Asset Management</li>
-              <li>Platoon Leader, 101st Airborne Division</li>
+              <li>Research Analyst, <span style={{ color: modernColors.commercial }}>Point72 Asset Management</span></li>
+              <li>Platoon Leader, <span style={{ color: modernColors.military }}>101st Airborne Division</span></li>
               <li>Princeton University, Economics A.B.</li>
             </ul>
             <div className="mt-4 flex flex-wrap gap-2">
-              <ModernBadge small>Finance Expert</ModernBadge>
-              <ModernBadge small>Military Leadership</ModernBadge>
+              <ModernBadge small color={modernColors.commercial}>Finance Expert</ModernBadge>
+              <ModernBadge small color={modernColors.military}>Military Leadership</ModernBadge>
               <ModernBadge small>Princeton Economics</ModernBadge>
             </div>
           </ModernCard>
@@ -45,15 +45,15 @@ const Slide2: React.FC = () => {
 
         <motion.div variants={itemFadeInUpVariant} custom={1}>
           <ModernCard className="h-full p-8">
-            <ModernBadge>Vision</ModernBadge>
+            <ModernBadge color={modernColors.accent}>Vision</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
               Military logistics meets financial expertise
             </h3>
             <p className={modernTypography.body}>
-              Building a blockchain-powered inventory and supply chain management solution that streamlines property tracking and transfers.
+              Building a <span style={{ color: modernColors.crypto }}>blockchain-powered</span> inventory and supply chain management solution that streamlines property tracking and transfers.
             </p>
             <p className={`${modernTypography.body} mt-3`}>
-              HandReceipt represents the convergence of military-grade validation adapted for commercial markets.
+              HandReceipt represents the convergence of <span style={{ color: modernColors.military }}>military-grade validation</span> adapted for <span style={{ color: modernColors.commercial }}>commercial markets</span>.
             </p>
           </ModernCard>
         </motion.div>
@@ -63,16 +63,16 @@ const Slide2: React.FC = () => {
           custom={2}
           className="md:col-span-2"
         >
-          <div className="bg-slate-50/80 backdrop-blur-sm p-8 border border-slate-100 shadow-sm">
+          <div className="p-8 border shadow-sm" style={{ background: 'linear-gradient(120deg, rgba(219,234,254,0.3), rgba(255,237,213,0.3))' }}>
             <h3 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.text }}>
               Origin Story
             </h3>
             <div className={`${modernTypography.body} space-y-4`}>
-              <p>
-                <strong>Military Experience:</strong> As a Platoon Leader in the 101st Airborne Division, I witnessed the inefficiencies of paper-based supply tracking systems.
+              <p style={{ borderLeft: `3px solid ${modernColors.military}`, paddingLeft: '1rem' }}>
+                <strong style={{ color: modernColors.military }}>Military Experience:</strong> As a Platoon Leader in the 101st Airborne Division, I witnessed the inefficiencies of paper-based supply tracking systems.
               </p>
-              <p>
-                <strong>Financial Insight:</strong> At Point72, I analyzed supply chain dynamics across multiple sectors, recognizing a market opportunity.
+              <p style={{ borderLeft: `3px solid ${modernColors.commercial}`, paddingLeft: '1rem' }}>
+                <strong style={{ color: modernColors.commercial }}>Financial Insight:</strong> At Point72, I analyzed supply chain dynamics across multiple sectors, recognizing a market opportunity.
               </p>
             </div>
           </div>

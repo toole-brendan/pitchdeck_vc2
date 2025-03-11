@@ -25,7 +25,7 @@ const Slide3: React.FC = () => {
         className="mb-6 text-center max-w-3xl mx-auto"
       >
         <h2 className={`${modernTypography.heading} mb-4`} style={{ color: modernColors.text }}>
-          Current pain points driving the need for blockchain solutions
+          Current pain points driving the need for <span style={{ color: modernColors.crypto }}>blockchain solutions</span>
         </h2>
       </motion.div>
 
@@ -37,17 +37,20 @@ const Slide3: React.FC = () => {
           animate="visible"
           className="flex flex-col h-full"
         >
-          <ModernCard className="h-full p-8 flex-1">
+          <ModernCard className={`h-full p-8 flex-1 border-t-4`} style={{ 
+            borderColor: modernColors.military,
+            backgroundColor: `${modernColors.militaryLight}10`
+          }}>
             <div className="flex items-center mb-4">
-              <Building className="h-5 w-5 mr-2 text-blue-600" />
-              <ModernBadge color="#3B82F6">Military Sector</ModernBadge>
+              <Building className="h-5 w-5 mr-2" style={{ color: modernColors.military }} />
+              <ModernBadge color={modernColors.military}>Military Sector</ModernBadge>
             </div>
             
             <ul className="space-y-4 mt-6">
               <motion.li variants={itemFadeInUpVariant} custom={0} className="flex items-start">
-                <FileWarning className="h-5 w-5 mt-1 mr-3 text-blue-600 flex-shrink-0" />
+                <FileWarning className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.military }} />
                 <div>
-                  <p className={`${modernTypography.body} font-medium`}>Paper-Based Accountability</p>
+                  <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.military }}>Paper-Based Accountability</p>
                   <p className={`${modernTypography.body} text-sm`}>
                     Hand receipts and equipment tracking rely on physical paperwork prone to loss
                   </p>
@@ -55,9 +58,9 @@ const Slide3: React.FC = () => {
               </motion.li>
               
               <motion.li variants={itemFadeInUpVariant} custom={1} className="flex items-start">
-                <ShieldAlert className="h-5 w-5 mt-1 mr-3 text-blue-600 flex-shrink-0" />
+                <ShieldAlert className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.military }} />
                 <div>
-                  <p className={`${modernTypography.body} font-medium`}>Verification Gaps</p>
+                  <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.military }}>Verification Gaps</p>
                   <p className={`${modernTypography.body} text-sm`}>
                     Limited ability to verify equipment origin and maintenance history
                   </p>
@@ -65,9 +68,9 @@ const Slide3: React.FC = () => {
               </motion.li>
               
               <motion.li variants={itemFadeInUpVariant} custom={2} className="flex items-start">
-                <FileWarning className="h-5 w-5 mt-1 mr-3 text-blue-600 flex-shrink-0" />
+                <FileWarning className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.military }} />
                 <div>
-                  <p className={`${modernTypography.body} font-medium`}>Antiquated Systems</p>
+                  <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.military }}>Antiquated Systems</p>
                   <p className={`${modernTypography.body} text-sm`}>
                     Legacy database systems lack interoperability, creating information silos
                   </p>
@@ -77,9 +80,9 @@ const Slide3: React.FC = () => {
             
             <ModernDivider className="my-5" />
             
-            <div className="bg-blue-50 p-4 rounded-md flex items-center justify-between">
+            <div className="p-4 rounded-md flex items-center justify-between" style={{ backgroundColor: modernColors.militaryLight }}>
               <p className={`${modernTypography.body} font-medium`}>Annual Inventory Loss</p>
-              <p className={`${modernTypography.stats} text-blue-600`}>$1.2B+</p>
+              <p className={`${modernTypography.stats}`} style={{ color: modernColors.military }}>$1.2B+</p>
             </div>
           </ModernCard>
         </motion.div>
@@ -91,17 +94,20 @@ const Slide3: React.FC = () => {
           animate="visible" 
           className="flex flex-col h-full"
         >
-          <ModernCard className="h-full p-8 flex-1">
+          <ModernCard className={`h-full p-8 flex-1 border-t-4`} style={{ 
+            borderColor: modernColors.commercial,
+            backgroundColor: `${modernColors.commercialLight}10`
+          }}>
             <div className="flex items-center mb-4">
-              <DollarSign className="h-5 w-5 mr-2 text-emerald-600" />
-              <ModernBadge color="#10B981">Commercial Sector</ModernBadge>
+              <DollarSign className="h-5 w-5 mr-2" style={{ color: modernColors.commercial }} />
+              <ModernBadge color={modernColors.commercial}>Commercial Sector</ModernBadge>
             </div>
             
             <ul className="space-y-4 mt-6">
               <motion.li variants={itemFadeInUpVariant} custom={0} className="flex items-start">
-                <ShieldAlert className="h-5 w-5 mt-1 mr-3 text-emerald-600 flex-shrink-0" />
+                <ShieldAlert className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.commercial }} />
                 <div>
-                  <p className={`${modernTypography.body} font-medium`}>Counterfeiting & Fraud</p>
+                  <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.commercial }}>Counterfeiting & Fraud</p>
                   <p className={`${modernTypography.body} text-sm`}>
                     Counterfeit products create significant financial and reputational damage
                   </p>
@@ -109,9 +115,9 @@ const Slide3: React.FC = () => {
               </motion.li>
               
               <motion.li variants={itemFadeInUpVariant} custom={1} className="flex items-start">
-                <FileWarning className="h-5 w-5 mt-1 mr-3 text-emerald-600 flex-shrink-0" />
+                <FileWarning className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.commercial }} />
                 <div>
-                  <p className={`${modernTypography.body} font-medium`}>Lack of Transparency</p>
+                  <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.commercial }}>Lack of Transparency</p>
                   <p className={`${modernTypography.body} text-sm`}>
                     Limited visibility into supply chain origins and handling
                   </p>
@@ -119,9 +125,9 @@ const Slide3: React.FC = () => {
               </motion.li>
               
               <motion.li variants={itemFadeInUpVariant} custom={2} className="flex items-start">
-                <ShieldAlert className="h-5 w-5 mt-1 mr-3 text-emerald-600 flex-shrink-0" />
+                <ShieldAlert className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.commercial }} />
                 <div>
-                  <p className={`${modernTypography.body} font-medium`}>Compliance Challenges</p>
+                  <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.commercial }}>Compliance Challenges</p>
                   <p className={`${modernTypography.body} text-sm`}>
                     Difficulty proving regulatory compliance across global supply chains
                   </p>
@@ -131,9 +137,9 @@ const Slide3: React.FC = () => {
             
             <ModernDivider className="my-5" />
             
-            <div className="bg-emerald-50 p-4 rounded-md flex items-center justify-between">
+            <div className="p-4 rounded-md flex items-center justify-between" style={{ backgroundColor: modernColors.commercialLight }}>
               <p className={`${modernTypography.body} font-medium`}>Estimated Global Impact</p>
-              <p className={`${modernTypography.stats} text-emerald-600`}>$950B+</p>
+              <p className={`${modernTypography.stats}`} style={{ color: modernColors.commercial }}>$950B+</p>
             </div>
           </ModernCard>
         </motion.div>

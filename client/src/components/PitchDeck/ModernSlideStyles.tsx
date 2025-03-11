@@ -12,6 +12,12 @@ export const modernColors = {
   success: '#10B981', // emerald-500, for positive trends
   danger: '#EF4444', // red-500, for negative trends
   neutral: '#F8FAFC', // slate-50, for subtle backgrounds
+  military: '#1E40AF', // blue-800, deeper blue for military/defense
+  militaryLight: '#DBEAFE', // blue-100, light blue for military backgrounds
+  commercial: '#EA580C', // orange-600, vibrant orange for commercial
+  commercialLight: '#FFEDD5', // orange-100, light orange for commercial backgrounds
+  crypto: '#7E22CE', // purple-700, crypto-related elements
+  cryptoLight: '#F3E8FF', // purple-100, light purple for crypto backgrounds
 };
 
 // Typography styles for ultra-modern minimalist look
@@ -73,8 +79,12 @@ export const ModernBadge: React.FC<{
 export const ModernCard: React.FC<{
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className = '' }) => (
-  <div className={`bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 p-6 ${className}`}>
+  style?: React.CSSProperties;
+}> = ({ children, className = '', style }) => (
+  <div 
+    className={`bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 p-6 ${className}`}
+    style={style}
+  >
     {children}
   </div>
 );
