@@ -11,7 +11,7 @@ import {
   fadeInUpVariants,
   itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
-import { PieChart, BarChart3, Briefcase, Target, LineChart, Workflow } from 'lucide-react';
+import { PieChart, BarChart3, Briefcase } from 'lucide-react';
 
 const Slide7: React.FC = () => {
   const TOTAL_SLIDES = 18;
@@ -204,84 +204,6 @@ const Slide7: React.FC = () => {
             </ul>
           </ModernCard>
         </motion.div>
-      </motion.div>
-
-      {/* Market Entry Strategy */}
-      <motion.div
-        variants={itemFadeInUpVariant}
-        custom={3}
-      >
-        <ModernCard className="p-6" style={{
-          borderTop: `2px solid ${modernColors.military}`,
-          borderBottom: `2px solid ${modernColors.commercial}`,
-          backgroundColor: `${modernColors.crypto}05`
-        }}>
-          <div className="flex items-center gap-4 mb-4">
-            <Workflow className="h-7 w-7" style={{ color: modernColors.crypto }} />
-            <h3 className={modernTypography.heading}>
-              Market Entry Strategy
-            </h3>
-          </div>
-          <p className={`${modernTypography.body} mb-4`}>
-            Our initial focus leverages the founder's <span style={{ color: modernColors.military }}>military expertise</span> to enter Defense logistics, building credibility and security validation as we expand into the higher-growth <span style={{ color: modernColors.commercial }}>commercial market</span>.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-3 border rounded-lg" style={{ 
-              borderColor: `${modernColors.military}40`,
-              backgroundColor: `${modernColors.militaryLight}15` 
-            }}>
-              <h4 className={`${modernTypography.subheading} mb-2`} style={{ color: modernColors.military }}>
-                Phase 1: Defense Pilots
-              </h4>
-              <ul className={`${modernTypography.list}`}>
-                <li className="flex items-start">
-                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
-                  <span>DoD units with DOGE mandates</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
-                  <span>Tier 1 defense contractors</span>
-                </li>
-              </ul>
-            </div>
-            <div className="p-3 border rounded-lg" style={{ 
-              borderColor: `${modernColors.military}30`,
-              backgroundColor: `${modernColors.militaryLight}10` 
-            }}>
-              <h4 className={`${modernTypography.subheading} mb-2`} style={{ color: modernColors.military }}>
-                Phase 2: Defense Scale
-              </h4>
-              <ul className={`${modernTypography.list}`}>
-                <li className="flex items-start">
-                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
-                  <span>Expand across military branches</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
-                  <span>Add unit-level tracking</span>
-                </li>
-              </ul>
-            </div>
-            <div className="p-3 border rounded-lg" style={{ 
-              borderColor: `${modernColors.commercial}40`,
-              backgroundColor: `${modernColors.commercialLight}15` 
-            }}>
-              <h4 className={`${modernTypography.subheading} mb-2`} style={{ color: modernColors.commercial }}>
-                Phase 3: Commercial
-              </h4>
-              <ul className={`${modernTypography.list}`}>
-                <li className="flex items-start">
-                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
-                  <span>Aerospace supply chains</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
-                  <span>Pharmaceutical tracking</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </ModernCard>
       </motion.div>
     </SlideLayout>
   );
