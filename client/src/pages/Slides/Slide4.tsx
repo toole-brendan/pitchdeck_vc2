@@ -51,18 +51,19 @@ const Slide4: React.FC = () => {
               custom={0}
               initial="hidden"
               animate="visible"
-              className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-5 flex flex-col justify-center bg-white/90 shadow-sm"
+              className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-5 flex flex-col justify-center shadow-sm"
+              style={{ background: `linear-gradient(180deg, ${modernColors.militaryLight}30 0%, white 100%)` }}
             >
               <div className="flex items-center gap-2 mb-3">
-                <Shield className="w-5 h-5 text-blue-600" />
-                <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.text }}>
+                <Shield className="w-5 h-5" style={{ color: modernColors.military }} />
+                <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.military }}>
                   Defense Platform
                 </h3>
               </div>
               <ul className={`space-y-2 pl-7 ${modernTypography.body}`}>
-                <li className="text-slate-600 text-sm">Military-grade encryption</li>
-                <li className="text-slate-600 text-sm">Secure authentication</li>
-                <li className="text-slate-600 text-sm">Robust chain of custody</li>
+                <li className="text-slate-700 text-sm">Military-grade encryption</li>
+                <li className="text-slate-700 text-sm">Secure authentication</li>
+                <li className="text-slate-700 text-sm">Robust chain of custody</li>
               </ul>
             </motion.div>
 
@@ -72,19 +73,20 @@ const Slide4: React.FC = () => {
               custom={1}
               initial="hidden"
               animate="visible"
-              className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-5 bg-slate-50/70 flex flex-col justify-center shadow-sm"
+              className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-5 flex flex-col justify-center shadow-sm"
+              style={{ background: `linear-gradient(180deg, ${modernColors.cryptoLight}30 0%, white 100%)` }}
             >
               <div className="flex items-center gap-2 mb-3">
-                <Database className="w-5 h-5 text-slate-600" />
-                <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.text }}>
+                <Database className="w-5 h-5" style={{ color: modernColors.crypto }} />
+                <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.crypto }}>
                   Shared Infrastructure
                 </h3>
               </div>
               <ul className={`space-y-2 pl-7 ${modernTypography.body}`}>
-                <li className="text-slate-600 text-sm">Smart contracts</li>
-                <li className="text-slate-600 text-sm">Distributed ledger</li>
-                <li className="text-slate-600 text-sm">Immutable records</li>
-                <li className="text-slate-600 text-sm">Asset tracking</li>
+                <li className="text-slate-700 text-sm">Smart contracts</li>
+                <li className="text-slate-700 text-sm">Distributed ledger</li>
+                <li className="text-slate-700 text-sm">Immutable records</li>
+                <li className="text-slate-700 text-sm">Asset tracking</li>
               </ul>
             </motion.div>
 
@@ -94,18 +96,19 @@ const Slide4: React.FC = () => {
               custom={2}
               initial="hidden"
               animate="visible"
-              className="flex-1 p-5 flex flex-col justify-center bg-white/90 shadow-sm"
+              className="flex-1 p-5 flex flex-col justify-center shadow-sm"
+              style={{ background: `linear-gradient(180deg, ${modernColors.commercialLight}30 0%, white 100%)` }}
             >
               <div className="flex items-center gap-2 mb-3">
-                <Laptop className="w-5 h-5 text-emerald-600" />
-                <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.text }}>
+                <Laptop className="w-5 h-5" style={{ color: modernColors.commercial }} />
+                <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.commercial }}>
                   Commercial Platform
                 </h3>
               </div>
               <ul className={`space-y-2 pl-7 ${modernTypography.body}`}>
-                <li className="text-slate-600 text-sm">Payment processing</li>
-                <li className="text-slate-600 text-sm">Supply chain tracking</li>
-                <li className="text-slate-600 text-sm">Vendor management</li>
+                <li className="text-slate-700 text-sm">Payment processing</li>
+                <li className="text-slate-700 text-sm">Supply chain tracking</li>
+                <li className="text-slate-700 text-sm">Vendor management</li>
               </ul>
             </motion.div>
           </div>
@@ -120,14 +123,17 @@ const Slide4: React.FC = () => {
             animate="visible"
             className="flex flex-col h-full"
           >
-            <ModernCard className="h-full p-8 flex-1">
-              <ModernSectionHeader dark className="mb-4 inline-block">
+            <ModernCard className="h-full p-8 flex-1 border-t-4" style={{ 
+              borderColor: modernColors.military,
+              backgroundColor: `${modernColors.militaryLight}10`
+            }}>
+              <ModernBadge color={modernColors.military} className="mb-4">
                 DEFENSE MARKET
-              </ModernSectionHeader>
+              </ModernBadge>
               
               <div className="space-y-5 mt-4">
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.text }}>
+                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.military }}>
                     Lower Implementation Risk
                   </h4>
                   <p className={`${modernTypography.body} text-sm`}>
@@ -136,7 +142,7 @@ const Slide4: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.text }}>
+                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.military }}>
                     High Barriers to Entry
                   </h4>
                   <p className={`${modernTypography.body} text-sm`}>
@@ -154,14 +160,17 @@ const Slide4: React.FC = () => {
             animate="visible"
             className="flex flex-col h-full"
           >
-            <ModernCard className="h-full p-8 flex-1">
-              <ModernSectionHeader dark className="mb-4 inline-block">
+            <ModernCard className="h-full p-8 flex-1 border-t-4" style={{ 
+              borderColor: modernColors.commercial,
+              backgroundColor: `${modernColors.commercialLight}10`
+            }}>
+              <ModernBadge color={modernColors.commercial} className="mb-4">
                 COMMERCIAL MARKET
-              </ModernSectionHeader>
+              </ModernBadge>
               
               <div className="space-y-5 mt-4">
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.text }}>
+                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.commercial }}>
                     Higher Growth Potential
                   </h4>
                   <p className={`${modernTypography.body} text-sm`}>
@@ -170,11 +179,11 @@ const Slide4: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.text }}>
+                  <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: modernColors.commercial }}>
                     Transaction Fee Upside
                   </h4>
                   <p className={`${modernTypography.body} text-sm`}>
-                    Exponential revenue growth through Shell token payments
+                    Exponential revenue growth through <span style={{ color: modernColors.crypto }}>Shell token</span> payments
                   </p>
                 </div>
               </div>
@@ -189,30 +198,57 @@ const Slide4: React.FC = () => {
           animate="visible"
           className="flex flex-col h-full"
         >
-          <ModernCard className="p-8 flex-1">
-            <ModernSectionHeader dark className="mb-4 inline-block">
+          <ModernCard className="p-8 flex-1" style={{ 
+            background: 'linear-gradient(135deg, rgba(219, 234, 254, 0.15), rgba(255, 237, 213, 0.15))'
+          }}>
+            <ModernBadge color={modernColors.accent} className="mb-4">
               STRATEGIC ADVANTAGES
-            </ModernSectionHeader>
+            </ModernBadge>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              {[
-                "Shared infrastructure reduces development and maintenance costs",
-                "Military-grade security enhances commercial offering credibility",
-                "Dual revenue streams provide stability through market cycles",
-                "Network effects amplify value across both platforms"
-              ].map((advantage, index) => (
-                <motion.div 
-                  key={index} 
-                  variants={itemFadeInUpVariant}
-                  custom={index}
-                  className="flex items-start gap-2"
-                >
-                  <Check className="w-4 h-4 text-blue-600 mt-1 shrink-0" />
-                  <p className={`${modernTypography.body} text-sm`}>
-                    {advantage}
-                  </p>
-                </motion.div>
-              ))}
+              <motion.div 
+                variants={itemFadeInUpVariant}
+                custom={0}
+                className="flex items-start gap-2"
+              >
+                <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.crypto }} />
+                <p className={`${modernTypography.body} text-sm`}>
+                  Shared infrastructure reduces development and maintenance costs
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                variants={itemFadeInUpVariant}
+                custom={1}
+                className="flex items-start gap-2"
+              >
+                <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.military }} />
+                <p className={`${modernTypography.body} text-sm`}>
+                  <span style={{ color: modernColors.military }}>Military-grade security</span> enhances commercial offering credibility
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                variants={itemFadeInUpVariant}
+                custom={2}
+                className="flex items-start gap-2"
+              >
+                <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.commercial }} />
+                <p className={`${modernTypography.body} text-sm`}>
+                  Dual revenue streams provide stability through market cycles
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                variants={itemFadeInUpVariant}
+                custom={3}
+                className="flex items-start gap-2"
+              >
+                <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.accent }} />
+                <p className={`${modernTypography.body} text-sm`}>
+                  Network effects amplify value across both platforms
+                </p>
+              </motion.div>
             </div>
           </ModernCard>
         </motion.div>

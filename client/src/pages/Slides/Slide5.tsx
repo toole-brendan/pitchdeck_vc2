@@ -23,22 +23,22 @@ const Slide5: React.FC = () => {
     { 
       title: 'QR Scan',
       description: 'Scan item code with mobile app',
-      icon: <QrCode className="h-6 w-6 text-blue-600" />
+      icon: <QrCode className="h-6 w-6" style={{ color: modernColors.accent }} />
     },
     { 
       title: 'Blockchain Record',
       description: 'Encrypted data on immutable ledger',
-      icon: <Database className="h-6 w-6 text-blue-600" />
+      icon: <Database className="h-6 w-6" style={{ color: modernColors.crypto }} />
     },
     { 
       title: 'Smart Contract',
       description: 'Automated verification process',
-      icon: <Cpu className="h-6 w-6 text-blue-600" />
+      icon: <Cpu className="h-6 w-6" style={{ color: modernColors.crypto }} />
     },
     { 
       title: 'Settlement',
       description: 'Instant payment on verification',
-      icon: <CreditCard className="h-6 w-6 text-blue-600" />
+      icon: <CreditCard className="h-6 w-6" style={{ color: modernColors.crypto }} />
     }
   ];
 
@@ -53,7 +53,7 @@ const Slide5: React.FC = () => {
           className="text-center mb-8"
         >
           <p className={`${modernTypography.subtitle} max-w-3xl mx-auto`}>
-            Blockchain-secured supply chain verification with dual-market application
+            <span style={{ color: modernColors.crypto }}>Blockchain-secured</span> supply chain verification with <span style={{ color: modernColors.military }}>military</span> and <span style={{ color: modernColors.commercial }}>commercial</span> applications
           </p>
         </motion.div>
 
@@ -64,12 +64,12 @@ const Slide5: React.FC = () => {
           animate="visible"
           className="mb-8"
         >
-          <ModernSectionHeader dark className="mb-4 inline-block">
+          <ModernBadge color={modernColors.accent} className="mb-4">
             MULTI-DOMAIN SOLUTION
-          </ModernSectionHeader>
+          </ModernBadge>
           
           <p className={`${modernTypography.body} mt-4 mb-6 text-center font-medium`}>
-            Secure verification across military and commercial domains
+            Secure verification across <span style={{ color: modernColors.military }}>military</span> and <span style={{ color: modernColors.commercial }}>commercial</span> domains
           </p>
 
           {/* Process Steps */}
@@ -81,11 +81,22 @@ const Slide5: React.FC = () => {
                 custom={index}
                 className="relative"
               >
-                <ModernCard className="h-full p-6 flex flex-col items-center text-center">
+                <ModernCard className="h-full p-6 flex flex-col items-center text-center" style={{
+                  borderTop: `2px solid ${index === 3 ? modernColors.commercial : 
+                              index === 0 ? modernColors.military : 
+                              modernColors.crypto}`,
+                  backgroundColor: `${index === 3 ? modernColors.commercialLight : 
+                                   index === 0 ? modernColors.militaryLight :
+                                   modernColors.cryptoLight}10`
+                }}>
                   <div className="mb-3">
                     {step.icon}
                   </div>
-                  <h3 className={`${modernTypography.subheading} mb-2`} style={{ color: modernColors.text }}>
+                  <h3 className={`${modernTypography.subheading} mb-2`} style={{ 
+                    color: index === 3 ? modernColors.commercial : 
+                           index === 0 ? modernColors.military : 
+                           modernColors.crypto
+                  }}>
                     {step.title}
                   </h3>
                   <p className={`${modernTypography.body} text-sm`}>
@@ -109,15 +120,18 @@ const Slide5: React.FC = () => {
             animate="visible"
             className="flex flex-col h-full"
           >
-            <ModernCard className="h-full p-8 flex-1">
+            <ModernCard className="h-full p-8 flex-1 border-t-4" style={{
+              borderColor: modernColors.military,
+              backgroundColor: `${modernColors.militaryLight}15`
+            }}>
               <div className="flex items-center mb-4">
-                <Shield className="h-5 w-5 mr-2 text-blue-600" />
-                <ModernSectionHeader dark className="inline-block">
+                <Shield className="h-5 w-5 mr-2" style={{ color: modernColors.military }} />
+                <ModernBadge color={modernColors.military}>
                   MILITARY
-                </ModernSectionHeader>
+                </ModernBadge>
               </div>
 
-              <h3 className={`${modernTypography.subheading} mt-4 mb-4`} style={{ color: modernColors.text }}>
+              <h3 className={`${modernTypography.subheading} mt-4 mb-4`} style={{ color: modernColors.military }}>
                 Military Application: Secure property tracking and transfers
               </h3>
               
@@ -127,7 +141,7 @@ const Slide5: React.FC = () => {
                   custom={0}
                   className="flex items-start"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 mt-2 mr-2 flex-shrink-0"></div>
+                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
                   <p className={modernTypography.body}>QR-code based digital transfers</p>
                 </motion.li>
                 <motion.li 
@@ -135,16 +149,16 @@ const Slide5: React.FC = () => {
                   custom={1}
                   className="flex items-start"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 mt-2 mr-2 flex-shrink-0"></div>
-                  <p className={modernTypography.body}>Zero-knowledge proof verification</p>
+                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
+                  <p className={modernTypography.body}><span style={{ color: modernColors.crypto }}>Zero-knowledge proof</span> verification</p>
                 </motion.li>
                 <motion.li 
                   variants={itemFadeInUpVariant} 
                   custom={2}
                   className="flex items-start"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-blue-600 mt-2 mr-2 flex-shrink-0"></div>
-                  <p className={modernTypography.body}>Blockchain-secured records</p>
+                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
+                  <p className={modernTypography.body}><span style={{ color: modernColors.crypto }}>Blockchain-secured</span> records</p>
                 </motion.li>
               </ul>
             </ModernCard>
@@ -157,15 +171,18 @@ const Slide5: React.FC = () => {
             animate="visible"
             className="flex flex-col h-full"
           >
-            <ModernCard className="h-full p-8 flex-1">
+            <ModernCard className="h-full p-8 flex-1 border-t-4" style={{
+              borderColor: modernColors.commercial,
+              backgroundColor: `${modernColors.commercialLight}15`
+            }}>
               <div className="flex items-center mb-4">
-                <Laptop className="h-5 w-5 mr-2 text-emerald-600" />
-                <ModernSectionHeader dark className="inline-block">
+                <Laptop className="h-5 w-5 mr-2" style={{ color: modernColors.commercial }} />
+                <ModernBadge color={modernColors.commercial}>
                   COMMERCIAL
-                </ModernSectionHeader>
+                </ModernBadge>
               </div>
 
-              <h3 className={`${modernTypography.subheading} mt-4 mb-4`} style={{ color: modernColors.text }}>
+              <h3 className={`${modernTypography.subheading} mt-4 mb-4`} style={{ color: modernColors.commercial }}>
                 Commercial Integration: Enterprise system compatibility
               </h3>
               
@@ -175,7 +192,7 @@ const Slide5: React.FC = () => {
                   custom={0}
                   className="flex items-start"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-600 mt-2 mr-2 flex-shrink-0"></div>
+                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
                   <p className={modernTypography.body}>Existing scanning infrastructure</p>
                 </motion.li>
                 <motion.li 
@@ -183,7 +200,7 @@ const Slide5: React.FC = () => {
                   custom={1}
                   className="flex items-start"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-600 mt-2 mr-2 flex-shrink-0"></div>
+                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
                   <p className={modernTypography.body}>ERP/WMS API integration</p>
                 </motion.li>
                 <motion.li 
@@ -191,8 +208,8 @@ const Slide5: React.FC = () => {
                   custom={2}
                   className="flex items-start"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-emerald-600 mt-2 mr-2 flex-shrink-0"></div>
-                  <p className={modernTypography.body}>Shell token payments</p>
+                  <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
+                  <p className={modernTypography.body}><span style={{ color: modernColors.crypto }}>Shell token</span> payments</p>
                 </motion.li>
               </ul>
             </ModernCard>
