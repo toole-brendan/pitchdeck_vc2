@@ -19,11 +19,11 @@ export const modernTypography = {
   // Ultra-large slide titles for dramatic impact
   title: 'text-5xl sm:text-6xl md:text-8xl font-thin tracking-tighter leading-tight',
   
-  // Bold section titles with larger size
-  slideTitle: 'text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight leading-tight',
+  // Main slide title (larger for page headers)
+  slideTitle: 'text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight leading-tight',
   
-  // Large page title for key sections and call-to-action pages
-  pageTitle: 'text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight leading-tight',
+  // Section title for sub-sections within slides
+  pageTitle: 'text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight leading-tight',
   
   // Refined subtitle with increased size and better readability
   subtitle: 'text-lg sm:text-xl md:text-2xl font-extralight tracking-tight text-slate-500',
