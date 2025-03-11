@@ -13,10 +13,10 @@ const Slide1: React.FC = () => {
   const TOTAL_SLIDES = 18;
 
   return (
-    <SlideLayout title="Title Slide" slideNumber={1} totalSlides={TOTAL_SLIDES}>
+    <AutoScaleSlideLayout title="Title Slide" slideNumber={1} totalSlides={TOTAL_SLIDES}>
       <motion.div 
         className="flex flex-col items-center justify-center text-center"
-        variants={scaleUpVariants}
+        variants={fadeInUpVariants}
         initial="hidden"
         animate="visible"
       >
@@ -48,7 +48,7 @@ const Slide1: React.FC = () => {
           </ModernCard>
         </motion.div>
       </motion.div>
-    </SlideLayout>
+    </AutoScaleSlideLayout>
   );
 };
 
