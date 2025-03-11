@@ -74,15 +74,15 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 
       {/* Content Container */}
       <motion.div 
-        className="slide-content w-full max-w-4xl mx-auto"
+        className="slide-content w-full max-w-5xl mx-auto"
         variants={scaleUpVariants}
         initial="hidden"
         animate="visible"
       >
-        <h2 className={`${modernTypography.heading} mb-4`} style={{ color: modernColors.text }}>
+        <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
           {title}
         </h2>
-        <div className="mt-8">
+        <div className="mt-10">
           {children}
         </div>
       </motion.div>

@@ -1,7 +1,13 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
 import { motion } from 'framer-motion';
-import { ModernCard } from '@/components/PitchDeck/ModernSlideStyles';
+import { 
+  ModernCard,
+  modernTypography,
+  modernColors,
+  fadeInVariants, 
+  scaleUpVariants 
+} from '@/components/PitchDeck/ModernSlideStyles';
 import { ArrowRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 
@@ -13,45 +19,49 @@ const Slide5: React.FC = () => {
     <SlideLayout title="Call to Action" slideNumber={5} totalSlides={TOTAL_SLIDES}>
       <div className="flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10 max-w-2xl"
+          variants={fadeInVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center mb-12 max-w-3xl"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Thank You!</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className={`${modernTypography.pageTitle} mb-6`} style={{ color: modernColors.text }}>
+            Thank You!
+          </h2>
+          <p className={`${modernTypography.subtitle} max-w-2xl mx-auto`}>
             Placeholder text for conclusion and next steps
           </p>
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          variants={scaleUpVariants}
+          initial="hidden"
+          animate="visible"
           className="w-full max-w-xl"
         >
-          <ModernCard className="p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+          <ModernCard className="p-10 text-center">
+            <h3 className={`${modernTypography.heading} mb-8`} style={{ color: modernColors.text }}>
+              Get in Touch
+            </h3>
             
-            <div className="flex flex-col space-y-4 mb-8">
-              <div className="p-3 bg-gray-50 rounded-md border border-gray-200">
-                <p className="text-gray-700">Email: contact@example.com</p>
+            <div className="flex flex-col space-y-5 mb-10">
+              <div className="p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 shadow-sm">
+                <p className={modernTypography.body}>Email: contact@example.com</p>
               </div>
               
-              <div className="p-3 bg-gray-50 rounded-md border border-gray-200">
-                <p className="text-gray-700">Phone: (123) 456-7890</p>
+              <div className="p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 shadow-sm">
+                <p className={modernTypography.body}>Phone: (123) 456-7890</p>
               </div>
               
-              <div className="p-3 bg-gray-50 rounded-md border border-gray-200">
-                <p className="text-gray-700">Website: www.example.com</p>
+              <div className="p-4 bg-slate-50/80 backdrop-blur-sm rounded-sm border border-slate-100 shadow-sm">
+                <p className={modernTypography.body}>Website: www.example.com</p>
               </div>
             </div>
             
             <button 
               onClick={() => navigate('/')}
-              className="px-6 py-3 bg-accent text-white rounded-lg flex items-center gap-2 mx-auto hover:bg-accent/90 transition-colors"
+              className="px-7 py-4 bg-accent text-white rounded-sm flex items-center gap-3 mx-auto hover:bg-accent/90 transition-colors tracking-wide"
             >
-              Return to Home <ArrowRight className="h-4 w-4" />
+              Return to Home <ArrowRight className="h-5 w-5" />
             </button>
           </ModernCard>
         </motion.div>

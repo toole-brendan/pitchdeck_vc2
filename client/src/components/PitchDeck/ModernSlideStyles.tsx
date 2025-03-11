@@ -16,26 +16,38 @@ export const modernColors = {
 
 // Typography styles for ultra-modern minimalist look
 export const modernTypography = {
-  // More dramatic size contrast between mobile and desktop
-  title: 'text-4xl sm:text-5xl md:text-7xl font-thin tracking-tighter leading-tight',
+  // Ultra-large slide titles for dramatic impact
+  title: 'text-5xl sm:text-6xl md:text-8xl font-thin tracking-tighter leading-tight',
   
-  // Refined subtitle with better readability
-  subtitle: 'text-base sm:text-lg md:text-xl font-extralight tracking-tight text-slate-500',
+  // Bold section titles with larger size
+  slideTitle: 'text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight leading-tight',
+  
+  // Large page title for key sections and call-to-action pages
+  pageTitle: 'text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight leading-tight',
+  
+  // Refined subtitle with increased size and better readability
+  subtitle: 'text-lg sm:text-xl md:text-2xl font-extralight tracking-tight text-slate-500',
   
   // Ultra-compact section headers
-  sectionTitle: 'text-[0.7rem] uppercase tracking-[0.25em] text-slate-400 font-medium',
+  sectionTitle: 'text-xs uppercase tracking-[0.25em] text-slate-400 font-medium',
   
-  // Elegant headings with better spacing
-  heading: 'text-xl md:text-2xl font-extralight tracking-tight leading-snug',
+  // Elegant headings with better spacing and slightly larger
+  heading: 'text-2xl md:text-3xl font-extralight tracking-tight leading-snug',
   
-  // Improved body text readability
-  body: 'text-sm md:text-base font-light text-slate-600 leading-relaxed',
+  // Secondary headings for content sections
+  subheading: 'text-xl md:text-2xl font-extralight tracking-tight leading-snug',
   
-  // Refined small text
-  small: 'text-xs font-light text-slate-400 tracking-wide',
+  // Improved body text readability with slightly larger size
+  body: 'text-base md:text-lg font-light text-slate-600 leading-relaxed',
+  
+  // Refined small text with better readability
+  small: 'text-sm font-light text-slate-400 tracking-wide',
+  
+  // List text styling
+  list: 'text-base md:text-lg font-light text-slate-600 leading-relaxed',
   
   // More impactful statistics
-  stats: 'text-4xl md:text-5xl font-thin tracking-tight',
+  stats: 'text-5xl md:text-6xl font-thin tracking-tight',
   
   // Modern badge styling
   badge: 'text-xs tracking-wider uppercase py-1 px-3 font-medium',
