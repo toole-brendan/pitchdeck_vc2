@@ -29,13 +29,19 @@ const Slide: React.FC<Props> = ({ isActive, index, children, className = '' }) =
 
   return (
     <motion.div
-      className={`slide flex items-center justify-center px-6 md:px-20 ${
-        isDesktop ? 'absolute top-0 left-0 w-full h-full' : 'min-h-screen'
+      className={`slide ${
+        isDesktop 
+          ? 'fixed top-0 left-0 w-full h-screen overflow-hidden px-6 md:px-20 flex flex-col' 
+          : 'relative min-h-screen w-full px-4 py-6 flex flex-col'
       } ${className}`}
       data-index={index}
       initial="hidden"
       animate={isActive ? "visible" : "hidden"}
       variants={isDesktop ? variants.desktop : variants.mobile}
+      style={{ 
+        visibility: isDesktop && !isActive ? 'hidden' : 'visible',
+        display: isDesktop && !isActive ? 'none' : 'flex'
+      }}
     >
       {children}
     </motion.div>

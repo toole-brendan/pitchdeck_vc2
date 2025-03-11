@@ -1,0 +1,103 @@
+/* PresentationStyles.css */
+
+/* Global slide styles */
+@media (min-width: 768px) {
+  /* Desktop styles */
+  .slide-container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slide {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Make sure content fits in screen without scrolling on desktop */
+  .slide-content {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Fixed title height to ensure consistency */
+  .slide-title {
+    height: auto;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    position: relative;
+  }
+  
+  /* Ensures proper scaling of content */
+  .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Mobile styles */
+  .slide-container {
+    min-height: 100vh;
+  }
+  
+  .slide {
+    position: relative;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .slide-content {
+    overflow-y: visible;
+  }
+  
+  .slide-title {
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .content-wrapper {
+    padding-top: 1rem;
+  }
+}
+
+/* Ensure consistent title sizing */
+.slide-title h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  line-height: 1.2;
+}
+
+/* Enhance slide transitions */
+.slide {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Remove transition for mobile to prevent interference with scrolling */
+@media (max-width: 767px) {
+  .slide {
+    transition: none;
+  }
+}
+
+/* Override any element that might cause overflow */
+* {
+  max-width: 100%;
+}
+
+/* Ensure images don't break layout */
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
