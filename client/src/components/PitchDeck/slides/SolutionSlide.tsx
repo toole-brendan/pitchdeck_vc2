@@ -57,7 +57,7 @@ const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           variants={fadeInUpVariants}
           initial="hidden"
           animate={isActive ? "visible" : "hidden"}
-          className="text-4xl md:text-5xl font-extralight tracking-tight mb-10"
+          className={modernTypography.title + " mb-10"}
         >
           Introducing <span className="text-accent">ProductName</span>
         </motion.h2>
@@ -91,7 +91,7 @@ const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
               <div className="absolute inset-0 bg-accentLight rounded-lg flex items-center justify-center text-accent">
                 <div className="text-center">
                   <MonitorIcon className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                  <p className="text-xs uppercase tracking-wider font-medium">Product Interface</p>
+                  <p className={modernTypography.sectionLabel}>Product Interface</p>
                 </div>
               </div>
             </div>
