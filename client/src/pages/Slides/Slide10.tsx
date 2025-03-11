@@ -4,36 +4,55 @@ import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge, 
+  ModernDivider,
   modernTypography, 
   modernColors,
   fadeInUpVariants,
   itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
-import { Users, ArrowDown, BarChart } from 'lucide-react';
+import { 
+  Smartphone, 
+  Shield, 
+  FileCheck, 
+  Database, 
+  CreditCard, 
+  Users, 
+  Layers,
+  Wifi,
+  Lock,
+  Eye,
+  LayoutDashboard,
+  Link
+} from 'lucide-react';
 
 const Slide10: React.FC = () => {
   const TOTAL_SLIDES = 18;
 
-  const competitors = [
+  const workflowSteps = [
     { 
-      name: 'Competitor A', 
-      strengths: ['Great UI/UX', 'Strong brand recognition'],
-      weaknesses: ['Limited features', 'Higher price point']
+      number: 1,
+      title: 'Scan', 
+      description: 'User scans QR code with mobile app'
     },
     { 
-      name: 'Competitor B', 
-      strengths: ['Established market presence', 'Comprehensive features'],
-      weaknesses: ['Complex interface', 'Poor customer support']
+      number: 2,
+      title: 'Verify', 
+      description: 'Blockchain verification confirms authenticity'
     },
     { 
-      name: 'Our Solution', 
-      strengths: ['Intuitive design', 'Advanced AI functionality', 'Competitive pricing'],
-      weaknesses: ['Newer market entrant']
+      number: 3,
+      title: 'Transfer', 
+      description: 'Securely transfer ownership with digital signatures'
+    },
+    { 
+      number: 4,
+      title: 'Record', 
+      description: 'Transaction recorded permanently on blockchain'
     }
   ];
 
   return (
-    <SlideLayout title="Competitive Landscape" slideNumber={10} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout title="User Experience" slideNumber={10} totalSlides={TOTAL_SLIDES}>
       <motion.div
         variants={fadeInUpVariants}
         initial="hidden"
@@ -46,90 +65,136 @@ const Slide10: React.FC = () => {
           className="mb-2 text-center max-w-2xl mx-auto"
         >
           <h2 className={modernTypography.pageTitle} style={{ color: modernColors.text }}>
-            Market Competition Analysis
+            Intuitive interfaces for defense and commercial applications
           </h2>
-          <p className={modernTypography.body}>
-            Placeholder text describing the competitive landscape and our differentiation.
-          </p>
         </motion.div>
 
         <motion.div
           variants={itemFadeInUpVariant}
           custom={1}
-          className="mb-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
         >
-          <ModernCard className="p-8">
+          <ModernCard className="p-8 md:col-span-2">
             <div className="flex items-center gap-4 mb-6">
-              <BarChart className="h-7 w-7 text-accent" />
+              <FileCheck className="h-7 w-7 text-accent" />
               <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
-                Competitive Analysis
+                User Workflow
               </h3>
             </div>
             
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[600px]">
-                <thead>
-                  <tr className="bg-slate-50/80 backdrop-blur-sm border-b border-slate-100">
-                    <th className="py-4 px-5 text-left font-light tracking-wide">Company</th>
-                    <th className="py-4 px-5 text-left font-light tracking-wide">Strengths</th>
-                    <th className="py-4 px-5 text-left font-light tracking-wide">Weaknesses</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {competitors.map((competitor, index) => (
-                    <tr 
-                      key={index} 
-                      className={`border-b border-slate-100 ${
-                        competitor.name === 'Our Solution' ? 'bg-accent/5 backdrop-blur-sm' : ''
-                      }`}
-                    >
-                      <td className="py-4 px-5">
-                        {competitor.name === 'Our Solution' ? (
-                          <span className={`${modernTypography.subheading} text-accent font-light`}>
-                            {competitor.name}
-                          </span>
-                        ) : (
-                          <span className={modernTypography.subheading}>{competitor.name}</span>
-                        )}
-                      </td>
-                      <td className="py-4 px-5">
-                        <ul className="space-y-2">
-                          {competitor.strengths.map((strength, i) => (
-                            <li key={i} className={modernTypography.list}>• {strength}</li>
-                          ))}
-                        </ul>
-                      </td>
-                      <td className="py-4 px-5">
-                        <ul className="space-y-2">
-                          {competitor.weaknesses.map((weakness, i) => (
-                            <li key={i} className={modernTypography.list}>• {weakness}</li>
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {workflowSteps.map((step, index) => (
+                <div key={index} className="relative">
+                  <div className="bg-slate-50/80 backdrop-blur-sm p-5 border border-slate-100 h-full">
+                    <div className="flex flex-col h-full">
+                      <div className="flex justify-between items-center mb-3">
+                        <span className={`${modernTypography.label} text-accent`}>{step.title}</span>
+                        <span className="bg-accent/10 text-accent w-6 h-6 flex items-center justify-center rounded-full text-sm">
+                          {step.number}
+                        </span>
+                      </div>
+                      <p className={modernTypography.small}>{step.description}</p>
+                    </div>
+                  </div>
+                  {index < workflowSteps.length - 1 && (
+                    <div className="hidden md:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                      <div className="w-8 h-[1px] bg-slate-200"></div>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </ModernCard>
-        </motion.div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={2}
-        >
+          <ModernCard className="p-8 flex flex-col">
+            <div className="flex items-center gap-4 mb-5">
+              <Smartphone className="h-7 w-7 text-accent" />
+              <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
+                Interface Design
+              </h3>
+            </div>
+            <div className="flex-grow bg-militaryLight/50 rounded-md backdrop-blur-sm p-6 border border-slate-200">
+              <div className="max-w-[250px] mx-auto bg-white rounded-lg shadow-md overflow-hidden border border-slate-200">
+                <div className="bg-military text-white p-3 font-medium text-center">
+                  HandReceipt DEFENSE
+                </div>
+                <div className="p-4">
+                  <p className={`${modernTypography.sectionTitle} mb-3`}>Inventory items:</p>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex justify-between items-center p-2 bg-slate-50 rounded">
+                      <span>M4 Carbine</span>
+                      <span className="text-xs text-slate-500">SN: 935827</span>
+                    </li>
+                    <li className="flex justify-between items-center p-2 bg-slate-50 rounded">
+                      <span>NVG-7</span>
+                      <span className="text-xs text-slate-500">SN: 5371938</span>
+                    </li>
+                  </ul>
+                  <button className="w-full mt-4 bg-military text-white py-2 rounded text-sm">
+                    Verify Equipment
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ModernCard>
+
           <ModernCard className="p-8">
-            <h3 className={modernTypography.heading} style={{ color: modernColors.text, marginBottom: '0.75rem' }}>
-              Our Competitive Advantage
-            </h3>
-            <p className={`${modernTypography.body} mb-6`}>
-              Placeholder text describing our unique value proposition and competitive advantages.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <ModernBadge>Innovative Technology</ModernBadge>
-              <ModernBadge>User-Centric Design</ModernBadge>
-              <ModernBadge>Cost-Effective</ModernBadge>
-              <ModernBadge>Scalable Solution</ModernBadge>
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <Shield className="h-6 w-6" style={{ color: modernColors.military }} />
+                  <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.military }}>
+                    Defense UX
+                  </h3>
+                </div>
+                <ul className={`space-y-3 ${modernTypography.list}`}>
+                  <li className="flex items-start gap-3">
+                    <Eye className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
+                    <span><strong>Simplicity First:</strong> Designed for field conditions with minimal training</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Wifi className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
+                    <span><strong>Offline Mode:</strong> Functions without connectivity</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Lock className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
+                    <span><strong>CAC Integration:</strong> Secure authentication using military ID cards</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Shield className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
+                    <span><strong>Ruggedized Interface:</strong> High contrast and readable in all conditions</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <ModernDivider className="my-4" />
+              
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <CreditCard className="h-6 w-6" style={{ color: modernColors.commercial }} />
+                  <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.commercial }}>
+                    Commercial UX
+                  </h3>
+                </div>
+                <ul className={`space-y-3 ${modernTypography.list}`}>
+                  <li className="flex items-start gap-3">
+                    <LayoutDashboard className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
+                    <span><strong>Payment Dashboard:</strong> Real-time visibility of payment status</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CreditCard className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
+                    <span><strong>Shell Integration:</strong> One-click payment processing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Users className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
+                    <span><strong>Multi-user Roles:</strong> Customizable permissions for team members</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Link className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
+                    <span><strong>API Connections:</strong> Seamless integration with ERP and WMS</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </ModernCard>
         </motion.div>
