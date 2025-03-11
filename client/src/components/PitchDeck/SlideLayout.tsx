@@ -52,14 +52,14 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8">
         <button 
           onClick={goToPrevSlide}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent text-white shadow-lg flex items-center justify-center hover:bg-accent/90 transition-colors border border-accent/20"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black text-white shadow-lg flex items-center justify-center hover:bg-black/90 transition-colors"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
         </button>
         <button 
           onClick={goToNextSlide}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent text-white shadow-lg flex items-center justify-center hover:bg-accent/90 transition-colors border border-accent/20"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black text-white shadow-lg flex items-center justify-center hover:bg-black/90 transition-colors"
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />

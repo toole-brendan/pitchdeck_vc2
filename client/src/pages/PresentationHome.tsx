@@ -24,7 +24,7 @@ const PresentationHome: React.FC = () => {
         <div className="flex flex-col items-center">
           <motion.button 
             onClick={() => navigate('/slide/1')}
-            className="px-8 py-4 bg-accent text-white rounded-lg flex items-center gap-2 hover:bg-accent/90 transition-colors text-lg"
+            className="px-8 py-4 bg-black text-white rounded-lg flex items-center gap-2 hover:bg-black/90 transition-colors text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
