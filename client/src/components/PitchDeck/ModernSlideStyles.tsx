@@ -15,14 +15,24 @@ export const modernColors = {
 
 // Typography styles for modern minimalist look
 export const modernTypography = {
+  // Slide-level typography
   title: 'text-4xl md:text-6xl font-extralight tracking-tight',
   subtitle: 'text-lg md:text-xl font-light tracking-normal text-gray-500',
+  
+  // Component-level typography
   sectionTitle: 'text-xs uppercase tracking-widest text-gray-400 font-medium',
   heading: 'text-xl font-light tracking-tight',
   body: 'text-sm md:text-base font-light text-gray-600',
   small: 'text-xs font-light text-gray-500',
   stats: 'text-3xl font-light',
   badge: 'text-xs tracking-wider uppercase py-1 px-3',
+  
+  // New typography styles as requested
+  featureCardTitle: 'text-lg font-medium text-gray-900',
+  sectionLabel: 'text-xs font-medium tracking-widest text-gray-400 uppercase',
+  featureCardDescription: 'text-gray-500',
+  listItemText: 'text-gray-600',
+  listItemMarker: 'text-gray-300 text-sm',
 };
 
 // Layout components with modern styling
@@ -41,8 +51,12 @@ export const ModernBadge: React.FC<{
 export const ModernCard: React.FC<{
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className = '' }) => (
+  title?: string;
+  description?: string;
+}> = ({ children, className = '', title, description }) => (
   <div className={`bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 p-6 ${className}`}>
+    {title && <h3 className={modernTypography.featureCardTitle}>{title}</h3>}
+    {description && <p className={modernTypography.featureCardDescription}>{description}</p>}
     {children}
   </div>
 );
@@ -101,6 +115,35 @@ export const ModernSectionHeader: React.FC<{
   return (
     <div className={`${dark ? darkStyle : lightStyle} ${className}`}>
       {children}
+    </div>
+  );
+};
+
+// Section Label component for consistent section labeling
+export const ModernSectionLabel: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className = '' }) => {
+  return (
+    <div className={`${modernTypography.sectionLabel} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+// List Item component with proper styling
+export const ModernListItem: React.FC<{
+  children: React.ReactNode;
+  marker?: React.ReactNode;
+  className?: string;
+}> = ({ children, marker = '•', className = '' }) => {
+  return (
+    <div className={`flex items-start mb-2 ${className}`}>
+      {typeof marker === 'string' 
+        ? <span className={modernTypography.listItemMarker}>{marker}</span>
+        : marker
+      }
+      <span className={`${modernTypography.listItemText} ml-2`}>{children}</span>
     </div>
   );
 };

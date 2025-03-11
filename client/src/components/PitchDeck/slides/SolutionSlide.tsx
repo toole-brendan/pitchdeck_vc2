@@ -2,7 +2,14 @@ import { motion } from 'framer-motion';
 import { CheckIcon, MonitorIcon } from 'lucide-react';
 import Slide from '../Slide';
 import { SlideProps } from '../PitchDeck';
-import { ModernSectionHeader, ModernBadge, fadeInUpVariants } from '../ModernSlideStyles';
+import { 
+  ModernSectionHeader, 
+  ModernBadge, 
+  ModernSectionLabel, 
+  ModernListItem, 
+  modernTypography,
+  fadeInUpVariants 
+} from '../ModernSlideStyles';
 
 const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
   const features = [
@@ -64,19 +71,21 @@ const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
         >
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2">
-              <h3 className="text-xl font-light tracking-tight mb-4">Key Features</h3>
-              <ul className="space-y-4">
+              <h3 className={modernTypography.featureCardTitle + " mb-4"}>Key Features</h3>
+              <div className="space-y-4">
                 {features.map((feature, i) => (
-                  <li key={i} className="flex items-start">
-                    <div className="text-accent mr-3 mt-0.5">
-                      <CheckIcon className="h-5 w-5" />
-                    </div>
-                    <p className="text-sm md:text-base font-light text-gray-600">
-                      <span className="font-normal text-gray-900">{feature.title}</span>: {feature.description}
-                    </p>
-                  </li>
+                  <ModernListItem 
+                    key={i} 
+                    marker={
+                      <div className="text-accent mr-1 mt-0.5">
+                        <CheckIcon className="h-5 w-5" />
+                      </div>
+                    }
+                  >
+                    <span className={modernTypography.featureCardTitle}>{feature.title}</span>: {feature.description}
+                  </ModernListItem>
                 ))}
-              </ul>
+              </div>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <div className="absolute inset-0 bg-accentLight rounded-lg flex items-center justify-center text-accent">
@@ -96,7 +105,7 @@ const SolutionSlide: React.FC<SlideProps> = ({ isActive, index }) => {
           animate={isActive ? "visible" : "hidden"}
           className="text-center"
         >
-          <span className="text-xs uppercase tracking-widest text-gray-400 font-medium block mb-3">Advantages</span>
+          <ModernSectionLabel className="block mb-3">Advantages</ModernSectionLabel>
           <div className="flex flex-wrap justify-center gap-3">
             {advantages.map((advantage, i) => (
               <ModernBadge key={i} color={advantage.color}>
