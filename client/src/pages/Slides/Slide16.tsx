@@ -1,13 +1,10 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge,
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   User, 
@@ -155,28 +152,15 @@ const Slide16: React.FC = () => {
 
   return (
     <SlideLayout title="Team & Roadmap" slideNumber={16} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-        className="flex flex-col gap-6"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="mb-2 text-center max-w-2xl mx-auto"
-        >
+      <div className="flex flex-col gap-6">
+        <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
             Leadership, development timeline, and growth strategy
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={1}
-            className="md:col-span-2"
-          >
+          <div className="md:col-span-2">
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
                 <User className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -237,13 +221,9 @@ const Slide16: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={2}
-            className="md:col-span-1"
-          >
+          <div className="md:col-span-1">
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
                 <BarChart3 className="h-7 w-7" style={{ color: modernColors.commercial }} />
@@ -273,13 +253,10 @@ const Slide16: React.FC = () => {
                 ))}
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={3}
-        >
+        <div>
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
               <Calendar className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -326,8 +303,8 @@ const Slide16: React.FC = () => {
               ))}
             </div>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };

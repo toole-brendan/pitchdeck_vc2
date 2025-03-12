@@ -1,13 +1,10 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge,
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { ShieldCheck, Workflow, Shield, Lock } from 'lucide-react';
 
@@ -16,17 +13,8 @@ const Slide17: React.FC = () => {
 
   return (
     <SlideLayout title="Shell Token Architecture" slideNumber={17} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-        className="flex flex-col gap-8"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="mb-2 text-center max-w-2xl mx-auto"
-        >
+      <div className="flex flex-col gap-8">
+        <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
             Technical foundation for secure supply chain transactions with built-in oracle capabilities
           </h2>
@@ -34,13 +22,10 @@ const Slide17: React.FC = () => {
             <ModernBadge color={modernColors.military}>Military-Grade</ModernBadge>
             <ModernBadge color={modernColors.commercial}>Commercial Integration</ModernBadge>
           </div>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={1}
-          >
+          <div>
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
                 <ShieldCheck className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -88,12 +73,9 @@ const Slide17: React.FC = () => {
                 </li>
               </ul>
             </ModernCard>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={2}
-          >
+          <div>
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
                 <Workflow className="h-7 w-7" style={{ color: modernColors.commercial }} />
@@ -150,13 +132,10 @@ const Slide17: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={3}
-        >
+        <div>
           <ModernCard className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
@@ -222,8 +201,8 @@ const Slide17: React.FC = () => {
               </div>
             </div>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };
