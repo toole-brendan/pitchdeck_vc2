@@ -13,7 +13,7 @@ const Slide1: React.FC = () => {
     <SlideLayout title="" slideNumber={1} totalSlides={TOTAL_SLIDES}>
       <div className="flex flex-col items-center justify-center text-center">
         <div 
-          className="font-['Georgia'] font-extralight text-5xl tracking-widest border-2 border-gray-800/80 dark:border-gray-100/80 px-8 py-4 text-gray-800 dark:text-gray-100 mx-4 cursor-pointer hover:opacity-90 transition-opacity mb-6 max-w-[90%] w-auto inline-block"
+          className="font-['Georgia'] font-extralight text-5xl tracking-widest border-2 border-gray-800/80 dark:border-gray-100/80 px-8 py-4 text-gray-800 dark:text-gray-100 m-0 cursor-pointer hover:opacity-90 transition-opacity mb-6"
           style={{ color: modernColors.text }}
         >
           HandReceipt
