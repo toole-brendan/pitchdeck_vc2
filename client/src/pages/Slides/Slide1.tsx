@@ -22,7 +22,7 @@ const Slide1: React.FC = () => {
         <p 
           className={`${modernTypography.subtitle} max-w-2xl mx-auto mb-12`}
         >
-          Subtitle or brief description
+          Blockchain-powered inventory management
         </p>
         
         <div className="mt-6">
