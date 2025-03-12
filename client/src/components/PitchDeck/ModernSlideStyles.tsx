@@ -60,6 +60,15 @@ export const modernTypography = {
   
   // Modern badge styling
   badge: 'text-xs tracking-wider uppercase py-1 px-3 font-medium',
+  
+  // Giant text for thank you slides
+  giant: 'text-6xl md:text-7xl font-thin tracking-tighter leading-tight text-black',
+  
+  // Lead paragraph text 
+  lead: 'text-xl md:text-2xl font-light text-black leading-relaxed',
+  
+  // Quote styling
+  quote: 'text-xl md:text-2xl italic font-light text-black',
 };
 
 // Layout components with ultra-modern styling

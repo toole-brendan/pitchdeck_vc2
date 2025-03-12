@@ -24,10 +24,10 @@ const Slide16: React.FC = () => {
 
   // Founding team expertise
   const founderExpertise = [
-    { text: 'Princeton Economics', color: `bg-opacity-20 bg-commercial text-commercial` },
+    { text: 'Princeton Economics', color: `bg-opacity-20 bg-crypto text-crypto` },
     { text: 'Point72 Analyst', color: `bg-opacity-20 bg-crypto text-crypto` },
-    { text: 'Military Officer', color: 'bg-militaryLight text-military' },
-    { text: 'Full-Stack Developer', color: 'bg-slate-100 text-black' }
+    { text: 'Military Officer', color: `bg-opacity-20 bg-crypto text-crypto` },
+    { text: 'Full-Stack Developer', color: `bg-opacity-20 bg-crypto text-crypto` }
   ];
 
   // Post-seed hiring plan
@@ -65,8 +65,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Upcoming',
       icon: Server,
-      color: modernColors.military,
-      statusColor: `bg-opacity-20 bg-military text-military`
+      color: modernColors.crypto,
+      statusColor: `bg-opacity-20 bg-crypto text-crypto`
     },
     {
       quarter: 'Q4 2025',
@@ -79,8 +79,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Planned',
       icon: Smartphone,
-      color: modernColors.military,
-      statusColor: `bg-opacity-20 bg-military text-military`
+      color: modernColors.crypto,
+      statusColor: `bg-opacity-20 bg-crypto text-crypto`
     },
     {
       quarter: 'Q1 2026',
@@ -93,8 +93,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Planned',
       icon: GitMerge,
-      color: modernColors.commercial,
-      statusColor: `bg-opacity-20 bg-commercial text-commercial`
+      color: modernColors.crypto,
+      statusColor: `bg-opacity-20 bg-crypto text-crypto`
     },
     {
       quarter: 'Q2 2026',
@@ -107,8 +107,8 @@ const Slide16: React.FC = () => {
       ],
       status: 'Planned',
       icon: Rocket,
-      color: modernColors.commercial,
-      statusColor: `bg-opacity-20 bg-commercial text-commercial`
+      color: modernColors.crypto,
+      statusColor: `bg-opacity-20 bg-crypto text-crypto`
     }
   ];
 

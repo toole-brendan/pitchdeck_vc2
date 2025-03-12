@@ -45,7 +45,7 @@ const Slide18: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-10">
               <div className="md:w-1/2">
                 <div className="flex items-center gap-3 mb-8">
-                  <MessageCircle className="h-7 w-7" style={{ color: modernColors.military }} />
+                  <MessageCircle className="h-7 w-7" style={{ color: modernColors.crypto }} />
                   <h3 className={modernTypography.heading} style={{ color: modernColors.text }}>
                     Next Steps
                   </h3>
@@ -53,8 +53,8 @@ const Slide18: React.FC = () => {
                 
                 <div className="space-y-6 mb-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-sm" style={{ backgroundColor: `${modernColors.military}20` }}>
-                      <span className={`${modernTypography.small}`} style={{ color: modernColors.military }}>1</span>
+                    <div className="w-10 h-10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-sm" style={{ backgroundColor: `${modernColors.crypto}20` }}>
+                      <span className={`${modernTypography.small}`} style={{ color: modernColors.crypto }}>1</span>
                     </div>
                     <div>
                       <p className={modernTypography.subheading}>Follow-up Meeting</p>
@@ -63,8 +63,8 @@ const Slide18: React.FC = () => {
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-sm" style={{ backgroundColor: `${modernColors.commercial}20` }}>
-                      <span className={`${modernTypography.small}`} style={{ color: modernColors.commercial }}>2</span>
+                    <div className="w-10 h-10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-sm" style={{ backgroundColor: `${modernColors.crypto}20` }}>
+                      <span className={`${modernTypography.small}`} style={{ color: modernColors.crypto }}>2</span>
                     </div>
                     <div>
                       <p className={modernTypography.subheading}>Due Diligence</p>
@@ -98,8 +98,8 @@ const Slide18: React.FC = () => {
                 
                 <div className="space-y-5">
                   <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                    <div className="w-12 h-12 backdrop-blur-sm flex items-center justify-center shadow-sm" style={{ backgroundColor: `${modernColors.commercial}20` }}>
-                      <Mail className="h-6 w-6" style={{ color: modernColors.commercial }} />
+                    <div className="w-12 h-12 backdrop-blur-sm flex items-center justify-center shadow-sm" style={{ backgroundColor: `${modernColors.crypto}20` }}>
+                      <Mail className="h-6 w-6" style={{ color: modernColors.crypto }} />
                     </div>
                     <div>
                       <p className={modernTypography.label}>Email</p>
