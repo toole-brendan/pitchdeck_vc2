@@ -1,0 +1,289 @@
+Scaling and overflow issue on desktop viewport
+
+
+Let's create a solution that:
+1. Detects if content is overflowing on desktop viewports
+2. Dynamically scales down only the content (not the title) until overflow is eliminated
+3. Only applies scaling when actually needed
+
+
+// useContentScale.js - A custom hook to manage content scaling for overflow
+import { useState, useEffect, useRef } from 'react';
+
+export function useContentScale(dependencies = []) {
+  const contentRef = useRef(null);
+  const [scale, setScale] = useState(1);
+  const [isScaled, setIsScaled] = useState(false);
+  
+  // Function to check for overflow and adjust scale as needed
+  const checkAndAdjustScale = () => {
+    // Only apply on desktop viewports (>= 768px)
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop || !contentRef.current) {
+      setScale(1);
+      setIsScaled(false);
+      return;
+    }
+    
+    const container = contentRef.current;
+    
+    // Reset scale to check natural size
+    container.style.transform = '';
+    
+    // Get the scroll height (actual content height)
+    const containerHeight = container.scrollHeight;
+    
+    // Get the parent container's visible height
+    // We're using getBoundingClientRect to account for padding, etc.
+    const parentNode = container.parentNode;
+    
+    // We need to account for the title and other elements
+    // Estimate the available height by getting the parent's visible height
+    // and subtracting the title's height and some padding
+    const titleElement = parentNode.querySelector('h2');
+    const titleHeight = titleElement ? titleElement.offsetHeight : 0;
+    const paddingBuffer = 40; // Buffer for padding, margins, etc.
+    
+    // Calculate available height for content
+    const viewportHeight = window.innerHeight;
+    const totalUsedHeight = titleHeight + paddingBuffer;
+    const availableHeight = viewportHeight - totalUsedHeight;
+    
+    // Check if content overflows available space
+    if (containerHeight > availableHeight) {
+      // Calculate the scale factor needed (between 0.5 and 1)
+      let newScale = Math.max(0.5, availableHeight / containerHeight);
+      
+      // Round to 2 decimal places for better performance
+      newScale = Math.floor(newScale * 100) / 100;
+      
+      setScale(newScale);
+      setIsScaled(true);
+    } else {
+      // No overflow, reset to normal scale
+      setScale(1);
+      setIsScaled(false);
+    }
+  };
+  
+  // Run the check on mount and when dependencies change
+  useEffect(() => {
+    checkAndAdjustScale();
+    
+    // Add resize listener to recheck on window resize
+    window.addEventListener('resize', checkAndAdjustScale);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkAndAdjustScale);
+  }, [contentRef.current, ...dependencies]);
+  
+  return { contentRef, scale, isScaled };
+}
+
+
+
+Now, let's modify the SlideLayout component to implement this scaling functionality
+
+import React, { ReactNode } from 'react';
+import { useLocation } from 'wouter';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { modernTypography, modernColors, scaleUpVariants } from './ModernSlideStyles';
+import { useContentScale } from '../../hooks/useContentScale';
+
+interface SlideLayoutProps {
+  title: string;
+  slideNumber: number;
+  totalSlides: number;
+  children: ReactNode;
+}
+
+const SlideLayout: React.FC<SlideLayoutProps> = ({ 
+  title, 
+  slideNumber, 
+  totalSlides, 
+  children 
+}) => {
+  const [, navigate] = useLocation();
+  
+  // Use our custom hook to manage content scaling
+  const { contentRef, scale, isScaled } = useContentScale([children, slideNumber]);
+
+  const goToNextSlide = () => {
+    if (slideNumber < totalSlides) {
+      navigate(`/slide/${slideNumber + 1}`);
+    } else {
+      navigate('/');
+    }
+  };
+
+  const goToPrevSlide = () => {
+    if (slideNumber > 1) {
+      navigate(`/slide/${slideNumber - 1}`);
+    } else {
+      navigate('/');
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') {
+      goToNextSlide();
+    } else if (e.key === 'ArrowLeft') {
+      goToPrevSlide();
+    }
+  };
+
+  return (
+    <div 
+      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-6 relative"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+    >
+      {/* Navigation Controls */}
+      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8">
+        <button 
+          onClick={goToPrevSlide}
+          className="w-10 h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+        </button>
+        <button 
+          onClick={goToNextSlide}
+          className="w-10 h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+        </button>
+      </div>
+
+      {/* Slide Number */}
+      <div className={`absolute top-4 right-6 ${modernTypography.small}`} style={{ color: modernColors.textLight }}>
+        {slideNumber} / {totalSlides}
+      </div>
+
+      {/* Content Container */}
+      <motion.div 
+        className="slide-content w-full max-w-5xl mx-auto"
+        variants={scaleUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Title - NOT scaled */}
+        <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
+          {title}
+        </h2>
+        
+        {/* Content - Will be scaled if needed */}
+        <div 
+          ref={contentRef}
+          className="mt-10 origin-top transition-transform duration-300"
+          style={{ 
+            transform: `scale(${scale})`,
+            transformOrigin: 'top center',
+            height: isScaled ? 'auto' : '100%'
+          }}
+        >
+          {children}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default SlideLayout;
+
+
+
+Finally, let's create the hook file to place in your project:
+
+// src/hooks/useContentScale.js
+import { useState, useEffect, useRef } from 'react';
+
+export function useContentScale(dependencies = []) {
+  const contentRef = useRef(null);
+  const [scale, setScale] = useState(1);
+  const [isScaled, setIsScaled] = useState(false);
+  
+  // Function to check for overflow and adjust scale as needed
+  const checkAndAdjustScale = () => {
+    // Only apply on desktop viewports (>= 768px)
+    const isDesktop = window.innerWidth >= 768;
+    if (!isDesktop || !contentRef.current) {
+      setScale(1);
+      setIsScaled(false);
+      return;
+    }
+    
+    const container = contentRef.current;
+    
+    // Reset scale to check natural size
+    container.style.transform = '';
+    
+    // Calculate visible heights
+    const containerRect = container.getBoundingClientRect();
+    const containerTop = containerRect.top;
+    const containerHeight = container.scrollHeight;
+    
+    // Calculate available height (viewport height minus the top position of content)
+    // This accounts for the title and navigation automatically
+    const viewportHeight = window.innerHeight;
+    const bottomPadding = 40; // Add some padding at the bottom
+    const availableHeight = viewportHeight - containerTop - bottomPadding;
+    
+    // Check if content overflows available space
+    if (containerHeight > availableHeight) {
+      // Calculate the scale factor needed (between 0.5 and 1)
+      let newScale = Math.max(0.5, availableHeight / containerHeight);
+      
+      // Round to 2 decimal places for better performance
+      newScale = Math.floor(newScale * 100) / 100;
+      
+      setScale(newScale);
+      setIsScaled(true);
+    } else {
+      // No overflow, reset to normal scale
+      setScale(1);
+      setIsScaled(false);
+    }
+  };
+  
+  // Run the check on mount and when dependencies change
+  useEffect(() => {
+    // Small delay to ensure components are fully rendered
+    const timer = setTimeout(() => {
+      checkAndAdjustScale();
+    }, 100);
+    
+    // Add resize listener to recheck on window resize
+    window.addEventListener('resize', checkAndAdjustScale);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', checkAndAdjustScale);
+      clearTimeout(timer);
+    };
+  }, [contentRef.current, ...dependencies]);
+  
+  return { contentRef, scale, isScaled };
+}
+
+
+
+How to Implement This Solution
+Here's how to implement the overflow scaling in your presentation:
+1. First, create the hook file:
+    * Create a new file at src/hooks/useContentScale.js with the content from the "useContentScale.js Hook Implementation" artifact.
+2. Then, update your SlideLayout component:
+    * Open client/src/components/PitchDeck/SlideLayout.tsx
+    * Replace its contents with the code from the "Updated SlideLayout Component with Content Scaling" artifact.
+3. How it works:
+    * The useContentScale hook provides a ref to attach to your content container
+    * It automatically detects when there's overflow on desktop viewports
+    * When overflow occurs, it calculates the perfect scale factor to eliminate the overflow
+    * The hook manages the scale state and applies it via a transform
+    * Only the content area scales, not the title
+    * The scaling is applied with a smooth transition
+    * The scaling only happens on desktop (viewport width >= 768px)
+The solution carefully measures the available space, accounting for the slide title, navigation controls, and padding. It then calculates the minimum scale needed to fit all content, and applies it using CSS transforms with transform-origin: top center to ensure content scales down from the top.
+This approach is much more reliable than fixed breakpoints because it responds to actual content overflow rather than viewport size alone.
