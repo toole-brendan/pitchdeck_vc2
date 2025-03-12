@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { modernTypography, modernColors, scaleUpVariants } from './ModernSlideStyles';
+import { useContentScale } from '../../hooks/useContentScale';
 
 interface SlideLayoutProps {
   title: string;
@@ -18,6 +19,9 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   children 
 }) => {
   const [, navigate] = useLocation();
+  
+  // Use our custom hook to manage content scaling
+  const { contentRef, scale, isScaled } = useContentScale([children, slideNumber]);
 
   const goToNextSlide = () => {
     if (slideNumber < totalSlides) {
@@ -79,10 +83,21 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         initial="hidden"
         animate="visible"
       >
+        {/* Title - NOT scaled */}
         <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
           {title}
         </h2>
-        <div className="mt-10">
+        
+        {/* Content - Will be scaled if needed */}
+        <div 
+          ref={contentRef}
+          className="mt-10 origin-top transition-transform duration-300"
+          style={{ 
+            transform: `scale(${scale})`,
+            transformOrigin: 'top center',
+            height: isScaled ? 'auto' : '100%'
+          }}
+        >
           {children}
         </div>
       </motion.div>
