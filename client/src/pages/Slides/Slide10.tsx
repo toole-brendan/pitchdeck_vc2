@@ -73,7 +73,10 @@ const Slide10: React.FC = () => {
                     <div className="flex flex-col h-full">
                       <div className="flex justify-between items-center mb-3">
                         <span className={`${modernTypography.label} text-black`}>{step.title}</span>
-                        <span className="bg-blue-500/10 text-blue-500 w-6 h-6 flex items-center justify-center rounded-full text-sm">
+                        <span className={`w-6 h-6 flex items-center justify-center rounded-full text-sm`} style={{ 
+                          backgroundColor: step.number === 1 || step.number === 3 ? `${modernColors.military}20` : `${modernColors.crypto}20`,
+                          color: step.number === 1 || step.number === 3 ? modernColors.military : modernColors.crypto
+                        }}>
                           {step.number}
                         </span>
                       </div>

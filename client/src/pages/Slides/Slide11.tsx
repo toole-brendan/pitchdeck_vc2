@@ -52,7 +52,7 @@ const Slide11: React.FC = () => {
   const marketROI = [
     { market: 'Defense', roi: '9.7x ROI', color: modernColors.military },
     { market: 'Logistics', roi: '6.2x ROI', color: modernColors.commercial },
-    { market: 'Manufacturing', roi: '4.5x ROI', color: "#4338ca" } // Indigo color for manufacturing
+    { market: 'Manufacturing', roi: '4.5x ROI', color: modernColors.crypto } // Purple color for manufacturing
   ];
 
   return (

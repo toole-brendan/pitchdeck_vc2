@@ -18,7 +18,7 @@ const Slide5: React.FC = () => {
     { 
       title: 'QR Scan',
       description: 'Scan item code with mobile app',
-      icon: <QrCode className="h-6 w-6" style={{ color: modernColors.accent }} />
+      icon: <QrCode className="h-6 w-6" style={{ color: modernColors.military }} />
     },
     { 
       title: 'Blockchain Record',
