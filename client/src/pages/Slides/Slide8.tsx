@@ -17,7 +17,7 @@ const Slide8: React.FC = () => {
       name: 'HandReceipt', 
       defenseCompliance: 85, 
       blockchainCapability: 90,
-      color: modernColors.accent
+      color: modernColors.crypto
     },
     { 
       name: 'SAP Ariba', 
@@ -115,7 +115,7 @@ const Slide8: React.FC = () => {
       <div className="mb-8">
         <ModernCard className="p-6">
           <div className="flex items-center gap-4 mb-5">
-            <BarChart3 className="h-7 w-7" style={{ color: modernColors.accent }} />
+            <BarChart3 className="h-7 w-7" style={{ color: modernColors.crypto }} />
             <h3 className={modernTypography.heading}>
               Market Positioning
             </h3>
@@ -172,8 +172,8 @@ const Slide8: React.FC = () => {
                   <div 
                     className="mt-1 text-[10px] font-medium px-1 py-0.5 rounded whitespace-nowrap"
                     style={{
-                      backgroundColor: competitor.name === 'HandReceipt' ? `${modernColors.accent}30` : 'transparent',
-                      color: competitor.name === 'HandReceipt' ? modernColors.accent : '#000000'
+                      backgroundColor: competitor.name === 'HandReceipt' ? `${modernColors.crypto}30` : 'transparent',
+                      color: competitor.name === 'HandReceipt' ? modernColors.crypto : '#000000'
                     }}
                   >
                     {competitor.name}
@@ -194,7 +194,7 @@ const Slide8: React.FC = () => {
             borderBottom: `2px solid ${modernColors.commercial}`,
             background: 'linear-gradient(135deg, rgba(219, 234, 254, 0.1), rgba(255, 237, 213, 0.1))'
           }}>
-            <ModernBadge color={modernColors.accent} className="mb-4">
+            <ModernBadge color={modernColors.crypto} className="mb-4">
               OUR ADVANTAGES
             </ModernBadge>
             

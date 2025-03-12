@@ -152,7 +152,7 @@ const Slide4: React.FC = () => {
           <ModernCard className="p-8 flex-1" style={{ 
             background: 'linear-gradient(135deg, rgba(219, 234, 254, 0.15), rgba(255, 237, 213, 0.15))'
           }}>
-            <ModernBadge color={modernColors.accent} className="mb-4">
+            <ModernBadge color={modernColors.crypto} className="mb-4">
               STRATEGIC ADVANTAGES
             </ModernBadge>
 

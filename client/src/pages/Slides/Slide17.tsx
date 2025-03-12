@@ -87,23 +87,23 @@ const Slide17: React.FC = () => {
               
               <div className="space-y-6">
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-2`} style={{ color: modernColors.commercial }}>
+                  <h4 className={`${modernTypography.subheading} mb-2`} style={{ color: modernColors.crypto }}>
                     Consensus Protocol: Delegated Proof of Supply Chain (DPoSC)
                   </h4>
                   <ul className={`space-y-2 ${modernTypography.body}`}>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full" 
-                          style={{ backgroundColor: modernColors.commercial }}></div>
+                          style={{ backgroundColor: modernColors.crypto }}></div>
                       <span>3-5 second block times with PBFT-inspired finality</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"
-                          style={{ backgroundColor: modernColors.commercial }}></div>
+                          style={{ backgroundColor: modernColors.crypto }}></div>
                       <span>Validators weighted by supply chain activity volume</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 backdrop-blur-sm mt-2 flex-shrink-0 shadow-sm rounded-full"
-                          style={{ backgroundColor: modernColors.commercial }}></div>
+                          style={{ backgroundColor: modernColors.crypto }}></div>
                       <span>Energy-efficient alternative to Proof of Work</span>
                     </li>
                   </ul>
@@ -141,27 +141,27 @@ const Slide17: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <Shield className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                  <Shield className="h-7 w-7" style={{ color: modernColors.crypto }} />
                   <h3 className={modernTypography.heading}>
                     Smart Contract Engine
                   </h3>
                 </div>
                 
-                <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.commercial }}>
+                <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.crypto }}>
                   Supply chain-specific VM with specialized contract templates
                 </h4>
                 
                 <ul className={`space-y-3 ${modernTypography.body}`}>
                   <li className="flex items-center gap-3">
-                    <span style={{ color: modernColors.commercial }}>•</span>
+                    <span style={{ color: modernColors.crypto }}>•</span>
                     <span>Payment, escrow, and SLA contract libraries</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span style={{ color: modernColors.commercial }}>•</span>
+                    <span style={{ color: modernColors.crypto }}>•</span>
                     <span>Deterministic execution with formal verification</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span style={{ color: modernColors.commercial }}>•</span>
+                    <span style={{ color: modernColors.crypto }}>•</span>
                     <span>Gas-free execution for verified participants</span>
                   </li>
                 </ul>
