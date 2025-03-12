@@ -108,8 +108,8 @@ const Slide18: React.FC = () => {
                   </div>
                   
                   <div className="flex items-center gap-4 p-4 bg-slate-50/80 backdrop-blur-sm  border border-slate-100">
-                    <div className="w-12 h-12 backdrop-blur-sm flex items-center justify-center shadow-sm" style={{ backgroundColor: `${modernColors.military}20` }}>
-                      <Phone className="h-6 w-6" style={{ color: modernColors.military }} />
+                    <div className="w-12 h-12 backdrop-blur-sm flex items-center justify-center shadow-sm" style={{ backgroundColor: `${modernColors.crypto}20` }}>
+                      <Phone className="h-6 w-6" style={{ color: modernColors.crypto }} />
                     </div>
                     <div>
                       <p className={modernTypography.label}>Phone</p>
