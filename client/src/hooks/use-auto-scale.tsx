@@ -60,11 +60,16 @@ export function useAutoScale({
       const contentHeight = content.scrollHeight;
       const contentWidth = content.scrollWidth;
       
-      // Check if content overflows the container
-      const overflowsHeight = contentHeight > containerHeight - 80; // Add padding buffer
-      const overflowsWidth = contentWidth > containerWidth - 40;  // Add padding buffer
+      // Add a generous padding buffer to ensure content isn't cut off
+      const paddingBuffer = 150; // Increase buffer to ensure nothing is cut off
       
-      const hasOverflowNow = overflowsHeight || overflowsWidth;
+      // Check if content overflows the container
+      const overflowsHeight = contentHeight > (containerHeight - paddingBuffer);
+      const overflowsWidth = contentWidth > (containerWidth - 40);
+      
+      // Always consider height overflow to ensure scaling
+      // Even if technically not overflowing, scale to ensure visibility
+      const hasOverflowNow = true; // Force scaling to ensure fit
       setHasOverflow(hasOverflowNow);
       
       if (debug) {
@@ -76,8 +81,8 @@ export function useAutoScale({
       // Calculate scale if overflow exists
       if (hasOverflowNow) {
         // Calculate scale based on both dimensions
-        const heightScale = containerHeight / contentHeight;
-        const widthScale = containerWidth / contentWidth;
+        const heightScale = (containerHeight - paddingBuffer) / contentHeight;
+        const widthScale = (containerWidth - 40) / contentWidth;
         
         // Use the smaller scale to ensure content fits both dimensions
         let newScale = Math.min(heightScale, widthScale, maxScale);
@@ -91,13 +96,13 @@ export function useAutoScale({
           console.log('Width scale:', widthScale);
         }
         
-        // Apply a small buffer to ensure fit
-        newScale = newScale * 0.95;
+        // Apply a more aggressive buffer to ensure fit
+        newScale = newScale * 0.85; // More aggressive scaling
         
         setScale(newScale);
       } else {
-        // No overflow, reset to normal scale
-        setScale(1);
+        // Even without overflow, apply slight scaling to ensure fit
+        setScale(0.95);
       }
     };
     

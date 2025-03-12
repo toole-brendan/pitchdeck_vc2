@@ -40,6 +40,7 @@
       will-change: transform;
       position: relative;
       z-index: 1;
+      margin-bottom: 1.5rem !important; /* Force consistent spacing */
     }
     
     /* Content scaling container styles */
@@ -49,17 +50,19 @@
       height: auto;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start; /* Start from top to ensure visibility */
+      padding-bottom: 120px !important; /* Add significant padding at bottom */
     }
     
     /* Make sure content doesn't overflow on animations */
     .slide {
       overflow: hidden;
       display: flex;
-      align-items: center;
+      align-items: flex-start; /* Align to top */
       justify-content: center;
-      padding-top: 2rem;
-      padding-bottom: 4rem; /* Extra space for navigation */
+      padding-top: 3rem !important; /* More top padding */
+      padding-bottom: 7rem !important; /* Extra space for navigation */
+      height: 100vh !important; /* Force full height */
     }
     
     /* Improve rendering performance */
@@ -68,6 +71,12 @@
       -webkit-backface-visibility: hidden;
       transform-style: preserve-3d;
       transition: transform 0.3s ease-out;
+      max-height: calc(100vh - 150px) !important; /* Ensure height constraint */
+    }
+    
+    /* Additional safety space for content */
+    .slide-content {
+      margin-bottom: 100px !important;
     }
   }
   

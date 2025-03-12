@@ -63,11 +63,17 @@ const Slide: React.FC<Props> = ({ isActive, index, children, className = '' }) =
         ref={contentRef} 
         className="slide-container w-full max-w-6xl mx-auto"
         style={{
-          transform: isDesktop && hasOverflow ? `scale(${scale})` : 'none',
-          transformOrigin: 'center',
+          transform: isDesktop ? `scale(${scale})` : 'none', // Always apply scaling on desktop
+          transformOrigin: 'center top',
           width: '100%',
           transition: 'transform 0.2s ease-out',
-          margin: '0 auto'
+          margin: '0 auto',
+          // Add top padding to ensure content is visible
+          paddingTop: isDesktop ? '40px' : '20px',
+          // Add bottom margin to ensure bottom content is visible
+          marginBottom: isDesktop ? '100px' : '20px',
+          position: 'relative',
+          maxHeight: isDesktop ? 'calc(100vh - 150px)' : 'none' // Ensure max height considers navigation
         }}
       >
         {children}

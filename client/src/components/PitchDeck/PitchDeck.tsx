@@ -87,27 +87,27 @@ const PitchDeck = () => {
       <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-4 md:px-8 pointer-events-none">
         <button 
           onClick={() => goToSlide(currentSlide - 1)}
-          className="w-12 h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
+          className="w-10 h-10 md:w-12 md:h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
           aria-label="Previous slide"
         >
-          <ChevronLeftIcon className="h-6 w-6" />
+          <ChevronLeftIcon className="h-5 w-5 md:h-6 md:w-6" />
         </button>
         <button 
           onClick={() => goToSlide(currentSlide + 1)}
-          className="w-12 h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
+          className="w-10 h-10 md:w-12 md:h-12 bg-white shadow-lg flex items-center justify-center text-gray-800 hover:text-accent transition-colors pointer-events-auto border border-gray-200"
           aria-label="Next slide"
         >
-          <ChevronRightIcon className="h-6 w-6" />
+          <ChevronRightIcon className="h-5 w-5 md:h-6 md:w-6" />
         </button>
       </div>
 
-      {/* Progress Indicator */}
-      <div className="fixed z-50 bottom-8 left-1/2 -translate-x-1/2 flex gap-3 bg-white/80 px-4 py-2 shadow-md border border-gray-100">
+      {/* Progress Indicator - Move further up on the page to avoid covering content */}
+      <div className="fixed z-50 bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-white/80 px-3 py-1 shadow-md border border-gray-100 rounded-full">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}
             onClick={() => handleProgressDotClick(index)}
-            className={`progress-dot w-3 h-3 transition-all duration-300 ${
+            className={`progress-dot w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               currentSlide === index ? 'bg-accent scale-125' : 'bg-gray-300'
             }`}
             aria-label={`Go to slide ${index + 1}`}
