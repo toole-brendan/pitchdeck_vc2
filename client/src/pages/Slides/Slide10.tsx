@@ -97,27 +97,13 @@ const Slide10: React.FC = () => {
                 Interface Design
               </h3>
             </div>
-            <div className="flex-grow bg-militaryLight/50 rounded-md backdrop-blur-sm p-6 border border-slate-200">
-              <div className="max-w-[250px] mx-auto bg-white rounded-lg shadow-md overflow-hidden border border-slate-200">
-                <div className="bg-military text-white p-3 font-medium text-center">
-                  HandReceipt DEFENSE
-                </div>
-                <div className="p-4">
-                  <p className={`${modernTypography.sectionTitle} mb-3 text-black`}>Inventory items:</p>
-                  <ul className="space-y-3 text-sm">
-                    <li className="flex justify-between items-center p-2 bg-slate-50 rounded">
-                      <span className="text-black">M4 Carbine</span>
-                      <span className="text-xs text-black">SN: 935827</span>
-                    </li>
-                    <li className="flex justify-between items-center p-2 bg-slate-50 rounded">
-                      <span className="text-black">NVG-7</span>
-                      <span className="text-xs text-black">SN: 5371938</span>
-                    </li>
-                  </ul>
-                  <button className="w-full mt-4 bg-military text-white py-2 rounded text-sm">
-                    Verify Equipment
-                  </button>
-                </div>
+            <div className="flex-grow bg-black rounded-md backdrop-blur-sm p-0 border border-slate-800 overflow-hidden">
+              <div className="w-full mx-auto">
+                <img 
+                  src="/assets/images/interface-dashboard.svg" 
+                  alt="HandReceipt Dashboard Interface showing real-time inventory metrics" 
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </ModernCard>
