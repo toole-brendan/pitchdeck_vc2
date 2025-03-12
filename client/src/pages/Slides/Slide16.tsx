@@ -36,19 +36,19 @@ const Slide16: React.FC = () => {
       position: 'Senior Blockchain Developer',
       focus: 'Smart contract development & infrastructure',
       icon: Code,
-      color: modernColors.commercial
+      color: modernColors.crypto
     },
     {
       position: 'UX/UI Designer',
       focus: 'Mobile & web interface optimization',
       icon: Layout,
-      color: modernColors.commercial
+      color: modernColors.crypto
     },
     {
       position: 'Defense Industry Advisor',
       focus: 'Military procurement & relationship management',
       icon: ShieldCheck,
-      color: modernColors.military
+      color: modernColors.crypto
     }
   ];
 
@@ -124,7 +124,7 @@ const Slide16: React.FC = () => {
         <div className="mb-4">
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <User className="h-7 w-7" style={{ color: modernColors.military }} />
+              <User className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Founding Team
               </h3>
@@ -134,13 +134,13 @@ const Slide16: React.FC = () => {
               <div className="md:w-3/5">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center">
-                    <span className="text-2xl font-semibold" style={{ color: modernColors.military }}>BT</span>
+                    <span className="text-2xl font-semibold" style={{ color: modernColors.crypto }}>BT</span>
                   </div>
                   <div>
-                    <h4 className={modernTypography.subheading} style={{ color: modernColors.military }}>
+                    <h4 className={modernTypography.subheading} style={{ color: modernColors.crypto }}>
                       Brendan T. Toole
                     </h4>
-                    <p className={`${modernTypography.small} uppercase tracking-wide font-medium`} style={{ color: modernColors.military }}>
+                    <p className={`${modernTypography.small} uppercase tracking-wide font-medium`} style={{ color: modernColors.crypto }}>
                       FOUNDER & CEO
                     </p>
                   </div>
@@ -187,7 +187,7 @@ const Slide16: React.FC = () => {
         <div>
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <Calendar className="h-7 w-7" style={{ color: modernColors.military }} />
+              <Calendar className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Development Roadmap
               </h3>

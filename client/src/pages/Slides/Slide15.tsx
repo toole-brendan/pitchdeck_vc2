@@ -60,13 +60,13 @@ const Slide15: React.FC = () => {
       name: 'Brendan Toole', 
       title: 'Founder & CEO',
       email: 'brendan.toole@handreceipt.com',
-      color: modernColors.military
+      color: modernColors.crypto
     },
     { 
       name: 'Investor Relations',
       title: '',
       email: 'investors@handreceipt.com',
-      color: modernColors.commercial
+      color: modernColors.crypto
     }
   ];
 
@@ -82,7 +82,7 @@ const Slide15: React.FC = () => {
         <div className="mb-4">
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <BadgeDollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
+              <BadgeDollarSign className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Investment Opportunity
               </h3>
@@ -91,8 +91,8 @@ const Slide15: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-3/5">
                 <div className="flex gap-3 items-center mb-4">
-                  <ModernBadge color={modernColors.military}>$750K Seed Round</ModernBadge>
-                  <ModernBadge color={modernColors.commercial}>Now Open</ModernBadge>
+                  <ModernBadge color={modernColors.crypto}>$750K Seed Round</ModernBadge>
+                  <ModernBadge color={modernColors.crypto}>Now Open</ModernBadge>
                 </div>
                 
                 <p className={`${modernTypography.body} mb-6`}>
@@ -120,12 +120,12 @@ const Slide15: React.FC = () => {
               
               <div className="md:w-2/5 flex flex-col justify-start">
                 <div className="bg-slate-100 rounded-lg p-5 h-full">
-                  <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.military }}>Seed Round Details</h4>
+                  <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.crypto }}>Seed Round Details</h4>
                   <div className="space-y-3">
                     {seedRoundDetails.map((detail, index) => (
                       <div key={index} className="flex justify-between items-center p-3 bg-white/80 rounded-md border border-slate-100">
                         <span className={modernTypography.label}>{detail.label}</span>
-                        <span className={`${modernTypography.body} font-medium`} style={{ color: index % 2 === 0 ? modernColors.military : modernColors.commercial }}>
+                        <span className={`${modernTypography.body} font-medium`} style={{ color: modernColors.crypto }}>
                           {detail.value}
                         </span>
                       </div>
