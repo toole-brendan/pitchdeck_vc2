@@ -40,37 +40,37 @@ const Slide14: React.FC = () => {
       value: '$30-65K', 
       description: 'Per enterprise client',
       icon: Users,
-      color: modernColors.military
+      color: modernColors.crypto
     },
     { 
       title: 'Gross Margin', 
       value: '80-85%', 
       description: 'Software revenue',
       icon: PieChart,
-      color: modernColors.commercial
+      color: modernColors.crypto
     },
     { 
       title: 'Customer LTV', 
       value: '$400K+', 
       description: '5-year value',
       icon: CreditCard,
-      color: modernColors.commercial
+      color: modernColors.crypto
     },
     { 
       title: 'Breakeven Point', 
       value: 'Year 4', 
       description: 'Cash flow positive',
       icon: BarChart4,
-      color: modernColors.military
+      color: modernColors.crypto
     }
   ];
 
   // Funding allocation data
   const fundingAllocation = [
-    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code, color: modernColors.military },
-    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone, color: modernColors.commercial },
-    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase, color: modernColors.military },
-    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText, color: modernColors.commercial }
+    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code, color: modernColors.crypto },
+    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone, color: modernColors.crypto },
+    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase, color: modernColors.crypto },
+    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText, color: modernColors.crypto }
   ];
 
   return (
@@ -85,7 +85,7 @@ const Slide14: React.FC = () => {
         <div className="mb-4">
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <TrendingUp className="h-7 w-7" style={{ color: modernColors.military }} />
+              <TrendingUp className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Five-Year Projections
               </h3>
@@ -160,7 +160,7 @@ const Slide14: React.FC = () => {
           <div>
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <BarChart4 className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <BarChart4 className="h-7 w-7" style={{ color: modernColors.crypto }} />
                 <h3 className={modernTypography.heading}>
                   Key Business Metrics
                 </h3>
