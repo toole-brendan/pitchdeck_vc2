@@ -79,13 +79,10 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         initial="hidden"
         animate="visible"
       >
-        {/* Title - This will not be scaled when content is scaled */}
-        <h2 className={`slide-title ${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
+        <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
           {title}
         </h2>
-        
-        {/* Content Body - This will be scaled if needed on desktop */}
-        <div className="slide-content-body mt-10">
+        <div className="mt-10">
           {children}
         </div>
       </motion.div>
