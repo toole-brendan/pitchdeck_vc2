@@ -21,7 +21,6 @@ import Slide14 from "@/pages/Slides/Slide14";
 import Slide15 from "@/pages/Slides/Slide15";
 import Slide16 from "@/pages/Slides/Slide16";
 import Slide17 from "@/pages/Slides/Slide17";
-import Slide18 from "@/pages/Slides/Slide18";
 
 function Router() {
   return (
@@ -49,7 +48,6 @@ function Router() {
       <Route path="/slide/15" component={Slide15} />
       <Route path="/slide/16" component={Slide16} />
       <Route path="/slide/17" component={Slide17} />
-      <Route path="/slide/18" component={Slide18} />
       <Route path="/home" component={PresentationHome} />
       <Route component={NotFound} />
     </Switch>
