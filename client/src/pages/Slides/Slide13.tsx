@@ -66,14 +66,6 @@ const Slide13: React.FC = () => {
     }
   ];
 
-  // Timeline data
-  const timeline = [
-    { quarter: 'Q2 2025', milestone: 'Launch HandReceipt with 2-3 defense customers', color: modernColors.military },
-    { quarter: 'Q3 2025', milestone: 'First commercial pilot deployment', color: modernColors.commercial },
-    { quarter: 'Q4 2025', milestone: 'Integrate financial institutions for supply chain financing', color: modernColors.commercial },
-    { quarter: 'Q1 2026', milestone: 'Open network to broader retail ecosystem', color: modernColors.military }
-  ];
-
   // KPI data
   const kpis = [
     { metric: 'Customer Acquisition', value: '15-20 enterprise clients in Year 1', icon: Users, color: modernColors.military },
@@ -140,35 +132,7 @@ const Slide13: React.FC = () => {
           </ModernCard>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <Timer className="h-6 w-6" style={{ color: modernColors.commercial }} />
-                <h3 className={modernTypography.heading}>
-                  Execution Timeline
-                </h3>
-              </div>
-              
-              <div className="space-y-4">
-                {timeline.map((item, index) => (
-                  <div key={index} className="relative pl-10 pb-5 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
-                    <div 
-                      className="absolute left-0 top-0 w-6 h-6 rounded-full flex items-center justify-center -translate-x-1/2 border-2 border-white"
-                      style={{ backgroundColor: `${item.color}20` }}
-                    >
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
-                    </div>
-                    <div className="mb-1">
-                      <span className={`${modernTypography.label}`} style={{ color: item.color }}>{item.quarter}</span>
-                    </div>
-                    <p className={modernTypography.body}>{item.milestone}</p>
-                  </div>
-                ))}
-              </div>
-            </ModernCard>
-          </div>
-
+        <div className="md:max-w-3xl mx-auto">
           <div className="space-y-6">
             <div>
               <ModernCard className="p-6">
