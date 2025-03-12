@@ -100,7 +100,7 @@ const Slide10: React.FC = () => {
             <div className="flex-grow bg-black rounded-md backdrop-blur-sm p-0 border border-slate-800 overflow-hidden">
               <div className="w-full mx-auto">
                 <img 
-                  src="/assets/images/interface-dashboard.svg" 
+                  src="https://cdn-uploads.replit.com/a56c4f88-f8f8-4fa1-85b8-4cb09c4b4db5/9eb6e78d-7fe3-4a5e-aefc-51267ee76214-image.png" 
                   alt="HandReceipt Dashboard Interface showing real-time inventory metrics" 
                   className="w-full h-auto"
                 />
