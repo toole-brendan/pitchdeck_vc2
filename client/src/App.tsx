@@ -26,7 +26,12 @@ import Slide18 from "@/pages/Slides/Slide18";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={PresentationHome} />
+      <Route path="/">
+        {() => {
+          window.location.href = "/slide/1";
+          return null;
+        }}
+      </Route>
       <Route path="/slide/1" component={Slide1} />
       <Route path="/slide/2" component={Slide2} />
       <Route path="/slide/3" component={Slide3} />
@@ -45,6 +50,7 @@ function Router() {
       <Route path="/slide/16" component={Slide16} />
       <Route path="/slide/17" component={Slide17} />
       <Route path="/slide/18" component={Slide18} />
+      <Route path="/home" component={PresentationHome} />
       <Route component={NotFound} />
     </Switch>
   );
