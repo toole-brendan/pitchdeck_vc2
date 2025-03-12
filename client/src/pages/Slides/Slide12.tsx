@@ -109,7 +109,7 @@ const Slide12: React.FC = () => {
                   <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
                     <div className="flex justify-between items-center mb-2">
                       <span className={modernTypography.label}>{scenario.name}</span>
-                      <span className={`${modernTypography.heading}`} style={{ color: index === 0 ? modernColors.commercial : modernColors.military }}>
+                      <span className={`${modernTypography.heading}`} style={{ color: index === 1 ? modernColors.military : (index === 0 ? modernColors.commercial : modernColors.crypto) }}>
                         {scenario.value}
                       </span>
                     </div>
@@ -117,7 +117,7 @@ const Slide12: React.FC = () => {
                       <div 
                         className="h-full rounded-full"
                         style={{ 
-                          backgroundColor: index === 0 ? modernColors.commercial : modernColors.military,
+                          backgroundColor: index === 1 ? modernColors.military : (index === 0 ? modernColors.commercial : modernColors.crypto),
                           width: `${scenario.percentage}%` 
                         }}
                       ></div>

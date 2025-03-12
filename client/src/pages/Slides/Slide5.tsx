@@ -49,7 +49,7 @@ const Slide5: React.FC = () => {
 
         {/* MULTI-DOMAIN SOLUTION */}
         <div className="mb-8">
-          <ModernBadge color={modernColors.accent} className="mb-4">
+          <ModernBadge color={modernColors.crypto} className="mb-4">
             MULTI-DOMAIN SOLUTION
           </ModernBadge>
           

@@ -15,8 +15,8 @@ const Slide6: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="md:col-span-2">
           <ModernCard className="p-8" style={{ 
-            borderLeft: `3px solid ${modernColors.accent}`,
-            borderRight: `3px solid ${modernColors.accent}`
+            borderLeft: `3px solid ${modernColors.crypto}`,
+            borderRight: `3px solid ${modernColors.crypto}`
           }}>
             <div className="flex items-center gap-4 mb-5">
               <Layers className="h-7 w-7" style={{ color: modernColors.crypto }} />
@@ -84,12 +84,12 @@ const Slide6: React.FC = () => {
             borderBottom: `2px solid ${modernColors.commercial}`,
           }}>
             <div className="flex items-center gap-4 mb-5">
-              <TrendingUp className="h-7 w-7" style={{ color: modernColors.accent }} />
+              <TrendingUp className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Solution
               </h3>
             </div>
-            <p className={`${modernTypography.body} font-medium mb-2`} style={{ color: modernColors.accent }}>
+            <p className={`${modernTypography.body} font-medium mb-2`} style={{ color: modernColors.crypto }}>
               HandReceipt + Shell Token: The Perfect Solution for Both Mandates
             </p>
             <p className={`${modernTypography.body}`}>

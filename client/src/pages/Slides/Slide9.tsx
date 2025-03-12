@@ -30,7 +30,7 @@ const Slide9: React.FC = () => {
                     <span><strong>Secure Verification:</strong> Immutable blockchain records with tamper-proof history</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Smartphone className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: modernColors.accent }} />
+                    <Smartphone className="h-5 w-5 mt-0.5 flex-shrink-0" style={{ color: modernColors.crypto }} />
                     <span><strong>Mobile-First:</strong> Simple QR scanning interface with offline capability</span>
                   </li>
                   <li className="flex items-start gap-3">
