@@ -1,13 +1,10 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge, 
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 
 const Slide2: React.FC = () => {
@@ -15,13 +12,8 @@ const Slide2: React.FC = () => {
 
   return (
     <SlideLayout title="Founder Background" slideNumber={2} totalSlides={TOTAL_SLIDES}>
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div variants={itemFadeInUpVariant} custom={0}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
           <ModernCard className="h-full p-8">
             <ModernBadge color={modernColors.accent}>Founder Profile</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
@@ -41,9 +33,9 @@ const Slide2: React.FC = () => {
               <ModernBadge small>Princeton Economics</ModernBadge>
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div variants={itemFadeInUpVariant} custom={1}>
+        <div>
           <ModernCard className="h-full p-8">
             <ModernBadge color={modernColors.accent}>Vision</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
@@ -56,13 +48,9 @@ const Slide2: React.FC = () => {
               HandReceipt represents the convergence of <span style={{ color: modernColors.military }}>military-grade validation</span> adapted for <span style={{ color: modernColors.commercial }}>commercial markets</span>.
             </p>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          variants={itemFadeInUpVariant} 
-          custom={2}
-          className="md:col-span-2"
-        >
+        <div className="md:col-span-2">
           <div className="p-8 border shadow-sm" style={{ background: 'linear-gradient(120deg, rgba(219,234,254,0.3), rgba(255,237,213,0.3))' }}>
             <h3 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.text }}>
               Origin Story
@@ -76,8 +64,8 @@ const Slide2: React.FC = () => {
               </p>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };

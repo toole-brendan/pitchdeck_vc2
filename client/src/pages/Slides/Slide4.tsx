@@ -1,31 +1,14 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernDivider,
   ModernSectionHeader,
   ModernBadge,
   modernTypography,
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant,
-  scaleUpVariants
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { Check, Shield, Laptop, Database } from 'lucide-react';
-
-// Custom animation variants for this slide
-const columnVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.2 + (i * 0.2),
-      duration: 0.4
-    }
-  })
-};
 
 const Slide4: React.FC = () => {
   const TOTAL_SLIDES = 18;
@@ -34,23 +17,14 @@ const Slide4: React.FC = () => {
     <SlideLayout title="Dual Market Strategy" slideNumber={4} totalSlides={TOTAL_SLIDES}>
       <div className="max-w-5xl mx-auto">
         {/* Platform Architecture - Top Section */}
-        <motion.div
-          variants={scaleUpVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-8"
-        >
+        <div className="mb-8">
           <ModernSectionHeader className="mb-4 inline-block">
             PLATFORM ARCHITECTURE
           </ModernSectionHeader>
 
           <div className="flex flex-col md:flex-row gap-0 mt-4">
             {/* Defense Platform */}
-            <motion.div 
-              variants={columnVariants}
-              custom={0}
-              initial="hidden"
-              animate="visible"
+            <div 
               className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-5 flex flex-col justify-center shadow-sm"
               style={{ background: `linear-gradient(180deg, ${modernColors.militaryLight}30 0%, white 100%)` }}
             >
@@ -65,14 +39,10 @@ const Slide4: React.FC = () => {
                 <li className="text-slate-700 text-sm">Secure authentication</li>
                 <li className="text-slate-700 text-sm">Robust chain of custody</li>
               </ul>
-            </motion.div>
+            </div>
 
             {/* Shared Core */}
-            <motion.div 
-              variants={columnVariants}
-              custom={1}
-              initial="hidden"
-              animate="visible"
+            <div 
               className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-5 flex flex-col justify-center shadow-sm"
               style={{ background: `linear-gradient(180deg, ${modernColors.cryptoLight}30 0%, white 100%)` }}
             >
@@ -88,14 +58,10 @@ const Slide4: React.FC = () => {
                 <li className="text-slate-700 text-sm">Immutable records</li>
                 <li className="text-slate-700 text-sm">Asset tracking</li>
               </ul>
-            </motion.div>
+            </div>
 
             {/* Commercial Platform */}
-            <motion.div 
-              variants={columnVariants}
-              custom={2}
-              initial="hidden"
-              animate="visible"
+            <div 
               className="flex-1 p-5 flex flex-col justify-center shadow-sm"
               style={{ background: `linear-gradient(180deg, ${modernColors.commercialLight}30 0%, white 100%)` }}
             >
@@ -110,19 +76,14 @@ const Slide4: React.FC = () => {
                 <li className="text-slate-700 text-sm">Supply chain tracking</li>
                 <li className="text-slate-700 text-sm">Vendor management</li>
               </ul>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Market Comparison - Middle Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Defense Market */}
-          <motion.div 
-            variants={fadeInUpVariants} 
-            initial="hidden" 
-            animate="visible"
-            className="flex flex-col h-full"
-          >
+          <div className="flex flex-col h-full">
             <ModernCard className="h-full p-8 flex-1 border-t-4" style={{ 
               borderColor: modernColors.military,
               backgroundColor: `${modernColors.militaryLight}10`
@@ -151,15 +112,10 @@ const Slide4: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
 
           {/* Commercial Market */}
-          <motion.div 
-            variants={fadeInUpVariants}
-            initial="hidden" 
-            animate="visible"
-            className="flex flex-col h-full"
-          >
+          <div className="flex flex-col h-full">
             <ModernCard className="h-full p-8 flex-1 border-t-4" style={{ 
               borderColor: modernColors.commercial,
               backgroundColor: `${modernColors.commercialLight}10`
@@ -188,16 +144,11 @@ const Slide4: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
         </div>
 
         {/* Strategic Advantages - Bottom Section */}
-        <motion.div
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col h-full"
-        >
+        <div className="flex flex-col h-full">
           <ModernCard className="p-8 flex-1" style={{ 
             background: 'linear-gradient(135deg, rgba(219, 234, 254, 0.15), rgba(255, 237, 213, 0.15))'
           }}>
@@ -206,52 +157,36 @@ const Slide4: React.FC = () => {
             </ModernBadge>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <motion.div 
-                variants={itemFadeInUpVariant}
-                custom={0}
-                className="flex items-start gap-2"
-              >
+              <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.crypto }} />
                 <p className={`${modernTypography.body} text-sm`}>
                   Shared infrastructure reduces development and maintenance costs
                 </p>
-              </motion.div>
+              </div>
               
-              <motion.div 
-                variants={itemFadeInUpVariant}
-                custom={1}
-                className="flex items-start gap-2"
-              >
+              <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.military }} />
                 <p className={`${modernTypography.body} text-sm`}>
                   <span style={{ color: modernColors.military }}>Military-grade security</span> enhances commercial offering credibility
                 </p>
-              </motion.div>
+              </div>
               
-              <motion.div 
-                variants={itemFadeInUpVariant}
-                custom={2}
-                className="flex items-start gap-2"
-              >
+              <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.commercial }} />
                 <p className={`${modernTypography.body} text-sm`}>
                   Dual revenue streams provide stability through market cycles
                 </p>
-              </motion.div>
+              </div>
               
-              <motion.div 
-                variants={itemFadeInUpVariant}
-                custom={3}
-                className="flex items-start gap-2"
-              >
+              <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 mt-1 shrink-0" style={{ color: modernColors.accent }} />
                 <p className={`${modernTypography.body} text-sm`}>
                   Network effects amplify value across both platforms
                 </p>
-              </motion.div>
+              </div>
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
       </div>
     </SlideLayout>
   );

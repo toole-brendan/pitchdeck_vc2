@@ -1,15 +1,11 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge,
   ModernDivider,
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  scaleUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { FileWarning, ShieldAlert, DollarSign, Building } from 'lucide-react';
 
@@ -18,25 +14,15 @@ const Slide3: React.FC = () => {
 
   return (
     <SlideLayout title="Supply Chain Challenges" slideNumber={3} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={scaleUpVariants}
-        initial="hidden"
-        animate="visible"
-        className="mb-6 text-center max-w-3xl mx-auto"
-      >
+      <div className="mb-6 text-center max-w-3xl mx-auto">
         <h2 className={`${modernTypography.heading} mb-4`} style={{ color: modernColors.text }}>
           Current pain points driving the need for <span style={{ color: modernColors.crypto }}>blockchain solutions</span>
         </h2>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Military Sector */}
-        <motion.div 
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col h-full"
-        >
+        <div className="flex flex-col h-full">
           <ModernCard className={`h-full p-8 flex-1 border-t-4`} style={{ 
             borderColor: modernColors.military,
             backgroundColor: `${modernColors.militaryLight}10`
@@ -47,7 +33,7 @@ const Slide3: React.FC = () => {
             </div>
             
             <ul className="space-y-4 mt-6">
-              <motion.li variants={itemFadeInUpVariant} custom={0} className="flex items-start">
+              <li className="flex items-start">
                 <FileWarning className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.military }} />
                 <div>
                   <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.military }}>Paper-Based Accountability</p>
@@ -55,9 +41,9 @@ const Slide3: React.FC = () => {
                     Hand receipts and equipment tracking rely on physical paperwork prone to loss
                   </p>
                 </div>
-              </motion.li>
+              </li>
               
-              <motion.li variants={itemFadeInUpVariant} custom={1} className="flex items-start">
+              <li className="flex items-start">
                 <ShieldAlert className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.military }} />
                 <div>
                   <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.military }}>Verification Gaps</p>
@@ -65,9 +51,9 @@ const Slide3: React.FC = () => {
                     Limited ability to verify equipment origin and maintenance history
                   </p>
                 </div>
-              </motion.li>
+              </li>
               
-              <motion.li variants={itemFadeInUpVariant} custom={2} className="flex items-start">
+              <li className="flex items-start">
                 <FileWarning className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.military }} />
                 <div>
                   <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.military }}>Antiquated Systems</p>
@@ -75,7 +61,7 @@ const Slide3: React.FC = () => {
                     Legacy database systems lack interoperability, creating information silos
                   </p>
                 </div>
-              </motion.li>
+              </li>
             </ul>
             
             <ModernDivider className="my-5" />
@@ -85,15 +71,10 @@ const Slide3: React.FC = () => {
               <p className={`${modernTypography.stats}`} style={{ color: modernColors.military }}>$1.2B+</p>
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
 
         {/* Commercial Sector */}
-        <motion.div
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible" 
-          className="flex flex-col h-full"
-        >
+        <div className="flex flex-col h-full">
           <ModernCard className={`h-full p-8 flex-1 border-t-4`} style={{ 
             borderColor: modernColors.commercial,
             backgroundColor: `${modernColors.commercialLight}10`
@@ -104,7 +85,7 @@ const Slide3: React.FC = () => {
             </div>
             
             <ul className="space-y-4 mt-6">
-              <motion.li variants={itemFadeInUpVariant} custom={0} className="flex items-start">
+              <li className="flex items-start">
                 <ShieldAlert className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.commercial }} />
                 <div>
                   <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.commercial }}>Counterfeiting & Fraud</p>
@@ -112,9 +93,9 @@ const Slide3: React.FC = () => {
                     Counterfeit products create significant financial and reputational damage
                   </p>
                 </div>
-              </motion.li>
+              </li>
               
-              <motion.li variants={itemFadeInUpVariant} custom={1} className="flex items-start">
+              <li className="flex items-start">
                 <FileWarning className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.commercial }} />
                 <div>
                   <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.commercial }}>Lack of Transparency</p>
@@ -122,9 +103,9 @@ const Slide3: React.FC = () => {
                     Limited visibility into supply chain origins and handling
                   </p>
                 </div>
-              </motion.li>
+              </li>
               
-              <motion.li variants={itemFadeInUpVariant} custom={2} className="flex items-start">
+              <li className="flex items-start">
                 <ShieldAlert className="h-5 w-5 mt-1 mr-3 flex-shrink-0" style={{ color: modernColors.commercial }} />
                 <div>
                   <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.commercial }}>Compliance Challenges</p>
@@ -132,7 +113,7 @@ const Slide3: React.FC = () => {
                     Difficulty proving regulatory compliance across global supply chains
                   </p>
                 </div>
-              </motion.li>
+              </li>
             </ul>
             
             <ModernDivider className="my-5" />
@@ -142,7 +123,7 @@ const Slide3: React.FC = () => {
               <p className={`${modernTypography.stats}`} style={{ color: modernColors.commercial }}>$950B+</p>
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
       </div>
     </SlideLayout>
   );
