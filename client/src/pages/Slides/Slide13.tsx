@@ -11,12 +11,9 @@ import {
   Building, 
   Layout,
   Timer, 
-  BarChart, 
   BadgePercent,
   Users,
-  TrendingUp,
   DollarSign,
-  DivideCircle,
   Database,
   Briefcase,
   Server,
@@ -64,14 +61,6 @@ const Slide13: React.FC = () => {
       color: modernColors.military,
       icon: Layout
     }
-  ];
-
-  // KPI data
-  const kpis = [
-    { metric: 'Customer Acquisition', value: '15-20 enterprise clients in Year 1', icon: Users, color: modernColors.military },
-    { metric: 'Platform Adoption', value: '500K transactions in Year 1', icon: Database, color: modernColors.commercial },
-    { metric: 'Revenue Growth', value: '$4.8M ARR by end of Year 2', icon: TrendingUp, color: modernColors.commercial },
-    { metric: 'Market Expansion', value: '3 industry verticals by Year 2', icon: DivideCircle, color: modernColors.military }
   ];
 
   // Strategic partnerships data
@@ -134,34 +123,6 @@ const Slide13: React.FC = () => {
 
         <div className="md:max-w-3xl mx-auto">
           <div className="space-y-6">
-            <div>
-              <ModernCard className="p-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <BarChart className="h-6 w-6" style={{ color: modernColors.military }} />
-                  <h3 className={modernTypography.heading}>
-                    Key Performance Indicators
-                  </h3>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {kpis.map((kpi, index) => (
-                    <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-start gap-3">
-                      <div 
-                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: `${kpi.color}20` }}
-                      >
-                        <kpi.icon className="h-4 w-4" style={{ color: kpi.color }} />
-                      </div>
-                      <div>
-                        <p className={`${modernTypography.label} mb-1`} style={{ color: kpi.color }}>{kpi.metric}</p>
-                        <p className={`${modernTypography.small}`}>{kpi.value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </ModernCard>
-            </div>
-
             <div>
               <ModernCard className="p-6">
                 <div className="flex items-center gap-3 mb-5">
