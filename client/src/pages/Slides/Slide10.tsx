@@ -1,14 +1,11 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge, 
   ModernDivider,
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   Smartphone, 
@@ -53,27 +50,14 @@ const Slide10: React.FC = () => {
 
   return (
     <SlideLayout title="User Experience" slideNumber={10} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-        className="flex flex-col gap-8"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="mb-2 text-center max-w-2xl mx-auto"
-        >
+      <div className="flex flex-col gap-8">
+        <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
             Intuitive interfaces for defense and commercial applications
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={1}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <ModernCard className="p-8 md:col-span-2">
             <div className="flex items-center gap-4 mb-6">
               <FileCheck className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -197,8 +181,8 @@ const Slide10: React.FC = () => {
               </div>
             </div>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };

@@ -1,13 +1,10 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge,
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   DollarSign, 
@@ -60,27 +57,14 @@ const Slide11: React.FC = () => {
 
   return (
     <SlideLayout title="Business Model & Pricing Strategy" slideNumber={11} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-        className="flex flex-col gap-8"
-      >
-        <motion.div 
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="text-center max-w-2xl mx-auto mb-2"
-        >
+      <div className="flex flex-col gap-8">
+        <div className="text-center max-w-2xl mx-auto mb-2">
           <h2 className={modernTypography.pageTitle}>
             Multi-stream monetization with market-specific value propositions
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={1}
-          className="mb-6"
-        >
+        <div className="mb-6">
           <ModernCard className="p-8">
             <div className="flex items-center gap-4 mb-6">
               <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -91,11 +75,8 @@ const Slide11: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
               {revenueStreams.map((stream, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.08 * index, duration: 0.4 }}
                   className="bg-slate-50/80 backdrop-blur-sm p-5 border border-slate-100 flex flex-col h-full"
                 >
                   <div className="flex items-center gap-3 mb-3">
@@ -108,17 +89,14 @@ const Slide11: React.FC = () => {
                     <stream.icon className="h-5 w-5" style={{ color: stream.color }} />
                   </div>
                   <p className={modernTypography.body}>{stream.title}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={2}
-          >
+          <div>
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-5">
                 <TrendingUp className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -151,12 +129,9 @@ const Slide11: React.FC = () => {
                 ))}
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={itemFadeInUpVariant}
-            custom={3}
-          >
+          <div>
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-5">
                 <BarChart className="h-7 w-7" style={{ color: modernColors.commercial }} />
@@ -208,9 +183,9 @@ const Slide11: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </SlideLayout>
   );
 };
