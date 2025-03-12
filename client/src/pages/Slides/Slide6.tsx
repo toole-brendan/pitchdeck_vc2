@@ -19,7 +19,7 @@ const Slide6: React.FC = () => {
             borderRight: `3px solid ${modernColors.accent}`
           }}>
             <div className="flex items-center gap-4 mb-5">
-              <Layers className="h-7 w-7" style={{ color: modernColors.accent }} />
+              <Layers className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Policy Convergence
               </h3>
