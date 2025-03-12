@@ -27,20 +27,20 @@ const Slide7: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="md:col-span-3">
           <ModernCard className="p-6" style={{
-            borderBottom: `2px solid ${modernColors.accent}`,
-            backgroundColor: `${modernColors.accent}05`
+            borderBottom: `2px solid ${modernColors.crypto}`,
+            backgroundColor: `${modernColors.crypto}05`
           }}>
             <div className="flex items-center gap-4 mb-4">
-              <PieChart className="h-7 w-7" style={{ color: modernColors.accent }} />
+              <PieChart className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
                 Market Size Analysis
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="p-4 rounded-lg" style={{ 
-                background: `linear-gradient(100deg, ${modernColors.accent}10, ${modernColors.accent}05)` 
+                background: `linear-gradient(100deg, ${modernColors.crypto}10, ${modernColors.crypto}05)` 
               }}>
-                <p className={`${modernTypography.subheading} font-bold mb-1`} style={{ color: modernColors.accent }}>
+                <p className={`${modernTypography.subheading} font-bold mb-1`} style={{ color: modernColors.crypto }}>
                   TAM: $120B
                 </p>
                 <p className={modernTypography.body}>

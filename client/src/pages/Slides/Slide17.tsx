@@ -21,6 +21,7 @@ const Slide17: React.FC = () => {
           <div className="flex gap-3 items-center justify-center mt-2">
             <ModernBadge color={modernColors.military}>Military-Grade</ModernBadge>
             <ModernBadge color={modernColors.commercial}>Commercial Integration</ModernBadge>
+            <ModernBadge color={modernColors.crypto}>Shell Token</ModernBadge>
           </div>
         </div>
 
@@ -78,7 +79,7 @@ const Slide17: React.FC = () => {
           <div>
             <ModernCard className="h-full p-8">
               <div className="flex items-center gap-4 mb-6">
-                <Workflow className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <Workflow className="h-7 w-7" style={{ color: modernColors.crypto }} />
                 <h3 className={modernTypography.heading}>
                   BLOCKCHAIN ARCHITECTURE
                 </h3>

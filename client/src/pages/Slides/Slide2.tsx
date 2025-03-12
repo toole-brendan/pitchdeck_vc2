@@ -15,7 +15,7 @@ const Slide2: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <ModernCard className="h-full p-8">
-            <ModernBadge color={modernColors.accent}>Founder Profile</ModernBadge>
+            <ModernBadge color={modernColors.crypto}>Founder Profile</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
               Brendan T. Toole
             </h3>
@@ -30,14 +30,14 @@ const Slide2: React.FC = () => {
             <div className="mt-4 flex flex-wrap gap-2">
               <ModernBadge small color={modernColors.commercial}>Finance Expert</ModernBadge>
               <ModernBadge small color={modernColors.military}>Military Leadership</ModernBadge>
-              <ModernBadge small>Princeton Economics</ModernBadge>
+              <ModernBadge small color={modernColors.crypto}>Princeton Economics</ModernBadge>
             </div>
           </ModernCard>
         </div>
 
         <div>
           <ModernCard className="h-full p-8">
-            <ModernBadge color={modernColors.accent}>Vision</ModernBadge>
+            <ModernBadge color={modernColors.crypto}>Vision</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
               Military logistics meets financial expertise
             </h3>
