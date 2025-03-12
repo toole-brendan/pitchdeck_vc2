@@ -24,8 +24,8 @@ const Slide16: React.FC = () => {
 
   // Founding team expertise
   const founderExpertise = [
-    { text: 'Princeton Economics', color: 'bg-blue-100 text-blue-700' },
-    { text: 'Point72 Analyst', color: 'bg-indigo-100 text-indigo-700' },
+    { text: 'Princeton Economics', color: `bg-opacity-20 bg-commercial text-commercial` },
+    { text: 'Point72 Analyst', color: `bg-opacity-20 bg-crypto text-crypto` },
     { text: 'Military Officer', color: 'bg-militaryLight text-military' },
     { text: 'Full-Stack Developer', color: 'bg-slate-100 text-black' }
   ];
@@ -66,7 +66,7 @@ const Slide16: React.FC = () => {
       status: 'Upcoming',
       icon: Server,
       color: modernColors.military,
-      statusColor: 'bg-militaryLight text-military'
+      statusColor: `bg-opacity-20 bg-military text-military`
     },
     {
       quarter: 'Q4 2025',
@@ -80,7 +80,7 @@ const Slide16: React.FC = () => {
       status: 'Planned',
       icon: Smartphone,
       color: modernColors.military,
-      statusColor: 'bg-slate-100 text-black'
+      statusColor: `bg-opacity-20 bg-military text-military`
     },
     {
       quarter: 'Q1 2026',
@@ -94,7 +94,7 @@ const Slide16: React.FC = () => {
       status: 'Planned',
       icon: GitMerge,
       color: modernColors.commercial,
-      statusColor: 'bg-slate-100 text-black'
+      statusColor: `bg-opacity-20 bg-commercial text-commercial`
     },
     {
       quarter: 'Q2 2026',
@@ -108,7 +108,7 @@ const Slide16: React.FC = () => {
       status: 'Planned',
       icon: Rocket,
       color: modernColors.commercial,
-      statusColor: 'bg-slate-100 text-black'
+      statusColor: `bg-opacity-20 bg-commercial text-commercial`
     }
   ];
 
