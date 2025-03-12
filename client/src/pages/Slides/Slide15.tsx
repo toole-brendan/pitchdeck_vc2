@@ -7,20 +7,12 @@ import {
   modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
-  DollarSign, 
-  Clock, 
-  CheckCircle, 
   Mail, 
   User, 
-  Users,
-  FileText,
-  Briefcase,
-  ArrowRight,
-  LucideIcon,
   ShieldCheck,
   BadgeDollarSign,
   BarChart,
-  GanttChart
+  Clock
 } from 'lucide-react';
 
 const Slide15: React.FC = () => {
@@ -60,22 +52,6 @@ const Slide15: React.FC = () => {
     { label: 'Instrument', value: 'SAFE' },
     { label: 'Valuation Cap', value: '$5 Million' },
     { label: 'Min Investment', value: '$25,000' }
-  ];
-
-  // Seed funding milestones
-  const seedFundingMilestones = [
-    { title: 'Working prototype', timeline: '3-4 months', icon: GanttChart, color: modernColors.military },
-    { title: 'Alpha version with core features', timeline: '6-8 months', icon: GanttChart, color: modernColors.military },
-    { title: 'User testing with potential defense clients', timeline: '9-10 months', icon: GanttChart, color: modernColors.commercial },
-    { title: 'Production-ready MVP', timeline: '12 months', icon: GanttChart, color: modernColors.commercial }
-  ];
-
-  // Available information
-  const availableInformation = [
-    { text: 'Detailed financial model and projections', color: modernColors.commercial },
-    { text: 'Technical architecture overview', color: modernColors.military },
-    { text: 'Military-commercial market strategy', color: modernColors.military },
-    { text: 'Potential investor term sheet', color: modernColors.commercial }
   ];
 
   // Contact information
@@ -161,65 +137,9 @@ const Slide15: React.FC = () => {
           </ModernCard>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <Clock className="h-7 w-7" style={{ color: modernColors.commercial }} />
-                <h3 className={modernTypography.heading}>
-                  Seed Funding Milestones
-                </h3>
-              </div>
-              
-              <div className="space-y-4">
-                {seedFundingMilestones.map((milestone, index) => (
-                  <div key={index} className="relative pl-10 pb-5 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
-                    <div 
-                      className="absolute left-0 top-0 w-6 h-6 rounded-full flex items-center justify-center -translate-x-1/2 border-2 border-white"
-                      style={{ backgroundColor: `${milestone.color}20` }}
-                    >
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: milestone.color }}></div>
-                    </div>
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className={modernTypography.label} style={{ color: milestone.color }}>{milestone.title}</h4>
-                      <span className={`${modernTypography.small} px-2 py-0.5 rounded`} style={{ 
-                        color: milestone.color,
-                        backgroundColor: `${milestone.color}10` 
-                      }}>
-                        {milestone.timeline}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </ModernCard>
-          </div>
-
-          <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <ArrowRight className="h-7 w-7" style={{ color: modernColors.military }} />
-                <h3 className={modernTypography.heading}>
-                  Next Steps
-                </h3>
-              </div>
-              
-              <p className={`${modernTypography.body} mb-5`}>
-                Join us in revolutionizing supply chain management with blockchain technology.
-              </p>
-              
-              <div className="mb-6">
-                <h4 className={`${modernTypography.subheading} mb-3`}>Available Information:</h4>
-                <ul className="space-y-2">
-                  {availableInformation.map((item, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 flex-shrink-0" style={{ color: item.color }} />
-                      <span className={modernTypography.body}>{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
+        <div className="flex justify-center">
+          <div className="w-full max-w-lg">
+            <ModernCard className="p-6">
               <div className="bg-slate-50/80 p-5 rounded-md border border-slate-100">
                 <h4 className={`${modernTypography.subheading} mb-3 text-center`}>Contact Us</h4>
                 <p className={`${modernTypography.body} text-center mb-4`}>
