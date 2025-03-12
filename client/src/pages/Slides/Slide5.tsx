@@ -1,17 +1,12 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard,
   ModernBadge,
   ModernDivider,
   ModernSectionHeader,
   modernTypography,
-  modernColors,
-  fadeInVariants,
-  scaleUpVariants,
-  itemFadeInUpVariant,
-  fadeInUpVariants
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { QrCode, Database, Cpu, CreditCard, Shield, Laptop, ArrowRight } from 'lucide-react';
 
@@ -46,24 +41,14 @@ const Slide5: React.FC = () => {
     <SlideLayout title="HandReceipt Solution" slideNumber={5} totalSlides={TOTAL_SLIDES}>
       <div className="max-w-5xl mx-auto">
         {/* Subtitle */}
-        <motion.div
-          variants={fadeInVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className={`${modernTypography.subtitle} max-w-3xl mx-auto`}>
             <span style={{ color: modernColors.crypto }}>Blockchain-secured</span> supply chain verification with <span style={{ color: modernColors.military }}>military</span> and <span style={{ color: modernColors.commercial }}>commercial</span> applications
           </p>
-        </motion.div>
+        </div>
 
         {/* MULTI-DOMAIN SOLUTION */}
-        <motion.div 
-          variants={scaleUpVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-8"
-        >
+        <div className="mb-8">
           <ModernBadge color={modernColors.accent} className="mb-4">
             MULTI-DOMAIN SOLUTION
           </ModernBadge>
@@ -75,10 +60,8 @@ const Slide5: React.FC = () => {
           {/* Process Steps */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {processSteps.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={itemFadeInUpVariant}
-                custom={index}
                 className="relative"
               >
                 <ModernCard className="h-full p-6 flex flex-col items-center text-center" style={{
@@ -106,20 +89,15 @@ const Slide5: React.FC = () => {
                     <ArrowRight className="hidden md:block absolute -right-6 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-300" />
                   )}
                 </ModernCard>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Application Areas */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* MILITARY */}
-          <motion.div 
-            variants={fadeInUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col h-full"
-          >
+          <div className="flex flex-col h-full">
             <ModernCard className="h-full p-8 flex-1 border-t-4" style={{
               borderColor: modernColors.military,
               backgroundColor: `${modernColors.militaryLight}15`
@@ -136,41 +114,24 @@ const Slide5: React.FC = () => {
               </h3>
               
               <ul className="space-y-3 pl-4">
-                <motion.li 
-                  variants={itemFadeInUpVariant} 
-                  custom={0}
-                  className="flex items-start"
-                >
+                <li className="flex items-start">
                   <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
                   <p className={modernTypography.body}>QR-code based digital transfers</p>
-                </motion.li>
-                <motion.li 
-                  variants={itemFadeInUpVariant} 
-                  custom={1}
-                  className="flex items-start"
-                >
+                </li>
+                <li className="flex items-start">
                   <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
                   <p className={modernTypography.body}><span style={{ color: modernColors.crypto }}>Zero-knowledge proof</span> verification</p>
-                </motion.li>
-                <motion.li 
-                  variants={itemFadeInUpVariant} 
-                  custom={2}
-                  className="flex items-start"
-                >
+                </li>
+                <li className="flex items-start">
                   <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.military }}></div>
                   <p className={modernTypography.body}><span style={{ color: modernColors.crypto }}>Blockchain-secured</span> records</p>
-                </motion.li>
+                </li>
               </ul>
             </ModernCard>
-          </motion.div>
+          </div>
 
           {/* COMMERCIAL */}
-          <motion.div 
-            variants={fadeInUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col h-full"
-          >
+          <div className="flex flex-col h-full">
             <ModernCard className="h-full p-8 flex-1 border-t-4" style={{
               borderColor: modernColors.commercial,
               backgroundColor: `${modernColors.commercialLight}15`
@@ -187,33 +148,21 @@ const Slide5: React.FC = () => {
               </h3>
               
               <ul className="space-y-3 pl-4">
-                <motion.li 
-                  variants={itemFadeInUpVariant} 
-                  custom={0}
-                  className="flex items-start"
-                >
+                <li className="flex items-start">
                   <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
                   <p className={modernTypography.body}>Existing scanning infrastructure</p>
-                </motion.li>
-                <motion.li 
-                  variants={itemFadeInUpVariant} 
-                  custom={1}
-                  className="flex items-start"
-                >
+                </li>
+                <li className="flex items-start">
                   <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
                   <p className={modernTypography.body}>ERP/WMS API integration</p>
-                </motion.li>
-                <motion.li 
-                  variants={itemFadeInUpVariant} 
-                  custom={2}
-                  className="flex items-start"
-                >
+                </li>
+                <li className="flex items-start">
                   <div className="h-1.5 w-1.5 rounded-full mt-2 mr-2 flex-shrink-0" style={{ backgroundColor: modernColors.commercial }}></div>
                   <p className={modernTypography.body}><span style={{ color: modernColors.crypto }}>Shell token</span> payments</p>
-                </motion.li>
+                </li>
               </ul>
             </ModernCard>
-          </motion.div>
+          </div>
         </div>
       </div>
     </SlideLayout>

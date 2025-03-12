@@ -1,13 +1,10 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard,
   ModernBadge,
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant 
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { Shield, Smartphone, Zap, Briefcase, Award, Calculator } from 'lucide-react';
 
@@ -16,17 +13,8 @@ const Slide9: React.FC = () => {
 
   return (
     <SlideLayout title="Product Features" slideNumber={9} totalSlides={TOTAL_SLIDES}>
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="md:col-span-2"
-        >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="md:col-span-2">
           <ModernCard className="p-8">
             <div className="flex flex-col mb-6">
               <h3 className={modernTypography.heading}>
@@ -53,12 +41,9 @@ const Slide9: React.FC = () => {
               </div>
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={1}
-        >
+        <div>
           <ModernCard className="h-full p-8">
             <div className="flex items-center gap-4 mb-5">
               <Award className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -82,12 +67,9 @@ const Slide9: React.FC = () => {
               </li>
             </ul>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={2}
-        >
+        <div>
           <ModernCard className="h-full p-8">
             <div className="flex items-center gap-4 mb-5">
               <Calculator className="h-7 w-7" style={{ color: modernColors.commercial }} />
@@ -111,8 +93,8 @@ const Slide9: React.FC = () => {
               </li>
             </ul>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };

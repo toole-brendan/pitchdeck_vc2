@@ -1,15 +1,11 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   ModernBadge,
   ModernDivider,
   modernTypography,
-  modernColors,
-  fadeInVariants,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { PieChart, BarChart3, Briefcase } from 'lucide-react';
 
@@ -18,32 +14,18 @@ const Slide7: React.FC = () => {
 
   return (
     <SlideLayout title="Market Opportunity" slideNumber={7} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={fadeInVariants}
-        initial="hidden"
-        animate="visible"
-        className="mb-10 text-center max-w-3xl mx-auto"
-      >
+      <div className="mb-10 text-center max-w-3xl mx-auto">
         <h2 className={`${modernTypography.heading} mb-5`}>
           <span style={{ color: modernColors.military }}>Military</span> and <span style={{ color: modernColors.commercial }}>Commercial</span> Market Analysis
         </h2>
         <p className={`${modernTypography.body} text-center max-w-2xl mx-auto`}>
           TAM, SAM, and SOM analysis for <span style={{ color: modernColors.crypto }}>blockchain-powered</span> supply chain verification
         </p>
-      </motion.div>
+      </div>
 
       {/* Market Size Analysis */}
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="md:col-span-3"
-        >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="md:col-span-3">
           <ModernCard className="p-6" style={{
             borderBottom: `2px solid ${modernColors.accent}`,
             backgroundColor: `${modernColors.accent}05`
@@ -87,20 +69,12 @@ const Slide7: React.FC = () => {
               </div>
             </div>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Defense and Commercial Markets */}
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={1}
-        >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div>
           <ModernCard className="h-full p-6 border-t-4" style={{
             borderColor: modernColors.military,
             backgroundColor: `${modernColors.militaryLight}15`
@@ -149,12 +123,9 @@ const Slide7: React.FC = () => {
               </li>
             </ul>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={2}
-        >
+        <div>
           <ModernCard className="h-full p-6 border-t-4" style={{
             borderColor: modernColors.commercial,
             backgroundColor: `${modernColors.commercialLight}15`
@@ -203,8 +174,8 @@ const Slide7: React.FC = () => {
               </li>
             </ul>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };

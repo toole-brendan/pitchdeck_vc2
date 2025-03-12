@@ -1,12 +1,9 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard, 
   modernTypography, 
-  modernColors,
-  fadeInUpVariants,
-  itemFadeInUpVariant
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { Clock, BarChart3, TrendingUp, Layers } from 'lucide-react';
 
@@ -15,17 +12,8 @@ const Slide6: React.FC = () => {
 
   return (
     <SlideLayout title="Why Now" slideNumber={6} totalSlides={TOTAL_SLIDES}>
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        variants={fadeInUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={0}
-          className="md:col-span-2"
-        >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="md:col-span-2">
           <ModernCard className="p-8" style={{ 
             borderLeft: `3px solid ${modernColors.accent}`,
             borderRight: `3px solid ${modernColors.accent}`
@@ -56,12 +44,9 @@ const Slide6: React.FC = () => {
               </li>
             </ul>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={1}
-        >
+        <div>
           <ModernCard className="h-full p-8" style={{ backgroundColor: 'rgba(243, 232, 255, 0.05)', borderTop: `2px solid ${modernColors.crypto}` }}>
             <div className="flex items-center gap-4 mb-5">
               <Clock className="h-7 w-7" style={{ color: modernColors.crypto }} />
@@ -74,12 +59,9 @@ const Slide6: React.FC = () => {
               <li>• HandReceipt's <span style={{ color: modernColors.military }}>defense-grade blockchain</span> + <span style={{ color: modernColors.crypto }}>Shell token</span> is the perfect solution for both mandates</li>
             </ul>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={2}
-        >
+        <div>
           <ModernCard className="h-full p-8" style={{ backgroundColor: 'rgba(219, 234, 254, 0.05)', borderTop: `2px solid ${modernColors.military}` }}>
             <div className="flex items-center gap-4 mb-5">
               <BarChart3 className="h-7 w-7" style={{ color: modernColors.military }} />
@@ -93,13 +75,9 @@ const Slide6: React.FC = () => {
               <li>• <strong style={{ color: modernColors.commercial }}>Supply Chain Crisis:</strong> Post-pandemic inventory verification failures at all-time high - <span className="font-semibold" style={{ color: modernColors.commercial }}>$1.1T</span> Annual inventory distortion</li>
             </ul>
           </ModernCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemFadeInUpVariant}
-          custom={3}
-          className="md:col-span-2"
-        >
+        <div className="md:col-span-2">
           <ModernCard className="p-8" style={{ 
             background: 'linear-gradient(120deg, rgba(30, 64, 175, 0.05), rgba(126, 34, 206, 0.05), rgba(234, 88, 12, 0.05))',
             borderTop: `2px solid ${modernColors.military}`,
@@ -118,8 +96,8 @@ const Slide6: React.FC = () => {
               Our <span style={{ color: modernColors.military }}>military-grade blockchain solution</span> with integrated <span style={{ color: modernColors.crypto }}>Shell token</span> directly addresses both Trump administration initiatives: <span style={{ color: modernColors.military }}>defense efficiency</span> through inventory optimization and <span style={{ color: modernColors.crypto }}>crypto advancement</span> through stablecoin payments.
             </p>
           </ModernCard>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </SlideLayout>
   );
 };

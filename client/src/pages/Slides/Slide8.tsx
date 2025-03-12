@@ -1,15 +1,10 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
-import { motion } from 'framer-motion';
 import { 
   ModernCard,
   ModernBadge,
   modernTypography, 
-  modernColors,
-  fadeInVariants,
-  fadeInUpVariants,
-  itemFadeInUpVariant,
-  scaleUpVariants
+  modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { BarChart3, Shield, Fingerprint, Zap, LayoutGrid, XCircle } from 'lucide-react';
 
@@ -110,24 +105,14 @@ const Slide8: React.FC = () => {
 
   return (
     <SlideLayout title="Competitive Landscape" slideNumber={8} totalSlides={TOTAL_SLIDES}>
-      <motion.div
-        variants={fadeInVariants}
-        initial="hidden"
-        animate="visible"
-        className="mb-6 text-center"
-      >
+      <div className="mb-6 text-center">
         <p className={`${modernTypography.subtitle} mb-4`}>
           Analysis against enterprise ERP systems and <span style={{ color: modernColors.crypto }}>blockchain solutions</span>
         </p>
-      </motion.div>
+      </div>
 
       {/* Market Positioning Chart */}
-      <motion.div
-        variants={scaleUpVariants}
-        initial="hidden"
-        animate="visible"
-        className="mb-8"
-      >
+      <div className="mb-8">
         <ModernCard className="p-6">
           <div className="flex items-center gap-4 mb-5">
             <BarChart3 className="h-7 w-7" style={{ color: modernColors.accent }} />
@@ -163,11 +148,8 @@ const Slide8: React.FC = () => {
               const bottom = `${competitor.defenseCompliance}%`;
               
               return (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.1 * index, duration: 0.5 }}
                   className="absolute transform -translate-x-1/2 -translate-y-1/2"
                   style={{ 
                     left, 
@@ -196,21 +178,17 @@ const Slide8: React.FC = () => {
                   >
                     {competitor.name}
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
         </ModernCard>
-      </motion.div>
+      </div>
 
       {/* Advantages and Limitations */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Our Advantages */}
-        <motion.div
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div>
           <ModernCard className="h-full p-6" style={{
             borderTop: `2px solid ${modernColors.military}`,
             borderBottom: `2px solid ${modernColors.commercial}`,
@@ -222,10 +200,8 @@ const Slide8: React.FC = () => {
             
             <div className="space-y-4 mt-2">
               {advantages.map((advantage, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={itemFadeInUpVariant}
-                  custom={index}
                   className="flex gap-3"
                 >
                   <div className="flex-shrink-0 mt-1 p-1 rounded-sm" style={{ color: advantage.color }}>
@@ -239,18 +215,14 @@ const Slide8: React.FC = () => {
                       {advantage.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
 
         {/* Competitor Limitations */}
-        <motion.div
-          variants={fadeInUpVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div>
           <ModernCard className="h-full p-6" style={{
             borderTop: `2px solid ${modernColors.military}`,
             background: 'linear-gradient(135deg, rgba(240, 240, 240, 0.2), rgba(250, 250, 250, 0.1))'
@@ -261,10 +233,8 @@ const Slide8: React.FC = () => {
             
             <div className="space-y-4 mt-2">
               {limitations.map((limitation, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={itemFadeInUpVariant}
-                  custom={index}
                   className="flex gap-3"
                 >
                   <div className="flex-shrink-0 mt-1">
@@ -278,11 +248,11 @@ const Slide8: React.FC = () => {
                       {limitation.limitation}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </ModernCard>
-        </motion.div>
+        </div>
       </div>
     </SlideLayout>
   );
