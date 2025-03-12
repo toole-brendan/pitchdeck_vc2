@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, RefObject } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 interface AutoScaleOptions {
@@ -7,6 +7,7 @@ interface AutoScaleOptions {
   minScale?: number;
   maxScale?: number;
   resetOnResize?: boolean;
+  debug?: boolean;
 }
 
 /**
@@ -16,64 +17,82 @@ interface AutoScaleOptions {
  */
 export function useAutoScale({
   titleSelector = '.slide-title',
-  contentSelector = '.slide-content',
+  contentSelector = '.slide-content-body',
   minScale = 0.5,
   maxScale = 1,
-  resetOnResize = true
+  resetOnResize = true,
+  debug = false
 }: AutoScaleOptions = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [hasOverflow, setHasOverflow] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 768 });
+  
+  // Use a more efficient check for resizing
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
-  useEffect(() => {
+  // Use layout effect to ensure measurements are done before browser paints
+  useLayoutEffect(() => {
     if (!isDesktop) {
       // On mobile, we don't want to scale (allow scrolling)
       setScale(1);
       setHasOverflow(false);
       return;
     }
-    
+
     // Function to check for overflow and calculate the appropriate scale
     const checkForOverflow = () => {
       if (!containerRef.current || !contentRef.current) return;
       
-      // Reset scale to check true overflow
-      if (contentRef.current.style.transform) {
-        contentRef.current.style.transform = '';
-      }
+      // Temporarily reset scale to check true overflow
+      contentRef.current.style.transform = 'scale(1)';
+      
+      // Force a reflow to ensure the browser applies the scale(1)
+      void contentRef.current.offsetHeight;
       
       const container = containerRef.current;
       const content = contentRef.current;
-      
-      // Get the title element if it exists
-      const titleElement = content.querySelector(titleSelector);
-      
-      // Get the height excluding the title
-      const contentElement = content.querySelector(contentSelector) || content;
-      const contentBounds = contentElement.getBoundingClientRect();
-      const containerBounds = container.getBoundingClientRect();
+
+      // Get the container and content dimensions
+      const containerHeight = container.clientHeight || window.innerHeight;
+      const containerWidth = container.clientWidth || window.innerWidth;
+      const contentHeight = content.scrollHeight;
+      const contentWidth = content.scrollWidth;
       
       // Check if content overflows the container
-      const overflowsHeight = contentBounds.height > containerBounds.height;
-      const overflowsWidth = contentBounds.width > containerBounds.width;
+      const overflowsHeight = contentHeight > containerHeight - 80; // Add padding buffer
+      const overflowsWidth = contentWidth > containerWidth - 40;  // Add padding buffer
       
-      setHasOverflow(overflowsHeight || overflowsWidth);
+      const hasOverflowNow = overflowsHeight || overflowsWidth;
+      setHasOverflow(hasOverflowNow);
+      
+      if (debug) {
+        console.log('Container dimensions:', containerWidth, 'x', containerHeight);
+        console.log('Content dimensions:', contentWidth, 'x', contentHeight);
+        console.log('Overflow detected:', hasOverflowNow, 'height:', overflowsHeight, 'width:', overflowsWidth);
+      }
       
       // Calculate scale if overflow exists
-      if (overflowsHeight || overflowsWidth) {
-        let newScale = 1;
-        
+      if (hasOverflowNow) {
         // Calculate scale based on both dimensions
-        const heightScale = containerBounds.height / contentBounds.height;
-        const widthScale = containerBounds.width / contentBounds.width;
+        const heightScale = containerHeight / contentHeight;
+        const widthScale = containerWidth / contentWidth;
         
         // Use the smaller scale to ensure content fits both dimensions
-        newScale = Math.min(heightScale, widthScale, maxScale);
+        let newScale = Math.min(heightScale, widthScale, maxScale);
         
         // Ensure scale is not below minimum
         newScale = Math.max(newScale, minScale);
+        
+        if (debug) {
+          console.log('Calculated scale:', newScale);
+          console.log('Height scale:', heightScale);
+          console.log('Width scale:', widthScale);
+        }
+        
+        // Apply a small buffer to ensure fit
+        newScale = newScale * 0.95;
         
         setScale(newScale);
       } else {
@@ -82,19 +101,78 @@ export function useAutoScale({
       }
     };
     
-    // Check for overflow initially
-    checkForOverflow();
+    // Check for overflow with a slight delay to ensure content is fully rendered
+    const initialCheckTimer = setTimeout(() => {
+      checkForOverflow();
+    }, 100);
+
+    // Set up a second check after animations might have completed
+    const secondCheckTimer = setTimeout(() => {
+      checkForOverflow();
+    }, 500);
     
-    // Set up resize listener
-    if (resetOnResize) {
-      const handleResize = () => {
-        checkForOverflow();
-      };
+    // Set up resize observer for more accurate resize detection
+    if (resetOnResize && containerRef.current) {
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
+      }
       
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
+      resizeObserverRef.current = new ResizeObserver(() => {
+        checkForOverflow();
+      });
+      
+      resizeObserverRef.current.observe(containerRef.current);
     }
-  }, [isDesktop, titleSelector, contentSelector, minScale, maxScale, resetOnResize]);
+    
+    // Cleanup
+    return () => {
+      clearTimeout(initialCheckTimer);
+      clearTimeout(secondCheckTimer);
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
+      }
+    };
+  }, [isDesktop, titleSelector, contentSelector, minScale, maxScale, resetOnResize, debug]);
+  
+  // Additional useEffect to handle window resize events
+  useEffect(() => {
+    if (!isDesktop || !resetOnResize) return;
+    
+    const handleResize = () => {
+      if (contentRef.current) {
+        // Temporarily reset scale to properly measure overflow
+        contentRef.current.style.transform = 'scale(1)';
+        
+        // Wait a bit to let the browser recalculate sizes
+        setTimeout(() => {
+          if (!containerRef.current || !contentRef.current) return;
+          
+          const container = containerRef.current;
+          const content = contentRef.current;
+          
+          const containerHeight = container.clientHeight || window.innerHeight;
+          const containerWidth = container.clientWidth || window.innerWidth;
+          const contentHeight = content.scrollHeight;
+          const contentWidth = content.scrollWidth;
+          
+          const hasOverflowNow = contentHeight > containerHeight || contentWidth > containerWidth;
+          setHasOverflow(hasOverflowNow);
+          
+          if (hasOverflowNow) {
+            const heightScale = containerHeight / contentHeight;
+            const widthScale = containerWidth / contentWidth;
+            const newScale = Math.min(heightScale, widthScale, maxScale) * 0.95;
+            setScale(Math.max(newScale, minScale));
+          } else {
+            setScale(1);
+          }
+        }, 100);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isDesktop, minScale, maxScale, resetOnResize]);
   
   return {
     containerRef,

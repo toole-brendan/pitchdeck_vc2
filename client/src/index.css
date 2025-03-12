@@ -38,12 +38,36 @@
     .slide-title {
       transform-origin: left top;
       will-change: transform;
+      position: relative;
+      z-index: 1;
     }
     
     /* Content scaling container styles */
     .slide-content-body {
       transform-origin: center top;
       will-change: transform;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    /* Make sure content doesn't overflow on animations */
+    .slide {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 2rem;
+      padding-bottom: 4rem; /* Extra space for navigation */
+    }
+    
+    /* Improve rendering performance */
+    .slide-container {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease-out;
     }
   }
   
@@ -58,6 +82,18 @@
       height: auto !important;
       min-height: 100vh;
       margin-bottom: 2rem;
+      display: block;
+    }
+    
+    /* Mobile titles can be more compact */
+    .slide-title {
+      font-size: 1.75rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    /* Better spacing on mobile */
+    .slide-content-body {
+      padding-bottom: 2rem;
     }
   }
 }
