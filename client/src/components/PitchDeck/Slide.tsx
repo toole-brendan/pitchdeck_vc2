@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import { SlideProps } from './PitchDeck';
+import { useAutoScale } from '@/hooks/use-auto-scale';
 
 interface Props extends SlideProps {
   children: React.ReactNode;
@@ -10,6 +11,14 @@ interface Props extends SlideProps {
 
 const Slide: React.FC<Props> = ({ isActive, index, children, className = '' }) => {
   const isDesktop = useMediaQuery({ minWidth: 768 });
+  
+  // Use the auto-scale hook to detect overflow and calculate appropriate scaling
+  const { containerRef, contentRef, scale, hasOverflow } = useAutoScale({
+    titleSelector: 'h1, h2.slide-title', // Select slide title elements
+    contentSelector: '.slide-content-body', // Select the content area that should scale
+    minScale: 0.6, // Minimum scale factor
+    maxScale: 1   // Maximum scale factor
+  });
 
   const variants = {
     desktop: {
@@ -29,6 +38,7 @@ const Slide: React.FC<Props> = ({ isActive, index, children, className = '' }) =
 
   return (
     <motion.div
+      ref={containerRef}
       className={`slide flex items-center justify-center px-6 md:px-20 ${
         isDesktop ? 'absolute top-0 left-0 w-full h-full' : 'min-h-screen'
       } ${className}`}
@@ -37,7 +47,18 @@ const Slide: React.FC<Props> = ({ isActive, index, children, className = '' }) =
       animate={isActive ? "visible" : "hidden"}
       variants={isDesktop ? variants.desktop : variants.mobile}
     >
-      {children}
+      <div 
+        ref={contentRef} 
+        className="slide-container w-full max-w-6xl"
+        style={{
+          transform: isDesktop && hasOverflow ? `scale(${scale})` : 'none',
+          transformOrigin: 'center',
+          width: '100%',
+          height: isDesktop ? 'auto' : '100%'
+        }}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 };

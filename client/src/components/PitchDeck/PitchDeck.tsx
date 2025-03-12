@@ -79,7 +79,7 @@ const PitchDeck = () => {
 
   return (
     <div 
-      className="slide-presentation relative bg-white text-gray-900"
+      className="slide-presentation relative bg-white text-gray-900 h-screen"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -116,7 +116,7 @@ const PitchDeck = () => {
       </div>
 
       {/* Slides Container */}
-      <div className={`slide-container ${isDesktop ? 'h-screen overflow-hidden' : ''}`}>
+      <div className={`slide-container ${isDesktop ? 'h-screen overflow-hidden' : 'overflow-auto'}`}>
         <TitleSlide isActive={isDesktop ? currentSlide === 0 : true} index={0} />
         <ProblemSlide isActive={isDesktop ? currentSlide === 1 : true} index={1} />
         <SolutionSlide isActive={isDesktop ? currentSlide === 2 : true} index={2} />

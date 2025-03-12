@@ -11,3 +11,53 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* Responsive slide deck styles */
+@layer components {
+  /* Base styles for the slide container */
+  .slide-container {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Desktop styles - no scrolling, auto scale */
+  @media (min-width: 768px) {
+    html, body {
+      overflow: hidden;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .slide-presentation {
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* Ensure slide titles maintain consistent sizing */
+    .slide-title {
+      transform-origin: left top;
+      will-change: transform;
+    }
+    
+    /* Content scaling container styles */
+    .slide-content-body {
+      transform-origin: center top;
+      will-change: transform;
+    }
+  }
+  
+  /* Mobile styles - enable scrolling */
+  @media (max-width: 767px) {
+    .slide-container {
+      overflow-y: auto;
+    }
+    
+    .slide {
+      position: relative !important;
+      height: auto !important;
+      min-height: 100vh;
+      margin-bottom: 2rem;
+    }
+  }
+}
