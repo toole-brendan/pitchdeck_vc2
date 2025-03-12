@@ -106,11 +106,11 @@ const Slide14: React.FC = () => {
                 <tbody>
                   <tr className="border-b border-slate-100">
                     <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <DollarSign className="h-4 w-4" style={{ color: modernColors.commercial }} /> Revenue
+                      <DollarSign className="h-4 w-4" style={{ color: modernColors.crypto }} /> Revenue
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4">
-                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.commercial }}>
+                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
                           {item.revenue}
                         </span>
                       </td>
@@ -118,11 +118,11 @@ const Slide14: React.FC = () => {
                   </tr>
                   <tr className="border-b border-slate-100">
                     <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <Users className="h-4 w-4" style={{ color: modernColors.military }} /> Customers
+                      <Users className="h-4 w-4" style={{ color: modernColors.crypto }} /> Customers
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4">
-                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.military }}>
+                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
                           {item.customers}
                         </span>
                       </td>
@@ -130,7 +130,7 @@ const Slide14: React.FC = () => {
                   </tr>
                   <tr className="border-b border-slate-100">
                     <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <CreditCard className="h-4 w-4" style={{ color: modernColors.commercial }} /> Expenses
+                      <CreditCard className="h-4 w-4" style={{ color: modernColors.crypto }} /> Expenses
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4 text-black">
@@ -140,7 +140,7 @@ const Slide14: React.FC = () => {
                   </tr>
                   <tr>
                     <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <BarChart4 className="h-4 w-4" style={{ color: modernColors.military }} /> Net Cash Flow
+                      <BarChart4 className="h-4 w-4" style={{ color: modernColors.crypto }} /> Net Cash Flow
                     </td>
                     {projections.map((item, index) => (
                       <td key={index} className="text-center py-3 px-4">
@@ -189,7 +189,7 @@ const Slide14: React.FC = () => {
           <div>
             <ModernCard className="h-full p-6">
               <div className="flex items-center gap-3 mb-5">
-                <PieChart className="h-7 w-7" style={{ color: modernColors.military }} />
+                <PieChart className="h-7 w-7" style={{ color: modernColors.crypto }} />
                 <h3 className={modernTypography.heading}>
                   Seed Funding Allocation
                 </h3>
@@ -226,8 +226,8 @@ const Slide14: React.FC = () => {
               
               <div className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
                 <div className="flex items-center gap-2 mb-2">
-                  <Clock className="h-5 w-5" style={{ color: modernColors.commercial }} />
-                  <h4 className={modernTypography.label} style={{ color: modernColors.commercial }}>Expected Runway</h4>
+                  <Clock className="h-5 w-5" style={{ color: modernColors.crypto }} />
+                  <h4 className={modernTypography.label} style={{ color: modernColors.crypto }}>Expected Runway</h4>
                 </div>
                 <p className={`${modernTypography.body} mb-1`}>12-18 months</p>
                 <p className={`${modernTypography.small}`}>

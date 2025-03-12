@@ -24,25 +24,25 @@ const Slide15: React.FC = () => {
       title: 'Founder-led development',
       description: 'Efficient capital use',
       icon: User,
-      color: modernColors.commercial
+      color: modernColors.crypto
     },
     { 
       title: 'Military expertise',
       description: 'Creates competitive moat',
       icon: ShieldCheck,
-      color: modernColors.military
+      color: modernColors.crypto
     },
     { 
       title: 'Lean startup approach',
       description: 'Quick iterations',
       icon: BarChart,
-      color: modernColors.commercial
+      color: modernColors.crypto
     },
     { 
       title: '12-18 month runway',
       description: 'To demonstrate product-market fit',
       icon: Clock,
-      color: modernColors.military
+      color: modernColors.crypto
     }
   ];
 
