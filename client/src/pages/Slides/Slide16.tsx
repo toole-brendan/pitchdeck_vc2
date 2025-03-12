@@ -55,7 +55,7 @@ const Slide16: React.FC = () => {
   // Development roadmap
   const roadmap = [
     {
-      quarter: 'Q2 2024',
+      quarter: 'Q3 2025',
       title: 'Core Platform Development',
       description: 'Develop foundational blockchain verification architecture with smart contracts and database structure.',
       milestones: [
@@ -69,7 +69,7 @@ const Slide16: React.FC = () => {
       statusColor: 'bg-militaryLight text-military'
     },
     {
-      quarter: 'Q3 2024',
+      quarter: 'Q4 2025',
       title: 'Mobile Interface & Defense MVP',
       description: 'Build military-focused user interface with CAC integration and QR scanning capability.',
       milestones: [
@@ -83,7 +83,7 @@ const Slide16: React.FC = () => {
       statusColor: 'bg-slate-100 text-black'
     },
     {
-      quarter: 'Q1 2025',
+      quarter: 'Q1 2026',
       title: 'Commercial Beta Launch',
       description: 'Adapt platform for commercial supply chain use cases with payment settlement features.',
       milestones: [
@@ -97,7 +97,7 @@ const Slide16: React.FC = () => {
       statusColor: 'bg-slate-100 text-black'
     },
     {
-      quarter: 'Q2 2025',
+      quarter: 'Q2 2026',
       title: 'Series A Preparation',
       description: 'Scale initial customers and prepare for growth financing to accelerate adoption.',
       milestones: [
