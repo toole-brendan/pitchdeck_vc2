@@ -9,7 +9,7 @@ import {
 import { Shield, Smartphone, Zap, Briefcase, Award, Calculator } from 'lucide-react';
 
 const Slide9: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   return (
     <SlideLayout title="Product Features" slideNumber={9} totalSlides={TOTAL_SLIDES}>

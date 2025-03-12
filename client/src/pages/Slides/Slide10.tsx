@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 const Slide10: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   const workflowSteps = [
     { 

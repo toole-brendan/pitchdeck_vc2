@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 const Slide15: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   // Key investment highlights
   const investmentHighlights = [

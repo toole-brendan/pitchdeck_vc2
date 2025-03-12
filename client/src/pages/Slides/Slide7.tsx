@@ -10,7 +10,7 @@ import {
 import { PieChart, BarChart3, Briefcase } from 'lucide-react';
 
 const Slide7: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   return (
     <SlideLayout title="Market Opportunity" slideNumber={7} totalSlides={TOTAL_SLIDES}>

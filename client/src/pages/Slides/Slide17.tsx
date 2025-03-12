@@ -9,7 +9,7 @@ import {
 import { ShieldCheck, Workflow, Shield, Lock } from 'lucide-react';
 
 const Slide17: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   return (
     <SlideLayout title="Shell Token Architecture" slideNumber={17} totalSlides={TOTAL_SLIDES}>

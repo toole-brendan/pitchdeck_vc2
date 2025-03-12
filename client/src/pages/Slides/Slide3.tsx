@@ -10,7 +10,7 @@ import {
 import { FileWarning, ShieldAlert, DollarSign, Building } from 'lucide-react';
 
 const Slide3: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   return (
     <SlideLayout title="Supply Chain Challenges" slideNumber={3} totalSlides={TOTAL_SLIDES}>

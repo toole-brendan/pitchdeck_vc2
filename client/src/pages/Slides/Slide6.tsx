@@ -8,7 +8,7 @@ import {
 import { Clock, BarChart3, TrendingUp, Layers } from 'lucide-react';
 
 const Slide6: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   return (
     <SlideLayout title="Why Now" slideNumber={6} totalSlides={TOTAL_SLIDES}>

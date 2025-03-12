@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 
 const Slide13: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   // Phase approach data
   const phases = [

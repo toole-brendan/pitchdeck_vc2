@@ -9,7 +9,7 @@ import {
 import { BarChart3, Shield, Fingerprint, Zap, LayoutGrid, XCircle } from 'lucide-react';
 
 const Slide8: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   // Competitors for positioning chart
   const competitors = [

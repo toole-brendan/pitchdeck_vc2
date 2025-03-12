@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 const Slide12: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   // Monthly operating costs data
   const operatingCosts = [

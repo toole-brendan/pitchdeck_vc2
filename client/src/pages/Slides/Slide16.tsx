@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 
 const Slide16: React.FC = () => {
-  const TOTAL_SLIDES = 18;
+  const TOTAL_SLIDES = 17;
 
   // Founding team expertise
   const founderExpertise = [
