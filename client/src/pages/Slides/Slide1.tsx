@@ -27,8 +27,7 @@ const Slide1: React.FC = () => {
         
         <div className="mt-6">
           <ModernCard className="px-10 py-8">
-            <p className={modernTypography.small}>Presented by: [Presenter Name]</p>
-            <p className={modernTypography.small}>Date: [Presentation Date]</p>
+            <p className={modernTypography.small}>Ajax Group, Inc.</p>
           </ModernCard>
         </div>
       </div>
