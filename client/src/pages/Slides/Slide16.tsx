@@ -8,19 +8,15 @@ import {
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   User, 
-  Users, 
   Calendar, 
-  Milestone, 
   CheckCircle, 
   Code,
   Layout,
   ShieldCheck,
   Rocket,
-  BarChart3,
   GitMerge,
   Smartphone,
-  Server,
-  Workflow
+  Server
 } from 'lucide-react';
 
 const Slide16: React.FC = () => {
@@ -116,40 +112,6 @@ const Slide16: React.FC = () => {
     }
   ];
 
-  // Success metrics
-  const successMetrics = [
-    {
-      category: 'Development Milestones',
-      metrics: [
-        'Complete MVP within 6 months',
-        'First pilot implementation by month 9',
-        'Production-ready platform by month 12'
-      ],
-      icon: Milestone,
-      color: modernColors.military
-    },
-    {
-      category: 'Customer Acquisition',
-      metrics: [
-        '1-2 defense pilot customers',
-        '2-3 commercial pilots',
-        'First recurring revenue by Q1 2025'
-      ],
-      icon: Users,
-      color: modernColors.commercial
-    },
-    {
-      category: 'Product Expansion',
-      metrics: [
-        'Defense core features (Q3 2024)',
-        'Commercial adaptation (Q4 2024)',
-        'API integration suite (Q1 2025)'
-      ],
-      icon: Workflow,
-      color: modernColors.military
-    }
-  ];
-
   return (
     <SlideLayout title="Team & Roadmap" slideNumber={16} totalSlides={TOTAL_SLIDES}>
       <div className="flex flex-col gap-6">
@@ -159,101 +121,67 @@ const Slide16: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-          <div className="md:col-span-2">
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <User className="h-7 w-7" style={{ color: modernColors.military }} />
-                <h3 className={modernTypography.heading}>
-                  Founding Team
-                </h3>
-              </div>
-              
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-3/5">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="relative w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl font-semibold" style={{ color: modernColors.military }}>BT</span>
-                    </div>
-                    <div>
-                      <h4 className={modernTypography.subheading} style={{ color: modernColors.military }}>
-                        Brendan T. Toole
-                      </h4>
-                      <p className={`${modernTypography.small} uppercase tracking-wide font-medium`} style={{ color: modernColors.military }}>
-                        FOUNDER & CEO
-                      </p>
-                    </div>
+        <div className="mb-4">
+          <ModernCard className="p-6">
+            <div className="flex items-center gap-3 mb-5">
+              <User className="h-7 w-7" style={{ color: modernColors.military }} />
+              <h3 className={modernTypography.heading}>
+                Founding Team
+              </h3>
+            </div>
+            
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="md:w-3/5">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="relative w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center">
+                    <span className="text-2xl font-semibold" style={{ color: modernColors.military }}>BT</span>
                   </div>
-                  
-                  <p className={`${modernTypography.body} mb-4`}>
-                    Technical founder with unique combination of expertise in defense, supply chain analytics and financial markets. Leading product development and strategic vision.
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {founderExpertise.map((item, index) => (
-                      <span 
-                        key={index} 
-                        className={`text-xs px-2.5 py-1.5 rounded-md font-medium ${item.color}`}
-                      >
-                        {item.text}
-                      </span>
-                    ))}
+                  <div>
+                    <h4 className={modernTypography.subheading} style={{ color: modernColors.military }}>
+                      Brendan T. Toole
+                    </h4>
+                    <p className={`${modernTypography.small} uppercase tracking-wide font-medium`} style={{ color: modernColors.military }}>
+                      FOUNDER & CEO
+                    </p>
                   </div>
                 </div>
                 
-                <div className="md:w-2/5">
-                  <h4 className={`${modernTypography.subheading} mb-3`}>Post-Seed Hiring Plan:</h4>
-                  <div className="space-y-3">
-                    {hiringPlan.map((role, index) => (
-                      <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
-                        <div className="flex items-center gap-2 mb-1">
-                          <role.icon className="h-4 w-4" style={{ color: role.color }} />
-                          <p className={modernTypography.label} style={{ color: role.color }}>{role.position}</p>
-                        </div>
-                        <p className={`${modernTypography.small} pl-6`}>{role.focus}</p>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <p className={`${modernTypography.small} mt-3`}>
-                    Initial team will remain lean to extend runway, with strategic advisors and contractors supplementing core capabilities.
-                  </p>
+                <p className={`${modernTypography.body} mb-4`}>
+                  Technical founder with unique combination of expertise in defense, supply chain analytics and financial markets. Leading product development and strategic vision.
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {founderExpertise.map((item, index) => (
+                    <span 
+                      key={index} 
+                      className={`text-xs px-2.5 py-1.5 rounded-md font-medium ${item.color}`}
+                    >
+                      {item.text}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </ModernCard>
-          </div>
-
-          <div className="md:col-span-1">
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <BarChart3 className="h-7 w-7" style={{ color: modernColors.commercial }} />
-                <h3 className={modernTypography.heading}>
-                  Success Metrics
-                </h3>
-              </div>
               
-              <div className="space-y-5">
-                {successMetrics.map((category, index) => (
-                  <div key={index} className="border border-slate-100 rounded-md overflow-hidden">
-                    <div className="flex items-center gap-2 p-3 bg-slate-50/80 border-b border-slate-100">
-                      <category.icon className="h-5 w-5" style={{ color: category.color }} />
-                      <h4 className={modernTypography.label} style={{ color: category.color }}>{category.category}</h4>
+              <div className="md:w-2/5">
+                <h4 className={`${modernTypography.subheading} mb-3`}>Post-Seed Hiring Plan:</h4>
+                <div className="space-y-3">
+                  {hiringPlan.map((role, index) => (
+                    <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
+                      <div className="flex items-center gap-2 mb-1">
+                        <role.icon className="h-4 w-4" style={{ color: role.color }} />
+                        <p className={modernTypography.label} style={{ color: role.color }}>{role.position}</p>
+                      </div>
+                      <p className={`${modernTypography.small} pl-6`}>{role.focus}</p>
                     </div>
-                    <div className="p-3">
-                      <ul className="space-y-2">
-                        {category.metrics.map((metric, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: category.color }} />
-                            <span className={modernTypography.small}>{metric}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                
+                <p className={`${modernTypography.small} mt-3`}>
+                  Initial team will remain lean to extend runway, with strategic advisors and contractors supplementing core capabilities.
+                </p>
               </div>
-            </ModernCard>
-          </div>
+            </div>
+          </ModernCard>
         </div>
 
         <div>
