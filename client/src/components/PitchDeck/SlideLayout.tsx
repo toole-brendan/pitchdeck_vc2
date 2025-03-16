@@ -25,17 +25,31 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 
   const goToNextSlide = () => {
     if (slideNumber < totalSlides) {
-      navigate(`/slide/${slideNumber + 1}`);
+      if (slideNumber === 1) {
+        // When on slide 1 (/), go to /2
+        navigate(`/2`);
+      } else {
+        // Otherwise go to the next number
+        navigate(`/${slideNumber + 1}`);
+      }
     } else {
-      navigate('/');
+      // If at the last slide, go back to the first slide (root path)
+      navigate(`/`);
     }
   };
 
   const goToPrevSlide = () => {
     if (slideNumber > 1) {
-      navigate(`/slide/${slideNumber - 1}`);
+      if (slideNumber === 2) {
+        // When on slide 2, go back to slide 1 (/)
+        navigate(`/`);
+      } else {
+        // Otherwise go to the previous number
+        navigate(`/${slideNumber - 1}`);
+      }
     } else {
-      navigate('/');
+      // If at the first slide, loop to the last slide
+      navigate(`/${totalSlides}`);
     }
   };
 
