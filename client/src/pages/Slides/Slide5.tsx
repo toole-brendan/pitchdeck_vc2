@@ -11,7 +11,7 @@ import {
 import { QrCode, Database, Cpu, CreditCard, Shield, Laptop, ArrowRight } from 'lucide-react';
 
 const Slide5: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
   
   // Process steps with corresponding icons
   const processSteps = [

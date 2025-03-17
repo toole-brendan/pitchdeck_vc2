@@ -7,150 +7,125 @@ import {
   modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
-  Flag, 
-  Building, 
-  Layout,
-  Timer, 
-  BadgePercent,
-  Users,
-  DollarSign,
-  Database,
-  Briefcase,
-  Server,
-  CreditCard
+  Server, 
+  Code, 
+  Settings, 
+  Clock, 
+  DollarSign
 } from 'lucide-react';
 
 const Slide13: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
-  // Phase approach data
-  const phases = [
-    {
-      name: 'Phase 1: Defense Beachhead',
-      period: 'Q2 2025 - Q4 2025',
-      description: 'Establish proven track record with defense clients',
-      metrics: [
-        { label: '3-5 defense contracts', icon: Briefcase, color: modernColors.military },
-        { label: '85% user satisfaction', icon: BadgePercent, color: modernColors.military },
-        { label: '$1.2M in initial ARR', icon: DollarSign, color: modernColors.military }
-      ],
-      color: modernColors.military,
-      icon: Flag
+  // Monthly operating costs data
+  const operatingCosts = [
+    { 
+      name: 'Infrastructure', 
+      range: '$1,200-1,800/mo', 
+      icon: Server,
+      color: modernColors.military
     },
-    {
-      name: 'Phase 2: Commercial Expansion',
-      period: 'Q1 2026 - Q3 2026',
-      description: 'Enter commercial supply chain market with validated solution',
-      metrics: [
-        { label: '12-15 commercial clients', icon: Building, color: modernColors.commercial },
-        { label: '500K monthly transactions', icon: Database, color: modernColors.commercial },
-        { label: '$3.5M in Year 2 ARR', icon: DollarSign, color: modernColors.commercial }
-      ],
-      color: modernColors.commercial,
-      icon: Building
+    { 
+      name: 'Development', 
+      range: '$9,000-12,000/mo', 
+      icon: Code,
+      color: modernColors.commercial 
     },
-    {
-      name: 'Phase 3: Platform Ecosystem',
-      period: 'Q4 2026 - Q2 2027',
-      description: 'Open platform to developers and financial partners',
-      metrics: [
-        { label: '30+ enterprise clients', icon: Users, color: modernColors.military },
-        { label: '$12M in Year 3 ARR', icon: DollarSign, color: modernColors.commercial },
-        { label: '15 integrated partners', icon: Database, color: modernColors.military }
-      ],
-      color: modernColors.military,
-      icon: Layout
+    { 
+      name: 'Operations', 
+      range: '$4,800-7,700/mo', 
+      icon: Settings,
+      color: modernColors.military
     }
   ];
 
-  // Strategic partnerships data
-  const partnerships = [
-    { category: 'ERP Providers', examples: 'SAP, NetSuite, Oracle', timeline: 'Q3 2025', icon: Database, color: modernColors.commercial },
-    { category: 'Defense Contractors', examples: 'Tier 1 DOD suppliers', timeline: 'Q2 2025', icon: Briefcase, color: modernColors.military },
-    { category: 'WMS Providers', examples: 'Manhattan, JDA Software', timeline: 'Q4 2025', icon: Server, color: modernColors.commercial },
-    { category: 'Financial Services', examples: 'Supply chain financing', timeline: 'Q1 2026', icon: CreditCard, color: modernColors.commercial }
+  // Burn rate scenarios
+  const burnRateScenarios = [
+    { name: 'Best Case', value: '15 months', percentage: 100 },
+    { name: 'Expected Case', value: '12 months', percentage: 80 },
+    { name: 'Conservative Case', value: '10 months', percentage: 67 }
   ];
 
   return (
-    <SlideLayout title="Go-to-Market Strategy" slideNumber={13} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-6">
+    <SlideLayout title="Operational Costs" slideNumber={13} totalSlides={TOTAL_SLIDES}>
+      <div className="flex flex-col gap-8">
         <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
-            Multi-phase approach to platform and token ecosystem growth
+            Blockchain infrastructure and development expenses with 12-month runway
           </h2>
         </div>
 
-        <div className="mb-4">
-          <ModernCard className="p-6">
-            <h3 className={`${modernTypography.heading} mb-5 flex items-center gap-3`}>
-              <Timer className="h-6 w-6" style={{ color: modernColors.military }} />
-              Phased Approach
-            </h3>
-            
-            <div className="space-y-6">
-              {phases.map((phase, index) => (
-                <div 
-                  key={index} 
-                  className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${phase.color}15` }}>
-                      <phase.icon className="h-5 w-5" style={{ color: phase.color }} />
-                    </div>
-                    <div>
-                      <h4 className={modernTypography.subheading} style={{ color: phase.color }}>
-                        {phase.name}
-                      </h4>
-                      <p className={`${modernTypography.small}`}>{phase.period}</p>
-                    </div>
-                  </div>
-                  
-                  <p className={`${modernTypography.body} mb-4`}>{phase.description}</p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {phase.metrics.map((metric, idx) => (
-                      <div key={idx} className="flex items-center gap-2 p-2 bg-white/80 border border-slate-100 rounded">
-                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
-                        <span className={modernTypography.small}>{metric.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ModernCard>
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+          <div>
+            <ModernCard className="h-full p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
+                <h3 className={modernTypography.heading}>
+                  Monthly Operating Costs
+                </h3>
+              </div>
 
-        <div className="md:max-w-3xl mx-auto">
-          <div className="space-y-6">
-            <div>
-              <ModernCard className="p-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
-                  <h3 className={modernTypography.heading}>
-                    Target Strategic Partnerships
-                  </h3>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {partnerships.map((partner, index) => (
-                    <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-start gap-3">
-                      <div 
-                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: `${partner.color}20` }}
-                      >
-                        <partner.icon className="h-4 w-4" style={{ color: partner.color }} />
+              <div className="space-y-4">
+                {operatingCosts.map((cost, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${cost.color}15` }}>
+                        <cost.icon className="h-5 w-5" style={{ color: cost.color }} />
                       </div>
-                      <div>
-                        <p className={`${modernTypography.label} mb-1`} style={{ color: partner.color }}>{partner.category}</p>
-                        <p className={`${modernTypography.small}`}>{partner.examples}</p>
-                        <p className={`${modernTypography.small} mt-1`} style={{ color: partner.color }}>{partner.timeline}</p>
-                      </div>
+                      <span className={modernTypography.label}>{cost.name}</span>
                     </div>
-                  ))}
+                    <span className={`${modernTypography.heading}`} style={{ color: cost.color }}>{cost.range}</span>
+                  </div>
+                ))}
+              </div>
+            </ModernCard>
+          </div>
+
+          <div>
+            <ModernCard className="h-full p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <Clock className="h-7 w-7" style={{ color: modernColors.commercial }} />
+                <h3 className={modernTypography.heading}>
+                  Burn Rate & Runway
+                </h3>
+              </div>
+
+              <div className="mb-4 bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
+                <div className="flex justify-between items-center mb-2">
+                  <span className={modernTypography.label}>Total Monthly Burn</span>
+                  <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>$15,000-21,500</span>
                 </div>
-              </ModernCard>
-            </div>
+                <div className="flex justify-between items-center">
+                  <span className={modernTypography.label}>Seed Funding</span>
+                  <span className={`${modernTypography.heading}`} style={{ color: modernColors.commercial }}>$750,000</span>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                {burnRateScenarios.map((scenario, index) => (
+                  <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className={modernTypography.label}>{scenario.name}</span>
+                      <span className={`${modernTypography.heading}`} style={{ color: index === 1 ? modernColors.military : (index === 0 ? modernColors.commercial : modernColors.crypto) }}>
+                        {scenario.value}
+                      </span>
+                    </div>
+                    <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full rounded-full"
+                        style={{ 
+                          backgroundColor: index === 1 ? modernColors.military : (index === 0 ? modernColors.commercial : modernColors.crypto),
+                          width: `${scenario.percentage}%` 
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ModernCard>
           </div>
         </div>
       </div>

@@ -7,183 +7,182 @@ import {
   modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
-  DollarSign, 
-  TrendingUp, 
-  Layers, 
-  Database, 
-  BarChart, 
-  Star, 
-  CreditCard, 
-  Repeat
+  Globe, 
+  Shield, 
+  FileText, 
+  AlertCircle, 
+  Check,
+  Gauge,
+  BarChart3,
+  Eye
 } from 'lucide-react';
 
 const Slide11: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
-  // Revenue stream data
-  const revenueStreams = [
-    { 
-      letter: 'S', 
-      title: 'Subscription Licenses', 
-      icon: CreditCard,
+  // Key challenges with current partner forces aid tracking
+  const challenges = [
+    {
+      title: "Limited Transparency",
+      description: "Current systems provide minimal visibility into aid distribution and utilization",
+      icon: <Eye className="h-5 w-5" />,
       color: modernColors.military
     },
-    { 
-      letter: 'T', 
-      title: 'Transaction Fees (0.1-0.5% vs traditional 2.5-3.5%)', 
-      icon: Repeat,
-      color: modernColors.commercial
-    },
-    { 
-      letter: 'D', 
-      title: 'Data Analytics Package', 
-      icon: Database,
+    {
+      title: "Accountability Gaps",
+      description: "Difficulty tracking equipment from delivery to deployment and final disposition",
+      icon: <AlertCircle className="h-5 w-5" />,
       color: modernColors.military
     },
-    { 
-      letter: 'A', 
-      title: 'API Access Tiers', 
-      icon: Layers,
-      color: modernColors.commercial
+    {
+      title: "Congressional Reporting",
+      description: "Delayed and incomplete data for mandated reports on foreign military aid",
+      icon: <FileText className="h-5 w-5" />,
+      color: modernColors.military
     }
   ];
 
-  // Market ROI data
-  const marketROI = [
-    { market: 'Defense', roi: '9.7x ROI', color: modernColors.military },
-    { market: 'Logistics', roi: '6.2x ROI', color: modernColors.commercial },
-    { market: 'Manufacturing', roi: '4.5x ROI', color: modernColors.crypto } // Purple color for manufacturing
+  // HandReceipt benefits for partner forces aid tracking
+  const benefits = [
+    {
+      title: "Immutable Tracking",
+      description: "Blockchain-secured records of all equipment transfers from origin to recipient forces",
+      icon: <Shield className="h-5 w-5" />,
+      color: modernColors.crypto
+    },
+    {
+      title: "Real-time Monitoring",
+      description: "Live dashboard showing equipment status, utilization, and maintenance needs",
+      icon: <Gauge className="h-5 w-5" />,
+      color: modernColors.crypto
+    },
+    {
+      title: "Compliance Automation",
+      description: "Automated generation of required reports for Congress and oversight bodies",
+      icon: <BarChart3 className="h-5 w-5" />,
+      color: modernColors.crypto
+    }
+  ];
+
+  // Usage scenarios
+  const scenarios = [
+    "Ukraine military assistance program",
+    "NATO equipment transfers",
+    "Counter-terrorism partner equipment",
+    "Humanitarian aid tracking",
+    "Coalition force equipment sharing"
   ];
 
   return (
-    <SlideLayout title="Business Model & Pricing Strategy" slideNumber={11} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout title="Partner Forces Aid Tracking" slideNumber={11} totalSlides={TOTAL_SLIDES}>
       <div className="flex flex-col gap-8">
-        <div className="text-center max-w-2xl mx-auto mb-2">
+        <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
-            Multi-stream monetization with market-specific value propositions
+            Military-grade solution for <span style={{ color: modernColors.military }}>tracking</span> and <span style={{ color: modernColors.crypto }}>verifying</span> equipment provided to partner forces
           </h2>
         </div>
 
-        <div className="mb-6">
-          <ModernCard className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
-              <h3 className={modernTypography.heading}>
-                Revenue Streams
-              </h3>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
-              {revenueStreams.map((stream, index) => (
-                <div
-                  key={index}
-                  className="bg-slate-50/80 backdrop-blur-sm p-5 border border-slate-100 flex flex-col h-full"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div 
-                      className="w-8 h-8 flex items-center justify-center rounded-full text-white font-medium text-sm"
-                      style={{ backgroundColor: stream.color }}
-                    >
-                      {stream.letter}
-                    </div>
-                    <stream.icon className="h-5 w-5" style={{ color: stream.color }} />
-                  </div>
-                  <p className={modernTypography.body}>{stream.title}</p>
-                </div>
-              ))}
-            </div>
-          </ModernCard>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
           <div>
             <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-5">
-                <TrendingUp className="h-7 w-7" style={{ color: modernColors.military }} />
+              <div className="flex items-center gap-4 mb-6">
+                <Globe className="h-7 w-7" style={{ color: modernColors.military }} />
                 <h3 className={modernTypography.heading}>
-                  Market-Specific ROI
-                </h3>
-              </div>
-              
-              <div className="space-y-4">
-                {marketROI.map((item, index) => (
-                  <div key={index} className="p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
-                        <span className={modernTypography.label}>{item.market}</span>
-                      </div>
-                      <span className={`${modernTypography.stats}`} style={{ color: item.color }}>{item.roi}</span>
-                    </div>
-                    <div className="w-full h-2 bg-slate-200 mt-2 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full rounded-full"
-                        style={{ 
-                          backgroundColor: item.color, 
-                          width: `${parseFloat(item.roi) * 10}%`,
-                          maxWidth: '100%'
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </ModernCard>
-          </div>
-
-          <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-5">
-                <BarChart className="h-7 w-7" style={{ color: modernColors.commercial }} />
-                <h3 className={modernTypography.heading}>
-                  Unit Economics
+                  Current Challenges
                 </h3>
               </div>
               
               <div className="space-y-6">
-                <div>
-                  <h4 className={`${modernTypography.subheading} mb-3`}>Pricing Tiers:</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="bg-militaryLight/50 p-4 rounded-md border border-slate-200">
-                      <p className={`${modernTypography.label} text-military mb-1`}>Defense</p>
-                      <p className={`${modernTypography.heading} text-military`}>$250K - $1M</p>
+                {challenges.map((challenge, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div 
+                      className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${challenge.color}20` }}
+                    >
+                      {challenge.icon}
                     </div>
-                    <div className="bg-commercialLight/50 p-4 rounded-md border border-slate-200">
-                      <p className={`${modernTypography.label} text-commercial mb-1`}>Commercial</p>
-                      <p className={`${modernTypography.heading} text-commercial`}>$75K - $150K</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className={`${modernTypography.subheading} mb-3`}>Key Performance Metrics:</h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" style={{ color: modernColors.military }} />
-                        <span className={modernTypography.label}>LTV:CAC Ratio</span>
-                      </div>
-                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>10:1</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" style={{ color: modernColors.military }} />
-                        <span className={modernTypography.label}>Gross Margin</span>
-                      </div>
-                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>80-85%</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" style={{ color: modernColors.commercial }} />
-                        <span className={modernTypography.label}>Net Retention</span>
-                      </div>
-                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.commercial }}>120%</span>
+                    <div>
+                      <p className={`${modernTypography.label} mb-1`} style={{ color: challenge.color }}>{challenge.title}</p>
+                      <p className={`${modernTypography.small}`}>{challenge.description}</p>
                     </div>
                   </div>
-                </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 p-4 rounded-md border border-slate-100" style={{ backgroundColor: `${modernColors.militaryLight}30` }}>
+                <p className={`${modernTypography.label} mb-2`} style={{ color: modernColors.military }}>Compliance Requirements</p>
+                <p className={`${modernTypography.small}`}>
+                  Department of Defense policy requires tracking and reporting of military equipment 
+                  provided to partner forces, with regular audits and chain-of-custody documentation.
+                </p>
               </div>
             </ModernCard>
           </div>
+
+          <div>
+            <ModernCard className="h-full p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <Shield className="h-7 w-7" style={{ color: modernColors.crypto }} />
+                <h3 className={modernTypography.heading}>
+                  HandReceipt Solution
+                </h3>
+              </div>
+              
+              <div className="space-y-6">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div 
+                      className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${benefit.color}20` }}
+                    >
+                      {benefit.icon}
+                    </div>
+                    <div className="flex-1">
+                      <p className={`${modernTypography.label} mb-1`} style={{ color: benefit.color }}>{benefit.title}</p>
+                      <p className={`${modernTypography.small}`}>{benefit.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 p-4 rounded-md border border-slate-100" style={{ backgroundColor: `${modernColors.cryptoLight}30` }}>
+                <p className={`${modernTypography.label} mb-2`} style={{ color: modernColors.crypto }}>Usage Scenarios</p>
+                <ul className="space-y-2">
+                  {scenarios.map((scenario, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: modernColors.crypto }} />
+                      <span className={`${modernTypography.small}`}>{scenario}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ModernCard>
+          </div>
+        </div>
+
+        <div className="md:col-span-2">
+          <ModernCard className="p-6" style={{ 
+            borderTop: `2px solid ${modernColors.military}`,
+            borderBottom: `2px solid ${modernColors.crypto}`,
+            background: 'linear-gradient(120deg, rgba(30, 64, 175, 0.05), rgba(126, 34, 206, 0.05))'
+          }}>
+            <div className="flex items-center gap-4 mb-4">
+              <ModernBadge color={modernColors.military}>STRATEGIC VALUE</ModernBadge>
+            </div>
+            
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div>
+                <h3 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.military }}>
+                  End-to-end verification for partner force equipment
+                </h3>
+                <p className={`${modernTypography.body}`}>
+                  HandReceipt provides the Department of Defense and State Department with a tamper-proof system to track 
+                  military assistance from manufacturer to partner forces, ensuring compliance with congressional mandates and 
+                  preventing misuse. Our blockchain verification provides unparalleled accountability for taxpayer-funded equipment.
+                </p>
+              </div>
+            </div>
+          </ModernCard>
         </div>
       </div>
     </SlideLayout>

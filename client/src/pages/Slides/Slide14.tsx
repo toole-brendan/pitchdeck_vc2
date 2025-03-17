@@ -7,234 +7,150 @@ import {
   modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
-  TrendingUp, 
-  DollarSign, 
-  Users, 
-  CreditCard, 
-  BarChart4, 
-  PieChart,
-  Clock,
+  Flag, 
+  Building, 
+  Layout,
+  Timer, 
+  BadgePercent,
+  Users,
+  DollarSign,
+  Database,
   Briefcase,
-  Code,
-  Megaphone,
-  FileText,
-  Check
+  Server,
+  CreditCard
 } from 'lucide-react';
 
 const Slide14: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
-  // Financial projections data
-  const projections = [
-    { year: 'Year 1', revenue: '$0', customers: '0', expenses: '$1.2M', cashFlow: '-$1.2M' },
-    { year: 'Year 2', revenue: '$500K', customers: '3-5', expenses: '$1.8M', cashFlow: '-$1.3M' },
-    { year: 'Year 3', revenue: '$2.5M', customers: '8-12', expenses: '$3.0M', cashFlow: '-$500K' },
-    { year: 'Year 4', revenue: '$7.5M', customers: '15-20', expenses: '$5.0M', cashFlow: '$2.5M' },
-    { year: 'Year 5', revenue: '$18M', customers: '30-40', expenses: '$10M', cashFlow: '$8M' }
-  ];
-
-  // Business metrics data
-  const businessMetrics = [
-    { 
-      title: 'Customer Acquisition Cost', 
-      value: '$30-65K', 
-      description: 'Per enterprise client',
-      icon: Users,
-      color: modernColors.crypto
+  // Phase approach data
+  const phases = [
+    {
+      name: 'Phase 1: Defense Beachhead',
+      period: 'Q2 2025 - Q4 2025',
+      description: 'Establish proven track record with defense clients',
+      metrics: [
+        { label: '3-5 defense contracts', icon: Briefcase, color: modernColors.military },
+        { label: '85% user satisfaction', icon: BadgePercent, color: modernColors.military },
+        { label: '$1.2M in initial ARR', icon: DollarSign, color: modernColors.military }
+      ],
+      color: modernColors.military,
+      icon: Flag
     },
-    { 
-      title: 'Gross Margin', 
-      value: '80-85%', 
-      description: 'Software revenue',
-      icon: PieChart,
-      color: modernColors.crypto
+    {
+      name: 'Phase 2: Commercial Expansion',
+      period: 'Q1 2026 - Q3 2026',
+      description: 'Enter commercial supply chain market with validated solution',
+      metrics: [
+        { label: '12-15 commercial clients', icon: Building, color: modernColors.commercial },
+        { label: '500K monthly transactions', icon: Database, color: modernColors.commercial },
+        { label: '$3.5M in Year 2 ARR', icon: DollarSign, color: modernColors.commercial }
+      ],
+      color: modernColors.commercial,
+      icon: Building
     },
-    { 
-      title: 'Customer LTV', 
-      value: '$400K+', 
-      description: '5-year value',
-      icon: CreditCard,
-      color: modernColors.crypto
-    },
-    { 
-      title: 'Breakeven Point', 
-      value: 'Year 4', 
-      description: 'Cash flow positive',
-      icon: BarChart4,
-      color: modernColors.crypto
+    {
+      name: 'Phase 3: Platform Ecosystem',
+      period: 'Q4 2026 - Q2 2027',
+      description: 'Open platform to developers and financial partners',
+      metrics: [
+        { label: '30+ enterprise clients', icon: Users, color: modernColors.military },
+        { label: '$12M in Year 3 ARR', icon: DollarSign, color: modernColors.commercial },
+        { label: '15 integrated partners', icon: Database, color: modernColors.military }
+      ],
+      color: modernColors.military,
+      icon: Layout
     }
   ];
 
-  // Funding allocation data
-  const fundingAllocation = [
-    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code, color: modernColors.crypto },
-    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone, color: modernColors.crypto },
-    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase, color: modernColors.crypto },
-    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText, color: modernColors.crypto }
+  // Strategic partnerships data
+  const partnerships = [
+    { category: 'ERP Providers', examples: 'SAP, NetSuite, Oracle', timeline: 'Q3 2025', icon: Database, color: modernColors.commercial },
+    { category: 'Defense Contractors', examples: 'Tier 1 DOD suppliers', timeline: 'Q2 2025', icon: Briefcase, color: modernColors.military },
+    { category: 'WMS Providers', examples: 'Manhattan, JDA Software', timeline: 'Q4 2025', icon: Server, color: modernColors.commercial },
+    { category: 'Financial Services', examples: 'Supply chain financing', timeline: 'Q1 2026', icon: CreditCard, color: modernColors.commercial }
   ];
 
   return (
-    <SlideLayout title="Financial Projections" slideNumber={14} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-8">
+    <SlideLayout title="Go-to-Market Strategy" slideNumber={14} totalSlides={TOTAL_SLIDES}>
+      <div className="flex flex-col gap-6">
         <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
-            5-year forecast based on market analysis and industry benchmarks
+            Multi-phase approach to platform and token ecosystem growth
           </h2>
         </div>
 
         <div className="mb-4">
           <ModernCard className="p-6">
-            <div className="flex items-center gap-3 mb-5">
-              <TrendingUp className="h-7 w-7" style={{ color: modernColors.crypto }} />
-              <h3 className={modernTypography.heading}>
-                Five-Year Projections
-              </h3>
-            </div>
+            <h3 className={`${modernTypography.heading} mb-5 flex items-center gap-3`}>
+              <Timer className="h-6 w-6" style={{ color: modernColors.military }} />
+              Phased Approach
+            </h3>
             
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[600px]">
-                <thead>
-                  <tr className="border-b border-slate-200">
-                    <th className="text-left py-3 px-4 font-medium text-black"></th>
-                    {projections.map((item, index) => (
-                      <th key={index} className="text-center py-3 px-4 font-medium text-black">
-                        {item.year}
-                      </th>
+            <div className="space-y-6">
+              {phases.map((phase, index) => (
+                <div 
+                  key={index} 
+                  className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${phase.color}15` }}>
+                      <phase.icon className="h-5 w-5" style={{ color: phase.color }} />
+                    </div>
+                    <div>
+                      <h4 className={modernTypography.subheading} style={{ color: phase.color }}>
+                        {phase.name}
+                      </h4>
+                      <p className={`${modernTypography.small}`}>{phase.period}</p>
+                    </div>
+                  </div>
+                  
+                  <p className={`${modernTypography.body} mb-4`}>{phase.description}</p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {phase.metrics.map((metric, idx) => (
+                      <div key={idx} className="flex items-center gap-2 p-2 bg-white/80 border border-slate-100 rounded">
+                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
+                        <span className={modernTypography.small}>{metric.label}</span>
+                      </div>
                     ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <DollarSign className="h-4 w-4" style={{ color: modernColors.crypto }} /> Revenue
-                    </td>
-                    {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
-                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
-                          {item.revenue}
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <Users className="h-4 w-4" style={{ color: modernColors.crypto }} /> Customers
-                    </td>
-                    {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
-                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
-                          {item.customers}
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
-                  <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <CreditCard className="h-4 w-4" style={{ color: modernColors.crypto }} /> Expenses
-                    </td>
-                    {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4 text-black">
-                        {item.expenses}
-                      </td>
-                    ))}
-                  </tr>
-                  <tr>
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
-                      <BarChart4 className="h-4 w-4" style={{ color: modernColors.crypto }} /> Net Cash Flow
-                    </td>
-                    {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
-                        <span className={`font-medium`} style={{ color: item.cashFlow.includes('-') ? 'rgb(244, 63, 94)' : 'rgb(16, 185, 129)' }}>
-                          {item.cashFlow}
-                        </span>
-                      </td>
-                    ))}
-                  </tr>
-                </tbody>
-              </table>
+                  </div>
+                </div>
+              ))}
             </div>
           </ModernCard>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <BarChart4 className="h-7 w-7" style={{ color: modernColors.crypto }} />
-                <h3 className={modernTypography.heading}>
-                  Key Business Metrics
-                </h3>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {businessMetrics.map((metric, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md"
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${metric.color}20` }}>
-                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
-                      </div>
-                      <h4 className={modernTypography.label}>{metric.title}</h4>
-                    </div>
-                    <p className={`${modernTypography.heading} mb-1`} style={{ color: metric.color }}>{metric.value}</p>
-                    <p className={`${modernTypography.small}`}>{metric.description}</p>
-                  </div>
-                ))}
-              </div>
-            </ModernCard>
-          </div>
-
-          <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <PieChart className="h-7 w-7" style={{ color: modernColors.crypto }} />
-                <h3 className={modernTypography.heading}>
-                  Seed Funding Allocation
-                </h3>
-              </div>
-              
-              <div className="mb-3">
-                <p className={modernTypography.body}>How we'll use the $750K seed investment:</p>
-              </div>
-              
-              <div className="space-y-4 mb-6">
-                {fundingAllocation.map((item, index) => (
-                  <div key={index} className="bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md overflow-hidden">
-                    <div className="flex justify-between items-center p-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${item.color}20` }}>
-                          <item.icon className="h-4 w-4" style={{ color: item.color }} />
-                        </div>
-                        <span className={modernTypography.label} style={{ color: item.color }}>{item.category}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className={`${modernTypography.small}`}>{item.percentage}%</span>
-                        <span className={`${modernTypography.body}`} style={{ color: item.color }}>{item.amount}</span>
-                      </div>
-                    </div>
-                    <div className="h-1.5 bg-slate-100">
-                      <div 
-                        className="h-full"
-                        style={{ backgroundColor: item.color, width: `${item.percentage}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
-                <div className="flex items-center gap-2 mb-2">
-                  <Clock className="h-5 w-5" style={{ color: modernColors.crypto }} />
-                  <h4 className={modernTypography.label} style={{ color: modernColors.crypto }}>Expected Runway</h4>
+        <div className="md:max-w-3xl mx-auto">
+          <div className="space-y-6">
+            <div>
+              <ModernCard className="p-6">
+                <div className="flex items-center gap-3 mb-5">
+                  <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
+                  <h3 className={modernTypography.heading}>
+                    Target Strategic Partnerships
+                  </h3>
                 </div>
-                <p className={`${modernTypography.body} mb-1`}>12-18 months</p>
-                <p className={`${modernTypography.small}`}>
-                  Sufficient time to develop MVP, demonstrate core technology, and validate with potential customers
-                </p>
-              </div>
-            </ModernCard>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {partnerships.map((partner, index) => (
+                    <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-start gap-3">
+                      <div 
+                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                        style={{ backgroundColor: `${partner.color}20` }}
+                      >
+                        <partner.icon className="h-4 w-4" style={{ color: partner.color }} />
+                      </div>
+                      <div>
+                        <p className={`${modernTypography.label} mb-1`} style={{ color: partner.color }}>{partner.category}</p>
+                        <p className={`${modernTypography.small}`}>{partner.examples}</p>
+                        <p className={`${modernTypography.small} mt-1`} style={{ color: partner.color }}>{partner.timeline}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ModernCard>
+            </div>
           </div>
         </div>
       </div>

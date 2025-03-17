@@ -7,230 +7,171 @@ import {
   modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
+  Mail, 
   User, 
-  Calendar, 
-  CheckCircle, 
-  Code,
-  Layout,
   ShieldCheck,
-  Rocket,
-  GitMerge,
-  Smartphone,
-  Server
+  BadgeDollarSign,
+  BarChart,
+  Clock
 } from 'lucide-react';
 
 const Slide16: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
-  // Founding team expertise
-  const founderExpertise = [
-    { text: 'Princeton Economics', color: `bg-opacity-20 bg-crypto text-crypto` },
-    { text: 'Point72 Analyst', color: `bg-opacity-20 bg-crypto text-crypto` },
-    { text: 'Military Officer', color: `bg-opacity-20 bg-crypto text-crypto` },
-    { text: 'Full-Stack Developer', color: `bg-opacity-20 bg-crypto text-crypto` }
-  ];
-
-  // Post-seed hiring plan
-  const hiringPlan = [
-    {
-      position: 'Senior Blockchain Developer',
-      focus: 'Smart contract development & infrastructure',
-      icon: Code,
+  // Key investment highlights
+  const investmentHighlights = [
+    { 
+      title: 'Founder-led development',
+      description: 'Efficient capital use',
+      icon: User,
       color: modernColors.crypto
     },
-    {
-      position: 'UX/UI Designer',
-      focus: 'Mobile & web interface optimization',
-      icon: Layout,
-      color: modernColors.crypto
-    },
-    {
-      position: 'Defense Industry Advisor',
-      focus: 'Military procurement & relationship management',
+    { 
+      title: 'Military expertise',
+      description: 'Creates competitive moat',
       icon: ShieldCheck,
+      color: modernColors.crypto
+    },
+    { 
+      title: 'Lean startup approach',
+      description: 'Quick iterations',
+      icon: BarChart,
+      color: modernColors.crypto
+    },
+    { 
+      title: '12-18 month runway',
+      description: 'To demonstrate product-market fit',
+      icon: Clock,
       color: modernColors.crypto
     }
   ];
 
-  // Development roadmap
-  const roadmap = [
-    {
-      quarter: 'Q3 2025',
-      title: 'Core Platform Development',
-      description: 'Develop foundational blockchain verification architecture with smart contracts and database structure.',
-      milestones: [
-        'Blockchain node infrastructure setup',
-        'Smart contract architecture',
-        'API foundation'
-      ],
-      status: 'Upcoming',
-      icon: Server,
-      color: modernColors.crypto,
-      statusColor: `bg-opacity-20 bg-crypto text-crypto`
+  // Seed round details
+  const seedRoundDetails = [
+    { label: 'Target Raise', value: '$750K' },
+    { label: 'Instrument', value: 'SAFE' },
+    { label: 'Valuation Cap', value: '$5 Million' },
+    { label: 'Min Investment', value: '$25,000' }
+  ];
+
+  // Contact information
+  const contactInfo = [
+    { 
+      name: 'Brendan Toole', 
+      title: 'Founder & CEO',
+      email: 'brendan.toole@handreceipt.com',
+      color: modernColors.crypto
     },
-    {
-      quarter: 'Q4 2025',
-      title: 'Mobile Interface & Defense MVP',
-      description: 'Build military-focused user interface with CAC integration and QR scanning capability.',
-      milestones: [
-        'Mobile scanning application',
-        'Property transfer workflow',
-        'Defense authentication integration'
-      ],
-      status: 'Planned',
-      icon: Smartphone,
-      color: modernColors.crypto,
-      statusColor: `bg-opacity-20 bg-crypto text-crypto`
-    },
-    {
-      quarter: 'Q1 2026',
-      title: 'Commercial Beta Launch',
-      description: 'Adapt platform for commercial supply chain use cases with payment settlement features.',
-      milestones: [
-        'Commercial authentication model',
-        'Inventory dashboard',
-        'Shell token integration'
-      ],
-      status: 'Planned',
-      icon: GitMerge,
-      color: modernColors.crypto,
-      statusColor: `bg-opacity-20 bg-crypto text-crypto`
-    },
-    {
-      quarter: 'Q2 2026',
-      title: 'Series A Preparation',
-      description: 'Scale initial customers and prepare for growth financing to accelerate adoption.',
-      milestones: [
-        'Onboard 3-5 early adopters',
-        'Platform performance optimization',
-        'Series A fundraising'
-      ],
-      status: 'Planned',
-      icon: Rocket,
-      color: modernColors.crypto,
-      statusColor: `bg-opacity-20 bg-crypto text-crypto`
+    { 
+      name: 'Investor Relations',
+      title: '',
+      email: 'investors@handreceipt.com',
+      color: modernColors.crypto
     }
   ];
 
   return (
-    <SlideLayout title="Team & Roadmap" slideNumber={16} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout title="Funding Request" slideNumber={16} totalSlides={TOTAL_SLIDES}>
       <div className="flex flex-col gap-6">
         <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
-            Leadership, development timeline, and growth strategy
+            Seed investment opportunity and next steps
           </h2>
         </div>
 
         <div className="mb-4">
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <User className="h-7 w-7" style={{ color: modernColors.crypto }} />
+              <BadgeDollarSign className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
-                Founding Team
+                Investment Opportunity
               </h3>
             </div>
             
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-3/5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="relative w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center">
-                    <span className="text-2xl font-semibold" style={{ color: modernColors.crypto }}>BT</span>
-                  </div>
-                  <div>
-                    <h4 className={modernTypography.subheading} style={{ color: modernColors.crypto }}>
-                      Brendan T. Toole
-                    </h4>
-                    <p className={`${modernTypography.small} uppercase tracking-wide font-medium`} style={{ color: modernColors.crypto }}>
-                      FOUNDER & CEO
-                    </p>
-                  </div>
+                <div className="flex gap-3 items-center mb-4">
+                  <ModernBadge color={modernColors.crypto}>$750K Seed Round</ModernBadge>
+                  <ModernBadge color={modernColors.crypto}>Now Open</ModernBadge>
                 </div>
                 
-                <p className={`${modernTypography.body} mb-4`}>
-                  Technical founder with unique combination of expertise in defense, supply chain analytics and financial markets. Leading product development and strategic vision.
+                <p className={`${modernTypography.body} mb-6`}>
+                  HandReceipt is developing a blockchain-powered supply chain verification solution with military-grade security adapted for both defense and commercial markets. Your investment will help us build our MVP, conduct initial customer interviews, and develop our first pilot implementation.
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {founderExpertise.map((item, index) => (
-                    <span 
-                      key={index} 
-                      className={`text-xs px-2.5 py-1.5 rounded-md font-medium ${item.color}`}
-                    >
-                      {item.text}
-                    </span>
+                <h4 className={`${modernTypography.subheading} mb-4`}>Key Investment Highlights:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {investmentHighlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div 
+                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
+                        style={{ backgroundColor: `${highlight.color}20` }}
+                      >
+                        <highlight.icon className="h-4 w-4" style={{ color: highlight.color }} />
+                      </div>
+                      <div>
+                        <p className={`${modernTypography.label} mb-0.5`} style={{ color: highlight.color }}>{highlight.title}</p>
+                        <p className={`${modernTypography.small}`}>{highlight.description}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
               
-              <div className="md:w-2/5">
-                <h4 className={`${modernTypography.subheading} mb-3`}>Post-Seed Hiring Plan:</h4>
-                <div className="space-y-3">
-                  {hiringPlan.map((role, index) => (
-                    <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2 mb-1">
-                        <role.icon className="h-4 w-4" style={{ color: role.color }} />
-                        <p className={modernTypography.label} style={{ color: role.color }}>{role.position}</p>
+              <div className="md:w-2/5 flex flex-col justify-start">
+                <div className="bg-slate-100 rounded-lg p-5 h-full">
+                  <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.crypto }}>Seed Round Details</h4>
+                  <div className="space-y-3">
+                    {seedRoundDetails.map((detail, index) => (
+                      <div key={index} className="flex justify-between items-center p-3 bg-white/80 rounded-md border border-slate-100">
+                        <span className={modernTypography.label}>{detail.label}</span>
+                        <span className={`${modernTypography.body} font-medium`} style={{ color: modernColors.crypto }}>
+                          {detail.value}
+                        </span>
                       </div>
-                      <p className={`${modernTypography.small} pl-6`}>{role.focus}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-                
-                <p className={`${modernTypography.small} mt-3`}>
-                  Initial team will remain lean to extend runway, with strategic advisors and contractors supplementing core capabilities.
-                </p>
               </div>
             </div>
           </ModernCard>
         </div>
 
-        <div>
-          <ModernCard className="p-6">
-            <div className="flex items-center gap-3 mb-5">
-              <Calendar className="h-7 w-7" style={{ color: modernColors.crypto }} />
-              <h3 className={modernTypography.heading}>
-                Development Roadmap
-              </h3>
-            </div>
-            
-            <div className="space-y-6">
-              {roadmap.map((phase, index) => (
-                <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-slate-50/80 p-4 border border-slate-100 rounded-md">
-                  <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-3">
-                    <div 
-                      className="w-12 h-12 rounded-md flex items-center justify-center"
-                      style={{ backgroundColor: `${phase.color}20` }}
-                    >
-                      <phase.icon className="h-6 w-6" style={{ color: phase.color }} />
+        <div className="flex justify-center">
+          <div className="w-full max-w-lg">
+            <ModernCard className="p-6">
+              <div className="bg-slate-50/80 p-5 rounded-md border border-slate-100">
+                <h4 className={`${modernTypography.subheading} mb-3 text-center`}>Contact Us</h4>
+                <p className={`${modernTypography.body} text-center mb-4`}>
+                  Ready to discuss how HandReceipt can transform supply chain management in both defense and commercial sectors?
+                </p>
+                
+                <div className="space-y-3">
+                  {contactInfo.map((contact, index) => (
+                    <div key={index} className="p-3 bg-white rounded-md shadow-sm">
+                      <div className="flex items-center gap-2 mb-1">
+                        <User className="h-4 w-4" style={{ color: contact.color }} />
+                        <span className={modernTypography.label} style={{ color: contact.color }}>{contact.name}</span>
+                        {contact.title && (
+                          <span className={`${modernTypography.small}`}>{contact.title}</span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Mail className="h-4 w-4" style={{ color: contact.color }} />
+                        <a 
+                          href={`mailto:${contact.email}`} 
+                          className={`${modernTypography.body} hover:underline`}
+                          style={{ color: contact.color }}
+                        >
+                          {contact.email}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className={`${modernTypography.subheading}`} style={{ color: phase.color }}>{phase.quarter}</h4>
-                      <span className={`text-xs px-2 py-0.5 rounded ${phase.statusColor} inline-block mt-1`}>
-                        {phase.status}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="md:col-span-3">
-                    <h4 className={modernTypography.subheading} style={{ color: phase.color }}>{phase.title}</h4>
-                    <p className={`${modernTypography.body} mb-3`}>{phase.description}</p>
-                    
-                    <div className="bg-white p-3 border border-slate-100 rounded-md">
-                      <p className={`${modernTypography.small} mb-2`}>Milestones:</p>
-                      <ul className="space-y-1">
-                        {phase.milestones.map((milestone, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: phase.color }} />
-                            <span className={modernTypography.small}>{milestone}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </ModernCard>
+              </div>
+            </ModernCard>
+          </div>
         </div>
       </div>
     </SlideLayout>

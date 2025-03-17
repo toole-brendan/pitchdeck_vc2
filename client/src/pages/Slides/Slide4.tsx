@@ -11,7 +11,7 @@ import {
 import { Check, Shield, Laptop, Database } from 'lucide-react';
 
 const Slide4: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
   return (
     <SlideLayout title="Dual Market Strategy" slideNumber={4} totalSlides={TOTAL_SLIDES}>

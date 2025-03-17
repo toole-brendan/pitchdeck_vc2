@@ -20,6 +20,7 @@ import Slide14 from "@/pages/Slides/Slide14";
 import Slide15 from "@/pages/Slides/Slide15";
 import Slide16 from "@/pages/Slides/Slide16";
 import Slide17 from "@/pages/Slides/Slide17";
+import Slide18 from "@/pages/Slides/Slide18";
 
 function AppRoutes() {
   return (
@@ -41,6 +42,7 @@ function AppRoutes() {
       <Route path="/15" component={Slide15} />
       <Route path="/16" component={Slide16} />
       <Route path="/17" component={Slide17} />
+      <Route path="/18" component={Slide18} />
       <Route component={NotFound} />
     </Switch>
   );

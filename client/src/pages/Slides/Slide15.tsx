@@ -7,168 +7,232 @@ import {
   modernColors
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
-  Mail, 
-  User, 
-  ShieldCheck,
-  BadgeDollarSign,
-  BarChart,
-  Clock
+  TrendingUp, 
+  DollarSign, 
+  Users, 
+  CreditCard, 
+  BarChart4, 
+  PieChart,
+  Clock,
+  Briefcase,
+  Code,
+  Megaphone,
+  FileText,
+  Check
 } from 'lucide-react';
 
 const Slide15: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
-  // Key investment highlights
-  const investmentHighlights = [
+  // Financial projections data
+  const projections = [
+    { year: 'Year 1', revenue: '$0', customers: '0', expenses: '$1.2M', cashFlow: '-$1.2M' },
+    { year: 'Year 2', revenue: '$500K', customers: '3-5', expenses: '$1.8M', cashFlow: '-$1.3M' },
+    { year: 'Year 3', revenue: '$2.5M', customers: '8-12', expenses: '$3.0M', cashFlow: '-$500K' },
+    { year: 'Year 4', revenue: '$7.5M', customers: '15-20', expenses: '$5.0M', cashFlow: '$2.5M' },
+    { year: 'Year 5', revenue: '$18M', customers: '30-40', expenses: '$10M', cashFlow: '$8M' }
+  ];
+
+  // Business metrics data
+  const businessMetrics = [
     { 
-      title: 'Founder-led development',
-      description: 'Efficient capital use',
-      icon: User,
+      title: 'Customer Acquisition Cost', 
+      value: '$30-65K', 
+      description: 'Per enterprise client',
+      icon: Users,
       color: modernColors.crypto
     },
     { 
-      title: 'Military expertise',
-      description: 'Creates competitive moat',
-      icon: ShieldCheck,
+      title: 'Gross Margin', 
+      value: '80-85%', 
+      description: 'Software revenue',
+      icon: PieChart,
       color: modernColors.crypto
     },
     { 
-      title: 'Lean startup approach',
-      description: 'Quick iterations',
-      icon: BarChart,
+      title: 'Customer LTV', 
+      value: '$400K+', 
+      description: '5-year value',
+      icon: CreditCard,
       color: modernColors.crypto
     },
     { 
-      title: '12-18 month runway',
-      description: 'To demonstrate product-market fit',
-      icon: Clock,
+      title: 'Breakeven Point', 
+      value: 'Year 4', 
+      description: 'Cash flow positive',
+      icon: BarChart4,
       color: modernColors.crypto
     }
   ];
 
-  // Seed round details
-  const seedRoundDetails = [
-    { label: 'Target Raise', value: '$750K' },
-    { label: 'Instrument', value: 'SAFE' },
-    { label: 'Valuation Cap', value: '$5 Million' },
-    { label: 'Min Investment', value: '$25,000' }
-  ];
-
-  // Contact information
-  const contactInfo = [
-    { 
-      name: 'Brendan Toole', 
-      title: 'Founder & CEO',
-      email: 'brendan.toole@handreceipt.com',
-      color: modernColors.crypto
-    },
-    { 
-      name: 'Investor Relations',
-      title: '',
-      email: 'investors@handreceipt.com',
-      color: modernColors.crypto
-    }
+  // Funding allocation data
+  const fundingAllocation = [
+    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code, color: modernColors.crypto },
+    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone, color: modernColors.crypto },
+    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase, color: modernColors.crypto },
+    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText, color: modernColors.crypto }
   ];
 
   return (
-    <SlideLayout title="Funding Request" slideNumber={15} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-6">
+    <SlideLayout title="Financial Projections" slideNumber={15} totalSlides={TOTAL_SLIDES}>
+      <div className="flex flex-col gap-8">
         <div className="mb-2 text-center max-w-2xl mx-auto">
           <h2 className={modernTypography.pageTitle}>
-            Seed investment opportunity and next steps
+            5-year forecast based on market analysis and industry benchmarks
           </h2>
         </div>
 
         <div className="mb-4">
           <ModernCard className="p-6">
             <div className="flex items-center gap-3 mb-5">
-              <BadgeDollarSign className="h-7 w-7" style={{ color: modernColors.crypto }} />
+              <TrendingUp className="h-7 w-7" style={{ color: modernColors.crypto }} />
               <h3 className={modernTypography.heading}>
-                Investment Opportunity
+                Five-Year Projections
               </h3>
             </div>
             
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="md:w-3/5">
-                <div className="flex gap-3 items-center mb-4">
-                  <ModernBadge color={modernColors.crypto}>$750K Seed Round</ModernBadge>
-                  <ModernBadge color={modernColors.crypto}>Now Open</ModernBadge>
-                </div>
-                
-                <p className={`${modernTypography.body} mb-6`}>
-                  HandReceipt is developing a blockchain-powered supply chain verification solution with military-grade security adapted for both defense and commercial markets. Your investment will help us build our MVP, conduct initial customer interviews, and develop our first pilot implementation.
-                </p>
-                
-                <h4 className={`${modernTypography.subheading} mb-4`}>Key Investment Highlights:</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {investmentHighlights.map((highlight, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div 
-                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ backgroundColor: `${highlight.color}20` }}
-                      >
-                        <highlight.icon className="h-4 w-4" style={{ color: highlight.color }} />
-                      </div>
-                      <div>
-                        <p className={`${modernTypography.label} mb-0.5`} style={{ color: highlight.color }}>{highlight.title}</p>
-                        <p className={`${modernTypography.small}`}>{highlight.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="md:w-2/5 flex flex-col justify-start">
-                <div className="bg-slate-100 rounded-lg p-5 h-full">
-                  <h4 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.crypto }}>Seed Round Details</h4>
-                  <div className="space-y-3">
-                    {seedRoundDetails.map((detail, index) => (
-                      <div key={index} className="flex justify-between items-center p-3 bg-white/80 rounded-md border border-slate-100">
-                        <span className={modernTypography.label}>{detail.label}</span>
-                        <span className={`${modernTypography.body} font-medium`} style={{ color: modernColors.crypto }}>
-                          {detail.value}
-                        </span>
-                      </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[600px]">
+                <thead>
+                  <tr className="border-b border-slate-200">
+                    <th className="text-left py-3 px-4 font-medium text-black"></th>
+                    {projections.map((item, index) => (
+                      <th key={index} className="text-center py-3 px-4 font-medium text-black">
+                        {item.year}
+                      </th>
                     ))}
-                  </div>
-                </div>
-              </div>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-slate-100">
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <DollarSign className="h-4 w-4" style={{ color: modernColors.crypto }} /> Revenue
+                    </td>
+                    {projections.map((item, index) => (
+                      <td key={index} className="text-center py-3 px-4">
+                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
+                          {item.revenue}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-slate-100">
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <Users className="h-4 w-4" style={{ color: modernColors.crypto }} /> Customers
+                    </td>
+                    {projections.map((item, index) => (
+                      <td key={index} className="text-center py-3 px-4">
+                        <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
+                          {item.customers}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-slate-100">
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <CreditCard className="h-4 w-4" style={{ color: modernColors.crypto }} /> Expenses
+                    </td>
+                    {projections.map((item, index) => (
+                      <td key={index} className="text-center py-3 px-4 text-black">
+                        {item.expenses}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                      <BarChart4 className="h-4 w-4" style={{ color: modernColors.crypto }} /> Net Cash Flow
+                    </td>
+                    {projections.map((item, index) => (
+                      <td key={index} className="text-center py-3 px-4">
+                        <span className={`font-medium`} style={{ color: item.cashFlow.includes('-') ? 'rgb(244, 63, 94)' : 'rgb(16, 185, 129)' }}>
+                          {item.cashFlow}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </ModernCard>
         </div>
 
-        <div className="flex justify-center">
-          <div className="w-full max-w-lg">
-            <ModernCard className="p-6">
-              <div className="bg-slate-50/80 p-5 rounded-md border border-slate-100">
-                <h4 className={`${modernTypography.subheading} mb-3 text-center`}>Contact Us</h4>
-                <p className={`${modernTypography.body} text-center mb-4`}>
-                  Ready to discuss how HandReceipt can transform supply chain management in both defense and commercial sectors?
-                </p>
-                
-                <div className="space-y-3">
-                  {contactInfo.map((contact, index) => (
-                    <div key={index} className="p-3 bg-white rounded-md shadow-sm">
-                      <div className="flex items-center gap-2 mb-1">
-                        <User className="h-4 w-4" style={{ color: contact.color }} />
-                        <span className={modernTypography.label} style={{ color: contact.color }}>{contact.name}</span>
-                        {contact.title && (
-                          <span className={`${modernTypography.small}`}>{contact.title}</span>
-                        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <ModernCard className="h-full p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <BarChart4 className="h-7 w-7" style={{ color: modernColors.crypto }} />
+                <h3 className={modernTypography.heading}>
+                  Key Business Metrics
+                </h3>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {businessMetrics.map((metric, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${metric.color}20` }}>
+                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
+                      </div>
+                      <h4 className={modernTypography.label}>{metric.title}</h4>
+                    </div>
+                    <p className={`${modernTypography.heading} mb-1`} style={{ color: metric.color }}>{metric.value}</p>
+                    <p className={`${modernTypography.small}`}>{metric.description}</p>
+                  </div>
+                ))}
+              </div>
+            </ModernCard>
+          </div>
+
+          <div>
+            <ModernCard className="h-full p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <PieChart className="h-7 w-7" style={{ color: modernColors.crypto }} />
+                <h3 className={modernTypography.heading}>
+                  Seed Funding Allocation
+                </h3>
+              </div>
+              
+              <div className="mb-3">
+                <p className={modernTypography.body}>How we'll use the $750K seed investment:</p>
+              </div>
+              
+              <div className="space-y-4 mb-6">
+                {fundingAllocation.map((item, index) => (
+                  <div key={index} className="bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md overflow-hidden">
+                    <div className="flex justify-between items-center p-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${item.color}20` }}>
+                          <item.icon className="h-4 w-4" style={{ color: item.color }} />
+                        </div>
+                        <span className={modernTypography.label} style={{ color: item.color }}>{item.category}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Mail className="h-4 w-4" style={{ color: contact.color }} />
-                        <a 
-                          href={`mailto:${contact.email}`} 
-                          className={`${modernTypography.body} hover:underline`}
-                          style={{ color: contact.color }}
-                        >
-                          {contact.email}
-                        </a>
+                        <span className={`${modernTypography.small}`}>{item.percentage}%</span>
+                        <span className={`${modernTypography.body}`} style={{ color: item.color }}>{item.amount}</span>
                       </div>
                     </div>
-                  ))}
+                    <div className="h-1.5 bg-slate-100">
+                      <div 
+                        className="h-full"
+                        style={{ backgroundColor: item.color, width: `${item.percentage}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
+                <div className="flex items-center gap-2 mb-2">
+                  <Clock className="h-5 w-5" style={{ color: modernColors.crypto }} />
+                  <h4 className={modernTypography.label} style={{ color: modernColors.crypto }}>Expected Runway</h4>
                 </div>
+                <p className={`${modernTypography.body} mb-1`}>12-18 months</p>
+                <p className={`${modernTypography.small}`}>
+                  Sufficient time to develop MVP, demonstrate core technology, and validate with potential customers
+                </p>
               </div>
             </ModernCard>
           </div>

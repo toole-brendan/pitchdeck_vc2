@@ -7,7 +7,7 @@ import {
 } from '@/components/PitchDeck/ModernSlideStyles';
 
 const Slide1: React.FC = () => {
-  const TOTAL_SLIDES = 17;
+  const TOTAL_SLIDES = 18;
 
   return (
     <SlideLayout title="" slideNumber={1} totalSlides={TOTAL_SLIDES}>
