@@ -17,7 +17,7 @@ const Slide2: React.FC = () => {
           <ModernCard className="h-full p-8">
             <ModernBadge color={modernColors.crypto}>Founder Profile</ModernBadge>
             <h3 className={`${modernTypography.subheading} mt-5 mb-3`} style={{ color: modernColors.text }}>
-              Brendan T. Toole
+              Brendan Toole
             </h3>
             <p className={`${modernTypography.body} font-semibold mb-3`}>
               FOUNDER & CEO
@@ -27,11 +27,6 @@ const Slide2: React.FC = () => {
               <li>Platoon Leader, <span style={{ color: modernColors.military }}>101st Airborne Division</span></li>
               <li>Princeton University, Economics A.B.</li>
             </ul>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <ModernBadge small color={modernColors.commercial}>Finance Expert</ModernBadge>
-              <ModernBadge small color={modernColors.military}>Military Leadership</ModernBadge>
-              <ModernBadge small color={modernColors.crypto}>Princeton Economics</ModernBadge>
-            </div>
           </ModernCard>
         </div>
 

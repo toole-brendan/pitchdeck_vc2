@@ -105,9 +105,17 @@ const Slide8: React.FC = () => {
 
   return (
     <SlideLayout title="Competitive Landscape" slideNumber={8} totalSlides={TOTAL_SLIDES}>
-      <div className="mb-6 text-center">
-        <p className={`${modernTypography.subtitle} mb-4`}>
-          Analysis against enterprise ERP systems and <span style={{ color: modernColors.crypto }}>blockchain solutions</span>
+      <div className="mb-8 text-center">
+        <p className={`${modernTypography.subtitle} mb-2 font-medium text-slate-800`}>
+          Analysis against enterprise ERP systems and{' '}
+          <span style={{ color: modernColors.crypto }}>
+            blockchain solutions
+          </span>
+        </p>
+        
+        <p className="text-sm text-slate-500 max-w-xl mx-auto">
+          Competitive analysis showing HandReceipt's unique position combining military-grade 
+          compliance with advanced blockchain capabilities
         </p>
       </div>
 
@@ -121,97 +129,120 @@ const Slide8: React.FC = () => {
             </h3>
           </div>
           
-          {/* Competitor Positioning Chart */}
-          <div className="relative w-full h-80 border border-slate-200 bg-white/80 mb-4">
-            {/* Quadrant Labels */}
-            <div className="absolute top-2 left-2 text-xs text-black">Traditional ERP Systems</div>
-            <div className="absolute top-2 right-2 text-xs text-black">Blockchain Platforms</div>
-            <div className="absolute bottom-2 left-2 text-xs text-black">Defense Solutions</div>
-            <div className="absolute bottom-2 right-2 text-xs text-black">Integrated Solutions</div>
+          {/* SVG Chart - Based on Provided Design */}
+          <div className="relative w-full h-[550px] bg-gray-50 rounded-lg mb-2 overflow-visible">
+            {/* Grid Lines - Dotted */}
+            <div className="absolute top-0 bottom-0 left-1/2 w-px border-l border-dashed border-gray-300"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-px border-t border-dashed border-gray-300"></div>
             
             {/* Axis Labels */}
-            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-sm font-medium text-black">
+            <div className="absolute top-6 left-1/2 transform -translate-x-1/2 text-sm font-bold text-gray-600">
               Blockchain Capability →
             </div>
-            <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 -rotate-90 text-sm font-medium text-black">
-              Defense Compliance →
+            <div className="absolute top-1/2 left-4 transform -translate-y-1/2 -rotate-90 text-sm font-bold text-gray-600 origin-left">
+              Defense Compliance ↑
             </div>
             
-            {/* Axes Lines */}
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-300"></div>
-            <div className="absolute top-0 bottom-0 left-1/2 w-px bg-slate-300"></div>
+            {/* Quadrant Labels removed */}
             
-            {/* Plot Competitors */}
-            {competitors.map((competitor, index) => {
-              // Calculate positions (0-100 scale to position within chart)
-              const left = `${competitor.blockchainCapability}%`;
-              const bottom = `${competitor.defenseCompliance}%`;
-              
-              return (
-                <div
-                  key={index}
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                  style={{ 
-                    left, 
-                    bottom,
-                    zIndex: competitor.name === 'HandReceipt' ? 10 : 5
-                  }}
-                >
-                  {/* Competitor Dot */}
-                  <div 
-                    className={`w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-medium
-                               shadow-md ${competitor.name === 'HandReceipt' ? 'ring-2 ring-offset-2 ring-blue-500' : ''}`}
-                    style={{ 
-                      backgroundColor: competitor.color
-                    }}
-                  >
-                    {competitor.name.slice(0, 2)}
-                  </div>
-                  
-                  {/* Competitor Name Label */}
-                  <div 
-                    className="mt-1 text-[10px] font-medium px-1 py-0.5 rounded whitespace-nowrap"
-                    style={{
-                      backgroundColor: competitor.name === 'HandReceipt' ? `${modernColors.crypto}30` : 'transparent',
-                      color: competitor.name === 'HandReceipt' ? modernColors.crypto : '#000000'
-                    }}
-                  >
-                    {competitor.name}
-                  </div>
+            {/* Repositioned Competitors to Fill Chart */}
+            {/* NetSuite */}
+            <div className="absolute" style={{ left: '30%', top: '45%' }}>
+              <div className="w-14 h-14 rounded-full bg-blue-400/90 flex items-center justify-center text-white font-bold shadow-sm">
+                Ne
+              </div>
+              <div className="mt-1 text-xs font-medium text-center text-gray-700">NetSuite</div>
+            </div>
+            
+            {/* MS Dynamics */}
+            <div className="absolute" style={{ left: '25%', top: '70%' }}>
+              <div className="w-14 h-14 rounded-full bg-blue-400/90 flex items-center justify-center text-white font-bold shadow-sm">
+                MS
+              </div>
+              <div className="mt-1 text-xs font-medium text-center text-gray-700">MS Dynamics</div>
+            </div>
+            
+            {/* SAP Ariba */}
+            <div className="absolute" style={{ left: '50%', top: '65%' }}>
+              <div className="w-14 h-14 rounded-full bg-blue-400/90 flex items-center justify-center text-white font-bold shadow-sm">
+                SA
+              </div>
+              <div className="mt-1 text-xs font-medium text-center text-gray-700">SAP Ariba</div>
+            </div>
+            
+            {/* IBM Blockchain */}
+            <div className="absolute" style={{ left: '60%', top: '45%' }}>
+              <div className="w-14 h-14 rounded-full bg-blue-400/90 flex items-center justify-center text-white font-bold shadow-sm">
+                IB
+              </div>
+              <div className="mt-1 text-xs font-medium text-center text-gray-700">IBM Blockchain</div>
+            </div>
+            
+            {/* Oracle SCM - Moved Higher */}
+            <div className="absolute" style={{ left: '70%', top: '55%' }}>
+              <div className="w-14 h-14 rounded-full bg-blue-400/90 flex items-center justify-center text-white font-bold shadow-sm">
+                Or
+              </div>
+              <div className="mt-1 text-xs font-medium text-center text-gray-700">Oracle SCM</div>
+            </div>
+            
+            {/* HandReceipt - Highlighted - Moved to Top Right Corner */}
+            <div className="absolute" style={{ left: '80%', top: '25%', zIndex: 10 }}>
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-purple-500/30 w-[70px] h-[70px] -m-[3px]"></div>
+                <div className="w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold shadow-md">
+                  Ha
                 </div>
-              );
-            })}
+              </div>
+              <div className="mt-1 text-xs font-semibold text-center text-purple-600">HandReceipt</div>
+            </div>
+          </div>
+          
+          {/* Caption */}
+          <div className="text-xs text-gray-500 max-w-2xl mx-auto text-center mb-4">
+            Chart shows relative positioning based on defense compliance capabilities (vertical) 
+            and blockchain integration (horizontal).
           </div>
         </ModernCard>
       </div>
 
-      {/* Advantages and Limitations */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      {/* Advantages and Limitations - Enhanced */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         {/* Our Advantages */}
         <div>
-          <ModernCard className="h-full p-6" style={{
-            borderTop: `2px solid ${modernColors.military}`,
-            borderBottom: `2px solid ${modernColors.commercial}`,
-            background: 'linear-gradient(135deg, rgba(219, 234, 254, 0.1), rgba(255, 237, 213, 0.1))'
+          <ModernCard className="h-full p-7 shadow-md" style={{
+            background: 'rgba(245, 247, 250, 0.7)',
+            borderRadius: '0.5rem'
           }}>
-            <ModernBadge color={modernColors.crypto} className="mb-4">
-              OUR ADVANTAGES
-            </ModernBadge>
+            <div className="mb-6">
+              <ModernBadge color={modernColors.crypto}>
+                OUR ADVANTAGES
+              </ModernBadge>
+            </div>
             
-            <div className="space-y-4 mt-2">
+            <div className="space-y-5 mt-2">
               {advantages.map((advantage, index) => (
                 <div
                   key={index}
-                  className="flex gap-3"
+                  className="flex gap-4 group"
                 >
-                  <div className="flex-shrink-0 mt-1 p-1 rounded-sm" style={{ color: advantage.color }}>
+                  <div 
+                    className="flex-shrink-0 mt-1 p-2 rounded-md flex items-center justify-center w-10 h-10" 
+                    style={{ 
+                      backgroundColor: `${advantage.color}30`,
+                      color: advantage.color
+                    }}
+                  >
                     {advantage.icon}
                   </div>
                   <div>
-                    <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: advantage.color }}>
+                    <h4 
+                      className={`${modernTypography.subheading} mb-1`} 
+                      style={{ color: advantage.color }}
+                    >
                       {advantage.title}
                     </h4>
-                    <p className={`${modernTypography.body} text-sm`}>
+                    <p className={`${modernTypography.body} text-sm text-slate-600`}>
                       {advantage.description}
                     </p>
                   </div>
@@ -223,28 +254,39 @@ const Slide8: React.FC = () => {
 
         {/* Competitor Limitations */}
         <div>
-          <ModernCard className="h-full p-6" style={{
-            borderTop: `2px solid ${modernColors.military}`,
-            background: 'linear-gradient(135deg, rgba(240, 240, 240, 0.2), rgba(250, 250, 250, 0.1))'
+          <ModernCard className="h-full p-7 shadow-md" style={{
+            background: 'rgba(245, 247, 250, 0.7)',
+            borderRadius: '0.5rem'
           }}>
-            <ModernBadge color={modernColors.military} className="mb-4">
-              COMPETITOR LIMITATIONS
-            </ModernBadge>
+            <div className="mb-6">
+              <ModernBadge color={modernColors.military}>
+                COMPETITOR LIMITATIONS
+              </ModernBadge>
+            </div>
             
-            <div className="space-y-4 mt-2">
+            <div className="space-y-5 mt-2">
               {limitations.map((limitation, index) => (
                 <div
                   key={index}
-                  className="flex gap-3"
+                  className="flex gap-4 group"
                 >
-                  <div className="flex-shrink-0 mt-1">
-                    <XCircle className="h-5 w-5" style={{ color: limitation.color }} />
+                  <div 
+                    className="flex-shrink-0 mt-1 p-1.5 rounded-md flex items-center justify-center w-10 h-10"
+                    style={{ 
+                      backgroundColor: `${limitation.color}20`,
+                      color: limitation.color
+                    }}
+                  >
+                    <XCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className={`${modernTypography.subheading} mb-1`} style={{ color: limitation.color }}>
+                    <h4 
+                      className={`${modernTypography.subheading} mb-1`} 
+                      style={{ color: limitation.color }}
+                    >
                       {limitation.name}
                     </h4>
-                    <p className={`${modernTypography.body} text-sm`}>
+                    <p className={`${modernTypography.body} text-sm text-slate-600`}>
                       {limitation.limitation}
                     </p>
                   </div>
