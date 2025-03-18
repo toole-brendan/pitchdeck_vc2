@@ -17,7 +17,8 @@ import {
   Database,
   Briefcase,
   Server,
-  CreditCard
+  CreditCard,
+  Shield
 } from 'lucide-react';
 
 const Slide14: React.FC = () => {
@@ -63,12 +64,52 @@ const Slide14: React.FC = () => {
     }
   ];
 
-  // Strategic partnerships data
+  // Enhanced strategic partnerships data with specific examples
   const partnerships = [
-    { category: 'ERP Providers', examples: 'SAP, NetSuite, Oracle', timeline: 'Q3 2025', icon: Database, color: modernColors.commercial },
-    { category: 'Defense Contractors', examples: 'Tier 1 DOD suppliers', timeline: 'Q2 2025', icon: Briefcase, color: modernColors.military },
-    { category: 'WMS Providers', examples: 'Manhattan, JDA Software', timeline: 'Q4 2025', icon: Server, color: modernColors.commercial },
-    { category: 'Financial Services', examples: 'Supply chain financing', timeline: 'Q1 2026', icon: CreditCard, color: modernColors.commercial }
+    { 
+      category: 'Defense Contractors', 
+      examples: [
+        'Lockheed Martin (F-35 supply tracking)',
+        'Raytheon Technologies (missile component verification)',
+        'General Dynamics (land systems logistics)'
+      ], 
+      timeline: 'Q2 2025', 
+      icon: Shield, 
+      color: modernColors.military 
+    },
+    { 
+      category: 'ERP Providers', 
+      examples: [
+        'SAP (inventory management integration)',
+        'Oracle NetSuite (verification APIs)',
+        'Microsoft Dynamics (data exchange protocols)'
+      ], 
+      timeline: 'Q3 2025', 
+      icon: Database, 
+      color: modernColors.commercial 
+    },
+    { 
+      category: 'WMS Providers', 
+      examples: [
+        'Manhattan Associates (warehouse verification)',
+        'Blue Yonder (distribution center tracking)',
+        'HighJump (inventory control systems)'
+      ], 
+      timeline: 'Q4 2025', 
+      icon: Server, 
+      color: modernColors.commercial 
+    },
+    { 
+      category: 'Financial Services', 
+      examples: [
+        'J.P. Morgan (supply chain financing)',
+        'Citibank (inventory-backed lending)',
+        'American Express (payment settlement solutions)'
+      ], 
+      timeline: 'Q1 2026', 
+      icon: CreditCard, 
+      color: modernColors.commercial 
+    }
   ];
 
   return (
@@ -87,11 +128,11 @@ const Slide14: React.FC = () => {
               Phased Approach
             </h3>
             
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {phases.map((phase, index) => (
                 <div 
                   key={index} 
-                  className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md"
+                  className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md h-full"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${phase.color}15` }}>
@@ -107,10 +148,10 @@ const Slide14: React.FC = () => {
                   
                   <p className={`${modernTypography.body} mb-4`}>{phase.description}</p>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="space-y-2">
                     {phase.metrics.map((metric, idx) => (
                       <div key={idx} className="flex items-center gap-2 p-2 bg-white/80 border border-slate-100 rounded">
-                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
+                        <metric.icon className="h-4 w-4 flex-shrink-0" style={{ color: metric.color }} />
                         <span className={modernTypography.small}>{metric.label}</span>
                       </div>
                     ))}
@@ -121,37 +162,51 @@ const Slide14: React.FC = () => {
           </ModernCard>
         </div>
 
-        <div className="md:max-w-3xl mx-auto">
-          <div className="space-y-6">
-            <div>
-              <ModernCard className="p-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
-                  <h3 className={modernTypography.heading}>
-                    Target Strategic Partnerships
-                  </h3>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {partnerships.map((partner, index) => (
-                    <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 flex items-start gap-3">
-                      <div 
-                        className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: `${partner.color}20` }}
-                      >
-                        <partner.icon className="h-4 w-4" style={{ color: partner.color }} />
-                      </div>
-                      <div>
-                        <p className={`${modernTypography.label} mb-1`} style={{ color: partner.color }}>{partner.category}</p>
-                        <p className={`${modernTypography.small}`}>{partner.examples}</p>
-                        <p className={`${modernTypography.small} mt-1`} style={{ color: partner.color }}>{partner.timeline}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </ModernCard>
+        <div>
+          <ModernCard className="p-6">
+            <div className="flex items-center gap-3 mb-5">
+              <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
+              <h3 className={modernTypography.heading}>
+                Target Strategic Partnerships
+              </h3>
             </div>
-          </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {partnerships.map((partner, index) => (
+                <div key={index} className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 h-full">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div 
+                      className="w-10 h-10 rounded-md flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: `${partner.color}20` }}
+                    >
+                      <partner.icon className="h-5 w-5" style={{ color: partner.color }} />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className={`${modernTypography.subheading}`} style={{ color: partner.color }}>
+                          {partner.category}
+                        </h4>
+                        <span className={`text-xs font-medium py-1 px-2 rounded-md`} style={{ 
+                          backgroundColor: `${partner.color}20`,
+                          color: partner.color
+                        }}>
+                          {partner.timeline}
+                        </span>
+                      </div>
+                      <ul className="space-y-1">
+                        {partner.examples.map((example, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: partner.color }}></div>
+                            <span className={`${modernTypography.body} text-sm`}>{example}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ModernCard>
         </div>
       </div>
     </SlideLayout>

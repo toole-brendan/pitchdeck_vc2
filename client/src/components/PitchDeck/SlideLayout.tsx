@@ -63,7 +63,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 
   return (
     <div 
-      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-6 relative"
+      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-8 md:p-10 relative"
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
@@ -90,27 +90,22 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         {slideNumber} / {totalSlides}
       </div>
 
-      {/* Content Container */}
+      {/* Content Container - Wider container with consistent margins */}
       <motion.div 
-        className="slide-content w-full max-w-5xl mx-auto"
+        className="slide-content w-full max-w-6xl mx-auto px-8"
         variants={scaleUpVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Title - NOT scaled */}
-        <h2 className={`${modernTypography.slideTitle} mb-6`} style={{ color: modernColors.text }}>
+        {/* Title - Consistent positioning */}
+        <h2 className={`${modernTypography.slideTitle} mb-8 pt-4`} style={{ color: modernColors.text }}>
           {title}
         </h2>
         
-        {/* Content - Will be scaled if needed */}
+        {/* Content - No scaling applied */}
         <div 
           ref={contentRef}
-          className="mt-10 origin-top transition-transform duration-300"
-          style={{ 
-            transform: `scale(${scale})`,
-            transformOrigin: 'top center',
-            height: isScaled ? 'auto' : '100%'
-          }}
+          className="mt-12"
         >
           {children}
         </div>
