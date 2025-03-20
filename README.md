@@ -11,6 +11,8 @@ This document explains how the `/pitch` base URL routing is implemented in this 
 - [Why This Approach Works](#why-this-approach-works)
 - [Troubleshooting Your Implementation](#troubleshooting-your-implementation)
 - [Common Issues and Solutions](#common-issues-and-solutions)
+- [Deployment](#deployment)
+  - [Quick Deployment](#quick-deployment)
 
 ## Overview
 
@@ -252,3 +254,26 @@ To implement a similar base URL routing in your application:
    ```
 
 By implementing these patterns, your application should handle base URL routing as effectively as this one does.
+
+## Deployment
+
+This application is deployed to AWS S3 and CloudFront. For detailed deployment instructions, please refer to the [Deployment Guide](DEPLOYMENT.md).
+
+### Quick Deployment
+
+To deploy the application:
+
+1. Ensure you have AWS CLI configured with appropriate permissions
+2. Run the deployment script:
+
+```bash
+./deploy.sh
+```
+
+3. Verify the deployment:
+
+```bash
+./verify-deployment.sh
+```
+
+The application will be accessible at: https://handreceipt.com/pitch/
