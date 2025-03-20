@@ -13,11 +13,19 @@ mkdir -p dist_deploy
 # Copy the content of the public folder directly to the deploy folder 
 cp -r dist/public/* dist_deploy/
 
-# Ensure asset paths are correct for production
-# Uncomment these lines if you need to fix paths in index.html
-# echo "🔄 Fixing asset paths..."
-# sed -i '' 's|src="/assets/|src="/pitch/assets/|g' dist_deploy/index.html
-# sed -i '' 's|href="/assets/|href="/pitch/assets/|g' dist_deploy/index.html
+# Ensure asset paths are correct for production - THIS IS CRITICAL
+echo "🔄 Fixing asset paths..."
+sed -i '' 's|src="/assets/|src="/pitch/assets/|g' dist_deploy/index.html
+sed -i '' 's|href="/assets/|href="/pitch/assets/|g' dist_deploy/index.html
+
+# Verify the asset paths were fixed correctly
+echo "🔍 Verifying asset paths..."
+if grep -q 'src="/pitch/assets/' dist_deploy/index.html && grep -q 'href="/pitch/assets/' dist_deploy/index.html; then
+  echo "✅ Asset paths verified successfully."
+else
+  echo "❌ Asset paths could not be verified. Deployment aborted."
+  exit 1
+fi
 
 # Upload JS files with long cache duration and correct content type
 echo "📤 Uploading JavaScript files..."
@@ -68,9 +76,18 @@ rm -rf dist_deploy
 echo "🔄 Invalidating CloudFront cache..."
 aws cloudfront create-invalidation \
   --distribution-id E3T7VX6HV95Q5O \
-  --paths "/pitch/*"
+  --paths "/pitch/*" "/pitch/index.html" "/pitch/assets/*"
 
 echo "✅ Deployment complete!"
 
-echo "🔍 You can verify the deployment at https://handreceipt.com/pitch/"
+# Verify deployment was successful
+echo "🔍 Verifying deployment..."
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://handreceipt.com/pitch/)
+if [ "$HTTP_STATUS" -eq 200 ]; then
+  echo "✅ Deployment verified successfully! Site is accessible at https://handreceipt.com/pitch/"
+else
+  echo "⚠️ Site returned HTTP status $HTTP_STATUS. This might indicate an issue with the deployment."
+  echo "Please check manually at https://handreceipt.com/pitch/ after CloudFront propagation (5-15 minutes)."
+fi
+
 echo "⏱️ CloudFront invalidation may take 5-15 minutes to fully propagate." 
