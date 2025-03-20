@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
+import { useIsMobile } from './use-mobile';
 
 export function useContentScale(dependencies: any[] = []) {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [scale, setScale] = useState(1);
   const [isScaled, setIsScaled] = useState(false);
+  const isMobile = useIsMobile();
   
   // Function to calculate and apply proper scaling
   const calculateAndApplyScale = () => {
     if (!contentRef.current) return;
     
-    // Skip scaling on mobile devices - use 768px as breakpoint
-    if (window.innerWidth < 768) {
+    // Skip scaling on mobile devices
+    if (isMobile) {
       setScale(1);
       setIsScaled(false);
       return;
@@ -21,12 +23,12 @@ export function useContentScale(dependencies: any[] = []) {
     contentRef.current.style.transformOrigin = 'center top';
     
     // Get viewport height (with increased padding for better visibility)
-    const viewportHeight = window.innerHeight - 120; // Increased buffer for header/nav/margins
+    const viewportHeight = window.innerHeight - 150; // Increased buffer for header/nav/margins
     
     // Get slide content height and width
     const contentHeight = contentRef.current.scrollHeight;
     const contentWidth = contentRef.current.scrollWidth;
-    const containerWidth = contentRef.current.parentElement?.clientWidth || window.innerWidth - 60;
+    const containerWidth = contentRef.current.parentElement?.clientWidth || window.innerWidth - 80;
     
     // Calculate scale factors for both dimensions
     const scaleY = viewportHeight / contentHeight;
@@ -34,7 +36,7 @@ export function useContentScale(dependencies: any[] = []) {
     
     // Use the smaller scale to ensure content fits completely, with a minimum to prevent too small text
     // The minimum scale threshold ensures text remains readable
-    const MIN_SCALE = 0.65;
+    const MIN_SCALE = 0.60;
     const calculatedScale = Math.min(scaleY, scaleX, 1);
     const newScale = Math.max(calculatedScale, MIN_SCALE);
     
@@ -53,7 +55,7 @@ export function useContentScale(dependencies: any[] = []) {
         scaleX,
         calculatedScale,
         appliedScale: newScale,
-        isMobile: window.innerWidth < 768
+        isMobile
       });
     }
   };
@@ -75,13 +77,19 @@ export function useContentScale(dependencies: any[] = []) {
     
     window.addEventListener('resize', handleResize);
     
+    // Add orientation change listener for mobile devices
+    window.addEventListener('orientationchange', () => {
+      setTimeout(calculateAndApplyScale, 200);
+    });
+    
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', calculateAndApplyScale);
       if (initialTimer) clearTimeout(initialTimer);
       if (resizeTimer) clearTimeout(resizeTimer);
     };
-  }, [contentRef.current, ...dependencies]);
+  }, [contentRef.current, isMobile, ...dependencies]);
   
   return { contentRef, scale, isScaled };
 }

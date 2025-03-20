@@ -17,9 +17,12 @@ import {
   CreditCard as TokenIcon
 } from 'lucide-react';
 import { useContentScale } from '@/hooks/useContentScale';
+import ResponsiveChart, { ChartData } from '@/components/PitchDeck/ResponsiveChart';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Slide15: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  const isMobile = useIsMobile();
   
   // Use our custom hook to manage content scaling
   const { contentRef, scale, isScaled } = useContentScale();
@@ -40,7 +43,11 @@ const Slide15: React.FC = () => {
       customers: '2-3', 
       expenses: '$1.2M', 
       cashFlow: '-$0.95M',
-      tokenHoldings: '$0.5M'
+      tokenHoldings: '$0.5M',
+      // Numeric values for charts
+      revenueValue: 0.25,
+      expensesValue: 1.2,
+      tokenValue: 0.5
     },
     { 
       year: 'Year 2', 
@@ -56,7 +63,10 @@ const Slide15: React.FC = () => {
       customers: '5-8', 
       expenses: '$2.4M', 
       cashFlow: '-$0.6M',
-      tokenHoldings: '$1.2M'
+      tokenHoldings: '$1.2M',
+      revenueValue: 1.8,
+      expensesValue: 2.4,
+      tokenValue: 1.2
     },
     { 
       year: 'Year 3', 
@@ -72,7 +82,10 @@ const Slide15: React.FC = () => {
       customers: '12-18', 
       expenses: '$4.8M', 
       cashFlow: '$0.7M',
-      tokenHoldings: '$3.5M'
+      tokenHoldings: '$3.5M',
+      revenueValue: 5.5,
+      expensesValue: 4.8,
+      tokenValue: 3.5
     },
     { 
       year: 'Year 4', 
@@ -88,7 +101,10 @@ const Slide15: React.FC = () => {
       customers: '25-35', 
       expenses: '$8.0M', 
       cashFlow: '$4.5M',
-      tokenHoldings: '$8.0M'
+      tokenHoldings: '$8.0M',
+      revenueValue: 12.5,
+      expensesValue: 8.0,
+      tokenValue: 8.0
     },
     { 
       year: 'Year 5', 
@@ -104,7 +120,10 @@ const Slide15: React.FC = () => {
       customers: '45-60', 
       expenses: '$15M', 
       cashFlow: '$13M',
-      tokenHoldings: '$20M'
+      tokenHoldings: '$20M',
+      revenueValue: 28,
+      expensesValue: 15,
+      tokenValue: 20
     }
   ];
 
@@ -148,6 +167,16 @@ const Slide15: React.FC = () => {
     { name: 'Shell Token Value', percentage: 21, color: modernColors.crypto }
   ];
 
+  // Chart data for financial projections
+  const financialChartData: ChartData[] = projections.map(item => ({
+    name: item.year,
+    value: item.revenueValue, // Primary value for ChartData interface
+    Revenue: item.revenueValue,
+    Expenses: item.expensesValue,
+    'Token Holdings': item.tokenValue,
+    color: modernColors.crypto
+  }));
+
   return (
     <SlideLayout 
       title="Financial Projections" 
@@ -165,6 +194,19 @@ const Slide15: React.FC = () => {
               </h3>
             </div>
             
+            {/* Mobile view: Chart representation */}
+            {isMobile && (
+              <ResponsiveChart 
+                data={financialChartData}
+                type="bar"
+                keys={['Revenue', 'Expenses', 'Token Holdings']}
+                title="Financial Growth ($M)"
+                height={220}
+                simplified={true}
+              />
+            )}
+            
+            {/* Desktop view: Table */}
             <div className="overflow-x-auto">
               <table className="w-full min-w-[600px]">
                 <thead>

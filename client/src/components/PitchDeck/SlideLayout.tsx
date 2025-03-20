@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -22,6 +22,10 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 }) => {
   const [, navigate] = useLocation();
   const [isMobile, setIsMobile] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchStartY, setTouchStartY] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+  const [touchEndY, setTouchEndY] = useState(0);
   
   // Use our custom hook to manage content scaling only on desktop
   const { contentRef, scale, isScaled } = useContentScale([children, slideNumber]);
@@ -44,34 +48,26 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     };
   }, []);
 
-  const goToNextSlide = () => {
-    if (slideNumber < totalSlides) {
-      if (slideNumber === 1) {
-        // When on slide 1 (/), go to /2
-        navigate(`/2`);
-      } else {
-        // Otherwise go to the next number
-        navigate(`/${slideNumber + 1}`);
-      }
+  const goToSlide = useCallback((targetSlide: number) => {
+    // Ensure the target slide is within bounds
+    if (targetSlide < 1) targetSlide = 1;
+    if (targetSlide > totalSlides) targetSlide = totalSlides;
+    
+    if (targetSlide === 1) {
+      // For slide 1, navigate to root
+      navigate('/');
     } else {
-      // If at the last slide, go back to the first slide (root path)
-      navigate(`/`);
+      // For other slides, navigate to /number
+      navigate(`/${targetSlide}`);
     }
+  }, [navigate, totalSlides]);
+
+  const goToNextSlide = () => {
+    goToSlide(slideNumber + 1);
   };
 
   const goToPrevSlide = () => {
-    if (slideNumber > 1) {
-      if (slideNumber === 2) {
-        // When on slide 2, go back to slide 1 (/)
-        navigate(`/`);
-      } else {
-        // Otherwise go to the previous number
-        navigate(`/${slideNumber - 1}`);
-      }
-    } else {
-      // If at the first slide, loop to the last slide
-      navigate(`/${totalSlides}`);
-    }
+    goToSlide(slideNumber - 1);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -82,17 +78,50 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     }
   };
 
+  // Enhanced touch handling with improved directional detection
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+    setTouchStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setTouchEndX(e.changedTouches[0].clientX);
+    setTouchEndY(e.changedTouches[0].clientY);
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    // Improved swipe detection that considers horizontal vs vertical swipes
+    const swipeThreshold = 50;
+    const horizontalDiff = touchEndX - touchStartX;
+    const verticalDiff = touchEndY - touchStartY;
+    
+    // Only trigger horizontal swipe when the horizontal movement is greater than vertical
+    // This prevents accidental swipes when scrolling vertically
+    if (Math.abs(horizontalDiff) > Math.abs(verticalDiff)) {
+      if (horizontalDiff < -swipeThreshold) {
+        // Swipe left - next slide
+        goToNextSlide();
+      } else if (horizontalDiff > swipeThreshold) {
+        // Swipe right - previous slide
+        goToPrevSlide();
+      }
+    }
+  };
+
   // For slide 1, keep original spacing, for slides 2-18 reduce the top spacing
   const isFirstSlide = slideNumber === 1;
   
   return (
     <div 
-      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-start p-4 sm:p-6 md:p-10 relative overflow-x-hidden"
+      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-start p-3 sm:p-4 md:p-10 relative overflow-hidden"
       tabIndex={0}
       onKeyDown={handleKeyDown}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Navigation Controls - Adjust size and positioning on mobile */}
-      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-2 sm:px-4 md:px-8">
+      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-1 sm:px-3 md:px-8">
         <button 
           onClick={goToPrevSlide}
           className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
@@ -110,21 +139,35 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       </div>
 
       {/* Slide Number - Adjusted position on mobile */}
-      <div className={`absolute top-2 sm:top-3 md:top-4 right-3 sm:right-4 md:right-6 text-xs sm:text-sm ${modernTypography.small}`} style={{ color: modernColors.textLight }}>
+      <div className={`absolute top-2 sm:top-3 md:top-4 right-2 sm:right-4 md:right-6 text-xs sm:text-sm ${modernTypography.small}`} style={{ color: modernColors.textLight }}>
         {slideNumber} / {totalSlides}
+      </div>
+
+      {/* Progress Indicator - Dots for touch navigation */}
+      <div className="fixed z-50 bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2 bg-white/80 px-2 py-1 sm:px-3 sm:py-1.5 shadow-md border border-gray-100 rounded-full">
+        {Array.from({ length: totalSlides }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index + 1)}
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+              slideNumber === index + 1 ? 'bg-black scale-125' : 'bg-gray-300'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Full-width container with max-width constraint */}
       <div className={`w-full max-w-6xl mx-auto flex flex-col h-full ${isFirstSlide ? 'pt-2 sm:pt-4' : 'pt-0 sm:pt-2'}`}>
         {/* Title and Subtitle - Positioned top left with responsive text sizes */}
-        <div className={`self-start mb-2 sm:mb-3 md:mb-4 ${isFirstSlide ? 'mt-4 sm:mt-6' : 'mt-2 sm:mt-3'}`}>
+        <div className={`self-start mb-2 sm:mb-3 md:mb-4 ${isFirstSlide ? 'mt-3 sm:mt-5' : 'mt-2 sm:mt-3'} ${isMobile ? 'px-1' : ''}`}>
           {title && (
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extralight tracking-tight leading-tight mb-1" style={{ color: modernColors.text }}>
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-extralight tracking-tight leading-tight mb-1" style={{ color: modernColors.text }}>
               {title}
             </h2>
           )}
           {subtitle && (
-            <p className="text-sm sm:text-base font-light text-gray-500 mt-1">
+            <p className="text-xs sm:text-sm font-light text-gray-500 mt-1 pr-12">
               {subtitle}
             </p>
           )}
@@ -139,11 +182,12 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         >
           <div 
             ref={contentRef}
-            className="w-full"
+            className={`w-full ${isMobile ? 'px-1 pb-12 overflow-y-auto' : ''}`}
             style={{
               transform: isMobile ? 'none' : `scale(${scale})`,
               transformOrigin: 'center top',
-              transition: 'transform 0.3s ease'
+              transition: 'transform 0.3s ease',
+              maxHeight: isMobile ? 'calc(100vh - 140px)' : 'auto'
             }}
           >
             {children}
