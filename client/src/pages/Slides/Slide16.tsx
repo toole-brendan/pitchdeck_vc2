@@ -68,7 +68,7 @@ const Slide16: React.FC = () => {
     { 
       name: 'Brendan Toole', 
       title: 'Founder & CEO',
-      email: 'toole.brendan@gmail.com',
+      email: 'brendan.toole@handreceipt.com',
       color: modernColors.crypto
     }
   ];
