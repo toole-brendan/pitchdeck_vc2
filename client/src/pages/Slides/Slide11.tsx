@@ -16,9 +16,13 @@ import {
   BarChart3,
   Eye
 } from 'lucide-react';
+import { useContentScale } from '@/hooks/useContentScale';
 
 const Slide11: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  
+  // Use our custom hook to manage content scaling
+  const { contentRef, scale, isScaled } = useContentScale();
 
   // Key challenges with current partner forces aid tracking
   const challenges = [
@@ -74,44 +78,43 @@ const Slide11: React.FC = () => {
   ];
 
   return (
-    <SlideLayout title="Partner Forces Aid Tracking" slideNumber={11} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-8">
-        <div className="mb-2 text-center max-w-2xl mx-auto">
-          <h2 className={modernTypography.pageTitle}>
-            Military-grade solution for <span style={{ color: modernColors.military }}>tracking</span> and <span style={{ color: modernColors.crypto }}>verifying</span> equipment provided to partner forces
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+    <SlideLayout 
+      title="Partner Forces Aid Tracking" 
+      subtitle="Military-grade solution for tracking and verifying equipment provided to partner forces"
+      slideNumber={11} 
+      totalSlides={TOTAL_SLIDES}
+    >
+      <div className="flex flex-col gap-6 mt-8 h-[calc(100vh-220px)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 flex-grow">
           <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <Globe className="h-7 w-7" style={{ color: modernColors.military }} />
-                <h3 className={modernTypography.heading}>
+            <ModernCard className="h-full p-5">
+              <div className="flex items-center gap-3 mb-4">
+                <Globe className="h-6 w-6" style={{ color: modernColors.military }} />
+                <h3 className="text-xl font-medium">
                   Current Challenges
                 </h3>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {challenges.map((challenge, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div 
-                      className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                      className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
                       style={{ backgroundColor: `${challenge.color}20` }}
                     >
                       {challenge.icon}
                     </div>
                     <div>
-                      <p className={`${modernTypography.label} mb-1`} style={{ color: challenge.color }}>{challenge.title}</p>
-                      <p className={`${modernTypography.small}`}>{challenge.description}</p>
+                      <p className="text-base font-medium mb-0.5" style={{ color: challenge.color }}>{challenge.title}</p>
+                      <p className="text-sm">{challenge.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <div className="mt-8 p-4 rounded-md border border-slate-100" style={{ backgroundColor: `${modernColors.militaryLight}30` }}>
-                <p className={`${modernTypography.label} mb-2`} style={{ color: modernColors.military }}>Compliance Requirements</p>
-                <p className={`${modernTypography.small}`}>
+              <div className="mt-4 p-3 rounded-md border border-slate-100" style={{ backgroundColor: `${modernColors.militaryLight}30` }}>
+                <p className="text-base font-medium mb-1" style={{ color: modernColors.military }}>Compliance Requirements</p>
+                <p className="text-sm">
                   Department of Defense policy requires tracking and reporting of military equipment 
                   provided to partner forces, with regular audits and chain-of-custody documentation.
                 </p>
@@ -120,38 +123,38 @@ const Slide11: React.FC = () => {
           </div>
 
           <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <Shield className="h-7 w-7" style={{ color: modernColors.crypto }} />
-                <h3 className={modernTypography.heading}>
+            <ModernCard className="h-full p-5">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="h-6 w-6" style={{ color: modernColors.crypto }} />
+                <h3 className="text-xl font-medium">
                   HandReceipt Solution
                 </h3>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <div 
-                      className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0"
+                      className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
                       style={{ backgroundColor: `${benefit.color}20` }}
                     >
                       {benefit.icon}
                     </div>
                     <div className="flex-1">
-                      <p className={`${modernTypography.label} mb-1`} style={{ color: benefit.color }}>{benefit.title}</p>
-                      <p className={`${modernTypography.small}`}>{benefit.description}</p>
+                      <p className="text-base font-medium mb-0.5" style={{ color: benefit.color }}>{benefit.title}</p>
+                      <p className="text-sm">{benefit.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <div className="mt-8 p-4 rounded-md border border-slate-100" style={{ backgroundColor: `${modernColors.cryptoLight}30` }}>
-                <p className={`${modernTypography.label} mb-2`} style={{ color: modernColors.crypto }}>Usage Scenarios</p>
-                <ul className="space-y-2">
+              <div className="mt-4 p-3 rounded-md border border-slate-100" style={{ backgroundColor: `${modernColors.cryptoLight}30` }}>
+                <p className="text-base font-medium mb-1" style={{ color: modernColors.crypto }}>Usage Scenarios</p>
+                <ul className="space-y-1.5">
                   {scenarios.map((scenario, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <Check className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: modernColors.crypto }} />
-                      <span className={`${modernTypography.small}`}>{scenario}</span>
+                      <span className="text-sm">{scenario}</span>
                     </li>
                   ))}
                 </ul>
@@ -160,22 +163,22 @@ const Slide11: React.FC = () => {
           </div>
         </div>
 
-        <div className="md:col-span-2">
-          <ModernCard className="p-6" style={{ 
+        <div className="flex-grow-0">
+          <ModernCard className="p-4" style={{ 
             borderTop: `2px solid ${modernColors.military}`,
             borderBottom: `2px solid ${modernColors.crypto}`,
             background: 'linear-gradient(120deg, rgba(30, 64, 175, 0.05), rgba(126, 34, 206, 0.05))'
           }}>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-2 mb-2">
               <ModernBadge color={modernColors.military}>STRATEGIC VALUE</ModernBadge>
             </div>
             
-            <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex flex-col md:flex-row gap-4 items-center">
               <div>
-                <h3 className={`${modernTypography.subheading} mb-4`} style={{ color: modernColors.military }}>
+                <h3 className="text-lg font-medium mb-2" style={{ color: modernColors.military }}>
                   End-to-end verification for partner force equipment
                 </h3>
-                <p className={`${modernTypography.body}`}>
+                <p className="text-sm">
                   HandReceipt provides the Department of Defense and State Department with a tamper-proof system to track 
                   military assistance from manufacturer to partner forces, ensuring compliance with congressional mandates and 
                   preventing misuse. Our blockchain verification provides unparalleled accountability for taxpayer-funded equipment.

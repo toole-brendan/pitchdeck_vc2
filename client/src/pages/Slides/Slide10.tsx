@@ -19,154 +19,190 @@ import {
   Lock,
   Eye,
   LayoutDashboard,
-  Link
+  Link,
+  ArrowUp
 } from 'lucide-react';
 
 const Slide10: React.FC = () => {
   const TOTAL_SLIDES = 18;
 
-  const workflowSteps = [
-    { 
-      number: 1,
-      title: 'Scan', 
-      description: 'User scans QR code with mobile app'
-    },
-    { 
-      number: 2,
-      title: 'Verify', 
-      description: 'Blockchain verification confirms authenticity'
-    },
-    { 
-      number: 3,
-      title: 'Transfer', 
-      description: 'Securely transfer ownership with digital signatures'
-    },
-    { 
-      number: 4,
-      title: 'Record', 
-      description: 'Transaction recorded permanently on blockchain'
-    }
-  ];
-
   return (
-    <SlideLayout title="User Experience" slideNumber={10} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-8">
-        <div className="mb-2 text-center max-w-2xl mx-auto">
-          <h2 className={modernTypography.pageTitle}>
-            Intuitive interfaces for defense and commercial applications
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <ModernCard className="p-8 md:col-span-2">
-            <div className="flex items-center gap-4 mb-6">
-              <FileCheck className="h-7 w-7" style={{ color: modernColors.military }} />
-              <h3 className={modernTypography.heading}>
-                User Workflow
-              </h3>
+    <SlideLayout 
+      title="User Experience" 
+      subtitle="Intuitive interfaces for defense and commercial applications"
+      slideNumber={10} 
+      totalSlides={TOTAL_SLIDES}
+    >
+      <div className="flex flex-col items-center justify-center h-[calc(100vh-220px)] pt-3">
+        <div className="grid grid-cols-3 gap-4 w-full max-w-5xl">
+          {/* Column 1: Interface Design */}
+          <ModernCard className="p-0 border border-gray-200 h-full">
+            <div className="p-3 border-b border-gray-200">
+              <div className="flex items-center gap-2">
+                <Smartphone className="h-4 w-4" style={{ color: modernColors.military }} />
+                <h3 className="text-lg font-medium">Interface Design</h3>
+              </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {workflowSteps.map((step, index) => (
-                <div key={index} className="relative">
-                  <div className="bg-slate-50/80 backdrop-blur-sm p-5 border border-slate-100 h-full">
-                    <div className="flex flex-col h-full">
-                      <div className="flex justify-between items-center mb-3">
-                        <span className={`${modernTypography.label} text-black`}>{step.title}</span>
-                        <span className={`w-6 h-6 flex items-center justify-center rounded-full text-sm`} style={{ 
-                          backgroundColor: step.number === 1 || step.number === 3 ? `${modernColors.military}20` : `${modernColors.crypto}20`,
-                          color: step.number === 1 || step.number === 3 ? modernColors.military : modernColors.crypto
-                        }}>
-                          {step.number}
-                        </span>
-                      </div>
-                      <p className={modernTypography.small}>{step.description}</p>
-                    </div>
+            <div className="bg-black w-full h-[calc(100%-50px)] flex items-center justify-center">
+              <img 
+                src="assets/images/HR.png" 
+                alt="HandReceipt Dashboard Interface" 
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </ModernCard>
+          
+          {/* Column 2: UX Features - Stacked */}
+          <div className="flex flex-col space-y-3">
+            {/* Defense UX */}
+            <ModernCard className="p-3 border-l-3 flex-1" style={{ borderLeftColor: modernColors.military }}>
+              <div className="flex items-center gap-2 mb-2">
+                <Shield className="h-4 w-4" style={{ color: modernColors.military }} />
+                <h3 className="text-lg font-medium">Defense UX</h3>
+              </div>
+              
+              <ul className="space-y-1.5">
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-blue-100 flex-shrink-0 mt-0.5">
+                    <Eye className="w-2.5 h-2.5" style={{ color: modernColors.military }} />
                   </div>
-                  {index < workflowSteps.length - 1 && (
-                    <div className="hidden md:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
-                      <div className="w-8 h-[1px] bg-slate-200"></div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </ModernCard>
-
-          <ModernCard className="p-8 flex flex-col">
-            <div className="flex items-center gap-4 mb-5">
-              <Smartphone className="h-7 w-7" style={{ color: modernColors.military }} />
-              <h3 className={modernTypography.heading}>
-                Interface Design
-              </h3>
-            </div>
-            <div className="flex-grow bg-black rounded-md backdrop-blur-sm p-0 border border-slate-800 overflow-hidden">
-              <div className="w-full mx-auto">
-                <img 
-                  src="assets/images/HR.png" 
-                  alt="HandReceipt Dashboard Interface showing real-time inventory metrics" 
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-          </ModernCard>
-
-          <ModernCard className="p-8">
-            <div className="grid grid-cols-1 gap-6">
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <Shield className="h-6 w-6" style={{ color: modernColors.military }} />
-                  <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.military }}>
-                    Defense UX
-                  </h3>
-                </div>
-                <ul className={`space-y-3 ${modernTypography.list}`}>
-                  <li className="flex items-start gap-3">
-                    <Eye className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
-                    <span><strong>Simplicity First:</strong> Designed for field conditions with minimal training</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Wifi className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
-                    <span><strong>Offline Mode:</strong> Functions without connectivity</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Lock className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
-                    <span><strong>CAC Integration:</strong> Secure authentication using military ID cards</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Shield className="w-4 h-4 mt-1" style={{ color: modernColors.military }} />
-                    <span><strong>Ruggedized Interface:</strong> High contrast and readable in all conditions</span>
-                  </li>
-                </ul>
+                  <div>
+                    <span className="text-sm"><strong>Simplicity First:</strong> Designed for field conditions with minimal training</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-blue-100 flex-shrink-0 mt-0.5">
+                    <Wifi className="w-2.5 h-2.5" style={{ color: modernColors.military }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>Offline Mode:</strong> Functions without connectivity</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-blue-100 flex-shrink-0 mt-0.5">
+                    <Lock className="w-2.5 h-2.5" style={{ color: modernColors.military }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>CAC Integration:</strong> Secure authentication using military ID cards</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-blue-100 flex-shrink-0 mt-0.5">
+                    <Shield className="w-2.5 h-2.5" style={{ color: modernColors.military }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>Ruggedized Interface:</strong> High contrast and readable in all conditions</span>
+                  </div>
+                </li>
+              </ul>
+            </ModernCard>
+            
+            {/* Commercial UX */}
+            <ModernCard className="p-3 border-l-3 flex-1" style={{ borderLeftColor: modernColors.commercial }}>
+              <div className="flex items-center gap-2 mb-2">
+                <CreditCard className="h-4 w-4" style={{ color: modernColors.commercial }} />
+                <h3 className="text-lg font-medium">Commercial UX</h3>
               </div>
               
-              <ModernDivider className="my-4" />
+              <ul className="space-y-1.5">
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-orange-100 flex-shrink-0 mt-0.5">
+                    <LayoutDashboard className="w-2.5 h-2.5" style={{ color: modernColors.commercial }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>Payment Dashboard:</strong> Real-time visibility of payment status</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-orange-100 flex-shrink-0 mt-0.5">
+                    <CreditCard className="w-2.5 h-2.5" style={{ color: modernColors.commercial }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>Shell Integration:</strong> One-click payment processing</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-orange-100 flex-shrink-0 mt-0.5">
+                    <Users className="w-2.5 h-2.5" style={{ color: modernColors.commercial }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>Multi-user Roles:</strong> Customizable permissions for team members</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center bg-orange-100 flex-shrink-0 mt-0.5">
+                    <Link className="w-2.5 h-2.5" style={{ color: modernColors.commercial }} />
+                  </div>
+                  <div>
+                    <span className="text-sm"><strong>API Connections:</strong> Seamless integration with ERP and WMS</span>
+                  </div>
+                </li>
+              </ul>
+            </ModernCard>
+          </div>
+          
+          {/* Column 3: User Workflow - Vertical Process */}
+          <ModernCard className="p-3 h-full">
+            <div className="flex items-center gap-2 mb-3">
+              <FileCheck className="h-4 w-4" style={{ color: modernColors.military }} />
+              <h3 className="text-lg font-medium">User Workflow</h3>
+            </div>
+            
+            {/* Vertical workflow with connecting line */}
+            <div className="relative flex flex-col justify-between items-center h-[calc(100%-45px)] py-2">
+              {/* Connecting line */}
+              <div className="absolute w-[1px] bg-gray-200 top-0 bottom-0 left-[50%] z-0"></div>
               
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <CreditCard className="h-6 w-6" style={{ color: modernColors.commercial }} />
-                  <h3 className={`${modernTypography.subheading}`} style={{ color: modernColors.commercial }}>
-                    Commercial UX
-                  </h3>
+              {/* Step 4 (Top) */}
+              <div className="flex flex-col items-center relative z-10 mb-4">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center mb-1 bg-purple-100">
+                  <span className="text-purple-800 font-semibold text-sm">4</span>
                 </div>
-                <ul className={`space-y-3 ${modernTypography.list}`}>
-                  <li className="flex items-start gap-3">
-                    <LayoutDashboard className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
-                    <span><strong>Payment Dashboard:</strong> Real-time visibility of payment status</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CreditCard className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
-                    <span><strong>Shell Integration:</strong> One-click payment processing</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Users className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
-                    <span><strong>Multi-user Roles:</strong> Customizable permissions for team members</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Link className="w-4 h-4 mt-1" style={{ color: modernColors.commercial }} />
-                    <span><strong>API Connections:</strong> Seamless integration with ERP and WMS</span>
-                  </li>
-                </ul>
+                <h4 className="text-sm font-medium">Record</h4>
+                <p className="text-xs text-center max-w-[150px]">Transaction recorded permanently on blockchain</p>
+              </div>
+              
+              {/* Arrow 3 */}
+              <div className="text-gray-300 z-10">
+                <ArrowUp className="h-4 w-4" />
+              </div>
+              
+              {/* Step 3 */}
+              <div className="flex flex-col items-center relative z-10 my-1">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center mb-1 bg-blue-100">
+                  <span className="text-blue-800 font-semibold text-sm">3</span>
+                </div>
+                <h4 className="text-sm font-medium">Transfer</h4>
+                <p className="text-xs text-center max-w-[150px]">Securely transfer ownership with digital signatures</p>
+              </div>
+              
+              {/* Arrow 2 */}
+              <div className="text-gray-300 z-10">
+                <ArrowUp className="h-4 w-4" />
+              </div>
+              
+              {/* Step 2 */}
+              <div className="flex flex-col items-center relative z-10 my-1">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center mb-1 bg-purple-100">
+                  <span className="text-purple-800 font-semibold text-sm">2</span>
+                </div>
+                <h4 className="text-sm font-medium">Verify</h4>
+                <p className="text-xs text-center max-w-[150px]">Blockchain verification confirms authenticity</p>
+              </div>
+              
+              {/* Arrow 1 */}
+              <div className="text-gray-300 z-10">
+                <ArrowUp className="h-4 w-4" />
+              </div>
+              
+              {/* Step 1 (Bottom) */}
+              <div className="flex flex-col items-center relative z-10 mt-1">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center mb-1 bg-blue-100">
+                  <span className="text-blue-800 font-semibold text-sm">1</span>
+                </div>
+                <h4 className="text-sm font-medium">Scan</h4>
+                <p className="text-xs text-center max-w-[150px]">User scans QR code with mobile app</p>
               </div>
             </div>
           </ModernCard>

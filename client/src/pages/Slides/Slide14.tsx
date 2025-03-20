@@ -20,9 +20,13 @@ import {
   CreditCard,
   Shield
 } from 'lucide-react';
+import { useContentScale } from '@/hooks/useContentScale';
 
 const Slide14: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  
+  // Use our custom hook to manage content scaling
+  const { contentRef, scale, isScaled } = useContentScale();
 
   // Phase approach data
   const phases = [
@@ -113,46 +117,47 @@ const Slide14: React.FC = () => {
   ];
 
   return (
-    <SlideLayout title="Go-to-Market Strategy" slideNumber={14} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-6">
-        <div className="mb-2 text-center max-w-2xl mx-auto">
-          <h2 className={modernTypography.pageTitle}>
-            Multi-phase approach to platform and token ecosystem growth
-          </h2>
-        </div>
-
-        <div className="mb-4">
-          <ModernCard className="p-6">
-            <h3 className={`${modernTypography.heading} mb-5 flex items-center gap-3`}>
+    <SlideLayout 
+      title="Go-to-Market Strategy" 
+      subtitle="Multi-phase approach to platform and token ecosystem growth"
+      slideNumber={14} 
+      totalSlides={TOTAL_SLIDES}
+    >
+      <div className="flex flex-col gap-3 mt-6 pb-4 h-[calc(100vh-200px)]">
+        <div className="flex-grow-0">
+          <ModernCard className="p-4">
+            <div className="flex items-center gap-2 mb-3">
               <Timer className="h-6 w-6" style={{ color: modernColors.military }} />
-              Phased Approach
-            </h3>
+              <h3 className="text-xl font-medium">
+                Phased Approach
+              </h3>
+            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {phases.map((phase, index) => (
                 <div 
                   key={index} 
-                  className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md h-full"
+                  className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md h-full"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${phase.color}15` }}>
-                      <phase.icon className="h-5 w-5" style={{ color: phase.color }} />
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ backgroundColor: `${phase.color}15` }}>
+                      <phase.icon className="h-4 w-4" style={{ color: phase.color }} />
                     </div>
                     <div>
-                      <h4 className={modernTypography.subheading} style={{ color: phase.color }}>
+                      <h4 className="text-base font-medium" style={{ color: phase.color }}>
                         {phase.name}
                       </h4>
-                      <p className={`${modernTypography.small}`}>{phase.period}</p>
+                      <p className="text-sm">{phase.period}</p>
                     </div>
                   </div>
                   
-                  <p className={`${modernTypography.body} mb-4`}>{phase.description}</p>
+                  <p className="text-sm mb-2">{phase.description}</p>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     {phase.metrics.map((metric, idx) => (
-                      <div key={idx} className="flex items-center gap-2 p-2 bg-white/80 border border-slate-100 rounded">
-                        <metric.icon className="h-4 w-4 flex-shrink-0" style={{ color: metric.color }} />
-                        <span className={modernTypography.small}>{metric.label}</span>
+                      <div key={idx} className="flex items-center gap-1.5 p-1.5 bg-white/80 border border-slate-100 rounded text-sm">
+                        <metric.icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: metric.color }} />
+                        <span>{metric.label}</span>
                       </div>
                     ))}
                   </div>
@@ -162,31 +167,31 @@ const Slide14: React.FC = () => {
           </ModernCard>
         </div>
 
-        <div>
-          <ModernCard className="p-6">
-            <div className="flex items-center gap-3 mb-5">
+        <div className="flex-grow overflow-auto">
+          <ModernCard className="p-4 h-full">
+            <div className="flex items-center gap-2 mb-3">
               <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
-              <h3 className={modernTypography.heading}>
+              <h3 className="text-xl font-medium">
                 Target Strategic Partnerships
               </h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {partnerships.map((partner, index) => (
-                <div key={index} className="p-5 bg-slate-50/80 backdrop-blur-sm border border-slate-100 h-full">
-                  <div className="flex items-start gap-3 mb-3">
+                <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 h-full">
+                  <div className="flex items-start gap-2.5">
                     <div 
-                      className="w-10 h-10 rounded-md flex items-center justify-center flex-shrink-0"
+                      className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
                       style={{ backgroundColor: `${partner.color}20` }}
                     >
-                      <partner.icon className="h-5 w-5" style={{ color: partner.color }} />
+                      <partner.icon className="h-4 w-4" style={{ color: partner.color }} />
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-center mb-2">
-                        <h4 className={`${modernTypography.subheading}`} style={{ color: partner.color }}>
+                      <div className="flex justify-between items-center mb-1.5">
+                        <h4 className="text-base font-medium" style={{ color: partner.color }}>
                           {partner.category}
                         </h4>
-                        <span className={`text-xs font-medium py-1 px-2 rounded-md`} style={{ 
+                        <span className="text-xs font-medium py-0.5 px-2 rounded-md" style={{ 
                           backgroundColor: `${partner.color}20`,
                           color: partner.color
                         }}>
@@ -196,8 +201,8 @@ const Slide14: React.FC = () => {
                       <ul className="space-y-1">
                         {partner.examples.map((example, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: partner.color }}></div>
-                            <span className={`${modernTypography.body} text-sm`}>{example}</span>
+                            <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: partner.color }}></div>
+                            <span className="text-sm">{example}</span>
                           </li>
                         ))}
                       </ul>

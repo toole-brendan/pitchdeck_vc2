@@ -7,6 +7,7 @@ import { useContentScale } from '../../hooks/useContentScale';
 
 interface SlideLayoutProps {
   title: string;
+  subtitle?: string;
   slideNumber: number;
   totalSlides: number;
   children: ReactNode;
@@ -14,6 +15,7 @@ interface SlideLayoutProps {
 
 const SlideLayout: React.FC<SlideLayoutProps> = ({ 
   title, 
+  subtitle,
   slideNumber, 
   totalSlides, 
   children 
@@ -63,7 +65,7 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
 
   return (
     <div 
-      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-center p-8 md:p-10 relative"
+      className="slide-layout min-h-screen w-full bg-white flex flex-col items-center justify-start p-8 md:p-10 relative overflow-hidden"
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
@@ -90,26 +92,49 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
         {slideNumber} / {totalSlides}
       </div>
 
-      {/* Content Container - Wider container with consistent margins */}
-      <motion.div 
-        className="slide-content w-full max-w-6xl mx-auto px-8"
-        variants={scaleUpVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Title - Consistent positioning */}
-        <h2 className={`${modernTypography.slideTitle} mb-8 pt-4`} style={{ color: modernColors.text }}>
-          {title}
-        </h2>
-        
-        {/* Content - No scaling applied */}
-        <div 
-          ref={contentRef}
-          className="mt-12"
-        >
-          {children}
+      {/* Full-width container with max-width constraint */}
+      <div className="w-full max-w-6xl mx-auto flex flex-col h-full">
+        {/* Title and Subtitle - Positioned top left */}
+        <div className="self-start mb-4 mt-4">
+          {title && (
+            <h2 className="text-4xl font-extralight tracking-tight leading-tight mb-1" style={{ color: modernColors.text }}>
+              {title}
+            </h2>
+          )}
+          {subtitle && (
+            <p className="text-base font-light text-gray-500 mt-1">
+              {subtitle}
+            </p>
+          )}
         </div>
-      </motion.div>
+        
+        {/* Content - Centered and scaled appropriately */}
+        <motion.div 
+          className="flex-grow flex items-center justify-center w-full"
+          variants={scaleUpVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div 
+            ref={contentRef}
+            className="w-full"
+            style={{
+              transform: `scale(${scale})`,
+              transformOrigin: 'center center',
+              transition: 'transform 0.3s ease'
+            }}
+          >
+            {children}
+          </div>
+        </motion.div>
+        
+        {/* Scaling indicator - for development assistance */}
+        {isScaled && process.env.NODE_ENV === 'development' && (
+          <div className="fixed bottom-4 left-4 bg-black/70 text-white text-xs px-2 py-1 rounded">
+            Scale: {scale.toFixed(2)}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

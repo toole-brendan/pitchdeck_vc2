@@ -56,66 +56,65 @@ const Slide12: React.FC = () => {
   ];
 
   return (
-    <SlideLayout title="Business Model & Pricing Strategy" slideNumber={12} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-8">
-        <div className="text-center max-w-2xl mx-auto mb-2">
-          <h2 className={modernTypography.pageTitle}>
-            Multi-stream monetization with market-specific value propositions
-          </h2>
-        </div>
-
-        <div className="mb-6">
-          <ModernCard className="p-8">
-            <div className="flex items-center gap-4 mb-6">
-              <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
-              <h3 className={modernTypography.heading}>
+    <SlideLayout 
+      title="Business Model & Pricing Strategy" 
+      subtitle="Multi-stream monetization with market-specific value propositions"
+      slideNumber={12} 
+      totalSlides={TOTAL_SLIDES}
+    >
+      <div className="flex flex-col gap-4 mt-12">
+        <div className="mb-3">
+          <ModernCard className="p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <DollarSign className="h-5 w-5" style={{ color: modernColors.military }} />
+              <h3 className={`${modernTypography.heading} text-lg`}>
                 Revenue Streams
               </h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
               {revenueStreams.map((stream, index) => (
                 <div
                   key={index}
-                  className="bg-slate-50/80 backdrop-blur-sm p-5 border border-slate-100 flex flex-col h-full"
+                  className="bg-slate-50/80 backdrop-blur-sm p-3 border border-slate-100 flex flex-col h-full"
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-2 mb-1">
                     <div 
-                      className="w-8 h-8 flex items-center justify-center rounded-full text-white font-medium text-sm"
+                      className="w-6 h-6 flex items-center justify-center rounded-full text-white font-medium text-xs"
                       style={{ backgroundColor: stream.color }}
                     >
                       {stream.letter}
                     </div>
-                    <stream.icon className="h-5 w-5" style={{ color: stream.color }} />
+                    <stream.icon className="h-4 w-4" style={{ color: stream.color }} />
                   </div>
-                  <p className={modernTypography.body}>{stream.title}</p>
+                  <p className="text-xs">{stream.title}</p>
                 </div>
               ))}
             </div>
           </ModernCard>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-5">
-                <TrendingUp className="h-7 w-7" style={{ color: modernColors.military }} />
-                <h3 className={modernTypography.heading}>
+            <ModernCard className="h-full p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <TrendingUp className="h-5 w-5" style={{ color: modernColors.military }} />
+                <h3 className={`${modernTypography.heading} text-lg`}>
                   Market-Specific ROI
                 </h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {marketROI.map((item, index) => (
-                  <div key={index} className="p-4 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
+                  <div key={index} className="p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
-                        <span className={modernTypography.label}>{item.market}</span>
+                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
+                        <span className="text-sm font-medium">{item.market}</span>
                       </div>
-                      <span className={`${modernTypography.stats}`} style={{ color: item.color }}>{item.roi}</span>
+                      <span className="text-xl font-thin" style={{ color: item.color }}>{item.roi}</span>
                     </div>
-                    <div className="w-full h-2 bg-slate-200 mt-2 rounded-full overflow-hidden">
+                    <div className="w-full h-1.5 bg-slate-200 mt-1 rounded-full overflow-hidden">
                       <div 
                         className="h-full rounded-full"
                         style={{ 
@@ -132,52 +131,52 @@ const Slide12: React.FC = () => {
           </div>
 
           <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-5">
-                <BarChart className="h-7 w-7" style={{ color: modernColors.commercial }} />
-                <h3 className={modernTypography.heading}>
+            <ModernCard className="h-full p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <BarChart className="h-5 w-5" style={{ color: modernColors.commercial }} />
+                <h3 className={`${modernTypography.heading} text-lg`}>
                   Unit Economics
                 </h3>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-3`}>Pricing Tiers:</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="bg-militaryLight/50 p-4 rounded-md border border-slate-200">
-                      <p className={`${modernTypography.label} text-military mb-1`}>Defense</p>
-                      <p className={`${modernTypography.heading} text-military`}>$250K - $1M</p>
+                  <h4 className="text-base font-medium mb-2">Pricing Tiers:</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="bg-militaryLight/50 p-2 rounded-md border border-slate-200">
+                      <p className="text-xs font-medium text-military mb-0.5">Defense</p>
+                      <p className="text-lg font-extralight text-military">$250K - $1M</p>
                     </div>
-                    <div className="bg-commercialLight/50 p-4 rounded-md border border-slate-200">
-                      <p className={`${modernTypography.label} text-commercial mb-1`}>Commercial</p>
-                      <p className={`${modernTypography.heading} text-commercial`}>$75K - $150K</p>
+                    <div className="bg-commercialLight/50 p-2 rounded-md border border-slate-200">
+                      <p className="text-xs font-medium text-commercial mb-0.5">Commercial</p>
+                      <p className="text-lg font-extralight text-commercial">$75K - $150K</p>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className={`${modernTypography.subheading} mb-3`}>Key Performance Metrics:</h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" style={{ color: modernColors.military }} />
-                        <span className={modernTypography.label}>LTV:CAC Ratio</span>
+                  <h4 className="text-base font-medium mb-2">Key Performance Metrics:</h4>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
+                      <div className="flex items-center gap-1">
+                        <Star className="h-3 w-3" style={{ color: modernColors.military }} />
+                        <span className="text-xs font-medium">LTV:CAC Ratio</span>
                       </div>
-                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>10:1</span>
+                      <span className="text-base font-medium" style={{ color: modernColors.military }}>10:1</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" style={{ color: modernColors.military }} />
-                        <span className={modernTypography.label}>Gross Margin</span>
+                    <div className="flex justify-between items-center p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
+                      <div className="flex items-center gap-1">
+                        <Star className="h-3 w-3" style={{ color: modernColors.military }} />
+                        <span className="text-xs font-medium">Gross Margin</span>
                       </div>
-                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>80-85%</span>
+                      <span className="text-base font-medium" style={{ color: modernColors.military }}>80-85%</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
-                      <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" style={{ color: modernColors.commercial }} />
-                        <span className={modernTypography.label}>Net Retention</span>
+                    <div className="flex justify-between items-center p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
+                      <div className="flex items-center gap-1">
+                        <Star className="h-3 w-3" style={{ color: modernColors.commercial }} />
+                        <span className="text-xs font-medium">Net Retention</span>
                       </div>
-                      <span className={`${modernTypography.heading}`} style={{ color: modernColors.commercial }}>120%</span>
+                      <span className="text-base font-medium" style={{ color: modernColors.commercial }}>120%</span>
                     </div>
                   </div>
                 </div>

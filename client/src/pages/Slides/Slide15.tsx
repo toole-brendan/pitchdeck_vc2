@@ -13,18 +13,16 @@ import {
   CreditCard, 
   BarChart4, 
   PieChart,
-  Clock,
-  Briefcase,
-  Code,
-  Megaphone,
-  FileText,
-  Check,
   Wallet,
   CreditCard as TokenIcon
 } from 'lucide-react';
+import { useContentScale } from '@/hooks/useContentScale';
 
 const Slide15: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  
+  // Use our custom hook to manage content scaling
+  const { contentRef, scale, isScaled } = useContentScale();
 
   // Enhanced financial projections data with more detailed growth
   const projections = [
@@ -150,28 +148,19 @@ const Slide15: React.FC = () => {
     { name: 'Shell Token Value', percentage: 21, color: modernColors.crypto }
   ];
 
-  // Funding allocation data
-  const fundingAllocation = [
-    { category: 'Product Development', percentage: 55, amount: '$412.5K', icon: Code, color: modernColors.crypto },
-    { category: 'Sales & Marketing', percentage: 15, amount: '$112.5K', icon: Megaphone, color: modernColors.crypto },
-    { category: 'Operations', percentage: 20, amount: '$150K', icon: Briefcase, color: modernColors.crypto },
-    { category: 'Legal & Compliance', percentage: 10, amount: '$75K', icon: FileText, color: modernColors.crypto }
-  ];
-
   return (
-    <SlideLayout title="Financial Projections" slideNumber={15} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-6">
-        <div className="mb-2 text-center max-w-2xl mx-auto">
-          <h2 className={modernTypography.pageTitle}>
-            Multi-stream revenue model with Shell token ecosystem
-          </h2>
-        </div>
-
-        <div className="mb-4">
-          <ModernCard className="p-6">
-            <div className="flex items-center gap-3 mb-5">
-              <TrendingUp className="h-7 w-7" style={{ color: modernColors.crypto }} />
-              <h3 className={modernTypography.heading}>
+    <SlideLayout 
+      title="Financial Projections" 
+      subtitle="Multi-stream revenue model with Shell token ecosystem"
+      slideNumber={15} 
+      totalSlides={TOTAL_SLIDES}
+    >
+      <div className="flex flex-col gap-3 mt-6 pb-6 h-[calc(100vh-200px)]">
+        <div className="flex-grow-0">
+          <ModernCard className="p-3">
+            <div className="flex items-center gap-3 mb-2">
+              <TrendingUp className="h-5 w-5" style={{ color: modernColors.crypto }} />
+              <h3 className="text-lg font-medium">
                 Five-Year Projections
               </h3>
             </div>
@@ -180,9 +169,9 @@ const Slide15: React.FC = () => {
               <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-slate-200">
-                    <th className="text-left py-3 px-4 font-medium text-black"></th>
+                    <th className="text-left py-1 px-2 font-medium text-black"></th>
                     {projections.map((item, index) => (
-                      <th key={index} className="text-center py-3 px-4 font-medium text-black">
+                      <th key={index} className="text-center py-1 px-2 font-medium text-black">
                         {item.year}
                       </th>
                     ))}
@@ -190,11 +179,11 @@ const Slide15: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                    <td className="py-1 px-2 font-medium text-black flex items-center gap-2">
                       <DollarSign className="h-4 w-4" style={{ color: modernColors.crypto }} /> Revenue
                     </td>
                     {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
+                      <td key={index} className="text-center py-1 px-2">
                         <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
                           {item.revenue.total}
                         </span>
@@ -202,11 +191,11 @@ const Slide15: React.FC = () => {
                     ))}
                   </tr>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                    <td className="py-1 px-2 font-medium text-black flex items-center gap-2">
                       <Users className="h-4 w-4" style={{ color: modernColors.crypto }} /> Customers
                     </td>
                     {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
+                      <td key={index} className="text-center py-1 px-2">
                         <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
                           {item.customers}
                         </span>
@@ -214,11 +203,11 @@ const Slide15: React.FC = () => {
                     ))}
                   </tr>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                    <td className="py-1 px-2 font-medium text-black flex items-center gap-2">
                       <Wallet className="h-4 w-4" style={{ color: modernColors.crypto }} /> Token Holdings
                     </td>
                     {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
+                      <td key={index} className="text-center py-1 px-2">
                         <span className={`${index === 0 ? 'text-black' : 'font-medium'}`} style={{ color: index === 0 ? 'black' : modernColors.crypto }}>
                           {item.tokenHoldings}
                         </span>
@@ -226,21 +215,21 @@ const Slide15: React.FC = () => {
                     ))}
                   </tr>
                   <tr className="border-b border-slate-100">
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                    <td className="py-1 px-2 font-medium text-black flex items-center gap-2">
                       <CreditCard className="h-4 w-4" style={{ color: modernColors.crypto }} /> Expenses
                     </td>
                     {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4 text-black">
+                      <td key={index} className="text-center py-1 px-2 text-black">
                         {item.expenses}
                       </td>
                     ))}
                   </tr>
                   <tr>
-                    <td className="py-3 px-4 font-medium text-black flex items-center gap-2">
+                    <td className="py-1 px-2 font-medium text-black flex items-center gap-2">
                       <BarChart4 className="h-4 w-4" style={{ color: modernColors.crypto }} /> Net Cash Flow
                     </td>
                     {projections.map((item, index) => (
-                      <td key={index} className="text-center py-3 px-4">
+                      <td key={index} className="text-center py-1 px-2">
                         <span className={`font-medium`} style={{ color: item.cashFlow.includes('-') ? 'rgb(244, 63, 94)' : 'rgb(16, 185, 129)' }}>
                           {item.cashFlow}
                         </span>
@@ -253,30 +242,30 @@ const Slide15: React.FC = () => {
           </ModernCard>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <BarChart4 className="h-7 w-7" style={{ color: modernColors.crypto }} />
-                <h3 className={modernTypography.heading}>
+            <ModernCard className="h-full p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <BarChart4 className="h-5 w-5" style={{ color: modernColors.crypto }} />
+                <h3 className="text-lg font-medium">
                   Key Business Metrics
                 </h3>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {businessMetrics.map((metric, index) => (
                   <div 
                     key={index} 
-                    className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md"
+                    className="bg-slate-50/80 backdrop-blur-sm p-2 border border-slate-100 rounded-md"
                   >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${metric.color}20` }}>
-                        <metric.icon className="h-4 w-4" style={{ color: metric.color }} />
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <div className="w-6 h-6 rounded-md flex items-center justify-center" style={{ backgroundColor: `${metric.color}20` }}>
+                        <metric.icon className="h-3.5 w-3.5" style={{ color: metric.color }} />
                       </div>
-                      <h4 className={modernTypography.label}>{metric.title}</h4>
+                      <h4 className="text-xs font-medium">{metric.title}</h4>
                     </div>
-                    <p className={`${modernTypography.heading} mb-1`} style={{ color: metric.color }}>{metric.value}</p>
-                    <p className={`${modernTypography.small}`}>{metric.description}</p>
+                    <p className="text-sm font-medium mb-0" style={{ color: metric.color }}>{metric.value}</p>
+                    <p className="text-xs leading-tight">{metric.description}</p>
                   </div>
                 ))}
               </div>
@@ -284,20 +273,20 @@ const Slide15: React.FC = () => {
           </div>
 
           <div>
-            <ModernCard className="h-full p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <PieChart className="h-7 w-7" style={{ color: modernColors.crypto }} />
-                <h3 className={modernTypography.heading}>
+            <ModernCard className="h-full p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <PieChart className="h-5 w-5" style={{ color: modernColors.crypto }} />
+                <h3 className="text-lg font-medium">
                   Revenue Streams (Year 5)
                 </h3>
               </div>
               
-              <div className="space-y-3 mb-6">
+              <div className="space-y-1.5 mb-3">
                 {revenueDistribution.map((stream, index) => (
                   <div key={index} className="bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md overflow-hidden">
-                    <div className="flex justify-between items-center p-3">
-                      <span className={modernTypography.label}>{stream.name}</span>
-                      <span className={`${modernTypography.body}`}>{stream.percentage}%</span>
+                    <div className="flex justify-between items-center p-2">
+                      <span className="text-sm font-medium">{stream.name}</span>
+                      <span className="text-sm">{stream.percentage}%</span>
                     </div>
                     <div className="h-1.5 bg-slate-100">
                       <div 
@@ -309,66 +298,18 @@ const Slide15: React.FC = () => {
                 ))}
               </div>
 
-              <div className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md">
-                <div className="flex items-center gap-2 mb-2">
-                  <TokenIcon className="h-5 w-5" style={{ color: modernColors.crypto }} />
-                  <h4 className={modernTypography.label} style={{ color: modernColors.crypto }}>Shell Token Strategy</h4>
+              <div className="bg-slate-50/80 backdrop-blur-sm p-2 border border-slate-100 rounded-md">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <TokenIcon className="h-4 w-4" style={{ color: modernColors.crypto }} />
+                  <h4 className="text-xs font-medium" style={{ color: modernColors.crypto }}>Shell Token Strategy</h4>
                 </div>
-                <p className={`${modernTypography.small}`}>
+                <p className="text-xs leading-tight">
                   Holding 10-15% of pre-mined Shell tokens as company reserves creates significant upside potential beyond operational revenue. 
                   As transaction volume grows, token value is projected to reach $20M by Year 5.
                 </p>
               </div>
             </ModernCard>
           </div>
-        </div>
-        
-        <div className="md:max-w-2xl mx-auto">
-          <ModernCard className="p-6">
-            <div className="flex items-center gap-3 mb-5">
-              <DollarSign className="h-7 w-7" style={{ color: modernColors.crypto }} />
-              <h3 className={modernTypography.heading}>
-                Seed Investment Allocation
-              </h3>
-            </div>
-            
-            <p className={`${modernTypography.body} mb-5`}>How we'll use the $750K seed investment:</p>
-            
-            <div className="space-y-3 mb-5">
-              {fundingAllocation.map((item, index) => (
-                <div key={index} className="bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md overflow-hidden">
-                  <div className="flex justify-between items-center p-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${item.color}20` }}>
-                        <item.icon className="h-4 w-4" style={{ color: item.color }} />
-                      </div>
-                      <span className={modernTypography.label}>{item.category}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className={`${modernTypography.small}`}>{item.percentage}%</span>
-                      <span className={`${modernTypography.body}`} style={{ color: item.color }}>{item.amount}</span>
-                    </div>
-                  </div>
-                  <div className="h-1.5 bg-slate-100">
-                    <div 
-                      className="h-full"
-                      style={{ backgroundColor: item.color, width: `${item.percentage}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 rounded-md flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5" style={{ color: modernColors.crypto }} />
-                <h4 className={modernTypography.label}>Expected Runway</h4>
-              </div>
-              <p className={`${modernTypography.body} font-medium`} style={{ color: modernColors.crypto }}>
-                12-18 months
-              </p>
-            </div>
-          </ModernCard>
         </div>
       </div>
     </SlideLayout>

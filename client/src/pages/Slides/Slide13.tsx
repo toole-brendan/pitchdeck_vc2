@@ -13,9 +13,13 @@ import {
   Clock, 
   DollarSign
 } from 'lucide-react';
+import { useContentScale } from '@/hooks/useContentScale';
 
 const Slide13: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  
+  // Use our custom hook to manage content scaling
+  const { contentRef, scale, isScaled } = useContentScale();
 
   // Monthly operating costs data
   const operatingCosts = [
@@ -47,69 +51,68 @@ const Slide13: React.FC = () => {
   ];
 
   return (
-    <SlideLayout title="Operational Costs" slideNumber={13} totalSlides={TOTAL_SLIDES}>
-      <div className="flex flex-col gap-8">
-        <div className="mb-2 text-center max-w-2xl mx-auto">
-          <h2 className={modernTypography.pageTitle}>
-            Blockchain infrastructure and development expenses with 12-month runway
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-          <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <DollarSign className="h-7 w-7" style={{ color: modernColors.military }} />
-                <h3 className={modernTypography.heading}>
+    <SlideLayout 
+      title="Operational Costs" 
+      subtitle="Blockchain infrastructure and development expenses with 12-month runway"
+      slideNumber={13} 
+      totalSlides={TOTAL_SLIDES}
+    >
+      <div className="flex flex-col items-center justify-center gap-6 mt-8 h-[calc(100vh-220px)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
+          <div className="flex justify-center">
+            <ModernCard className="w-full max-w-md p-5">
+              <div className="flex items-center gap-3 mb-4">
+                <DollarSign className="h-6 w-6" style={{ color: modernColors.military }} />
+                <h3 className="text-xl font-medium">
                   Monthly Operating Costs
                 </h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {operatingCosts.map((cost, index) => (
                   <div 
                     key={index} 
-                    className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100 flex items-center justify-between"
+                    className="bg-slate-50/80 backdrop-blur-sm p-3 border border-slate-100 flex items-center justify-between"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: `${cost.color}15` }}>
-                        <cost.icon className="h-5 w-5" style={{ color: cost.color }} />
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-md flex items-center justify-center" style={{ backgroundColor: `${cost.color}15` }}>
+                        <cost.icon className="h-4 w-4" style={{ color: cost.color }} />
                       </div>
-                      <span className={modernTypography.label}>{cost.name}</span>
+                      <span className="text-sm font-medium">{cost.name}</span>
                     </div>
-                    <span className={`${modernTypography.heading}`} style={{ color: cost.color }}>{cost.range}</span>
+                    <span className="text-base font-medium" style={{ color: cost.color }}>{cost.range}</span>
                   </div>
                 ))}
               </div>
             </ModernCard>
           </div>
 
-          <div>
-            <ModernCard className="h-full p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <Clock className="h-7 w-7" style={{ color: modernColors.commercial }} />
-                <h3 className={modernTypography.heading}>
+          <div className="flex justify-center">
+            <ModernCard className="w-full max-w-md p-5">
+              <div className="flex items-center gap-3 mb-4">
+                <Clock className="h-6 w-6" style={{ color: modernColors.commercial }} />
+                <h3 className="text-xl font-medium">
                   Burn Rate & Runway
                 </h3>
               </div>
 
-              <div className="mb-4 bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
+              <div className="mb-4 bg-slate-50/80 backdrop-blur-sm p-3 border border-slate-100">
                 <div className="flex justify-between items-center mb-2">
-                  <span className={modernTypography.label}>Total Monthly Burn</span>
-                  <span className={`${modernTypography.heading}`} style={{ color: modernColors.military }}>$15,000-21,500</span>
+                  <span className="text-sm font-medium">Total Monthly Burn</span>
+                  <span className="text-base font-medium" style={{ color: modernColors.military }}>$15,000-21,500</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className={modernTypography.label}>Seed Funding</span>
-                  <span className={`${modernTypography.heading}`} style={{ color: modernColors.commercial }}>$750,000</span>
+                  <span className="text-sm font-medium">Seed Funding</span>
+                  <span className="text-base font-medium" style={{ color: modernColors.commercial }}>$750,000</span>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {burnRateScenarios.map((scenario, index) => (
-                  <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-4 border border-slate-100">
+                  <div key={index} className="bg-slate-50/80 backdrop-blur-sm p-3 border border-slate-100">
                     <div className="flex justify-between items-center mb-2">
-                      <span className={modernTypography.label}>{scenario.name}</span>
-                      <span className={`${modernTypography.heading}`} style={{ color: index === 1 ? modernColors.military : (index === 0 ? modernColors.commercial : modernColors.crypto) }}>
+                      <span className="text-sm font-medium">{scenario.name}</span>
+                      <span className="text-base font-medium" style={{ color: index === 1 ? modernColors.military : (index === 0 ? modernColors.commercial : modernColors.crypto) }}>
                         {scenario.value}
                       </span>
                     </div>
