@@ -9,6 +9,13 @@ export function useContentScale(dependencies: any[] = []) {
   const calculateAndApplyScale = () => {
     if (!contentRef.current) return;
     
+    // Skip scaling on mobile devices - use 768px as breakpoint
+    if (window.innerWidth < 768) {
+      setScale(1);
+      setIsScaled(false);
+      return;
+    }
+    
     // Reset scaling first to get accurate measurements
     contentRef.current.style.transform = 'scale(1)';
     contentRef.current.style.transformOrigin = 'center top';
@@ -45,7 +52,8 @@ export function useContentScale(dependencies: any[] = []) {
         scaleY,
         scaleX,
         calculatedScale,
-        appliedScale: newScale
+        appliedScale: newScale,
+        isMobile: window.innerWidth < 768
       });
     }
   };

@@ -20,55 +20,55 @@ export const modernColors = {
   cryptoLight: '#F3E8FF', // purple-100, light purple for crypto backgrounds
 };
 
-// Typography styles for ultra-modern minimalist look
+// Typography styles for ultra-modern minimalist look with improved mobile responsiveness
 export const modernTypography = {
-  // Ultra-large slide titles for dramatic impact
-  title: 'text-5xl sm:text-6xl md:text-8xl font-thin tracking-tighter leading-tight text-black',
+  // Ultra-large slide titles for dramatic impact - more responsive sizing
+  title: 'text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-thin tracking-tighter leading-tight text-black',
   
-  // Main slide title (larger for page headers)
-  slideTitle: 'text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight leading-tight text-black',
+  // Main slide title (larger for page headers) - more responsive sizing
+  slideTitle: 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight leading-tight text-black',
   
-  // Section title for sub-sections within slides
-  pageTitle: 'text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tight leading-tight text-black',
+  // Section title for sub-sections within slides - more responsive sizing
+  pageTitle: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight tracking-tight leading-tight text-black',
   
-  // Refined subtitle with increased size and better readability
-  subtitle: 'text-lg sm:text-xl md:text-2xl font-extralight tracking-tight text-black',
+  // Refined subtitle with improved mobile sizing
+  subtitle: 'text-base sm:text-lg md:text-xl lg:text-2xl font-extralight tracking-tight text-black',
   
-  // Ultra-compact section headers
-  sectionTitle: 'text-xs uppercase tracking-[0.25em] text-black font-medium',
+  // Ultra-compact section headers - better on mobile
+  sectionTitle: 'text-xs uppercase tracking-[0.15em] sm:tracking-[0.25em] text-black font-medium',
   
-  // Elegant headings with better spacing and slightly larger
-  heading: 'text-2xl md:text-3xl font-extralight tracking-tight leading-snug text-black',
+  // Elegant headings with better mobile sizing
+  heading: 'text-xl sm:text-2xl md:text-3xl font-extralight tracking-tight leading-snug text-black',
   
-  // Secondary headings for content sections
-  subheading: 'text-xl md:text-2xl font-extralight tracking-tight leading-snug text-black',
+  // Secondary headings for content sections - better mobile sizing
+  subheading: 'text-lg sm:text-xl md:text-2xl font-extralight tracking-tight leading-snug text-black',
   
-  // Improved body text readability with slightly larger size
-  body: 'text-base md:text-lg font-light text-black leading-relaxed',
+  // Improved body text readability with responsive sizing
+  body: 'text-sm sm:text-base md:text-lg font-light text-black leading-relaxed',
   
-  // Refined small text with better readability
-  small: 'text-sm font-light text-black tracking-wide',
+  // Refined small text with better readability on mobile
+  small: 'text-xs sm:text-sm font-light text-black tracking-wide',
   
-  // List text styling
-  list: 'text-base md:text-lg font-light text-black leading-relaxed',
+  // List text styling with mobile optimization
+  list: 'text-sm sm:text-base md:text-lg font-light text-black leading-relaxed',
   
-  // Labels for items, years, categories, etc.
-  label: 'text-base font-normal text-black tracking-wide leading-snug',
+  // Labels for items, years, categories, etc. - mobile friendly
+  label: 'text-sm sm:text-base font-normal text-black tracking-wide leading-snug',
   
-  // More impactful statistics
-  stats: 'text-5xl md:text-6xl font-thin tracking-tight text-black',
+  // More impactful statistics with responsive sizing
+  stats: 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin tracking-tight text-black',
   
-  // Modern badge styling
-  badge: 'text-xs tracking-wider uppercase py-1 px-3 font-medium',
+  // Modern badge styling - mobile optimized
+  badge: 'text-xs tracking-wider uppercase py-1 px-2 sm:px-3 font-medium',
   
-  // Giant text for thank you slides
-  giant: 'text-6xl md:text-7xl font-thin tracking-tighter leading-tight text-black',
+  // Giant text for thank you slides - better on mobile
+  giant: 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-thin tracking-tighter leading-tight text-black',
   
-  // Lead paragraph text 
-  lead: 'text-xl md:text-2xl font-light text-black leading-relaxed',
+  // Lead paragraph text with responsive sizing
+  lead: 'text-lg sm:text-xl md:text-2xl font-light text-black leading-relaxed',
   
-  // Quote styling
-  quote: 'text-xl md:text-2xl italic font-light text-black',
+  // Quote styling with responsive text size
+  quote: 'text-lg sm:text-xl md:text-2xl italic font-light text-black',
 };
 
 // Layout components with ultra-modern styling
@@ -79,7 +79,7 @@ export const ModernBadge: React.FC<{
   className?: string;
 }> = ({ children, color = modernColors.accent, small = false, className = '' }) => (
   <span 
-    className={`${modernTypography.badge} text-white backdrop-blur-sm ${small ? 'py-0.5 px-2 text-[10px]' : ''} ${className}`}
+    className={`${modernTypography.badge} text-white backdrop-blur-sm ${small ? 'py-0.5 px-1 sm:px-2 text-[10px]' : ''} ${className}`}
     style={{ backgroundColor: color }}
   >
     {children}
@@ -92,7 +92,7 @@ export const ModernCard: React.FC<{
   style?: React.CSSProperties;
 }> = ({ children, className = '', style }) => (
   <div 
-    className={`bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 p-6 ${className}`}
+    className={`bg-white/90 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 p-4 sm:p-6 ${className}`}
     style={style}
   >
     {children}
@@ -102,7 +102,7 @@ export const ModernCard: React.FC<{
 export const ModernDivider: React.FC<{
   className?: string;
 }> = ({ className = '' }) => (
-  <div className={`h-[1px] w-full bg-slate-100 my-8 ${className}`}></div>
+  <div className={`h-[1px] w-full bg-slate-100 my-4 sm:my-6 md:my-8 ${className}`}></div>
 );
 
 export const ModernIconWrapper: React.FC<{
@@ -110,7 +110,7 @@ export const ModernIconWrapper: React.FC<{
   size?: 'default' | 'large';
 }> = ({ children, size = 'default' }) => (
   <div className={`flex items-center justify-center bg-slate-50/80 text-black backdrop-blur-sm shadow-sm
-    ${size === 'large' ? 'w-16 h-16' : 'w-12 h-12'}`}>
+    ${size === 'large' ? 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16' : 'w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12'}`}>
     {children}
   </div>
 );
@@ -177,10 +177,10 @@ export const ModernSectionHeader: React.FC<{
   className?: string;
 }> = ({ children, dark = false, className = '' }) => {
   // Light style (preferred for most sections) - more minimalist
-  const lightStyle = "bg-slate-50/70 backdrop-blur-sm text-black text-xs tracking-[0.25em] uppercase py-1.5 px-3";
+  const lightStyle = "bg-slate-50/70 backdrop-blur-sm text-black text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase py-1 sm:py-1.5 px-2 sm:px-3";
   
   // Dark style (for sections that need more emphasis) - more sleek
-  const darkStyle = "bg-slate-900/90 backdrop-blur-sm text-white text-xs tracking-[0.25em] uppercase py-1.5 px-3 shadow-sm";
+  const darkStyle = "bg-slate-900/90 backdrop-blur-sm text-white text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase py-1 sm:py-1.5 px-2 sm:px-3 shadow-sm";
   
   return (
     <div className={`${dark ? darkStyle : lightStyle} ${className} transition-all duration-300 hover:shadow-sm`}>
