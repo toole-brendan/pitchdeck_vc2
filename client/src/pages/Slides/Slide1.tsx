@@ -30,15 +30,25 @@ const Slide1: React.FC = () => {
         animate="visible"
       >
         <motion.div 
-          className={`font-['Georgia'] font-extralight tracking-widest border-2 border-gray-800/80 dark:border-gray-100/80 text-gray-800 dark:text-gray-100 m-0 cursor-pointer hover:opacity-90 transition-opacity mb-6 ${
-            isMobile ? 'text-3xl px-4 py-2 mx-4 max-w-[90%]' : 'text-5xl px-8 py-4'
-          }`}
-          style={{ color: modernColors.text }}
-          whileHover={{ scale: 1.03 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          onClick={handleLogoClick}
+          className="text-center mb-6"
+          variants={fadeInUpVariants}
         >
-          HandReceipt
+          <motion.h1
+            className={`inline-block font-['Georgia'] font-light tracking-wide border-2 border-black m-0 cursor-pointer hover:opacity-90 transition-opacity ${
+              isMobile ? 'text-2xl px-2 py-1' : 'text-[3rem] px-4 py-2'
+            }`}
+            style={{ 
+              color: modernColors.text,
+              letterSpacing: '0.05em',
+              fontWeight: 100,
+              padding: isMobile ? '0.25em 0.5em' : '0.25em 0.5em'
+            }}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            onClick={handleLogoClick}
+          >
+            HandReceipt
+          </motion.h1>
         </motion.div>
         
         <motion.p 
