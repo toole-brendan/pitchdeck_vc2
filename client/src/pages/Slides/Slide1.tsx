@@ -1,7 +1,6 @@
 import React from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
 import { 
-  ModernCard, 
   modernTypography, 
   modernColors,
   fadeInUpVariants
@@ -12,6 +11,11 @@ import { motion } from 'framer-motion';
 const Slide1: React.FC = () => {
   const TOTAL_SLIDES = 18;
   const isMobile = useIsMobile();
+
+  const handleLogoClick = () => {
+    // Navigate to the main HandReceipt website
+    window.location.href = 'https://handreceipt.com';
+  };
 
   return (
     <SlideLayout title="" slideNumber={1} totalSlides={TOTAL_SLIDES}>
@@ -32,6 +36,7 @@ const Slide1: React.FC = () => {
           style={{ color: modernColors.text }}
           whileHover={{ scale: 1.03 }}
           transition={{ type: "spring", stiffness: 300 }}
+          onClick={handleLogoClick}
         >
           HandReceipt
         </motion.div>
@@ -47,9 +52,9 @@ const Slide1: React.FC = () => {
           className="mt-6 flex justify-center"
           variants={fadeInUpVariants}
         >
-          <ModernCard className={`px-5 py-2 inline-block ${isMobile ? 'max-w-[90%] mx-auto' : ''}`}>
-            <p className="text-base font-extralight tracking-tight text-black text-center">Ajax Group, Inc.</p>
-          </ModernCard>
+          <p className={`font-light text-gray-500 italic text-center ${isMobile ? 'text-xs max-w-[90%] mx-auto' : 'text-base sm:text-lg'}`}>
+            Ajax Group, Inc.
+          </p>
         </motion.div>
       </motion.div>
     </SlideLayout>
