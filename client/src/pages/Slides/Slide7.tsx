@@ -19,7 +19,7 @@ const Slide7: React.FC = () => {
       slideNumber={7} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col gap-6 mt-8 h-[calc(100vh-200px)]">
+      <div className="flex flex-col gap-6 mt-8">
         {/* Market Size Analysis */}
         <div className="flex-grow-0">
           <ModernCard className="p-6" style={{
@@ -68,9 +68,9 @@ const Slide7: React.FC = () => {
         </div>
 
         {/* Defense and Commercial Markets */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <ModernCard className="h-full p-6 border-t-4" style={{
+            <ModernCard className="p-6 border-t-4" style={{
               borderColor: modernColors.military,
               backgroundColor: `${modernColors.militaryLight}15`
             }}>
@@ -121,7 +121,7 @@ const Slide7: React.FC = () => {
           </div>
 
           <div>
-            <ModernCard className="h-full p-6 border-t-4" style={{
+            <ModernCard className="p-6 border-t-4" style={{
               borderColor: modernColors.commercial,
               backgroundColor: `${modernColors.commercialLight}15`
             }}>
