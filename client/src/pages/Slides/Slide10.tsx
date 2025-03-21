@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SlideLayout from '@/components/PitchDeck/SlideLayout';
 import { 
   ModernCard, 
@@ -31,6 +31,11 @@ import { motion } from 'framer-motion';
 const Slide10: React.FC = () => {
   const TOTAL_SLIDES = 18;
   const isMobile = useIsMobile();
+  
+  // Debug logging for mobile detection
+  useEffect(() => {
+    console.log("Slide10 isMobile state:", isMobile);
+  }, [isMobile]);
 
   return (
     <SlideLayout 
@@ -42,7 +47,7 @@ const Slide10: React.FC = () => {
       <motion.div 
         className="flex flex-col items-center justify-center"
         style={{ 
-          minHeight: isMobile ? 'calc(100vh - 220px)' : 'calc(100vh - 220px)',
+          minHeight: 'auto', // Use auto for both mobile and desktop
           paddingBottom: isMobile ? '60px' : '0',
           paddingTop: '0.75rem'
         }}
@@ -51,31 +56,32 @@ const Slide10: React.FC = () => {
         animate="visible"
       >
         {isMobile ? (
-          // Mobile layout - single column
-          <motion.div className="flex flex-col gap-3 w-full max-w-5xl">
+          // Mobile layout - simplified animations
+          <div className="flex flex-col gap-4 w-full">
             {/* Interface Design for Mobile */}
-            <motion.div variants={itemFadeInUpVariant} custom={0}>
-              <ModernCard className={`p-0 border border-gray-200 max-w-[95%] mx-auto`}>
-                <div className="p-2 border-b border-gray-200">
+            <div>
+              <ModernCard className="p-0 border border-gray-200 w-full">
+                <div className="p-3 border-b border-gray-200">
                   <div className="flex items-center gap-2">
                     <Smartphone className="h-4 w-4" style={{ color: modernColors.military }} />
                     <h3 className="text-base font-medium">Interface Design</h3>
                   </div>
                 </div>
                 
-                <div className="bg-black w-full aspect-square flex items-center justify-center">
+                <div className="bg-black w-full aspect-video flex items-center justify-center">
                   <img 
                     src="assets/images/HR.png" 
                     alt="HandReceipt Dashboard Interface" 
                     className="max-w-full max-h-full object-contain"
+                    onError={(e) => console.error("Image failed to load:", e)}
                   />
                 </div>
               </ModernCard>
-            </motion.div>
+            </div>
             
             {/* Defense UX for Mobile */}
-            <motion.div variants={itemFadeInUpVariant} custom={1}>
-              <ModernCard className={`p-3 border-l-3 max-w-[95%] mx-auto`} style={{ borderLeftColor: modernColors.military }}>
+            <div>
+              <ModernCard className="p-3 border-l-3 w-full" style={{ borderLeftColor: modernColors.military }}>
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="h-4 w-4" style={{ color: modernColors.military }} />
                   <h3 className="text-base font-medium">Defense UX</h3>
@@ -106,13 +112,21 @@ const Slide10: React.FC = () => {
                       <span className="text-xs"><strong>CAC Integration:</strong> Secure authentication using military ID cards</span>
                     </div>
                   </li>
+                  <li className="flex items-start gap-1.5">
+                    <div className="w-4 h-4 rounded-full flex items-center justify-center bg-blue-100 flex-shrink-0 mt-0.5">
+                      <Shield className="w-2.5 h-2.5" style={{ color: modernColors.military }} />
+                    </div>
+                    <div>
+                      <span className="text-xs"><strong>Ruggedized Interface:</strong> High contrast and readable in all conditions</span>
+                    </div>
+                  </li>
                 </ul>
               </ModernCard>
-            </motion.div>
+            </div>
             
             {/* Commercial UX for Mobile */}
-            <motion.div variants={itemFadeInUpVariant} custom={2}>
-              <ModernCard className={`p-3 border-l-3 max-w-[95%] mx-auto`} style={{ borderLeftColor: modernColors.commercial }}>
+            <div>
+              <ModernCard className="p-3 border-l-3 w-full" style={{ borderLeftColor: modernColors.commercial }}>
                 <div className="flex items-center gap-2 mb-2">
                   <CreditCard className="h-4 w-4" style={{ color: modernColors.commercial }} />
                   <h3 className="text-base font-medium">Commercial UX</h3>
@@ -143,13 +157,21 @@ const Slide10: React.FC = () => {
                       <span className="text-xs"><strong>Multi-user Roles:</strong> Customizable permissions for team members</span>
                     </div>
                   </li>
+                  <li className="flex items-start gap-1.5">
+                    <div className="w-4 h-4 rounded-full flex items-center justify-center bg-orange-100 flex-shrink-0 mt-0.5">
+                      <Link className="w-2.5 h-2.5" style={{ color: modernColors.commercial }} />
+                    </div>
+                    <div>
+                      <span className="text-xs"><strong>API Connections:</strong> Seamless integration with ERP and WMS</span>
+                    </div>
+                  </li>
                 </ul>
               </ModernCard>
-            </motion.div>
+            </div>
             
             {/* User Workflow for Mobile - Horizontal */}
-            <motion.div variants={itemFadeInUpVariant} custom={3}>
-              <ModernCard className={`p-3 max-w-[95%] mx-auto`}>
+            <div>
+              <ModernCard className="p-3 w-full">
                 <div className="flex items-center gap-2 mb-2">
                   <FileCheck className="h-4 w-4" style={{ color: modernColors.military }} />
                   <h3 className="text-base font-medium">User Workflow</h3>
@@ -165,7 +187,7 @@ const Slide10: React.FC = () => {
                     <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1 bg-blue-100">
                       <span className="text-blue-800 font-semibold text-[10px]">1</span>
                     </div>
-                    <p className="text-[8px] text-center max-w-[60px]">Scan</p>
+                    <p className="text-[9px] text-center max-w-[60px]">Scan</p>
                   </div>
                   
                   {/* Step 2 */}
@@ -173,7 +195,7 @@ const Slide10: React.FC = () => {
                     <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1 bg-purple-100">
                       <span className="text-purple-800 font-semibold text-[10px]">2</span>
                     </div>
-                    <p className="text-[8px] text-center max-w-[60px]">Verify</p>
+                    <p className="text-[9px] text-center max-w-[60px]">Verify</p>
                   </div>
                   
                   {/* Step 3 */}
@@ -181,7 +203,7 @@ const Slide10: React.FC = () => {
                     <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1 bg-blue-100">
                       <span className="text-blue-800 font-semibold text-[10px]">3</span>
                     </div>
-                    <p className="text-[8px] text-center max-w-[60px]">Transfer</p>
+                    <p className="text-[9px] text-center max-w-[60px]">Transfer</p>
                   </div>
                   
                   {/* Step 4 */}
@@ -189,12 +211,12 @@ const Slide10: React.FC = () => {
                     <div className="w-6 h-6 rounded-full flex items-center justify-center mb-1 bg-purple-100">
                       <span className="text-purple-800 font-semibold text-[10px]">4</span>
                     </div>
-                    <p className="text-[8px] text-center max-w-[60px]">Record</p>
+                    <p className="text-[9px] text-center max-w-[60px]">Record</p>
                   </div>
                 </div>
               </ModernCard>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         ) : (
           // Desktop layout - 3 columns
           <motion.div className="grid grid-cols-3 gap-4 w-full max-w-5xl" variants={fadeInUpVariants}>

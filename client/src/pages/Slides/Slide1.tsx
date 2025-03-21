@@ -40,7 +40,7 @@ const Slide1: React.FC = () => {
         >
           <motion.h1
             className={`inline-block font-['Georgia'] font-light tracking-wide border-2 border-black m-0 cursor-pointer hover:opacity-90 transition-opacity ${
-              isMobile ? 'text-2xl px-2 py-1' : 'text-[3rem] px-4 py-2'
+              isMobile ? 'text-4xl px-3 py-2' : 'text-[3rem] px-4 py-2'
             }`}
             style={{ 
               color: modernColors.text,
@@ -57,8 +57,11 @@ const Slide1: React.FC = () => {
         </motion.div>
         
         <motion.p 
-          className={`${modernTypography.subtitle} max-w-2xl mx-auto mb-12 ${isMobile ? 'px-4' : ''}`}
+          className={`max-w-2xl mx-auto mb-12 ${isMobile ? 'px-4 text-xl font-medium' : modernTypography.subtitle}`}
           variants={fadeInUpVariants}
+          style={{ 
+            color: modernColors.text
+          }}
         >
           Blockchain-powered inventory management
         </motion.p>
@@ -67,7 +70,7 @@ const Slide1: React.FC = () => {
           className="mt-6 flex justify-center"
           variants={fadeInUpVariants}
         >
-          <p className={`font-light text-gray-500 italic text-center ${isMobile ? 'text-xs max-w-[90%] mx-auto' : 'text-base sm:text-lg'}`}>
+          <p className={`font-light text-gray-500 italic text-center whitespace-nowrap ${isMobile ? 'text-sm' : 'text-base sm:text-lg'}`}>
             Ajax Group, Inc.
           </p>
         </motion.div>
