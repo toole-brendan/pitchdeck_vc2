@@ -5,12 +5,17 @@ import {
   ModernBadge,
   ModernDivider,
   modernTypography, 
-  modernColors
+  modernColors,
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { FileWarning, ShieldAlert, DollarSign, Building } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const Slide3: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  const isMobile = useIsMobile();
 
   return (
     <SlideLayout 
@@ -19,11 +24,23 @@ const Slide3: React.FC = () => {
       slideNumber={3} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col items-center justify-center h-[calc(100vh-220px)]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
+      <motion.div 
+        className="flex flex-col items-center justify-center"
+        style={{ 
+          minHeight: isMobile ? 'calc(100vh - 220px)' : 'calc(100vh - 220px)',
+          paddingBottom: isMobile ? '60px' : '0'
+        }}
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div 
+          className={`grid grid-cols-1 ${isMobile ? 'gap-4' : 'md:grid-cols-2 gap-6'} w-full max-w-5xl`}
+          variants={fadeInUpVariants}
+        >
           {/* Military Sector */}
-          <div>
-            <ModernCard className={`p-5 border-t-4 flex flex-col`} style={{ 
+          <motion.div variants={itemFadeInUpVariant} custom={0}>
+            <ModernCard className={`p-4 md:p-5 border-t-4 flex flex-col ${isMobile ? 'max-w-[95%] mx-auto' : ''}`} style={{ 
               borderColor: modernColors.military,
               backgroundColor: `${modernColors.militaryLight}10`
             }}>
@@ -71,11 +88,11 @@ const Slide3: React.FC = () => {
                 <p className={`text-lg font-bold`} style={{ color: modernColors.military }}>$1.2B+</p>
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
 
           {/* Commercial Sector */}
-          <div>
-            <ModernCard className={`p-5 border-t-4 flex flex-col`} style={{ 
+          <motion.div variants={itemFadeInUpVariant} custom={1}>
+            <ModernCard className={`p-4 md:p-5 border-t-4 flex flex-col ${isMobile ? 'max-w-[95%] mx-auto' : ''}`} style={{ 
               borderColor: modernColors.commercial,
               backgroundColor: `${modernColors.commercialLight}10`
             }}>
@@ -123,9 +140,9 @@ const Slide3: React.FC = () => {
                 <p className={`text-lg font-bold`} style={{ color: modernColors.commercial }}>$950B+</p>
               </div>
             </ModernCard>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </SlideLayout>
   );
 };

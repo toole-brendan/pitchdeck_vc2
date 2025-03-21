@@ -6,12 +6,17 @@ import {
   ModernSectionHeader,
   ModernBadge,
   modernTypography,
-  modernColors
+  modernColors,
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { Check, Shield, Laptop, Database } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const Slide4: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  const isMobile = useIsMobile();
 
   return (
     <SlideLayout 
@@ -20,23 +25,29 @@ const Slide4: React.FC = () => {
       slideNumber={4} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col gap-6 mt-8">
+      <motion.div 
+        className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-8"
+        style={{ paddingBottom: isMobile ? '60px' : '0' }}
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Platform Architecture - Top Section */}
-        <div className="flex-grow-0">
-          <ModernCard className="p-4">
-            <ModernSectionHeader className="mb-3 inline-block text-xs">
+        <motion.div className="flex-grow-0" variants={itemFadeInUpVariant} custom={0}>
+          <ModernCard className={`p-3 md:p-4 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
+            <ModernSectionHeader className="mb-2 md:mb-3 inline-block text-xs">
               PLATFORM ARCHITECTURE
             </ModernSectionHeader>
 
-            <div className="flex flex-col md:flex-row gap-0">
+            <div className={`flex flex-col ${isMobile ? 'gap-2' : 'md:flex-row'} gap-0`}>
               {/* Defense Platform */}
               <div 
-                className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-4 flex flex-col justify-center shadow-sm"
+                className={`flex-1 ${isMobile ? 'border-b' : 'border-b md:border-b-0 md:border-r'} border-slate-200 p-3 md:p-4 flex flex-col justify-center shadow-sm`}
                 style={{ background: `linear-gradient(180deg, ${modernColors.militaryLight}30 0%, white 100%)` }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="w-5 h-5" style={{ color: modernColors.military }} />
-                  <h3 className={`text-lg font-medium`} style={{ color: modernColors.military }}>
+                  <h3 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium`} style={{ color: modernColors.military }}>
                     Defense Platform
                   </h3>
                 </div>
@@ -49,12 +60,12 @@ const Slide4: React.FC = () => {
 
               {/* Shared Core */}
               <div 
-                className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 p-4 flex flex-col justify-center shadow-sm"
+                className={`flex-1 ${isMobile ? 'border-b' : 'border-b md:border-b-0 md:border-r'} border-slate-200 p-3 md:p-4 flex flex-col justify-center shadow-sm`}
                 style={{ background: `linear-gradient(180deg, ${modernColors.cryptoLight}30 0%, white 100%)` }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Database className="w-5 h-5" style={{ color: modernColors.crypto }} />
-                  <h3 className={`text-lg font-medium`} style={{ color: modernColors.crypto }}>
+                  <h3 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium`} style={{ color: modernColors.crypto }}>
                     Shared Infrastructure
                   </h3>
                 </div>
@@ -68,12 +79,12 @@ const Slide4: React.FC = () => {
 
               {/* Commercial Platform */}
               <div 
-                className="flex-1 p-4 flex flex-col justify-center shadow-sm"
+                className="flex-1 p-3 md:p-4 flex flex-col justify-center shadow-sm"
                 style={{ background: `linear-gradient(180deg, ${modernColors.commercialLight}30 0%, white 100%)` }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Laptop className="w-5 h-5" style={{ color: modernColors.commercial }} />
-                  <h3 className={`text-lg font-medium`} style={{ color: modernColors.commercial }}>
+                  <h3 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium`} style={{ color: modernColors.commercial }}>
                     Commercial Platform
                   </h3>
                 </div>
@@ -85,13 +96,13 @@ const Slide4: React.FC = () => {
               </div>
             </div>
           </ModernCard>
-        </div>
+        </motion.div>
 
         {/* Market Comparison - Middle Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className={`grid grid-cols-1 ${isMobile ? 'gap-3' : 'md:grid-cols-2 gap-5'}`}>
           {/* Defense Market */}
-          <div>
-            <ModernCard className="p-5 border-t-3" style={{ 
+          <motion.div variants={itemFadeInUpVariant} custom={1}>
+            <ModernCard className={`p-4 md:p-5 border-t-3 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`} style={{ 
               borderColor: modernColors.military,
               backgroundColor: `${modernColors.militaryLight}10`
             }}>
@@ -101,7 +112,7 @@ const Slide4: React.FC = () => {
               
               <div className="space-y-4 mt-3">
                 <div>
-                  <h4 className={`text-lg font-medium mb-1`} style={{ color: modernColors.military }}>
+                  <h4 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium mb-1`} style={{ color: modernColors.military }}>
                     Lower Implementation Risk
                   </h4>
                   <p className={`text-sm`}>
@@ -110,7 +121,7 @@ const Slide4: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h4 className={`text-lg font-medium mb-1`} style={{ color: modernColors.military }}>
+                  <h4 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium mb-1`} style={{ color: modernColors.military }}>
                     High Barriers to Entry
                   </h4>
                   <p className={`text-sm`}>
@@ -119,11 +130,11 @@ const Slide4: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
 
           {/* Commercial Market */}
-          <div>
-            <ModernCard className="p-5 border-t-3" style={{ 
+          <motion.div variants={itemFadeInUpVariant} custom={2}>
+            <ModernCard className={`p-4 md:p-5 border-t-3 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`} style={{ 
               borderColor: modernColors.commercial,
               backgroundColor: `${modernColors.commercialLight}10`
             }}>
@@ -133,7 +144,7 @@ const Slide4: React.FC = () => {
               
               <div className="space-y-4 mt-3">
                 <div>
-                  <h4 className={`text-lg font-medium mb-1`} style={{ color: modernColors.commercial }}>
+                  <h4 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium mb-1`} style={{ color: modernColors.commercial }}>
                     Higher Growth Potential
                   </h4>
                   <p className={`text-sm`}>
@@ -142,7 +153,7 @@ const Slide4: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h4 className={`text-lg font-medium mb-1`} style={{ color: modernColors.commercial }}>
+                  <h4 className={`${isMobile ? 'text-base' : 'text-lg'} font-medium mb-1`} style={{ color: modernColors.commercial }}>
                     Transaction Fee Upside
                   </h4>
                   <p className={`text-sm`}>
@@ -151,19 +162,19 @@ const Slide4: React.FC = () => {
                 </div>
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
         </div>
 
         {/* Strategic Advantages - Bottom Section */}
-        <div className="flex-grow-0">
-          <ModernCard className="p-4 shadow-lg" style={{ 
+        <motion.div className="flex-grow-0" variants={itemFadeInUpVariant} custom={3}>
+          <ModernCard className={`p-3 md:p-4 shadow-lg ${isMobile ? 'max-w-[95%] mx-auto' : ''}`} style={{ 
             background: 'linear-gradient(135deg, rgba(219, 234, 254, 0.2), rgba(255, 237, 213, 0.2))'
           }}>
             <ModernBadge color={modernColors.crypto} small className="mb-3">
               STRATEGIC ADVANTAGES
             </ModernBadge>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+            <div className={`grid grid-cols-1 ${isMobile ? 'gap-2' : 'md:grid-cols-2 gap-3'} mt-2`}>
               <div className="flex items-start gap-2">
                 <Check className="w-4 h-4 mt-0.5 shrink-0" style={{ color: modernColors.crypto }} />
                 <p className={`text-sm`}>
@@ -193,8 +204,8 @@ const Slide4: React.FC = () => {
               </div>
             </div>
           </ModernCard>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </SlideLayout>
   );
 };

@@ -4,11 +4,16 @@ import {
   ModernCard, 
   ModernBadge, 
   modernTypography, 
-  modernColors
+  modernColors,
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const Slide2: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  const isMobile = useIsMobile();
 
   return (
     <SlideLayout 
@@ -17,13 +22,25 @@ const Slide2: React.FC = () => {
       slideNumber={2} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col items-center justify-center h-[calc(100vh-220px)]">
-        <div className="flex flex-col gap-4 w-full max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <ModernCard className="h-full p-5">
+      <motion.div 
+        className="flex flex-col items-center justify-center"
+        style={{ 
+          minHeight: isMobile ? 'calc(100vh - 220px)' : 'calc(100vh - 220px)',
+          paddingBottom: isMobile ? '60px' : '0'
+        }}
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div 
+          className="flex flex-col gap-4 w-full max-w-5xl"
+          variants={fadeInUpVariants}
+        >
+          <div className={`grid grid-cols-1 ${isMobile ? '' : 'md:grid-cols-2'} gap-4`}>
+            <motion.div variants={itemFadeInUpVariant} custom={0}>
+              <ModernCard className={`h-full p-4 md:p-5 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
                 <ModernBadge color={modernColors.crypto}>Founder Profile</ModernBadge>
-                <h3 className={`${modernTypography.subheading} mt-3 mb-2 text-xl`} style={{ color: modernColors.text }}>
+                <h3 className={`${modernTypography.subheading} mt-3 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`} style={{ color: modernColors.text }}>
                   Brendan Toole
                 </h3>
                 <p className={`${modernTypography.body} font-semibold mb-2 text-sm`}>
@@ -35,12 +52,12 @@ const Slide2: React.FC = () => {
                   <li>Princeton University, Economics A.B.</li>
                 </ul>
               </ModernCard>
-            </div>
+            </motion.div>
 
-            <div>
-              <ModernCard className="h-full p-5">
+            <motion.div variants={itemFadeInUpVariant} custom={1}>
+              <ModernCard className={`h-full p-4 md:p-5 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
                 <ModernBadge color={modernColors.crypto}>Vision</ModernBadge>
-                <h3 className={`${modernTypography.subheading} mt-3 mb-2 text-xl`} style={{ color: modernColors.text }}>
+                <h3 className={`${modernTypography.subheading} mt-3 mb-2 ${isMobile ? 'text-lg' : 'text-xl'}`} style={{ color: modernColors.text }}>
                   Military logistics meets financial expertise
                 </h3>
                 <p className={`${modernTypography.body} text-sm`}>
@@ -50,12 +67,12 @@ const Slide2: React.FC = () => {
                   HandReceipt represents the convergence of <span style={{ color: modernColors.military }}>military-grade validation</span> adapted for <span style={{ color: modernColors.commercial }}>commercial markets</span>.
                 </p>
               </ModernCard>
-            </div>
+            </motion.div>
           </div>
 
-          <div>
-            <ModernCard className="p-5 border shadow-sm" style={{ background: 'linear-gradient(120deg, rgba(219,234,254,0.3), rgba(255,237,213,0.3))' }}>
-              <h3 className={`${modernTypography.subheading} mb-3 text-xl`} style={{ color: modernColors.text }}>
+          <motion.div variants={itemFadeInUpVariant} custom={2}>
+            <ModernCard className={`p-4 md:p-5 border shadow-sm ${isMobile ? 'max-w-[95%] mx-auto' : ''}`} style={{ background: 'linear-gradient(120deg, rgba(219,234,254,0.3), rgba(255,237,213,0.3))' }}>
+              <h3 className={`${modernTypography.subheading} mb-3 ${isMobile ? 'text-lg' : 'text-xl'}`} style={{ color: modernColors.text }}>
                 Origin Story
               </h3>
               <div className={`${modernTypography.body} space-y-3 text-sm`}>
@@ -67,9 +84,9 @@ const Slide2: React.FC = () => {
                 </p>
               </div>
             </ModernCard>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </SlideLayout>
   );
 };

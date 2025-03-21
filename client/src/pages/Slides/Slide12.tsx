@@ -4,7 +4,9 @@ import {
   ModernCard, 
   ModernBadge,
   modernTypography, 
-  modernColors
+  modernColors,
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   DollarSign, 
@@ -16,9 +18,12 @@ import {
   CreditCard, 
   Repeat
 } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const Slide12: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  const isMobile = useIsMobile();
 
   // Revenue stream data
   const revenueStreams = [
@@ -62,57 +67,65 @@ const Slide12: React.FC = () => {
       slideNumber={12} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col gap-4 mt-12">
-        <div className="mb-3">
-          <ModernCard className="p-4">
-            <div className="flex items-center gap-2 mb-3">
-              <DollarSign className="h-5 w-5" style={{ color: modernColors.military }} />
-              <h3 className={`${modernTypography.heading} text-lg`}>
+      <motion.div 
+        className={`flex flex-col gap-3 md:gap-4 ${isMobile ? 'mt-4' : 'mt-12'}`}
+        style={{ paddingBottom: isMobile ? '60px' : '0' }}
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div className="mb-2 md:mb-3" variants={itemFadeInUpVariant} custom={0}>
+          <ModernCard className={`p-3 md:p-4 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
+            <div className="flex items-center gap-2 mb-2 md:mb-3">
+              <DollarSign className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} style={{ color: modernColors.military }} />
+              <h3 className={`${modernTypography.heading} ${isMobile ? 'text-base' : 'text-lg'}`}>
                 Revenue Streams
               </h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div className={`grid ${isMobile ? 'grid-cols-2 gap-2' : 'grid-cols-1 md:grid-cols-4 gap-3'}`}>
               {revenueStreams.map((stream, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="bg-slate-50/80 backdrop-blur-sm p-3 border border-slate-100 flex flex-col h-full"
+                  className="bg-slate-50/80 backdrop-blur-sm p-2 md:p-3 border border-slate-100 flex flex-col h-full"
+                  variants={itemFadeInUpVariant}
+                  custom={index + 1}
                 >
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-1 md:gap-2 mb-1">
                     <div 
-                      className="w-6 h-6 flex items-center justify-center rounded-full text-white font-medium text-xs"
+                      className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} flex items-center justify-center rounded-full text-white font-medium text-xs`}
                       style={{ backgroundColor: stream.color }}
                     >
                       {stream.letter}
                     </div>
-                    <stream.icon className="h-4 w-4" style={{ color: stream.color }} />
+                    <stream.icon className={`${isMobile ? 'h-3.5 w-3.5' : 'h-4 w-4'}`} style={{ color: stream.color }} />
                   </div>
-                  <p className="text-xs">{stream.title}</p>
-                </div>
+                  <p className={`${isMobile ? 'text-[10px]' : 'text-xs'}`}>{stream.title}</p>
+                </motion.div>
               ))}
             </div>
           </ModernCard>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <ModernCard className="h-full p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <TrendingUp className="h-5 w-5" style={{ color: modernColors.military }} />
-                <h3 className={`${modernTypography.heading} text-lg`}>
+        <div className={`grid grid-cols-1 ${isMobile ? 'gap-3' : 'md:grid-cols-2 gap-4'}`}>
+          <motion.div variants={itemFadeInUpVariant} custom={5}>
+            <ModernCard className={`h-full p-3 md:p-4 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <TrendingUp className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} style={{ color: modernColors.military }} />
+                <h3 className={`${modernTypography.heading} ${isMobile ? 'text-base' : 'text-lg'}`}>
                   Market-Specific ROI
                 </h3>
               </div>
               
-              <div className="space-y-2">
+              <div className={`${isMobile ? 'space-y-1.5' : 'space-y-2'}`}>
                 {marketROI.map((item, index) => (
                   <div key={index} className="p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100">
                     <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1 md:gap-2">
                         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
-                        <span className="text-sm font-medium">{item.market}</span>
+                        <span className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium`}>{item.market}</span>
                       </div>
-                      <span className="text-xl font-thin" style={{ color: item.color }}>{item.roi}</span>
+                      <span className={`${isMobile ? 'text-lg' : 'text-xl'} font-thin`} style={{ color: item.color }}>{item.roi}</span>
                     </div>
                     <div className="w-full h-1.5 bg-slate-200 mt-1 rounded-full overflow-hidden">
                       <div 
@@ -128,63 +141,63 @@ const Slide12: React.FC = () => {
                 ))}
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
 
-          <div>
-            <ModernCard className="h-full p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <BarChart className="h-5 w-5" style={{ color: modernColors.commercial }} />
-                <h3 className={`${modernTypography.heading} text-lg`}>
+          <motion.div variants={itemFadeInUpVariant} custom={6}>
+            <ModernCard className={`h-full p-3 md:p-4 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <BarChart className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} style={{ color: modernColors.commercial }} />
+                <h3 className={`${modernTypography.heading} ${isMobile ? 'text-base' : 'text-lg'}`}>
                   Unit Economics
                 </h3>
               </div>
               
-              <div className="space-y-3">
+              <div className={`${isMobile ? 'space-y-2' : 'space-y-3'}`}>
                 <div>
-                  <h4 className="text-base font-medium mb-2">Pricing Tiers:</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <h4 className={`${isMobile ? 'text-sm' : 'text-base'} font-medium mb-1 md:mb-2`}>Pricing Tiers:</h4>
+                  <div className={`grid grid-cols-1 ${isMobile ? 'gap-1.5' : 'sm:grid-cols-2 gap-2'}`}>
                     <div className="bg-militaryLight/50 p-2 rounded-md border border-slate-200">
                       <p className="text-xs font-medium text-military mb-0.5">Defense</p>
-                      <p className="text-lg font-extralight text-military">$250K - $1M</p>
+                      <p className={`${isMobile ? 'text-base' : 'text-lg'} font-extralight text-military`}>$250K - $1M</p>
                     </div>
                     <div className="bg-commercialLight/50 p-2 rounded-md border border-slate-200">
                       <p className="text-xs font-medium text-commercial mb-0.5">Commercial</p>
-                      <p className="text-lg font-extralight text-commercial">$75K - $150K</p>
+                      <p className={`${isMobile ? 'text-base' : 'text-lg'} font-extralight text-commercial`}>$75K - $150K</p>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h4 className="text-base font-medium mb-2">Key Performance Metrics:</h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
+                  <h4 className={`${isMobile ? 'text-sm' : 'text-base'} font-medium mb-1 md:mb-2`}>Key Performance Metrics:</h4>
+                  <div className={`${isMobile ? 'space-y-1.5' : 'space-y-2'}`}>
+                    <div className="flex justify-between items-center p-1.5 md:p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
                       <div className="flex items-center gap-1">
-                        <Star className="h-3 w-3" style={{ color: modernColors.military }} />
-                        <span className="text-xs font-medium">LTV:CAC Ratio</span>
+                        <Star className={`${isMobile ? 'h-2.5 w-2.5' : 'h-3 w-3'}`} style={{ color: modernColors.military }} />
+                        <span className={`${isMobile ? 'text-[10px]' : 'text-xs'} font-medium`}>LTV:CAC Ratio</span>
                       </div>
-                      <span className="text-base font-medium" style={{ color: modernColors.military }}>10:1</span>
+                      <span className={`${isMobile ? 'text-sm' : 'text-base'} font-medium`} style={{ color: modernColors.military }}>10:1</span>
                     </div>
-                    <div className="flex justify-between items-center p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
+                    <div className="flex justify-between items-center p-1.5 md:p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
                       <div className="flex items-center gap-1">
-                        <Star className="h-3 w-3" style={{ color: modernColors.military }} />
-                        <span className="text-xs font-medium">Gross Margin</span>
+                        <Star className={`${isMobile ? 'h-2.5 w-2.5' : 'h-3 w-3'}`} style={{ color: modernColors.military }} />
+                        <span className={`${isMobile ? 'text-[10px]' : 'text-xs'} font-medium`}>Gross Margin</span>
                       </div>
-                      <span className="text-base font-medium" style={{ color: modernColors.military }}>80-85%</span>
+                      <span className={`${isMobile ? 'text-sm' : 'text-base'} font-medium`} style={{ color: modernColors.military }}>80-85%</span>
                     </div>
-                    <div className="flex justify-between items-center p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
+                    <div className="flex justify-between items-center p-1.5 md:p-2 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md">
                       <div className="flex items-center gap-1">
-                        <Star className="h-3 w-3" style={{ color: modernColors.commercial }} />
-                        <span className="text-xs font-medium">Net Retention</span>
+                        <Star className={`${isMobile ? 'h-2.5 w-2.5' : 'h-3 w-3'}`} style={{ color: modernColors.commercial }} />
+                        <span className={`${isMobile ? 'text-[10px]' : 'text-xs'} font-medium`}>Net Retention</span>
                       </div>
-                      <span className="text-base font-medium" style={{ color: modernColors.commercial }}>120%</span>
+                      <span className={`${isMobile ? 'text-sm' : 'text-base'} font-medium`} style={{ color: modernColors.commercial }}>120%</span>
                     </div>
                   </div>
                 </div>
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </SlideLayout>
   );
 };

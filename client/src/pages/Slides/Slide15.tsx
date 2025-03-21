@@ -4,7 +4,9 @@ import {
   ModernCard, 
   ModernBadge,
   modernTypography, 
-  modernColors
+  modernColors,
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   TrendingUp, 
@@ -19,6 +21,7 @@ import {
 import { useContentScale } from '@/hooks/useContentScale';
 import ResponsiveChart, { ChartData } from '@/components/PitchDeck/ResponsiveChart';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const Slide15: React.FC = () => {
   const TOTAL_SLIDES = 18;
@@ -184,8 +187,13 @@ const Slide15: React.FC = () => {
       slideNumber={15} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col gap-3 mt-6 pb-6 h-[calc(100vh-200px)]">
-        <div className="flex-grow-0">
+      <motion.div 
+        className="flex flex-col gap-3 mt-6 pb-6 h-[calc(100vh-200px)]"
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div className="flex-grow-0" variants={itemFadeInUpVariant} custom={0}>
           <ModernCard className="p-3">
             <div className="flex items-center gap-3 mb-2">
               <TrendingUp className="h-5 w-5" style={{ color: modernColors.crypto }} />
@@ -282,10 +290,10 @@ const Slide15: React.FC = () => {
               </table>
             </div>
           </ModernCard>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
+          <motion.div variants={itemFadeInUpVariant} custom={1}>
             <ModernCard className="h-full p-3">
               <div className="flex items-center gap-2 mb-2">
                 <BarChart4 className="h-5 w-5" style={{ color: modernColors.crypto }} />
@@ -312,9 +320,9 @@ const Slide15: React.FC = () => {
                 ))}
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div variants={itemFadeInUpVariant} custom={2}>
             <ModernCard className="h-full p-3">
               <div className="flex items-center gap-2 mb-2">
                 <PieChart className="h-5 w-5" style={{ color: modernColors.crypto }} />
@@ -351,9 +359,9 @@ const Slide15: React.FC = () => {
                 </p>
               </div>
             </ModernCard>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </SlideLayout>
   );
 };

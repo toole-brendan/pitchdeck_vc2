@@ -4,7 +4,9 @@ import {
   ModernCard, 
   ModernBadge,
   modernTypography, 
-  modernColors
+  modernColors,
+  fadeInUpVariants,
+  itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
 import { 
   Flag, 
@@ -21,9 +23,12 @@ import {
   Shield
 } from 'lucide-react';
 import { useContentScale } from '@/hooks/useContentScale';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { motion } from 'framer-motion';
 
 const Slide14: React.FC = () => {
   const TOTAL_SLIDES = 18;
+  const isMobile = useIsMobile();
   
   // Use our custom hook to manage content scaling
   const { contentRef, scale, isScaled } = useContentScale();
@@ -123,75 +128,91 @@ const Slide14: React.FC = () => {
       slideNumber={14} 
       totalSlides={TOTAL_SLIDES}
     >
-      <div className="flex flex-col gap-3 mt-6 pb-4 h-[calc(100vh-200px)]">
-        <div className="flex-grow-0">
-          <ModernCard className="p-4">
-            <div className="flex items-center gap-2 mb-3">
-              <Timer className="h-6 w-6" style={{ color: modernColors.military }} />
-              <h3 className="text-xl font-medium">
+      <motion.div 
+        className={`flex flex-col gap-3 ${isMobile ? 'mt-3' : 'mt-6'} pb-4`}
+        style={{ 
+          minHeight: isMobile ? 'calc(100vh - 200px)' : 'calc(100vh - 200px)',
+          paddingBottom: isMobile ? '60px' : '0' 
+        }}
+        variants={fadeInUpVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div className="flex-grow-0" variants={itemFadeInUpVariant} custom={0}>
+          <ModernCard className={`p-3 md:p-4 ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
+            <div className="flex items-center gap-2 mb-2 md:mb-3">
+              <Timer className={`${isMobile ? 'h-5 w-5' : 'h-6 w-6'}`} style={{ color: modernColors.military }} />
+              <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-medium`}>
                 Phased Approach
               </h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className={`grid grid-cols-1 ${isMobile ? 'gap-2' : 'md:grid-cols-3 gap-3'}`}>
               {phases.map((phase, index) => (
-                <div 
+                <motion.div 
                   key={index} 
-                  className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md h-full"
+                  className="p-2 md:p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 rounded-md h-full"
+                  variants={itemFadeInUpVariant}
+                  custom={index + 1}
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ backgroundColor: `${phase.color}15` }}>
-                      <phase.icon className="h-4 w-4" style={{ color: phase.color }} />
+                  <div className="flex items-center gap-2 mb-1 md:mb-2">
+                    <div className={`${isMobile ? 'w-6 h-6' : 'w-7 h-7'} rounded-md flex items-center justify-center`} style={{ backgroundColor: `${phase.color}15` }}>
+                      <phase.icon className={`${isMobile ? 'h-3.5 w-3.5' : 'h-4 w-4'}`} style={{ color: phase.color }} />
                     </div>
                     <div>
-                      <h4 className="text-base font-medium" style={{ color: phase.color }}>
+                      <h4 className={`${isMobile ? 'text-sm' : 'text-base'} font-medium`} style={{ color: phase.color }}>
                         {phase.name}
                       </h4>
-                      <p className="text-sm">{phase.period}</p>
+                      <p className={`${isMobile ? 'text-xs' : 'text-sm'}`}>{phase.period}</p>
                     </div>
                   </div>
                   
-                  <p className="text-sm mb-2">{phase.description}</p>
+                  <p className={`${isMobile ? 'text-xs' : 'text-sm'} mb-2`}>{phase.description}</p>
                   
                   <div className="space-y-1.5">
                     {phase.metrics.map((metric, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5 p-1.5 bg-white/80 border border-slate-100 rounded text-sm">
-                        <metric.icon className="h-3.5 w-3.5 flex-shrink-0" style={{ color: metric.color }} />
+                      <div key={idx} className={`flex items-center gap-1.5 p-1.5 bg-white/80 border border-slate-100 rounded ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                        <metric.icon className={`${isMobile ? 'h-3 w-3' : 'h-3.5 w-3.5'} flex-shrink-0`} style={{ color: metric.color }} />
                         <span>{metric.label}</span>
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </ModernCard>
-        </div>
+        </motion.div>
 
-        <div className="flex-grow overflow-auto">
-          <ModernCard className="p-4 h-full">
-            <div className="flex items-center gap-2 mb-3">
-              <Users className="h-6 w-6" style={{ color: modernColors.commercial }} />
-              <h3 className="text-xl font-medium">
+        <motion.div className="flex-grow overflow-auto" variants={itemFadeInUpVariant} custom={4}>
+          <ModernCard className={`p-3 md:p-4 h-full ${isMobile ? 'max-w-[95%] mx-auto' : ''}`}>
+            <div className="flex items-center gap-2 mb-2 md:mb-3">
+              <Users className={`${isMobile ? 'h-5 w-5' : 'h-6 w-6'}`} style={{ color: modernColors.commercial }} />
+              <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-medium`}>
                 Target Strategic Partnerships
               </h3>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className={`grid grid-cols-1 ${isMobile ? 'gap-2' : 'md:grid-cols-2 gap-3'}`}>
               {partnerships.map((partner, index) => (
-                <div key={index} className="p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 h-full">
-                  <div className="flex items-start gap-2.5">
+                <motion.div 
+                  key={index} 
+                  className="p-2 md:p-3 bg-slate-50/80 backdrop-blur-sm border border-slate-100 h-full"
+                  variants={itemFadeInUpVariant}
+                  custom={index + 5}
+                >
+                  <div className="flex items-start gap-2">
                     <div 
-                      className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5"
+                      className={`${isMobile ? 'w-6 h-6' : 'w-7 h-7'} rounded-md flex items-center justify-center flex-shrink-0 mt-0.5`}
                       style={{ backgroundColor: `${partner.color}20` }}
                     >
-                      <partner.icon className="h-4 w-4" style={{ color: partner.color }} />
+                      <partner.icon className={`${isMobile ? 'h-3.5 w-3.5' : 'h-4 w-4'}`} style={{ color: partner.color }} />
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-center mb-1.5">
-                        <h4 className="text-base font-medium" style={{ color: partner.color }}>
+                      <div className="flex justify-between items-center mb-1">
+                        <h4 className={`${isMobile ? 'text-sm' : 'text-base'} font-medium`} style={{ color: partner.color }}>
                           {partner.category}
                         </h4>
-                        <span className="text-xs font-medium py-0.5 px-2 rounded-md" style={{ 
+                        <span className={`${isMobile ? 'text-[10px]' : 'text-xs'} font-medium py-0.5 px-2 rounded-md`} style={{ 
                           backgroundColor: `${partner.color}20`,
                           color: partner.color
                         }}>
@@ -200,20 +221,20 @@ const Slide14: React.FC = () => {
                       </div>
                       <ul className="space-y-1">
                         {partner.examples.map((example, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
+                          <li key={idx} className="flex items-start gap-1.5">
                             <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: partner.color }}></div>
-                            <span className="text-sm">{example}</span>
+                            <span className={`${isMobile ? 'text-xs' : 'text-sm'}`}>{example}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </ModernCard>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </SlideLayout>
   );
 };
