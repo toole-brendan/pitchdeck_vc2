@@ -18,7 +18,12 @@ const Slide1: React.FC = () => {
   };
 
   return (
-    <SlideLayout title="" slideNumber={1} totalSlides={TOTAL_SLIDES}>
+    <SlideLayout 
+      title="" 
+      slideNumber={1} 
+      totalSlides={TOTAL_SLIDES}
+      hidePrevButton={true}
+    >
       <motion.div 
         className="flex flex-col items-center justify-center text-center"
         style={{ 

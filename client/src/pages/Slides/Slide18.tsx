@@ -31,17 +31,20 @@ const Slide18: React.FC = () => {
       subtitle="Technical foundation for secure supply chain transactions with built-in oracle capabilities"
       slideNumber={18} 
       totalSlides={TOTAL_SLIDES}
+      hideNextButton={true}
     >
-      {/* Home button */}
-      <motion.button
-        onClick={handleHomeClick}
-        className={`absolute ${isMobile ? 'top-14 right-4' : 'top-16 right-10'} p-2 rounded-full bg-black/10 hover:bg-black/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 z-10`}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        title="Go to HandReceipt.com"
-      >
-        <Home className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'} text-black/70`} />
-      </motion.button>
+      {/* Home button - positioned next to slide counter */}
+      <div className={`absolute ${isMobile ? 'top-2 right-12' : 'top-4 right-16'} z-10 flex items-center`}>
+        <motion.button
+          onClick={handleHomeClick}
+          className="flex items-center justify-center"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          title="Go to HandReceipt.com"
+        >
+          <Home className={`${isMobile ? 'h-3.5 w-3.5' : 'h-4 w-4'} text-black/70 hover:text-black`} />
+        </motion.button>
+      </div>
 
       <motion.div 
         className={`flex flex-col gap-2 ${isMobile ? 'mt-3' : 'mt-5'}`}

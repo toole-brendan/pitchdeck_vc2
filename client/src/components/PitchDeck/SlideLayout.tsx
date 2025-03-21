@@ -11,6 +11,8 @@ interface SlideLayoutProps {
   slideNumber: number;
   totalSlides: number;
   children: ReactNode;
+  hideNextButton?: boolean;
+  hidePrevButton?: boolean;
 }
 
 const SlideLayout: React.FC<SlideLayoutProps> = ({ 
@@ -18,7 +20,9 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   subtitle,
   slideNumber, 
   totalSlides, 
-  children 
+  children,
+  hideNextButton = false,
+  hidePrevButton = false
 }) => {
   const [, navigate] = useLocation();
   const [isMobile, setIsMobile] = useState(false);
@@ -71,9 +75,9 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowRight') {
+    if (e.key === 'ArrowRight' && !hideNextButton) {
       goToNextSlide();
-    } else if (e.key === 'ArrowLeft') {
+    } else if (e.key === 'ArrowLeft' && !hidePrevButton) {
       goToPrevSlide();
     }
   };
@@ -99,10 +103,10 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     // Only trigger horizontal swipe when the horizontal movement is greater than vertical
     // This prevents accidental swipes when scrolling vertically
     if (Math.abs(horizontalDiff) > Math.abs(verticalDiff)) {
-      if (horizontalDiff < -swipeThreshold) {
+      if (horizontalDiff < -swipeThreshold && !hideNextButton) {
         // Swipe left - next slide
         goToNextSlide();
-      } else if (horizontalDiff > swipeThreshold) {
+      } else if (horizontalDiff > swipeThreshold && !hidePrevButton) {
         // Swipe right - previous slide
         goToPrevSlide();
       }
@@ -122,20 +126,24 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
     >
       {/* Navigation Controls - Adjust size and positioning on mobile */}
       <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-1 sm:px-3 md:px-8">
-        <button 
-          onClick={goToPrevSlide}
-          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-        </button>
-        <button 
-          onClick={goToNextSlide}
-          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-        </button>
+        {!hidePrevButton && (
+          <button 
+            onClick={goToPrevSlide}
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+          </button>
+        )}
+        {!hideNextButton && (
+          <button 
+            onClick={goToNextSlide}
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+          </button>
+        )}
       </div>
 
       {/* Slide Number - Adjusted position on mobile */}
