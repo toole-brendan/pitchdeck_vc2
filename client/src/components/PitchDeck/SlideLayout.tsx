@@ -125,24 +125,31 @@ const SlideLayout: React.FC<SlideLayoutProps> = ({
       onTouchEnd={handleTouchEnd}
     >
       {/* Navigation Controls - Adjust size and positioning on mobile */}
-      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full flex justify-between px-1 sm:px-3 md:px-8">
+      <div className="nav-controls fixed z-50 top-1/2 -translate-y-1/2 w-full px-1 sm:px-3 md:px-8">
+        {/* Previous/Left Button */}
         {!hidePrevButton && (
-          <button 
-            onClick={goToPrevSlide}
-            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-          </button>
+          <div className="absolute left-0 ml-1 sm:ml-3 md:ml-8">
+            <button 
+              onClick={goToPrevSlide}
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+            </button>
+          </div>
         )}
+        
+        {/* Next/Right Button */}
         {!hideNextButton && (
-          <button 
-            onClick={goToNextSlide}
-            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-          </button>
+          <div className="absolute right-0 mr-1 sm:mr-3 md:mr-8">
+            <button 
+              onClick={goToNextSlide}
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/90 backdrop-blur-sm text-white shadow-lg flex items-center justify-center hover:bg-black transition-all duration-300"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+            </button>
+          </div>
         )}
       </div>
 
