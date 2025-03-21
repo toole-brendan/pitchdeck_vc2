@@ -8,7 +8,7 @@ import {
   fadeInUpVariants,
   itemFadeInUpVariant
 } from '@/components/PitchDeck/ModernSlideStyles';
-import { ShieldCheck, Workflow, Shield, Lock } from 'lucide-react';
+import { ShieldCheck, Workflow, Shield, Lock, Home } from 'lucide-react';
 import { useContentScale } from '@/hooks/useContentScale';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion } from 'framer-motion';
@@ -20,6 +20,11 @@ const Slide18: React.FC = () => {
   // Use our custom hook to manage content scaling
   const { contentRef, scale, isScaled } = useContentScale();
 
+  const handleHomeClick = () => {
+    // Navigate to the main HandReceipt website
+    window.location.href = 'https://handreceipt.com';
+  };
+
   return (
     <SlideLayout 
       title="Shell Token Architecture" 
@@ -27,6 +32,17 @@ const Slide18: React.FC = () => {
       slideNumber={18} 
       totalSlides={TOTAL_SLIDES}
     >
+      {/* Home button */}
+      <motion.button
+        onClick={handleHomeClick}
+        className={`absolute ${isMobile ? 'top-14 right-4' : 'top-16 right-10'} p-2 rounded-full bg-black/10 hover:bg-black/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 z-10`}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        title="Go to HandReceipt.com"
+      >
+        <Home className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'} text-black/70`} />
+      </motion.button>
+
       <motion.div 
         className={`flex flex-col gap-2 ${isMobile ? 'mt-3' : 'mt-5'}`}
         style={{ 
